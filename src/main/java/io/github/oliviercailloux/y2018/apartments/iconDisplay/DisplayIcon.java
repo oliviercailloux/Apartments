@@ -21,11 +21,11 @@ public class DisplayIcon {
 
 			LOGGER.info("The shell has been initialized");
 
-			s.setSize(500,500);
+			s.setSize(350,300);
 			Image i = new Image(d, f);
 			s.setImage(i);
 			s.setText("Apartments");
-			s.open( );
+			s.open();
 
 			LOGGER.info("The image is perfectly loaded");
 			while(!s.isDisposed( )){
