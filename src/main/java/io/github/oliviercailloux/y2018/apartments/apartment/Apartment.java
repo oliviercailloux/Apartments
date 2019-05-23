@@ -4,6 +4,10 @@ import java.util.Objects;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.google.common.base.MoreObjects;
+import com.google.common.base.MoreObjects.ToStringHelper;
+
 import static com.google.common.base.Preconditions.checkArgument;
 
 
@@ -125,16 +129,27 @@ public class Apartment extends Object {
 		return apart.floorArea == floorArea && apart.address.equals(address) && apart.nbBedrooms == nbBedrooms && apart.nbSleeping == nbSleeping && apart.nbBathrooms == nbBathrooms && apart.terrace == terrace && apart.floorAreaTerrace == floorAreaTerrace && apart.description.equals(description) && apart.title.equals(title) && apart.wifi == wifi && apart.pricePerNight == pricePerNight && apart.nbMinNight == nbMinNight &&  apart.tele == tele ;
 		}
 	
-	@Override
+	
 	/**
 	 * A toString meant to be used while in development for the testing
 	 *  @return only the essential information of an apartment, which are the floor area, its address and his title
 	 */
-	public String toString() {
-		String floorAreaTS = "\nFloor area : " + Double.toString(floorArea) + " square meters";
-		String addressTS = "\nAddress : " + address ;
-		String titleTS = "\nTitle : " + title ;
-		return floorAreaTS + addressTS + titleTS;
+	// public String toString() {
+		//String floorAreaTS = "\nFloor area : " + Double.toString(floorArea) + " square meters";
+		//String addressTS = "\nAddress : " + address ;
+		//String titleTS = "\nTitle : " + title ;
+		//return floorAreaTS + addressTS + titleTS;
+	//}
+
+	public String toString(){
+		ToStringHelper floorAreas = MoreObjects.toStringHelper(this);
+		ToStringHelper adressTS = MoreObjects.toStringHelper(this);
+		ToStringHelper titleTS = MoreObjects.toStringHelper(this);
+		adressTS.add(this.address, true);
+		floorAreas.add(Double.toString(this.floorArea), true);
+		titleTS.add(this.title, true);
+		return floorAreas.toString() + adressTS.toString() + titleTS.toString(); 
+		
 	}
 
 	/**
