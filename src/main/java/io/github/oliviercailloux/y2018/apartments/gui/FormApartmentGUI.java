@@ -29,7 +29,7 @@ import io.github.oliviercailloux.y2018.apartments.toxmlproperties.XMLProperties;
 public class FormApartmentGUI {
 	protected static Display display = new Display();
 	protected static Shell shell = new Shell(display);
-	protected Text title;
+	protected Text title; 
 	protected Text address;
 	protected Text floorArea;
 	protected Text nbBedrooms;

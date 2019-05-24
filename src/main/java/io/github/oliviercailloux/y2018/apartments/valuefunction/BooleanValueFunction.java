@@ -20,7 +20,7 @@ public class BooleanValueFunction implements PartialValueFunction<Boolean>{
 	 */
 	public BooleanValueFunction (boolean preference) {
 		subjective = new HashMap<>();
-		if (preference == true) {			
+		if (preference) {			
 			subjective.put(true, (double) 1);
 			subjective.put(false, (double) 0);
 		}

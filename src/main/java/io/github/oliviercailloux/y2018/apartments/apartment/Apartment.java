@@ -177,11 +177,11 @@ public class Apartment extends Object {
 		dispNbBedrooms = "\nNumber of bedrooms : " + ((nbBedrooms == 0) ? "N/A" : Integer.toString(nbBedrooms)+" bedroom(s)") ;
 		dispNbSleeping = "\nNumber of sleeping (capacity) : " + ((nbSleeping == 0) ? "N/A" : Integer.toString(nbSleeping)+" person(s)") ;
 		dispNbBathrooms = "\nNumber of bathrooms : " + ((nbBathrooms == 0) ? "N/A" : Integer.toString(nbBathrooms)+" bathroom(s)") ;
-		dispTerrace = "\nTerrace : " + ((terrace == true) ? "Yes" : "No") ;
-		dispFloorAreaTerrace = ((terrace == false) ? "" : "\nTerrace floor area : " + ((floorAreaTerrace == 0) ? "N/A" : Double.toString(floorAreaTerrace)+" square meters")) ;
+		dispTerrace = "\nTerrace : " + ((terrace) ? "Yes" : "No") ;
+		dispFloorAreaTerrace = (!(terrace) ? "" : "\nTerrace floor area : " + ((floorAreaTerrace == 0) ? "N/A" : Double.toString(floorAreaTerrace)+" square meters")) ;
 		dispDescription = "\nDescription : " + ((description == "") ? "N/A" : description) ;
-		dispWifi = "\nWifi : " + ((wifi == true) ? "Yes" : "No") ;
-		dispTele = "\nTelevision : " + ((tele == true) ? "Yes" : "No") ;
+		dispWifi = "\nWifi : " + ((wifi) ? "Yes" : "No") ;
+		dispTele = "\nTelevision : " + ((tele) ? "Yes" : "No") ;
 		dispPricePerNight = "\nPrice per night : " + ((pricePerNight == 0) ? "N/A" : Double.toString(pricePerNight)+"€") ;
 		dispNbMinNight = "\nNumber of night minimum to rent this apartment : " + ((nbMinNight == 0) ? "N/A" : Integer.toString(nbMinNight)+" night(s)") ;
 		

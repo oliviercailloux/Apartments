@@ -42,7 +42,7 @@ public class PiecewiseLinearValueFunction implements IPiecewiseLinearValueFuncti
 	@Override
 	public void setUtility(int key, double value) {
 		
-		if (breakPoints.containsKey(key) == true) {
+		if (breakPoints.containsKey(key)) {
 			LOGGER.error("The key "+key+" is already in the map.");
 			throw new IllegalArgumentException("The key is already in the Map.");
 		}
