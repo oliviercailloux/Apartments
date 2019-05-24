@@ -1,2 +1,18 @@
-10:51:02.906 [main] INFO  i.g.o.y.a.iconDisplay.DisplayIcon - The shell has been initialized
-10:51:03.010 [main] INFO  i.g.o.y.a.iconDisplay.DisplayIcon - The image is perfectly loaded
+16:24:31.074 [main] INFO  i.g.o.y.a.gui.CreateApartmentGUI - The GUI was initialized with success.
+16:24:31.079 [main] INFO  i.g.o.y.a.gui.CreateApartmentGUI - The logo has been loaded with success.
+16:24:31.142 [main] INFO  i.g.o.y.a.gui.FormApartmentGUI - The Composite of the header was created.
+16:24:31.158 [main] INFO  i.g.o.y.a.gui.FormApartmentGUI - The Composite Title of the apartment*:  was created.
+16:24:31.161 [main] INFO  i.g.o.y.a.gui.FormApartmentGUI - The Composite Address*:  was created.
+16:24:31.163 [main] INFO  i.g.o.y.a.gui.FormApartmentGUI - The Composite Floor Area*: was created.
+16:24:31.166 [main] INFO  i.g.o.y.a.gui.FormApartmentGUI - The Composite Number of bedrooms:  was created.
+16:24:31.168 [main] INFO  i.g.o.y.a.gui.FormApartmentGUI - The Composite Sleeping capacity:  was created.
+16:24:31.170 [main] INFO  i.g.o.y.a.gui.FormApartmentGUI - The Composite Number of bathrooms:  was created.
+16:24:31.174 [main] INFO  i.g.o.y.a.gui.FormApartmentGUI - The Composite Terrace:  was created.
+16:24:31.177 [main] INFO  i.g.o.y.a.gui.FormApartmentGUI - The Composite Floor area terrace:  was created.
+16:24:31.181 [main] INFO  i.g.o.y.a.gui.FormApartmentGUI - The Composite Price per night:  was created.
+16:24:31.185 [main] INFO  i.g.o.y.a.gui.FormApartmentGUI - The Composite Minimum nights to stay:  was created.
+16:24:31.188 [main] INFO  i.g.o.y.a.gui.FormApartmentGUI - The Composite WiFi:  was created.
+16:24:31.191 [main] INFO  i.g.o.y.a.gui.FormApartmentGUI - The Composite Television:  was created.
+16:24:31.195 [main] INFO  i.g.o.y.a.gui.FormApartmentGUI - The Composite Description: was created.
+16:24:31.235 [main] INFO  i.g.o.y.a.gui.CreateApartmentGUI - The Shell was opened with success.
+16:24:46.430 [main] INFO  i.g.o.y.a.gui.CreateApartmentGUI - The screen was closed with success.

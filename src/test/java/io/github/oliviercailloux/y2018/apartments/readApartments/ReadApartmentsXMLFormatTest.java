@@ -19,7 +19,7 @@ class ReadApartmentsXMLFormatTest {
 
 	
 	@Test
-	void readApartmentTest() throws IOException{
+	void readApartmentTest() throws IOException, IllegalArgumentException, IllegalAccessException{
 
 		ReadApartmentsXMLFormat r = initializeReadApartmentsXMLFormat();
 

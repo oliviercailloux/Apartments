@@ -23,8 +23,10 @@ public class ReadTwoApartmentsTest {
 	 * then print the apartment objects which contains specifications of these 2 differents apartments.
 	 * @throws FileNotFoundException
 	 * @throws IOException
+	 * @throws IllegalAccessException 
+	 * @throws IllegalArgumentException 
 	 */
-	public static void main(String[] args) throws FileNotFoundException, IOException {
+	public static void main(String[] args) throws FileNotFoundException, IOException, IllegalArgumentException, IllegalAccessException {
 
 		ReadApartmentsXMLFormat r = new ReadApartmentsXMLFormat();
 		ReadApartmentsXMLFormat r1 = new ReadApartmentsXMLFormat();	
