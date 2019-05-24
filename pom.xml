@@ -64,7 +64,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-	<profile>
+	</profile>
 	<profile>
 		<id>swt-mac</id>
 		<activation>
@@ -96,7 +96,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-	<profile>
+	</profile>
 	<profile>
 		<id>swt-windows</id>
 		<activation>
@@ -128,7 +128,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-	<profile>
+	</profile>
 
 		<dependency>
     			<groupId>org.junit.platform</groupId>
