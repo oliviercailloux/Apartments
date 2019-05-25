@@ -41,8 +41,8 @@ public class CreateApartmentGUI extends FormApartmentGUI {
 	 */
 	static public void main(String args[]) throws IOException {
 		CreateApartmentGUI c;
-			c = new CreateApartmentGUI("GUITest");
-		
+		c = new CreateApartmentGUI("GUITest");
+	
 		c.screenDisplay();
 	}
 	/**
