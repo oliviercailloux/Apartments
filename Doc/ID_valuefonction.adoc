@@ -1,0 +1,10 @@
+= Apartments
+:gitHubUserName: oliviercailloux
+:repository: Apartments
+
+== Explication creating interaction diagram : 
+
+* The tenant already has an apartment list. He is not satisfied with the current list. So, while he remains unsatisfied, the GUI keeps asking him new questions to improve the results.
+* The first couple of questions are generals. Then it tends to go more into details.
+* Each time a new question is answered, the app computes a new AVF.
+* The only way to leave the loop is if he is satisfied, or if he hit the maximum number of questions ( we have not defined a number yet).
