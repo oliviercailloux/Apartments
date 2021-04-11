@@ -1,10 +1,19 @@
-= Apartments
-:gitHubUserName: oliviercailloux
-:repository: Apartments
+= Diagrams' documentation
 
-== Explication creating interaction diagram : 
+toc::[]
 
-* The tenant already has an apartment list. He is not satisfied with the current list. So, while he remains unsatisfied, the GUI keeps asking him new questions to improve the results.
-* The first couple of questions are generals. Then it tends to go more into details.
-* Each time a new question is answered, the app computes a new AVF.
-* The only way to leave the loop is if he is satisfied, or if he hit the maximum number of questions ( we have not defined a number yet).
+NOTE: This documentation is brand new. It will contain every diagrams description.
+
+== Sequence Diagrams
+
+=== Diagram Sequence Value Function
+
+* The Tenant can add preferences as long as he is not satisfied with the current ordered list of apartments, and that there are still some questions to ask.
+
+* When the Tenant clicks on "Ask more questions", the AskOpinionForUtility class will make sure there is more questions and will ask it.
+
+* Once the Tenant answers it, the same class will retain the answer and will invoke AVF methods to recompute the value of the apartments.
+
+* After this, AskOpinionForUtility will invoke LayoutApartmentGUI to display the new ordered list of apartments with the new preferences.
+
+* If one of the condition of the loop is not true anymore, then we enter the "break"  which means the Tenant chose an apartment.
