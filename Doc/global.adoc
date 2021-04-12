@@ -44,13 +44,13 @@ The first apartment in the list will be the best match between the characteristi
 +
 image::diagram-sequence-valueFonction.png?raw=true[ValueFunction Sequence Diagram]
 +
-
-The Tenant can add preferences as long as he is not satisfied with the current ordered list of apartments, and that there are still some questions to ask.
+If the Tenant wants to refine his search, he can click on the button "Ask more questions".
 +
-When the Tenant clicks on "Ask more questions", the AskOpinionForUtility class will make sure there is more questions and will ask it. Once the Tenant answers it, the same class will retain the answer and will invoke AVF methods to recompute the value of the apartments.
+If he does it, the AskOpinionForUtility class will make sure there is more questions and will ask it. Once the Tenant answers it, the same class will retain the answer and will invoke AVF methods to recompute the value of the apartments.
 +
-After this, AskOpinionForUtility will invoke LayoutApartmentGUI to display the new ordered list of apartments with the new preferences.
-If one of the condition of the loop is not true anymore, then we enter the "break" which means the Tenant chose an apartment.
+After this, LayoutApartmentGUI will display the new ordered list of apartments with the new preferences.
++
+The orchestrator class is used to activate/deactivate windows (it will be implemented in Java).
 
 
 
