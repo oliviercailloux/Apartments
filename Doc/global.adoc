@@ -38,6 +38,23 @@ The main use case of the application will then be to look for an apartment that 
 The user, during his/her research, will be able to indicate his/her preferences (for example, the user is looking for an apartment with a terrace) and to obtain a sorted list of apartments after filling all the criteria. +
 The first apartment in the list will be the best match between the characteristics of the location and the user’s criteria.
 
+== Sequence Diagrams
+
+* Diagram Sequence Value Function
++
+image::diagram-sequence-valueFonction.png?raw=true[ValueFunction Sequence Diagram]
++
+
+The Tenant can add preferences as long as he is not satisfied with the current ordered list of apartments, and that there are still some questions to ask.
++
+When the Tenant clicks on "Ask more questions", the AskOpinionForUtility class will make sure there is more questions and will ask it. Once the Tenant answers it, the same class will retain the answer and will invoke AVF methods to recompute the value of the apartments.
++
+After this, AskOpinionForUtility will invoke LayoutApartmentGUI to display the new ordered list of apartments with the new preferences.
+If one of the condition of the loop is not true anymore, then we enter the "break" which means the Tenant chose an apartment.
+
+
+
+
 
 [%hardbreaks]
 link:#toc[⬆ back to top]
