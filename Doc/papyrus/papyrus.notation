@@ -1068,6 +1068,32 @@
           <element xmi:type="uml:Comment" href="papyrus.uml#_6GYUkKT8EeuPdIA6u3wedQ"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6HGGQaT8EeuPdIA6u3wedQ" x="454" y="672" width="140"/>
         </children>
+        <children xmi:type="notation:Shape" xmi:id="_PITboKZwEeuzHLxK5fTLsg" type="Class_Shape_CN">
+          <children xmi:type="notation:DecorationNode" xmi:id="_PITboqZwEeuzHLxK5fTLsg" type="Class_NameLabel_CN"/>
+          <children xmi:type="notation:DecorationNode" xmi:id="_PITbo6ZwEeuzHLxK5fTLsg" type="Class_FloatingNameLabel_CN">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_PITbpKZwEeuzHLxK5fTLsg" y="15"/>
+          </children>
+          <children xmi:type="notation:BasicCompartment" xmi:id="_PIUCsKZwEeuzHLxK5fTLsg" visible="false" type="Class_AttributeCompartment_CN">
+            <styles xmi:type="notation:TitleStyle" xmi:id="_PIUCsaZwEeuzHLxK5fTLsg"/>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_PIUCsqZwEeuzHLxK5fTLsg"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_PIUCs6ZwEeuzHLxK5fTLsg"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PIUCtKZwEeuzHLxK5fTLsg"/>
+          </children>
+          <children xmi:type="notation:BasicCompartment" xmi:id="_PIUCtaZwEeuzHLxK5fTLsg" visible="false" type="Class_OperationCompartment_CN">
+            <styles xmi:type="notation:TitleStyle" xmi:id="_PIUCtqZwEeuzHLxK5fTLsg"/>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_PIUCt6ZwEeuzHLxK5fTLsg"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_PIUCuKZwEeuzHLxK5fTLsg"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PIUCuaZwEeuzHLxK5fTLsg"/>
+          </children>
+          <children xmi:type="notation:BasicCompartment" xmi:id="_PIUCuqZwEeuzHLxK5fTLsg" visible="false" type="Class_NestedClassifierCompartment_CN">
+            <styles xmi:type="notation:TitleStyle" xmi:id="_PIUCu6ZwEeuzHLxK5fTLsg"/>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_PIUCvKZwEeuzHLxK5fTLsg"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_PIUCvaZwEeuzHLxK5fTLsg"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PIUCvqZwEeuzHLxK5fTLsg"/>
+          </children>
+          <element xmi:type="uml:Class" href="papyrus.uml#_NkUgYKZwEeuzHLxK5fTLsg"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PITboaZwEeuzHLxK5fTLsg" x="534" y="112"/>
+        </children>
         <styles xmi:type="notation:TitleStyle" xmi:id="_d2OIgl_BEeqAAb4u4HLI7w"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_d2OIg1_BEeqAAb4u4HLI7w"/>
       </children>
@@ -1795,6 +1821,17 @@
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_TaYk4qT8EeuPdIA6u3wedQ" points="[270, 1480, -643984, -643984]$[804, 1440, -643984, -643984]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TcUekKT8EeuPdIA6u3wedQ" id="(1.0,0.3333333333333333)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TcUekaT8EeuPdIA6u3wedQ" id="(0.0,0.4972375690607735)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_RpRjkKZwEeuzHLxK5fTLsg" type="Generalization_Edge" source="_PITboKZwEeuzHLxK5fTLsg" target="_siTF8F_CEeqAAb4u4HLI7w">
+      <children xmi:type="notation:DecorationNode" xmi:id="_RpRjk6ZwEeuzHLxK5fTLsg" type="Generalization_StereotypeLabel">
+        <styles xmi:type="notation:BooleanValueStyle" xmi:id="_TbwN0KZwEeuzHLxK5fTLsg" name="IS_UPDATED_POSITION" booleanValue="true"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_RpRjlKZwEeuzHLxK5fTLsg" x="-1" y="38"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_RpRjkaZwEeuzHLxK5fTLsg"/>
+      <element xmi:type="uml:Generalization" href="papyrus.uml#_Rn8t4KZwEeuzHLxK5fTLsg"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_RpRjkqZwEeuzHLxK5fTLsg" points="[160, 1180, -643984, -643984]$[120, 940, -643984, -643984]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Rr4LoKZwEeuzHLxK5fTLsg" id="(0.0,0.6)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Rr4LoaZwEeuzHLxK5fTLsg" id="(0.35555555555555557,0.0)"/>
     </edges>
   </notation:Diagram>
   <notation:Diagram xmi:id="_Kn_gcGSgEeqgR6r_D9TUsQ" type="UseCase" name="AskOpinionForUtilityUC" measurementUnit="Pixel">
