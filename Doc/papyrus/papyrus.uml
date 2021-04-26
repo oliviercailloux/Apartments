@@ -5351,7 +5351,7 @@
               <body>LoggerFactory.getLogger(ValueDistFunction.class)</body>
             </defaultValue>
           </ownedAttribute>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_YIjnYKUAEeuPdIA6u3wedQ" name="PVF" visibility="public" type="_NkUgYKZwEeuzHLxK5fTLsg">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_YIjnYKUAEeuPdIA6u3wedQ" name="PVFDouble" visibility="private" type="_siBZIF_CEeqAAb4u4HLI7w">
             <defaultValue xmi:type="uml:InstanceValue" xmi:id="_Q6WVYKXeEeukrP4jUfIedQ" name="defaultPVF" type="_d19NUF_CEeqAAb4u4HLI7w"/>
           </ownedAttribute>
           <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_JMRLEKT8EeuPdIA6u3wedQ" client="_Thu5IKTzEeuFmKtN2pkKow" supplier="_siBZIF_CEeqAAb4u4HLI7w" contract="_siBZIF_CEeqAAb4u4HLI7w"/>
@@ -5464,9 +5464,6 @@
         </packagedElement>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_TZLrAKT8EeuPdIA6u3wedQ" client="_Thu5IKTzEeuFmKtN2pkKow" supplier="_ESBK8F_AEeqAAb4u4HLI7w"/>
         <packagedElement xmi:type="uml:Realization" xmi:id="_Bao6cKT_EeuPdIA6u3wedQ" client="_Thu5IKTzEeuFmKtN2pkKow" supplier="_siBZIF_CEeqAAb4u4HLI7w"/>
-        <packagedElement xmi:type="uml:Class" xmi:id="_NkUgYKZwEeuzHLxK5fTLsg" name="PartialValueFunctionDouble" visibility="public">
-          <generalization xmi:type="uml:Generalization" xmi:id="_Rn8t4KZwEeuzHLxK5fTLsg" general="_siBZIF_CEeqAAb4u4HLI7w"/>
-        </packagedElement>
       </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="__C89EHEuEeq9ooUMj2JdaQ" name="java">
