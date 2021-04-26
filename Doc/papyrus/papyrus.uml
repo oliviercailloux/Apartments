@@ -5339,9 +5339,6 @@
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hPE9kKXdEeukrP4jUfIedQ"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hPJ2EKXdEeukrP4jUfIedQ" value="*"/>
           </ownedAttribute>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_mStr4KTzEeuFmKtN2pkKow" name="maxDuration" visibility="private" isUnique="false">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-          </ownedAttribute>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_mSwvMKTzEeuFmKtN2pkKow" name="apiKey" visibility="private" isUnique="false">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedAttribute>
@@ -5373,12 +5370,6 @@
     double utility = 1 - setUtility(currentdistance);&#xD;
     interestlocation.put(interest, utility);&#xD;
     LOGGER.info(&quot;The interest location (&quot; + interest + &quot;) with the utility &quot; + utility + &quot; has been had with success in the Map.&quot;);&#xD;
-</body>
-          </ownedBehavior>
-          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mS5SEKTzEeuFmKtN2pkKow" name="getMaxDuration" specification="_mTBN4KTzEeuFmKtN2pkKow">
-            <language>JAVA</language>
-            <body>&#xD;
-    return maxDuration;&#xD;
 </body>
           </ownedBehavior>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mS5SEaTzEeuFmKtN2pkKow" name="calculateDistanceLocation" specification="_mTDqIKTzEeuFmKtN2pkKow">
@@ -5431,11 +5422,6 @@
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_mS_YsKTzEeuFmKtN2pkKow" name="addInterestLocation" visibility="private" method="_mS4rAKTzEeuFmKtN2pkKow">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_mS_YsaTzEeuFmKtN2pkKow" name="interest" type="_ESE1Ul_AEeqAAb4u4HLI7w"/>
-          </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_mTBN4KTzEeuFmKtN2pkKow" name="getMaxDuration" visibility="public" method="_mS5SEKTzEeuFmKtN2pkKow">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_mTBN4aTzEeuFmKtN2pkKow" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-            </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_mTDqIKTzEeuFmKtN2pkKow" name="calculateDistanceLocation" visibility="private" method="_mS5SEaTzEeuFmKtN2pkKow">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_mTDqIaTzEeuFmKtN2pkKow" direction="return">
