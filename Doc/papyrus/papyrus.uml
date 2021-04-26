@@ -2900,6 +2900,9 @@
         <packagedElement xmi:type="uml:Dependency" xmi:id="_OfX7oJjrEeqYCK4Btw7kWQ" client="_QgD_sF_BEeqAAb4u4HLI7w" supplier="_1QqroF-_EeqAAb4u4HLI7w"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_d2M6YF_BEeqAAb4u4HLI7w" name="valuefunction">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_6GYUkKT8EeuPdIA6u3wedQ" annotatedElement="_Thu5IKTzEeuFmKtN2pkKow">
+          <body>maxDuration() represents the duration between the apartment and the farest interest place</body>
+        </ownedComment>
         <packagedElement xmi:type="uml:Class" xmi:id="_d19NUF_CEeqAAb4u4HLI7w" name="PieceWiseLinearValueFunction" visibility="public">
           <generalization xmi:type="uml:Generalization" xmi:id="_d1-bcF_CEeqAAb4u4HLI7w"/>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_d2AQoF_CEeqAAb4u4HLI7w" name="utilities" visibility="private" type="_d1-bcV_CEeqAAb4u4HLI7w" isUnique="false"/>
@@ -5331,9 +5334,6 @@
           <packagedElement xmi:type="uml:Dependency" xmi:id="_f3tr0J2eEeq5UMfZ1C8e7g" client="_LbxAkJpzEeqmHpvW7B5p3g" supplier="_q-Zh0J2dEeq5UMfZ1C8e7g"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_Thu5IKTzEeuFmKtN2pkKow" name="DistanceValueFunction" visibility="public">
-          <ownedComment xmi:type="uml:Comment" xmi:id="_6GYUkKT8EeuPdIA6u3wedQ" annotatedElement="_Thu5IKTzEeuFmKtN2pkKow">
-            <body>DistanceValueFunction implement and has PVF as a parameter</body>
-          </ownedComment>
           <generalization xmi:type="uml:Generalization" xmi:id="_mSj64KTzEeuFmKtN2pkKow"/>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_mSmXIKTzEeuFmKtN2pkKow" name="interestlocation" visibility="private" type="_ESE1Ul_AEeqAAb4u4HLI7w" isUnique="false">
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hPE9kKXdEeukrP4jUfIedQ"/>
@@ -5454,7 +5454,7 @@
           <ownedOperation xmi:type="uml:Operation" xmi:id="_mTNbIKTzEeuFmKtN2pkKow" name="getSubjectiveValue" visibility="public" method="_mS6gMKTzEeuFmKtN2pkKow">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="__xwAQKXeEeukrP4jUfIedQ" name="objectifDataApart" type="_ESE1Ul_AEeqAAb4u4HLI7w"/>
           </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_6hywIKT6EeuPdIA6u3wedQ" name="initDistFunction" isStatic="true" method="_mS4D8KTzEeuFmKtN2pkKow">
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_6hywIKT6EeuPdIA6u3wedQ" name="getDistanceCriteria" isStatic="true" method="_mS4D8KTzEeuFmKtN2pkKow">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_6hywIaT6EeuPdIA6u3wedQ" name="interestLocations" type="_ESE1Ul_AEeqAAb4u4HLI7w"/>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_6hywIqT6EeuPdIA6u3wedQ" name="PVF" type="_siBZIF_CEeqAAb4u4HLI7w"/>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_uNuZoKT-EeuPdIA6u3wedQ" name="apiKey">
