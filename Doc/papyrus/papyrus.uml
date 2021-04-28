@@ -5403,12 +5403,6 @@
     return interestlocation.get(objectiveData);&#xD;
 </body>
           </ownedBehavior>
-          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mS6gMaTzEeuFmKtN2pkKow" name="apply">
-            <language>JAVA</language>
-            <body>&#xD;
-    return getSubjectiveValue(objectiveData);&#xD;
-</body>
-          </ownedBehavior>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_mS7HQKTzEeuFmKtN2pkKow" name="DistanceValueFunction" visibility="private">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_BKO5MKT6EeuPdIA6u3wedQ" name="interestLocations" visibility="public">
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_yVJYkKXbEeukrP4jUfIedQ"/>
