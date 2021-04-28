@@ -1665,6 +1665,7 @@
           </ownedOperation>
         </packagedElement>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_W5LIQGXfEeqLXLaj_4v3Nw" client="_ESBK8F_AEeqAAb4u4HLI7w" supplier="_ByP4cGVIEeq0U8CyxWHVBA"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_2NrnoKgQEeuQ07mwWsrMMA" client="_ESBK8F_AEeqAAb4u4HLI7w" supplier="_qfC2QKgQEeuQ07mwWsrMMA"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_S32y8F_AEeqAAb4u4HLI7w" name="gui">
         <packagedElement xmi:type="uml:Class" xmi:id="_VP_vAF_AEeqAAb4u4HLI7w" name="AskOpinionForUtility" visibility="public">
@@ -5451,6 +5452,7 @@
         <packagedElement xmi:type="uml:Dependency" xmi:id="_TZLrAKT8EeuPdIA6u3wedQ" client="_Thu5IKTzEeuFmKtN2pkKow" supplier="_ESBK8F_AEeqAAb4u4HLI7w"/>
         <packagedElement xmi:type="uml:Realization" xmi:id="_Bao6cKT_EeuPdIA6u3wedQ" client="_Thu5IKTzEeuFmKtN2pkKow" supplier="_siBZIF_CEeqAAb4u4HLI7w"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_qfC2QKgQEeuQ07mwWsrMMA" name="Localisation service"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="__C89EHEuEeq9ooUMj2JdaQ" name="java">
       <packagedElement xmi:type="uml:Package" xmi:id="__DER0HEuEeq9ooUMj2JdaQ" name="java">
