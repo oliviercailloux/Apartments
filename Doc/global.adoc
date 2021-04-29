@@ -49,9 +49,9 @@ image::diagram-sequence-valueFonction.png?raw=true[ValueFunction Sequence Diagra
 The goal of this sequence diagram is to show that the tenant has the possibility to ask some new questions in order to get a more refined list of apartments. 
 
 List of classes/methods that will be implemented in java : 
-`Orchestrator class` and its methods `showAOFU()`, `showLAG()`,`moreQuestionsClick()`,`addAnswerClick()`,`chooseApartmentClick()`.
-AOFU methods `askMoreQuestion()`, `adaptAVF()`.
-LAG method `updateAVF()`.
+`Orchestrator class` and its methods `showAOFU()`, `showLAG()`,`moreQuestionsClick()`,`addAnswerClick()` and `chooseApartmentClick()`.
+AOFU methods : `askMoreQuestion()` and `adaptAVF()`.
+LAG method : `updateAVF()`.
 
 Some details on these class and methods are available below.
 
