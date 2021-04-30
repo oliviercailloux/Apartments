@@ -55,5 +55,28 @@ The only exception is for the `JavaIteration` package as it may contain differen
 
 For all ideas under development, not integrated into the application and the elements to be considered, please refer to link:idea.adoc[this documentation].
 
+== Create API KEY
+
+* It allows you to use the Google MAPS API to calculate the distance between two places. For example, in DistanceSubway Class, you need it.
+
+* Go to https://console.cloud.google.com/ and connect to your google account (You must have one).
+
+* On the top left, create a new project. Once it is created, click on it.
+
+* Go to Api and Services, and then Credentials. Click on "Create credentials, API Key".
+
+* You now have created a Key. Go to API Library and enable "Distance Matrix API, Geocoding API, Directions API, Maps Elevation API, Maps JavaScript API, Roads API".
+
+* Go back to credentials, click on the key, and restrain it to only those API.
+
+* Before using it, you must activate "Billing".
+
+* To try it, go to DistanceSubway.java, create a string contaning the API KEY. Instanciate a DistanceSubway object with two adresses (or coordinates) and the key. 
+
+* Using calculateDistanceAdress method, get the distance in seconds between those two adresses. Without the key, you wouldn't be able to use this class.
+
+* Go back to the cloud google website, and verify that the API request was successful. (Be aware, you only have 300$ of free credits).
+
+
 [%hardbreaks]
 link:#toc[⬆ back to top]

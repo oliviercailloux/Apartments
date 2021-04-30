@@ -63,25 +63,26 @@ public class AskOpinionForUtility {
   }
 
   /**
-   * This is the main function, it asks Questions , AdaptAnswers and then displays the list of Apartments
+   * This is the main function, it asks Questions , AdaptAnswers and then displays the list of
+   * Apartments
    *
    * @param args
    * @throws IllegalAccessException for the DisplayApps function
    * @throws IOException,IllegalAccessException
    */
-  public static void main(String[] args) throws IllegalAccessException, IOException{
+  public static void main(String[] args) {
 
     AskOpinionForUtility asker = new AskOpinionForUtility();
     ApartmentValueFunction avf = new ApartmentValueFunction();
     asker.askQuestions();
 
-    avf.setFloorAreaValueFunction(new LinearValueFunction(0d, 300d));
-    avf.setNbBedroomsValueFunction(new LinearValueFunction(0d, 6d));
-    avf.setNbSleepingValueFunction(new LinearValueFunction(0d, 6d));
-    avf.setNbBathroomsValueFunction(new LinearValueFunction(0d, 6d));
-    avf.setFloorAreaTerraceValueFunction(new LinearValueFunction(0d, 100d));
-    avf.setPricePerNightValueFunction(new LinearValueFunction(0d, 80d));
-    avf.setNbMinNightValueFunction(new LinearValueFunction(0d, 6d));
+    avf.setDoubleValueFunction(Criterion.FLOOR_AREA, new LinearValueFunction(0d, 300d));
+    avf.setDoubleValueFunction(Criterion.NB_BEDROOMS, new LinearValueFunction(0d, 6d));
+    avf.setDoubleValueFunction(Criterion.NB_SLEEPING, new LinearValueFunction(0d, 6d));
+    avf.setDoubleValueFunction(Criterion.NB_BATHROOMS, new LinearValueFunction(0d, 6d));
+    avf.setDoubleValueFunction(Criterion.FLOOR_AREA_TERRACE, new LinearValueFunction(0d, 100d));
+    avf.setDoubleValueFunction(Criterion.PRICE_PER_NIGHT, new LinearValueFunction(0d, 80d));
+    avf.setDoubleValueFunction(Criterion.NB_MIN_NIGHT, new LinearValueFunction(0d, 6d));
 
     avf = asker.adaptAnswers(avf);
 
@@ -139,36 +140,31 @@ public class AskOpinionForUtility {
     buttonGroup.setText("Qu'est ce qui a le plus d'importance pour vous");
 
     // the listener when we click on finish
-    Listener finishlistener =
-        new Listener() {
-          @Override
-          public void handleEvent(Event event) {
+    Listener finishlistener = new Listener() {
+      @Override
+      public void handleEvent(Event event) {
 
-            Preconditions.checkArgument(
-                !text1.getText().equals(""), "il faut saisir un chiffre :(");
-            Preconditions.checkArgument(!text2.getText().equals(""), "il faut saisir un texte :(");
+        Preconditions.checkArgument(!text1.getText().equals(""), "il faut saisir un chiffre :(");
+        Preconditions.checkArgument(!text2.getText().equals(""), "il faut saisir un texte :(");
 
-            surfaceMin = Double.parseDouble(text1.getText());
-            nbBedMin = Double.parseDouble(text2.getText());
+        surfaceMin = Double.parseDouble(text1.getText());
+        nbBedMin = Double.parseDouble(text2.getText());
 
-            shell.close();
+        shell.close();
 
-            LOGGER.info("Les attributs importants sont : ");
-            for (int j = 0; j < moreImportantAttributes.size(); j++) {
-              LOGGER.info(moreImportantAttributes.get(j));
-            }
+        LOGGER.info("Les attributs importants sont : ");
+        for (int j = 0; j < moreImportantAttributes.size(); j++) {
+          LOGGER.info(moreImportantAttributes.get(j));
+        }
 
-            LOGGER.info("Les attribut moins importants sont : ");
-            for (int j = 0; j < lessImportantAttributes.size(); j++) {
-              LOGGER.info(lessImportantAttributes.get(j));
-            }
-            LOGGER.info(
-                "la valeur minmum de la surface est "
-                    + surfaceMin
-                    + "\nLa valeur minimum du nbre de chambre est "
-                    + nbBedMin);
-          }
-        };
+        LOGGER.info("Les attribut moins importants sont : ");
+        for (int j = 0; j < lessImportantAttributes.size(); j++) {
+          LOGGER.info(lessImportantAttributes.get(j));
+        }
+        LOGGER.info("la valeur minmum de la surface est " + surfaceMin
+            + "\nLa valeur minimum du nbre de chambre est " + nbBedMin);
+      }
+    };
 
     // This is a submit button, it will close the shell when the user click on
     // Terminer
@@ -212,44 +208,42 @@ public class AskOpinionForUtility {
    */
   public void clickOnButton(Button pressedButton, Button unPressedButton) {
     Label boo = new Label(shell, SWT.NULL);
-    pressedButton.addSelectionListener(
-        new SelectionAdapter() {
-          @Override
-          public void widgetSelected(SelectionEvent e) {
-            Button source1 = (Button) e.widget;
+    pressedButton.addSelectionListener(new SelectionAdapter() {
+      @Override
+      public void widgetSelected(SelectionEvent e) {
+        Button source1 = (Button) e.widget;
 
-            if (source1.getSelection() && !moreImportantAttributes.contains(source1.getText())) {
-              moreImportantAttributes.add(source1.getText());
-              lessImportantAttributes.add(unPressedButton.getText());
-            }
+        if (source1.getSelection() && !moreImportantAttributes.contains(source1.getText())) {
+          moreImportantAttributes.add(source1.getText());
+          lessImportantAttributes.add(unPressedButton.getText());
+        }
 
-            if (pointer == choix1.size() || pointer == choix2.size()) {
+        if (pointer == choix1.size() || pointer == choix2.size()) {
 
-              pressedButton.setEnabled(false);
-              unPressedButton.setEnabled(false);
+          pressedButton.setEnabled(false);
+          unPressedButton.setEnabled(false);
 
-              boo.setText(
-                  "\"Merci pour vos choix, nous allons chercher pour vous les meilleurs"
-                      + " apartements :) ");
-              boo.pack();
-            } else {
+          boo.setText("\"Merci pour vos choix, nous allons chercher pour vous les meilleurs"
+              + " apartements :) ");
+          boo.pack();
+        } else {
 
-              pressedButton.setText(choix1.get(pointer).toString());
-              unPressedButton.setText(choix2.get(pointer).toString());
-              pointer++;
-              /**
-               * this will change the text of the buttons by choosing the content of the arrays
-               * attributImportant and attributPasImportant
-               */
-            }
+          pressedButton.setText(choix1.get(pointer).toString());
+          unPressedButton.setText(choix2.get(pointer).toString());
+          pointer++;
+          /**
+           * this will change the text of the buttons by choosing the content of the arrays
+           * attributImportant and attributPasImportant
+           */
+        }
 
-            /** in order not to be selected by default in the question in the next iteration */
-            pressedButton.setSelection(false);
+        /** in order not to be selected by default in the question in the next iteration */
+        pressedButton.setSelection(false);
 
-            pressedButton.pack();
-            unPressedButton.pack();
-          }
-        });
+        pressedButton.pack();
+        unPressedButton.pack();
+      }
+    });
   }
 
   /** This function will adapt the utility of the user using ApartmentValueFunction */

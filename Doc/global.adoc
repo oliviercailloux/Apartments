@@ -32,12 +32,17 @@ image::diagram-class-global-simplified.png?raw=true[Global class diagram (simpli
 * Global use case diagram
 
 image::diagram-usecase-global.png?raw=true[Global use case diagram]
++
+* Orange bubbles mean this is yet to be implemented. 
++
 
-As the main user of the application will be the tenants (see link:README.adoc#users-roles[users roles]), we have identified several actions that the tenants will be able to do.
-
-The main use case of the application will then be to look for an apartment that the user of the app will rent for a long period of time. +
-The user, during his/her research, will be able to indicate his/her preferences (for example, the user is looking for an apartment with a terrace) and to obtain a sorted list of apartments after filling all the criteria. +
-The first apartment in the list will be the best match between the characteristics of the location and the user’s criteria.
+  Tenant has two main interactions.
+  Firstly, Tenant must set his preferences in order to get an ordered list of apartments.
+  Based on the foregoing, he can compare two apartments using the SpiderPlot.
+  Secondly, Tenant can generate global database statistics.
++
+  a XOR constraint is implemented with the Generate database statistics. 
+  It means that this use case is used ONLY by one person at the time.
 
 
 == Sequence Diagrams
