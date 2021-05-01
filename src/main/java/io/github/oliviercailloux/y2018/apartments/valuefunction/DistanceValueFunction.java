@@ -65,7 +65,7 @@ public class DistanceValueFunction implements PartialValueFunction<LatLng> {
    * @param durationValueFunction
    * @return an instance of <code>DistanceValueFunction</code>.
    */
-  public static DistanceValueFunction getDistanceCriteria(String apiKey,
+  public static DistanceValueFunction getDistanceValueFunction(String apiKey,
       Set<String> interestLocations, PartialValueFunction<Double> durationValueFunction) {
     return new DistanceValueFunction(apiKey, interestLocations, durationValueFunction);
   }
@@ -75,7 +75,7 @@ public class DistanceValueFunction implements PartialValueFunction<LatLng> {
    * @param interestLocations
    * @return an instance of <code>DistanceValueFunction</code>.
    */
-  public static DistanceValueFunction getDistanceCriteria(String apiKey,
+  public static DistanceValueFunction getDistanceValueFunction(String apiKey,
       Set<String> interestLocations) {
     return new DistanceValueFunction(apiKey, interestLocations);
   }
