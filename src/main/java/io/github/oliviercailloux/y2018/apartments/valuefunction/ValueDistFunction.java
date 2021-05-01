@@ -1,6 +1,7 @@
 package io.github.oliviercailloux.y2018.apartments.valuefunction;
 
 import com.google.maps.model.LatLng;
+import io.github.oliviercailloux.y2018.apartments.distance.DistanceMode;
 import io.github.oliviercailloux.y2018.apartments.distance.DistanceSubway;
 import java.util.HashMap;
 import java.util.Map;

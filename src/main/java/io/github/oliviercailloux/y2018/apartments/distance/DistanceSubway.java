@@ -8,7 +8,6 @@ import com.google.maps.model.DistanceMatrix;
 import com.google.maps.model.LatLng;
 import com.google.maps.model.TransitMode;
 import com.google.maps.model.TravelMode;
-import io.github.oliviercailloux.y2018.apartments.valuefunction.DistanceMode;
 import java.io.IOException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
