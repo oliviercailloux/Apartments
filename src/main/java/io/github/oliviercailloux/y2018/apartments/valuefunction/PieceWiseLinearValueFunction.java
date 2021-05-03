@@ -27,9 +27,9 @@ public class PieceWiseLinearValueFunction implements PartialValueFunction<Double
    * Builder of the PieceWiseLinearValueFunction
    *
    * @param utilParameters is the dictionary of all values along with the grades associated to them,
-   *     In this map, if the collection of keys was sorted, then the collection of grades would also
-   *     have to be sorted. There has to be a value associated to the grade 0, and another value
-   *     associated to the grade 1.
+   *        In this map, if the collection of keys was sorted, then the collection of grades would
+   *        also have to be sorted. There has to be a value associated to the grade 0, and another
+   *        value associated to the grade 1.
    */
   public PieceWiseLinearValueFunction(Map<Double, Double> utilParameters) {
 
@@ -43,10 +43,6 @@ public class PieceWiseLinearValueFunction implements PartialValueFunction<Double
     }
 
     utilities = ImmutableSortedMap.copyOf(utilParameters);
-    if (!Comparators.isInOrder(this.utilities.values(), Comparator.naturalOrder())) {
-      throw new IllegalArgumentException(
-          "A grade cannot be greater than another if its value associated is lower.");
-    }
     LOGGER.info("The map of data has been successfully instantiated.");
   }
 
@@ -68,7 +64,6 @@ public class PieceWiseLinearValueFunction implements PartialValueFunction<Double
     Double maxKey = maxEntry.getKey();
     Double minValue = minEntry.getValue();
     Double maxValue = maxEntry.getValue();
-
     return ((objectiveData - minKey) * (maxValue - minValue) / (maxKey - minKey)) + minValue;
   }
 
