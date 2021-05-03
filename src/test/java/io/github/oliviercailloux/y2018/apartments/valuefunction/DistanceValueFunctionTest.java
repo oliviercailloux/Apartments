@@ -34,7 +34,7 @@ class DistanceValueFunctionTest {
   @Test
   void testSubjectiveValue() throws ApiException, InterruptedException, IOException {
     DistanceValueFunction distanceVF =
-        DistanceValueFunction.getDistanceValueFunction(apiKey, interestLocations);
+        DistanceValueFunction.withDefaultDurationValueFunction(apiKey, interestLocations);
     LatLng apartCoordinates = Localizer.getGeometryLocation(apart, apiKey);
     double subjectiveValue = distanceVF.getSubjectiveValue(apartCoordinates);
     assertEquals(0.60, subjectiveValue, 0.1);
@@ -42,7 +42,7 @@ class DistanceValueFunctionTest {
 
   @Test
   void testSubjectiveValueLinear() throws ApiException, InterruptedException, IOException {
-    DistanceValueFunction distanceVF = DistanceValueFunction.getDistanceValueFunction(apiKey,
+    DistanceValueFunction distanceVF = DistanceValueFunction.given(apiKey,
         interestLocations, durationValueFunction);
     LatLng apartCoordinates = Localizer.getGeometryLocation(apart, apiKey);
     double subjectiveValue = distanceVF.getSubjectiveValue(apartCoordinates);
@@ -53,7 +53,7 @@ class DistanceValueFunctionTest {
   void testSubjectiveValueFail() throws ApiException, InterruptedException, IOException {
     interestLocations.add("Borsod-Abaúj-Zemplén, Hongrie");
     DistanceValueFunction distanceVF =
-        DistanceValueFunction.getDistanceValueFunction(apiKey, interestLocations);
+        DistanceValueFunction.withDefaultDurationValueFunction(apiKey, interestLocations);
     LatLng apartCoordinates = Localizer.getGeometryLocation(apart, apiKey);
     assertThrows(IllegalStateException.class,
         () -> distanceVF.getSubjectiveValue(apartCoordinates));
