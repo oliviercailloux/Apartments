@@ -51,8 +51,7 @@ public class DistanceValueFunction implements PartialValueFunction<LatLng> {
           "The interest location (9 rue Lacuee, 75012 Paris, France) has been added to the set .");
     }
     this.apiKey = apiKey;
-    this.interestLocations = interestLocations.get();
-
+    this.interestLocations = interestLocations;
     for (String interest : this.interestLocations) {
       LOGGER.info("The interest location ({}) has been added to the set.", interest);
     }
@@ -88,8 +87,12 @@ public class DistanceValueFunction implements PartialValueFunction<LatLng> {
    */
   public static DistanceValueFunction withDefaultDurationValueFunction(String apiKey,
       Set<String> interestLocations) {
+    Map<Double, Double> map = new HashMap<>();
+    map.put(0d, 1d);
+    map.put(3600d, 0.8);
+    map.put(36000d, 0d);
     return new DistanceValueFunction(Optional.ofNullable(apiKey),
-        Optional.ofNullable(interestLocations), Optional.empty());
+        Optional.ofNullable(interestLocations), new PieceWiseLinearValueFunction(map));
   }
 
   /**
