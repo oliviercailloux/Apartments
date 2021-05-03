@@ -53,20 +53,20 @@ image::diagram-sequence-valueFonction.png?raw=true[ValueFunction Sequence Diagra
 The goal of this sequence diagram is to show that the tenant has the possibility to ask some new questions in order to get a more refined list of apartments. 
 
 List of classes/methods that will be implemented in java : 
-`Orchestrator class` and its methods `showAOFU()`, `showLAG()`,`moreQuestionsClick()`,`addAnswerClick()` and `chooseApartmentClick()`.
+`Orchestrator class` and its methods : `showAOFU()`, `showLAG()`,`moreQuestionsClick()`,`addAnswerClick()`, `finishButtonClick()` and `chooseApartmentClick()`.
 AOFU methods : `askMoreQuestion()` and `adaptAVF()`.
 LAG method : `updateAVF()`.
 
 Some details on these class and methods are available below.
 
 `Orchestrator` class : as its name shows, this class will be used to orchestrate the showing of the AOFU and LAG screen.
-If the Tenant wants to refine his search, he can click on the button `askMoreQuestions` that will call the `moreQuestionsClick()` method. Then, the Orchestrator will use `showAOFU()` to request a supplementary question and call other AOFU methods in order to recalculate the AVF of the apartments in the list according to the new tenant's answer.
-Afterwards, the Orchestrator calls the `showLAG()` to use its methods which are able to sort the list and display it to the tenant.
+If the tenant wants to refine his search, he can click on the button `askMoreQuestions` that will push the Orchestrator to call the `moreQuestionsClick()` method that will display a new question. 
+Then, when the tenant answer to the question, Orchestrator will use `adaptAVF()` method in order to recalculate the AVF of the apartments.
+Afterwards, when the tenant click's on the `finish` button, the Orchestrator calls the `showLAG()` to use its methods which are able to sort the list and display it.
 
 `askMoreQuestions()` and `adaptAVF()` methods : they're not already implemented in `AskOpinionForUtility`. 
 The former will check if there are available questions and if yes, display one to the tenant (we didn't determind yet how is chosen the question). 
-The latter method takes as parameters an avf and a criterion list. It will enable to recalculate avf apartments according to the given parameters. This method calls either `adaptBounds()` or `adaptWeight()` (both present in the `ApartmentValueFunction` class) depending on the length of crits list.
-Indeed, if the crits list size equals 1, this means that the proposed question concerns only one criterion, consequently, we need to adapt bounds. However, if the size equals 2, we can understand that the question aimed to compare two criterias. Therefore, we need to adapt the criterion weights.
+The latter method takes as parameters an avf and a criterion list. It will enable to recalculate avf apartments according to the given parameters. 
 
 Once the tenant gets a new sorted list of apartments, if he's satisfied, he has the opportunity to select an apartment, otherwise, he isn't blocked and is free to do what he wants.
 
