@@ -154,7 +154,7 @@ public class DistanceValueFunction implements PartialValueFunction<LatLng> {
     try {
       interestLocationsSubjectiveValue =
           calculateSubjectiveValueInterestLocations(apartmentLocalization);
-    } catch (ApiException | InterruptedException | IOException e) {
+    } catch (ApiException | InterruptedException | IOException | NullPointerException e) {
       throw new IllegalStateException(e);
     }
     double subjectiveValue = 0;
@@ -174,21 +174,5 @@ public class DistanceValueFunction implements PartialValueFunction<LatLng> {
   @Override
   public Double apply(LatLng apartmentLocalization) {
     return this.getSubjectiveValue(apartmentLocalization);
-  }
-
-  public static void main(String[] args)
-      throws FileNotFoundException, IOException, ApiException, InterruptedException {
-    String apiKey = KeyManager.getApiKey();
-    String apart = "Place du Maréchal de Lattre de Tassigny, 75016 Paris";
-    HashSet<LatLng> interestLocations = new HashSet<>();
-    interestLocations.add(Localizer.getGeometryLocation("Place Charles de Gaulle, 75116 Paris, France",apiKey));
-    interestLocations.add(Localizer.getGeometryLocation("1 Rue Benouville, 75116 Paris 16e Arrondissement, France",apiKey));
-    interestLocations.add(Localizer.getGeometryLocation("19 Rue Surcouf, 75007 Paris, France",apiKey));
-    interestLocations.add(Localizer.getGeometryLocation("20 Boulevard Jules Guesde, 94500 Champigny-sur-Marne",apiKey));
-    DistanceValueFunction distanceVF =
-        DistanceValueFunction.withDefaultDurationValueFunction(apiKey, interestLocations);
-    LatLng apartCoordinates = Localizer.getGeometryLocation(apart, apiKey);
-    double subjectiveValue = distanceVF.getSubjectiveValue(apartCoordinates);
-    System.out.println(subjectiveValue);
   }
 }

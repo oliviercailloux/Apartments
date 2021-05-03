@@ -15,20 +15,24 @@ import org.junit.jupiter.api.Test;
 class DistanceValueFunctionTest {
 
   private String apiKey;
-  private HashSet<String> interestLocations;
+  private HashSet<LatLng> interestLocations;
   private String apart;
   private PartialValueFunction<Double> durationValueFunction;
 
   @BeforeEach
-  void initEach() throws FileNotFoundException, IOException {
+  void initEach() throws FileNotFoundException, IOException, ApiException, InterruptedException {
     this.apiKey = KeyManager.getApiKey();
     apart = "Place du Maréchal de Lattre de Tassigny, 75016 Paris";
     interestLocations = new HashSet<>();
-    interestLocations.add("Place Charles de Gaulle, 75116 Paris, France");
-    interestLocations.add("1 Rue Benouville, 75116 Paris 16e Arrondissement, France");
-    interestLocations.add("19 Rue Surcouf, 75007 Paris, France");
-    interestLocations.add("20 Boulevard Jules Guesde, 94500 Champigny-sur-Marne");
-    durationValueFunction = new LinearValueFunction(0d, 36000d);
+    interestLocations
+        .add(Localizer.getGeometryLocation("Place Charles de Gaulle, 75116 Paris, France", apiKey));
+    interestLocations.add(Localizer
+        .getGeometryLocation("1 Rue Benouville, 75116 Paris 16e Arrondissement, France", apiKey));
+    interestLocations
+        .add(Localizer.getGeometryLocation("19 Rue Surcouf, 75007 Paris, France", apiKey));
+    interestLocations.add(Localizer
+        .getGeometryLocation("20 Boulevard Jules Guesde, 94500 Champigny-sur-Marne", apiKey));
+
   }
 
   @Test
@@ -37,21 +41,30 @@ class DistanceValueFunctionTest {
         DistanceValueFunction.withDefaultDurationValueFunction(apiKey, interestLocations);
     LatLng apartCoordinates = Localizer.getGeometryLocation(apart, apiKey);
     double subjectiveValue = distanceVF.getSubjectiveValue(apartCoordinates);
-    assertEquals(0.60, subjectiveValue, 0.1);
+    assertEquals(0.9, subjectiveValue, 0.01);
   }
 
   @Test
   void testSubjectiveValueLinear() throws ApiException, InterruptedException, IOException {
-    DistanceValueFunction distanceVF = DistanceValueFunction.given(apiKey,
-        interestLocations, durationValueFunction);
+    durationValueFunction = new ReversedLinearValueFunction(0d, 36000d);
+    DistanceValueFunction distanceVF =
+        DistanceValueFunction.given(apiKey, interestLocations, durationValueFunction);
     LatLng apartCoordinates = Localizer.getGeometryLocation(apart, apiKey);
     double subjectiveValue = distanceVF.getSubjectiveValue(apartCoordinates);
-    assertEquals(0.94, subjectiveValue, 0.1);
+    assertEquals(0.94, subjectiveValue, 0.01);
   }
 
+  /**
+   * This test is supposed to fail because it can only do subway distance calculations.
+   * 
+   * @throws ApiException
+   * @throws InterruptedException
+   * @throws IOException
+   */
   @Test
   void testSubjectiveValueFail() throws ApiException, InterruptedException, IOException {
-    interestLocations.add("Borsod-Abaúj-Zemplén, Hongrie");
+    LatLng adress = Localizer.getGeometryLocation("Borsod-Abaúj-Zemplén, Hongrie", apiKey);
+    interestLocations.add(adress);
     DistanceValueFunction distanceVF =
         DistanceValueFunction.withDefaultDurationValueFunction(apiKey, interestLocations);
     LatLng apartCoordinates = Localizer.getGeometryLocation(apart, apiKey);
