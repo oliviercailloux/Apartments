@@ -5432,7 +5432,7 @@
           <ownedOperation xmi:type="uml:Operation" xmi:id="_mTNbIKTzEeuFmKtN2pkKow" name="getSubjectiveValue" visibility="public" method="_mS6gMKTzEeuFmKtN2pkKow">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="__xwAQKXeEeukrP4jUfIedQ" name="apartmentLocalization" type="_ESE1Ul_AEeqAAb4u4HLI7w"/>
           </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_6hywIKT6EeuPdIA6u3wedQ" name="getDistanceCriteria" isStatic="true" method="_mS4D8KTzEeuFmKtN2pkKow">
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_6hywIKT6EeuPdIA6u3wedQ" name="getDistanceValueFunction" isStatic="true" method="_mS4D8KTzEeuFmKtN2pkKow">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_6hywIaT6EeuPdIA6u3wedQ" name="interestLocations" type="_ESE1Ul_AEeqAAb4u4HLI7w"/>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_6hywIqT6EeuPdIA6u3wedQ" name="PVF" type="_siBZIF_CEeqAAb4u4HLI7w"/>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_uNuZoKT-EeuPdIA6u3wedQ" name="apiKey">
