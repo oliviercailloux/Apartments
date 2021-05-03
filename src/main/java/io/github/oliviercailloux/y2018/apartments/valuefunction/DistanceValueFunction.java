@@ -23,7 +23,7 @@ import org.slf4j.LoggerFactory;
  */
 public class DistanceValueFunction implements PartialValueFunction<LatLng> {
 
-  private Set<String> interestLocations;
+  private Set<LatLng> interestLocations;
   private String apiKey;
   private PartialValueFunction<Double> durationValueFunction;
   private static final Logger LOGGER = LoggerFactory.getLogger(DistanceValueFunction.class);
@@ -38,84 +38,90 @@ public class DistanceValueFunction implements PartialValueFunction<LatLng> {
    * @param durationValueFunction : valueFunction used in the subjective value calculation.
    * @throws IllegalArgumentException if the <code>apiKey</code> if <code> null </code>.
    */
-  private DistanceValueFunction(String apiKey, Set<String> interestLocations,
+  private DistanceValueFunction(String apiKey, Set<LatLng> interestLocations,
       PartialValueFunction<Double> durationValueFunction) {
+    this.apiKey = apiKey;
+    this.interestLocations = interestLocations;
+    this.durationValueFunction = durationValueFunction;
+    for (LatLng interest : this.interestLocations) {
+      LOGGER.info("The interest location ({}) has been added to the set.", interest);
+    }
+  }
+
+
+  /**
+   * Initialize an instance of <code>DistanceValueFunction</code>. By default, the
+   * <code>PieceWiseLinearValueFunction</code> is used to calculate the subjective value. If there
+   * isn't any interest places, it adds by default the center of Paris.
+   * 
+   * @param apiKey
+   * @param interestLocations
+   * @param durationValueFunction a decreasing value function.
+   * @return an instance of <code>DistanceValueFunction</code>.
+   * @throws IOException
+   * @throws InterruptedException
+   * @throws ApiException
+   */
+  public static DistanceValueFunction given(String apiKey, Set<LatLng> interestLocations,
+      PartialValueFunction<Double> durationValueFunction)
+      throws ApiException, InterruptedException, IOException {
     if (apiKey.equals("")) {
       throw new IllegalArgumentException("The apikey is empty");
     }
-
     if (interestLocations.isEmpty()) {
-      this.interestLocations = new HashSet<>();
-      this.interestLocations.add("9 rue Lacuee, 75012 Paris, France");
-      LOGGER.info(
-          "The interest location (9 rue Lacuee, 75012 Paris, France) has been added to the set .");
+      LatLng address = Localizer.getGeometryLocation("Place Dauphine, 75001 Paris, France", apiKey);
+      interestLocations.add(address);
     }
-    this.apiKey = apiKey;
-    this.interestLocations = interestLocations;
-    for (String interest : this.interestLocations) {
-      LOGGER.info("The interest location ({}) has been added to the set.", interest);
-    }
-
-    if (durationValueFunction.isEmpty()) {
-      Map<Double, Double> map = new HashMap<>();
-      map.put(0d, 1d);
-      map.put(3600d, 0.8);
-      map.put(36000d, 0d);
-      this.durationValueFunction = new PieceWiseLinearValueFunction(map);
-    } else {
-      this.durationValueFunction = durationValueFunction.get();
-    }
+    return new DistanceValueFunction(apiKey, interestLocations, durationValueFunction);
   }
 
   /**
-   * @param apiKey
-   * @param interestLocations
-   * @param durationValueFunction
-   * @return an instance of <code>DistanceValueFunction</code>.
-   */
-  public static DistanceValueFunction given(String apiKey, Set<String> interestLocations,
-      PartialValueFunction<Double> durationValueFunction) {
-    //initialiser tout ici
-    return new DistanceValueFunction(Optional.ofNullable(apiKey),
-        Optional.ofNullable(interestLocations), Optional.ofNullable(durationValueFunction));
-  }
-
-  /**
+   * Initialize an instance of <code>DistanceValueFunction</code>. By default, the
+   * <code>PieceWiseLinearValueFunction</code> is used to calculate the subjective value. If there
+   * isn't any interest places, it adds by default the center of Paris.
+   * 
    * @param apiKey
    * @param interestLocations
    * @return an instance of <code>DistanceValueFunction</code>.
+   * @throws IOException
+   * @throws InterruptedException
+   * @throws ApiException
    */
   public static DistanceValueFunction withDefaultDurationValueFunction(String apiKey,
-      Set<String> interestLocations) {
+      Set<LatLng> interestLocations) throws ApiException, InterruptedException, IOException {
+    if (apiKey.equals("")) {
+      throw new IllegalArgumentException("The apikey is empty");
+    }
     Map<Double, Double> map = new HashMap<>();
     map.put(0d, 1d);
     map.put(3600d, 0.8);
     map.put(36000d, 0d);
-    return new DistanceValueFunction(Optional.ofNullable(apiKey),
-        Optional.ofNullable(interestLocations), new PieceWiseLinearValueFunction(map));
+    PartialValueFunction<Double> pvf = new PieceWiseLinearValueFunction(map);
+    if (interestLocations.isEmpty()) {
+      LatLng address = Localizer.getGeometryLocation("Place Dauphine, 75001 Paris, France", apiKey);
+      interestLocations.add(address);
+    }
+    return new DistanceValueFunction(apiKey, interestLocations, pvf);
   }
 
   /**
-   * Create coordinates from the interest localization address, and calculate the subjective value
-   * of each one. It stores both in a <code>Map</code>.
+   * Calculate the subjective value of each interest location.
    * 
    * @param apartmentLocalization
    * @return <code>Map</code> containing the subjective value of each interest localization.
    * @throws IOException
    * @throws InterruptedException
    * @throws ApiException
-   * @throws Exception
    */
-  private Map<LatLng, Double> addInterestLocations(LatLng apartmentLocalization)
-      throws ApiException, InterruptedException, IOException {
+  private Map<LatLng, Double> calculateSubjectiveValueInterestLocations(
+      LatLng apartmentLocalization) throws ApiException, InterruptedException, IOException {
     Map<LatLng, Double> interestLocationsSubjectiveValue = new HashMap<>();
-    for (String localization : interestLocations) {
-      LatLng localizationCoordinates = Localizer.getGeometryLocation(localization, apiKey);
-      double distanceToApart =
-          calculateDistanceLocation(localizationCoordinates, apartmentLocalization);
+    for (LatLng localization : interestLocations) {
+      double distanceToApart = getDistance(localization, apartmentLocalization);
       // double localizationSubjectiveValue = 1 - setUtility(distanceToApart);
-      double localizationSubjectiveValue = setUtility(distanceToApart);
-      interestLocationsSubjectiveValue.put(localizationCoordinates, localizationSubjectiveValue);
+      double localizationSubjectiveValue =
+          durationValueFunction.getSubjectiveValue(distanceToApart);
+      interestLocationsSubjectiveValue.put(localization, localizationSubjectiveValue);
       LOGGER.info(
           "The interest location ({}) with the utility {} has been added with success in the Map.",
           localization, localizationSubjectiveValue);
@@ -132,11 +138,9 @@ public class DistanceValueFunction implements PartialValueFunction<LatLng> {
    * @throws IOException
    * @throws InterruptedException
    * @throws ApiException
-   * @throws Exception if the latitude and longitude does not have the good format
-   *         (com.google.maps.model.LatLng)
    */
-  private double calculateDistanceLocation(LatLng interestLocalization,
-      LatLng apartmentLocalization) throws ApiException, InterruptedException, IOException {
+  private double getDistance(LatLng interestLocalization, LatLng apartmentLocalization)
+      throws ApiException, InterruptedException, IOException {
     DistanceSubway dist = new DistanceSubway(interestLocalization, apartmentLocalization, apiKey);
     double currentdistance = dist.calculateDistanceAddress(DistanceMode.COORDINATE);
     LOGGER.info("The distance between {} and {} has been calculated and is equal to {}",
@@ -144,34 +148,27 @@ public class DistanceValueFunction implements PartialValueFunction<LatLng> {
     return currentdistance;
   }
 
-  /**
-   * Calculate the utility of distance given in parameter.
-   * 
-   * @param currentdistance double distance in seconds.
-   * @return a double corresponding to the utility of the distance.
-   */
-  private double setUtility(double currentdistance) {
-    return durationValueFunction.getSubjectiveValue(currentdistance);
-  }
-
   @Override
-  public double getSubjectiveValue(LatLng apartmentLocalization) throws IllegalArgumentException {
+  public double getSubjectiveValue(LatLng apartmentLocalization) {
+    Map<LatLng, Double> interestLocationsSubjectiveValue;
     try {
-      Map<LatLng, Double> interestLocationsSubjectiveValue =
-          addInterestLocations(apartmentLocalization);
-      double subjectiveValue = 0;
-      Collection<Double> listValues = interestLocationsSubjectiveValue.values();
-      Iterator<Double> iterator = listValues.iterator();
-      while (iterator.hasNext()) {
-        Double value = iterator.next();
-        subjectiveValue += value;
-      }
-      LOGGER.info("The distance's subjective value has been computed with success. Value : {}.",
-          (subjectiveValue / interestLocationsSubjectiveValue.size()));
-      return (subjectiveValue / interestLocationsSubjectiveValue.size());
-    } catch (Exception e) {
+      interestLocationsSubjectiveValue =
+          calculateSubjectiveValueInterestLocations(apartmentLocalization);
+    } catch (ApiException | InterruptedException | IOException e) {
       throw new IllegalStateException(e);
     }
+    double subjectiveValue = 0;
+    Collection<Double> listValues = interestLocationsSubjectiveValue.values();
+    Iterator<Double> iterator = listValues.iterator();
+    while (iterator.hasNext()) {
+      Double value = iterator.next();
+      subjectiveValue += value;
+    }
+    double distanceSubjectiveValue = subjectiveValue / interestLocationsSubjectiveValue.size();
+    LOGGER.info("The distance's subjective value has been computed with success. Value : {}.",
+        distanceSubjectiveValue);
+    return distanceSubjectiveValue;
+
   }
 
   @Override
@@ -183,11 +180,11 @@ public class DistanceValueFunction implements PartialValueFunction<LatLng> {
       throws FileNotFoundException, IOException, ApiException, InterruptedException {
     String apiKey = KeyManager.getApiKey();
     String apart = "Place du Maréchal de Lattre de Tassigny, 75016 Paris";
-    HashSet<String> interestLocations = new HashSet<>();
-    interestLocations.add("Place Charles de Gaulle, 75116 Paris, France");
-    interestLocations.add("1 Rue Benouville, 75116 Paris 16e Arrondissement, France");
-    interestLocations.add("19 Rue Surcouf, 75007 Paris, France");
-    interestLocations.add("20 Boulevard Jules Guesde, 94500 Champigny-sur-Marne");
+    HashSet<LatLng> interestLocations = new HashSet<>();
+    interestLocations.add(Localizer.getGeometryLocation("Place Charles de Gaulle, 75116 Paris, France",apiKey));
+    interestLocations.add(Localizer.getGeometryLocation("1 Rue Benouville, 75116 Paris 16e Arrondissement, France",apiKey));
+    interestLocations.add(Localizer.getGeometryLocation("19 Rue Surcouf, 75007 Paris, France",apiKey));
+    interestLocations.add(Localizer.getGeometryLocation("20 Boulevard Jules Guesde, 94500 Champigny-sur-Marne",apiKey));
     DistanceValueFunction distanceVF =
         DistanceValueFunction.withDefaultDurationValueFunction(apiKey, interestLocations);
     LatLng apartCoordinates = Localizer.getGeometryLocation(apart, apiKey);
