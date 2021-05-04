@@ -16,32 +16,59 @@ toc::[]
 == Package
 
 * Global package diagram
-+
+
 image::diagram-package-global.png?raw=true[Global package diagram]
+
 
 == Class
 
 * Global class diagram (simplified)
-+
+
 image::diagram-class-global-simplified.png?raw=true[Global class diagram (simplified)]
 
 
 == Use case
 
 * Global use case diagram
-+
-image::diagram-usecase-global.png?raw=true[Global use case diagram]
-+
-* Orange bubbles mean this is yet to be implemented. 
-+
 
-  Tenant has two main interactions.
-  Firstly, Tenant must set his preferences in order to get an ordered list of apartments.
-  Based on the foregoing, he can compare two apartments using the SpiderPlot.
-  Secondly, Tenant can generate global database statistics.
-+
-  a XOR constraint is implemented with the Generate database statistics. 
-  It means that this use case is used ONLY by one person at the time.
+image::diagram-usecase-global.png?raw=true[Global use case diagram]
+
+* Orange bubbles mean this is yet to be implemented. 
+
+Tenant has two main interactions.
+Firstly, Tenant must set his preferences in order to get an ordered list of apartments.
+Based on the foregoing, he can compare two apartments using the SpiderPlot.
+Secondly, Tenant can generate global database statistics.
+
+A XOR constraint is implemented with the Generate database statistics. 
+It means that this use case is used ONLY by one person at the time.
+
+
+== Sequence Diagrams
+
+* Diagram Sequence Value Function
+
+image::diagram-sequence-valueFonction.png?raw=true[ValueFunction Sequence Diagram]
+
+The goal of this sequence diagram is to show that the tenant has the possibility to ask some new questions in order to get a more refined list of apartments. 
+
+List of classes/methods that will be implemented in java : 
+`Orchestrator class` and its methods : `showAOFU()`, `showLAG()`,`moreQuestionsClick()`,`addAnswerClick()`, `finishButtonClick()` and `chooseApartmentClick()`.
+AOFU methods : `askMoreQuestion()` and `adaptAVF()`.
+LAG method : `updateAVF()`.
+
+Some details on these class and methods are available below.
+
+`Orchestrator` class : as its name shows, this class will be used to orchestrate the showing of the AOFU and LAG screen.
+If the tenant wants to refine his search, he can click on the button `askMoreQuestions` that will push the Orchestrator to call the `moreQuestionsClick()` method that will display a new question. 
+Then, when the tenant answer to the question, Orchestrator will use `adaptAVF()` method in order to recalculate the AVF of the apartments.
+Afterwards, when the tenant click's on the `finish` button, the Orchestrator calls the `showLAG()` to use its methods which are able to sort the list and display it.
+
+`askMoreQuestions()` and `adaptAVF()` methods : they're not already implemented in `AskOpinionForUtility`. 
+The former will check if there are available questions and if yes, display one to the tenant (we didn't determind yet how is chosen the question). 
+The latter method takes as parameters an avf and a criterion list. It will enable to recalculate avf apartments according to the given parameters. 
+
+Once the tenant gets a new sorted list of apartments, if he's satisfied, he has the opportunity to select an apartment, otherwise, he isn't blocked and is free to do what he wants.
 
 
 [%hardbreaks]
