@@ -187,6 +187,12 @@ As we saw, `AskOpinionForUtilities` only ask the user how many bedrooms he desir
 +
 `AskOpinionForUtilities` asks the user if he wants the WiFi, a TV or a terrace. According to the user responses, `BooleanValueFunction` attributes the value 1 if the user wants this 0 else.
 
+* *`DistanceValueFunction` class*
++
+This class will be used to compute the subjective value of the `distance` criteria. It implements the interface `PartialValueFunction<LatLng>` and takes a set of the tenant's interest places, an api key and a `PartialValueFunction<Double>`. The PVFDouble will be used to calculate the subjective value of a ride time. By default, the PVFDouble used is the `PieceWiseLinearValueFunction`.The subjective value of each interest location is PVFDouble(x) where x is the distance between the apartment and the interest place in seconds. Finally, the method `getSubjectiveValue` takes an apartment's localization in parameter and returns the subjective value of the distance criteria that is the sum of the subjective values of the interest places divided by the number of interest locations. Its shape is represented below.
++
+image::graph-PWLVF-distance.png?raw=true[Graph-PWLVF-distance]
+
 We could find a way to simplify the attribution of a value to an apartment because every time we use `AskOpinionForUtility`, the value of each apartment is once again calculated. +
 Maybe we could also lighten the `ApartmentValueFunction` which is very long and redundant. +
 Improving our way to calculate the "value" of an apartment according to criteria could be improved to propose the user better apartments.
