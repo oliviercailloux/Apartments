@@ -29,9 +29,7 @@ public class DistanceValueFunction implements PartialValueFunction<LatLng> {
   private static final Logger LOGGER = LoggerFactory.getLogger(DistanceValueFunction.class);
 
   /**
-   * Initialize an instance of <code>DistanceValueFunction</code>. If
-   * <code> durationValuefunction</code> null, we use a <code>PieceWiseLinearValueFunction</code>.
-   * If there isn't any interest places, it adds by default the center of Paris.
+   * Initialize an instance of <code>DistanceValueFunction</code>.
    * 
    * @param apiKey
    * @param interestLocations : a set containing the tenant's interest places.
@@ -97,11 +95,7 @@ public class DistanceValueFunction implements PartialValueFunction<LatLng> {
     map.put(3600d, 0.8);
     map.put(36000d, 0d);
     PartialValueFunction<Double> pvf = new PieceWiseLinearValueFunction(map);
-    if (interestLocations.isEmpty()) {
-      LatLng address = Localizer.getGeometryLocation("Place Dauphine, 75001 Paris, France", apiKey);
-      interestLocations.add(address);
-    }
-    return new DistanceValueFunction(apiKey, interestLocations, pvf);
+    return DistanceValueFunction.given(apiKey, interestLocations, pvf);
   }
 
   /**
