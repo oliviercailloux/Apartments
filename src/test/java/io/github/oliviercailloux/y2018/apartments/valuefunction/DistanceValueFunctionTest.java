@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashSet;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 class DistanceValueFunctionTest {
@@ -20,6 +21,7 @@ class DistanceValueFunctionTest {
   private PartialValueFunction<Double> durationValueFunction;
 
   @BeforeEach
+  @Disabled("Do not run because there isn't the API KEY in the depository")
   void initEach() throws FileNotFoundException, IOException, ApiException, InterruptedException {
     this.apiKey = KeyManager.getApiKey();
     apart = "Place du Maréchal de Lattre de Tassigny, 75016 Paris";
@@ -36,6 +38,7 @@ class DistanceValueFunctionTest {
   }
 
   @Test
+  @Disabled("Do not run because there isn't the API KEY in the depository")
   void testSubjectiveValue() throws ApiException, InterruptedException, IOException {
     DistanceValueFunction distanceVF =
         DistanceValueFunction.withDefaultDurationValueFunction(apiKey, interestLocations);
@@ -45,6 +48,7 @@ class DistanceValueFunctionTest {
   }
 
   @Test
+  @Disabled("Do not run because there isn't the API KEY in the depository")
   void testSubjectiveValueLinear() throws ApiException, InterruptedException, IOException {
     durationValueFunction = new ReversedLinearValueFunction(0d, 36000d);
     DistanceValueFunction distanceVF =
@@ -62,6 +66,7 @@ class DistanceValueFunctionTest {
    * @throws IOException
    */
   @Test
+  @Disabled("Do not run because there isn't the API KEY in the depository")
   void testSubjectiveValueFail() throws ApiException, InterruptedException, IOException {
     LatLng adress = Localizer.getGeometryLocation("Borsod-Abaúj-Zemplén, Hongrie", apiKey);
     interestLocations.add(adress);

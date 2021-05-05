@@ -26,10 +26,9 @@ public class PieceWiseLinearValueFunction implements PartialValueFunction<Double
   /**
    * Builder of the PieceWiseLinearValueFunction
    *
-   * @param utilParameters is the dictionary of all values along with the grades associated to them,
-   *        In this map, if the collection of keys was sorted, then the collection of grades would
-   *        also have to be sorted. There has to be a value associated to the grade 0, and another
-   *        value associated to the grade 1.
+   * @param utilParameters is the dictionary of all values along with the grades associated to them.
+   *        There has to be a value associated to the grade 0, and another value associated to the
+   *        grade 1.
    */
   public PieceWiseLinearValueFunction(Map<Double, Double> utilParameters) {
 

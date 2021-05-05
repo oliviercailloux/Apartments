@@ -118,7 +118,6 @@ public class DistanceValueFunction implements PartialValueFunction<LatLng> {
     Map<LatLng, Double> interestLocationsSubjectiveValue = new HashMap<>();
     for (LatLng localization : interestLocations) {
       double distanceToApart = getDistance(localization, apartmentLocalization);
-      // double localizationSubjectiveValue = 1 - setUtility(distanceToApart);
       double localizationSubjectiveValue =
           durationValueFunction.getSubjectiveValue(distanceToApart);
       interestLocationsSubjectiveValue.put(localization, localizationSubjectiveValue);
