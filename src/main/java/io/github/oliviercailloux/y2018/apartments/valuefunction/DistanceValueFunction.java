@@ -87,9 +87,6 @@ public class DistanceValueFunction implements PartialValueFunction<LatLng> {
    */
   public static DistanceValueFunction withDefaultDurationValueFunction(String apiKey,
       Set<LatLng> interestLocations) throws ApiException, InterruptedException, IOException {
-    if (apiKey.equals("")) {
-      throw new IllegalArgumentException("The apikey is empty");
-    }
     Map<Double, Double> map = new HashMap<>();
     map.put(0d, 1d);
     map.put(3600d, 0.8);
