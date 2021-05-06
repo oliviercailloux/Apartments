@@ -1,12 +1,12 @@
 package io.github.oliviercailloux.y2018.apartments.valuefunction;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.google.maps.errors.ApiException;
 import com.google.maps.model.LatLng;
 import io.github.oliviercailloux.y2018.apartments.localize.Localizer;
 import io.github.oliviercailloux.y2018.apartments.utils.KeyManager;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashSet;
 import org.junit.jupiter.api.BeforeEach;
@@ -22,7 +22,7 @@ class DistanceValueFunctionTest {
 
   @BeforeEach
   @Disabled("Do not run because there isn't the API KEY in the depository")
-  void initEach() throws FileNotFoundException, IOException, ApiException, InterruptedException {
+  void initEach() throws Exception {
     this.apiKey = KeyManager.getApiKey();
     apart = "Place du Maréchal de Lattre de Tassigny, 75016 Paris";
     interestLocations = new HashSet<>();
@@ -39,7 +39,7 @@ class DistanceValueFunctionTest {
 
   @Test
   @Disabled("Do not run because there isn't the API KEY in the depository")
-  void testSubjectiveValue() throws ApiException, InterruptedException, IOException {
+  void testSubjectiveValue() throws Exception {
     DistanceValueFunction distanceVF =
         DistanceValueFunction.withDefaultDurationValueFunction(apiKey, interestLocations);
     LatLng apartCoordinates = Localizer.getGeometryLocation(apart, apiKey);
@@ -49,7 +49,7 @@ class DistanceValueFunctionTest {
 
   @Test
   @Disabled("Do not run because there isn't the API KEY in the depository")
-  void testSubjectiveValueLinear() throws ApiException, InterruptedException, IOException {
+  void testSubjectiveValueLinear() throws Exception {
     durationValueFunction = new ReversedLinearValueFunction(0d, 36000d);
     DistanceValueFunction distanceVF =
         DistanceValueFunction.given(apiKey, interestLocations, durationValueFunction);
@@ -67,7 +67,7 @@ class DistanceValueFunctionTest {
    */
   @Test
   @Disabled("Do not run because there isn't the API KEY in the depository")
-  void testSubjectiveValueFail() throws ApiException, InterruptedException, IOException {
+  void testSubjectiveValueFail() throws Exception {
     LatLng adress = Localizer.getGeometryLocation("Borsod-Abaúj-Zemplén, Hongrie", apiKey);
     interestLocations.add(adress);
     DistanceValueFunction distanceVF =

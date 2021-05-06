@@ -1,19 +1,16 @@
 package io.github.oliviercailloux.y2018.apartments.valuefunction;
 
+import com.google.common.base.VerifyException;
 import com.google.maps.errors.ApiException;
 import com.google.maps.model.LatLng;
 import io.github.oliviercailloux.y2018.apartments.distance.DistanceMode;
 import io.github.oliviercailloux.y2018.apartments.distance.DistanceSubway;
 import io.github.oliviercailloux.y2018.apartments.localize.Localizer;
-import io.github.oliviercailloux.y2018.apartments.utils.KeyManager;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Optional;
 import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -56,13 +53,10 @@ public class DistanceValueFunction implements PartialValueFunction<LatLng> {
    * @param interestLocations
    * @param durationValueFunction a decreasing value function.
    * @return an instance of <code>DistanceValueFunction</code>.
-   * @throws IOException
-   * @throws InterruptedException
-   * @throws ApiException
+   * @throws Exception
    */
   public static DistanceValueFunction given(String apiKey, Set<LatLng> interestLocations,
-      PartialValueFunction<Double> durationValueFunction)
-      throws ApiException, InterruptedException, IOException {
+      PartialValueFunction<Double> durationValueFunction) throws Exception {
     if (apiKey.equals("")) {
       throw new IllegalArgumentException("The apikey is empty");
     }
@@ -81,12 +75,10 @@ public class DistanceValueFunction implements PartialValueFunction<LatLng> {
    * @param apiKey
    * @param interestLocations
    * @return an instance of <code>DistanceValueFunction</code>.
-   * @throws IOException
-   * @throws InterruptedException
-   * @throws ApiException
+   * @throws Exception
    */
   public static DistanceValueFunction withDefaultDurationValueFunction(String apiKey,
-      Set<LatLng> interestLocations) throws ApiException, InterruptedException, IOException {
+      Set<LatLng> interestLocations) throws Exception {
     Map<Double, Double> map = new HashMap<>();
     map.put(0d, 1d);
     map.put(3600d, 0.8);
@@ -145,7 +137,7 @@ public class DistanceValueFunction implements PartialValueFunction<LatLng> {
       interestLocationsSubjectiveValue =
           calculateSubjectiveValueInterestLocations(apartmentLocalization);
     } catch (ApiException | InterruptedException | IOException | NullPointerException e) {
-      throw new IllegalStateException(e);
+      throw new VerifyException(e);
     }
     double subjectiveValue = 0;
     Collection<Double> listValues = interestLocationsSubjectiveValue.values();
