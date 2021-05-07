@@ -1,5 +1,8 @@
 package io.github.oliviercailloux.y2018.apartments.valuefunction;
 
+import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import com.google.common.base.VerifyException;
 import com.google.maps.errors.ApiException;
 import com.google.maps.model.LatLng;
@@ -35,6 +38,9 @@ public class DistanceValueFunction implements PartialValueFunction<LatLng> {
    */
   private DistanceValueFunction(String apiKey, Set<LatLng> interestLocations,
       PartialValueFunction<Double> durationValueFunction) {
+    checkNotNull(apiKey);
+    checkNotNull(interestLocations);
+    checkNotNull(durationValueFunction);
     this.apiKey = apiKey;
     this.interestLocations = interestLocations;
     this.durationValueFunction = durationValueFunction;
