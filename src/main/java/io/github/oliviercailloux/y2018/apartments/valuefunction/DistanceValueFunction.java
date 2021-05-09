@@ -32,15 +32,15 @@ public class DistanceValueFunction implements PartialValueFunction<LatLng> {
    * Initialize an instance of <code>DistanceValueFunction</code>.
    * 
    * @param apiKey
-   * @param interestLocations : a set containing the tenant's interest places.
+   * @param interestLocations : a set containing the tenant's interest places. Cannot be empty.
    * @param durationValueFunction : valueFunction used in the subjective value calculation.
-   * @throws IllegalArgumentException if the <code>apiKey</code> if <code> null </code>.
    */
   private DistanceValueFunction(String apiKey, Set<LatLng> interestLocations,
       PartialValueFunction<Double> durationValueFunction) {
     checkNotNull(apiKey);
     checkNotNull(interestLocations);
     checkNotNull(durationValueFunction);
+    checkArgument(!interestLocations.isEmpty());
     this.apiKey = apiKey;
     this.interestLocations = interestLocations;
     this.durationValueFunction = durationValueFunction;
@@ -59,10 +59,13 @@ public class DistanceValueFunction implements PartialValueFunction<LatLng> {
    * @param interestLocations
    * @param durationValueFunction a decreasing value function.
    * @return an instance of <code>DistanceValueFunction</code>.
+   * @throws IOException 
+   * @throws InterruptedException 
+   * @throws ApiException 
    * @throws Exception
    */
   public static DistanceValueFunction given(String apiKey, Set<LatLng> interestLocations,
-      PartialValueFunction<Double> durationValueFunction) throws Exception {
+      PartialValueFunction<Double> durationValueFunction) throws ApiException, InterruptedException, IOException{
     if (apiKey.equals("")) {
       throw new IllegalArgumentException("The apikey is empty");
     }
@@ -81,10 +84,13 @@ public class DistanceValueFunction implements PartialValueFunction<LatLng> {
    * @param apiKey
    * @param interestLocations
    * @return an instance of <code>DistanceValueFunction</code>.
+   * @throws IOException
+   * @throws InterruptedException
+   * @throws ApiException
    * @throws Exception
    */
   public static DistanceValueFunction withDefaultDurationValueFunction(String apiKey,
-      Set<LatLng> interestLocations) throws Exception {
+      Set<LatLng> interestLocations) throws ApiException, InterruptedException, IOException{
     Map<Double, Double> map = new HashMap<>();
     map.put(0d, 1d);
     map.put(3600d, 0.8);

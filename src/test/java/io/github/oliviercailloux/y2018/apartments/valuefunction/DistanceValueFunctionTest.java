@@ -3,6 +3,7 @@ package io.github.oliviercailloux.y2018.apartments.valuefunction;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import com.google.common.base.VerifyException;
 import com.google.maps.errors.ApiException;
 import com.google.maps.model.LatLng;
 import io.github.oliviercailloux.y2018.apartments.localize.Localizer;
@@ -73,7 +74,7 @@ class DistanceValueFunctionTest {
     DistanceValueFunction distanceVF =
         DistanceValueFunction.withDefaultDurationValueFunction(apiKey, interestLocations);
     LatLng apartCoordinates = Localizer.getGeometryLocation(apart, apiKey);
-    assertThrows(IllegalStateException.class,
+    assertThrows(VerifyException.class,
         () -> distanceVF.getSubjectiveValue(apartCoordinates));
   }
 
