@@ -140,35 +140,6 @@ This file only explains the distribution of work between the different teams and
 
 All of these tasks are related to the 2nd iteration of java : link:https://github.com/oliviercailloux-org/projet-apartments/pull/27[PR #27]
 
-=== Itération 5 UML
-
-[IMPORTANT]
-====
-Deadline : **May the 31rd, ** 2021.
-This file only explains the distribution of work between the different teams and indicates their realisation.
-====
-
-==== Seif BOUGUERRA & Stellan WEA
-
-* SM/PO for this iteration.
-* Split the work between the two groups.
-* Organise meetings throughout the week to have a better understanding of the project.
-* Made sure everybody is on board and respected the deadline.
-
-==== Abla MIKOU & Samy MEGUENI
-
-* Update of the Papyrus Model Explorer in Eclipse in order to withdraw the redundancy in `ApartmentValueFunction`.
-* Update of future ideas section (mainly withdraw all tasks that we have done and add the future tasks).
-* Improvement of the UML sequence diagram about the Spider Plot functioning and its interactions with the user (link:https://github.com/oliviercailloux-org/projet-apartments/pull/21[PR #21]).
-* Additional : order all diagrams by topics instead of being classified according to their diagram type (link:https://github.com/oliviercailloux-org/projet-apartments/pull/27[PR #31]). This task is provided to the realisation of the first task.
-
-
-==== Maïrame NDIAYE & Ewen MARGUET
-
-* Continue the implementation of the `Plot` package class diagram and the integration of `SpiderPlot` class in the global class diagrams while taking consideration of the previous professor notes and resolving the merge conflict according to the link:https://github.com/oliviercailloux-org/projet-apartments/pull/34[PR #34].
-* Integration of the `Plot` package in the `diagram-package-global`. This task is provided to the realisation of the first task.
-* Beginning of a creation of a clear documentation that will fully explain the project in order to make easier the projet comprehension next year.
-
 == Iterations Java 2021
 
 ==== Iteration 1 Java 
