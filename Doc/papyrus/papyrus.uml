@@ -441,7 +441,10 @@
           <body>JFreeChart is a Java Application Programming Interface (API) for creating graphs and diagrams. In our case, we use it to create the SpiderPlot graph.</body>
         </ownedComment>
         <ownedComment xmi:type="uml:Comment" xmi:id="_js6O4Ly7Eeuvu5ayhp9Lzg" annotatedElement="_L5pcwLy1Eeuvu5ayhp9Lzg">
-          <body>It is the interface used to manipulate a set of data with values ​​that are associated with categories. These categories are represented by instances of Comparable. In our case, the categories are represented by the addresses of the apartments being compared and the criterions.</body>
+          <body>It is the interface used to manipulate a set of data with values ​​that are associated with categories. &#xD;
+These categories are represented by instances of Comparable. &#xD;
+In our case, the categories are represented by the addresses of the apartments being compared and the criterions.&#xD;
+The CategoryDataset is required to be able to create a Spider Plot in the createChart method.</body>
         </ownedComment>
         <packagedElement xmi:type="uml:Package" xmi:id="_DFOKsGrDEeqG6NsufvOKcA" name="DC Global Detailed">
           <packagedElement xmi:type="uml:Association" xmi:id="_rrSy8GVIEeq0U8CyxWHVBA" name="&lt; a choisi" visibility="private" memberEnd="_rrjRoGVIEeq0U8CyxWHVBA _rrkfwGVIEeq0U8CyxWHVBA">
