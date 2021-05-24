@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:standard="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
   <uml:Model xmi:id="_7UbegF-3EeqrPafii89tnw" name="papyrus">
+    <ownedComment xmi:type="uml:Comment" xmi:id="_GVWEgLymEeuvu5ayhp9Lzg" annotatedElement="_72rEYF_BEeqAAb4u4HLI7w">
+      <body>ApartmentValueFunction uses all PartialValueFunction implementations and all enumerations</body>
+    </ownedComment>
     <packageImport xmi:type="uml:PackageImport" xmi:id="_7ZRiQF-3EeqrPafii89tnw">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
     </packageImport>
@@ -434,6 +437,12 @@
         </packagedElement>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_-FOsoJU1Eeqfq4Pvb_wd9Q" name="CD_CurrentApplication">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_vU3A4LykEeuvu5ayhp9Lzg" annotatedElement="_klApcLyYEeuvu5ayhp9Lzg">
+          <body>JFreeChart is a Java Application Programming Interface (API) for creating graphs and diagrams. In our case, we use it to create the SpiderPlot graph.</body>
+        </ownedComment>
+        <ownedComment xmi:type="uml:Comment" xmi:id="_js6O4Ly7Eeuvu5ayhp9Lzg" annotatedElement="_L5pcwLy1Eeuvu5ayhp9Lzg">
+          <body>It is the interface used to manipulate a set of data with values ​​that are associated with categories. These categories are represented by instances of Comparable. In our case, the categories are represented by the addresses of the apartments being compared and the criterions.</body>
+        </ownedComment>
         <packagedElement xmi:type="uml:Package" xmi:id="_DFOKsGrDEeqG6NsufvOKcA" name="DC Global Detailed">
           <packagedElement xmi:type="uml:Association" xmi:id="_rrSy8GVIEeq0U8CyxWHVBA" name="&lt; a choisi" visibility="private" memberEnd="_rrjRoGVIEeq0U8CyxWHVBA _rrkfwGVIEeq0U8CyxWHVBA">
             <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_rrg1YGVIEeq0U8CyxWHVBA" source="org.eclipse.papyrus">
@@ -1740,7 +1749,7 @@
           </ownedOperation>
         </packagedElement>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_W5LIQGXfEeqLXLaj_4v3Nw" client="_ESBK8F_AEeqAAb4u4HLI7w" supplier="_ByP4cGVIEeq0U8CyxWHVBA"/>
-        <packagedElement xmi:type="uml:Dependency" xmi:id="_2NrnoKgQEeuQ07mwWsrMMA" client="_ESBK8F_AEeqAAb4u4HLI7w" supplier="_qfC2QKgQEeuQ07mwWsrMMA"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_2NrnoKgQEeuQ07mwWsrMMA" client="_ESBK8F_AEeqAAb4u4HLI7w" supplier="_i7vXsGrAEeqG6NsufvOKcA"/>
         <packagedElement xmi:type="uml:Enumeration" xmi:id="_ByP4cGVIEeq0U8CyxWHVBA" name="DistanceMode" visibility="public">
           <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_ByRGkGVIEeq0U8CyxWHVBA" name="ADDRESS"/>
           <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_ByRGkWVIEeq0U8CyxWHVBA" name="COORDINATE"/>
@@ -2763,6 +2772,7 @@
           <ownedOperation xmi:type="uml:Operation" xmi:id="_QZeiYKeeEeuzh8aae7HGjg" name="chooseApartmentClick" visibility="public" method="_RS7LgKehEeuzh8aae7HGjg"/>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_7LCUgKwYEeuurZpZ_MDBKw" name="finishButtonClick" visibility="public" method="__fnIEKwYEeuurZpZ_MDBKw"/>
         </packagedElement>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_AvDEALyeEeuvu5ayhp9Lzg" client="_VKBp4F_AEeqAAb4u4HLI7w" supplier="_3ns3QLyYEeuvu5ayhp9Lzg"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_bL8JAF_AEeqAAb4u4HLI7w" name="iconDisplay">
         <packagedElement xmi:type="uml:Class" xmi:id="_ck78QF_AEeqAAb4u4HLI7w" name="DisplayIcon" visibility="public">
@@ -5546,6 +5556,45 @@
         </packagedElement>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_qfC2QKgQEeuQ07mwWsrMMA" name="Localisation service"/>
+      <packagedElement xmi:type="uml:Package" xmi:id="_1HbS4LyYEeuvu5ayhp9Lzg" name="plot">
+        <packagedElement xmi:type="uml:Class" xmi:id="_3ns3QLyYEeuvu5ayhp9Lzg" name="SpiderPlot" visibility="public">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_8lF-ULyYEeuvu5ayhp9Lzg" name="LOGGER" visibility="private" type="_ZCxH8F--EeqAAb4u4HLI7w"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_eDXr8LyZEeuvu5ayhp9Lzg" name="createChart" specification="_YwUd8LyZEeuvu5ayhp9Lzg"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_fK5UsLyZEeuvu5ayhp9Lzg" name="toCategoryDataSet" specification="_Z7uhILyZEeuvu5ayhp9Lzg"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_gRctELyZEeuvu5ayhp9Lzg" name="createImgChart" specification="_dFFewLyZEeuvu5ayhp9Lzg"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_hZ470LyZEeuvu5ayhp9Lzg" name="given" specification="_a_j8sLyZEeuvu5ayhp9Lzg"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ib5ycLyZEeuvu5ayhp9Lzg" name="SpiderPlot" specification="_cD02ELyZEeuvu5ayhp9Lzg"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_YwUd8LyZEeuvu5ayhp9Lzg" name="createChart" visibility="private" method="_eDXr8LyZEeuvu5ayhp9Lzg">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_8pUUALy5Eeuvu5ayhp9Lzg" name="dataset" type="_L5pcwLy1Eeuvu5ayhp9Lzg"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_aMgaMLy8Eeuvu5ayhp9Lzg" type="_klApcLyYEeuvu5ayhp9Lzg" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_Z7uhILyZEeuvu5ayhp9Lzg" name="toCategoryDataSet" visibility="private" method="_fK5UsLyZEeuvu5ayhp9Lzg">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_-7hNsLyZEeuvu5ayhp9Lzg" name="apart1" type="_1N7WIF--EeqAAb4u4HLI7w"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_BKiC8LyaEeuvu5ayhp9Lzg" name="apart2" type="_1N7WIF--EeqAAb4u4HLI7w"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_G-ciULyaEeuvu5ayhp9Lzg" name="avf" type="_72rEYF_BEeqAAb4u4HLI7w"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_OQnh4Ly6Eeuvu5ayhp9Lzg" type="_L5pcwLy1Eeuvu5ayhp9Lzg" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_a_j8sLyZEeuvu5ayhp9Lzg" name="given" visibility="public" method="_hZ470LyZEeuvu5ayhp9Lzg">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_aa2QoLyaEeuvu5ayhp9Lzg" name="apart1" type="_1N7WIF--EeqAAb4u4HLI7w"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_c2S_YLyaEeuvu5ayhp9Lzg" name="apart2" type="_1N7WIF--EeqAAb4u4HLI7w"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_r3CasLyaEeuvu5ayhp9Lzg" name="avf" type="_72rEYF_BEeqAAb4u4HLI7w"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_o8Nv4Ly8Eeuvu5ayhp9Lzg" type="_3ns3QLyYEeuvu5ayhp9Lzg" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_cD02ELyZEeuvu5ayhp9Lzg" name="«create» SpiderPlot" visibility="private" method="_ib5ycLyZEeuvu5ayhp9Lzg">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_3kx0MLyaEeuvu5ayhp9Lzg" name="apart1" type="_1N7WIF--EeqAAb4u4HLI7w"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_57l6kLyaEeuvu5ayhp9Lzg" name="apart2" type="_1N7WIF--EeqAAb4u4HLI7w"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_7z8jULyaEeuvu5ayhp9Lzg" name="avf" type="_72rEYF_BEeqAAb4u4HLI7w"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_dFFewLyZEeuvu5ayhp9Lzg" name="createImgChart" visibility="private" method="_gRctELyZEeuvu5ayhp9Lzg">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_DIK-4LybEeuvu5ayhp9Lzg" name="jfreechart" type="_klApcLyYEeuvu5ayhp9Lzg"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_r3Cs0Ly9Eeuvu5ayhp9Lzg" type="_flZVALy9Eeuvu5ayhp9Lzg" direction="return"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_wTTDQLydEeuvu5ayhp9Lzg" client="_3ns3QLyYEeuvu5ayhp9Lzg" supplier="_72rEYF_BEeqAAb4u4HLI7w"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_8U1igLydEeuvu5ayhp9Lzg" client="_3ns3QLyYEeuvu5ayhp9Lzg" supplier="_1N7WIF--EeqAAb4u4HLI7w"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_5qaA8Ly7Eeuvu5ayhp9Lzg" client="_3ns3QLyYEeuvu5ayhp9Lzg" supplier="_L5pcwLy1Eeuvu5ayhp9Lzg"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="__03_ILy7Eeuvu5ayhp9Lzg" client="_3ns3QLyYEeuvu5ayhp9Lzg" supplier="_klApcLyYEeuvu5ayhp9Lzg"/>
+      </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="__C89EHEuEeq9ooUMj2JdaQ" name="java">
       <packagedElement xmi:type="uml:Package" xmi:id="__DER0HEuEeq9ooUMj2JdaQ" name="java">
@@ -5554,6 +5603,7 @@
           <packagedElement xmi:type="uml:Class" xmi:id="__EuesHEuEeq9ooUMj2JdaQ" name="String"/>
           <packagedElement xmi:type="uml:Class" xmi:id="_t0QygJj5EeqYP-aD6j0wRg" name="Exception"/>
           <packagedElement xmi:type="uml:Class" xmi:id="_t0_yUJj5EeqYP-aD6j0wRg" name="Throwable"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_WsgQcLy3Eeuvu5ayhp9Lzg" name="Comparable"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Package" xmi:id="_i_F0QXEvEeq9ooUMj2JdaQ" name="util">
           <packagedElement xmi:type="uml:Class" xmi:id="_i_F0QnEvEeq9ooUMj2JdaQ" name="Random"/>
@@ -5566,6 +5616,34 @@
         <packagedElement xmi:type="uml:Package" xmi:id="_OInLAJj3EeqYP-aD6j0wRg" name="nio">
           <packagedElement xmi:type="uml:Package" xmi:id="_OIqOUJj3EeqYP-aD6j0wRg" name="file">
             <packagedElement xmi:type="uml:Class" xmi:id="_OIsDgJj3EeqYP-aD6j0wRg" name="Path"/>
+          </packagedElement>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_TGEGgLy9Eeuvu5ayhp9Lzg" name="awt">
+          <packagedElement xmi:type="uml:Package" xmi:id="_aVik8Ly9Eeuvu5ayhp9Lzg" name="image">
+            <packagedElement xmi:type="uml:Interface" xmi:id="_flZVALy9Eeuvu5ayhp9Lzg" name="RenderedImage"/>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_QFppULyYEeuvu5ayhp9Lzg" name="org">
+        <packagedElement xmi:type="uml:Package" xmi:id="_TN_TQLyYEeuvu5ayhp9Lzg" name="jfree">
+          <packagedElement xmi:type="uml:Package" xmi:id="_WU0hULyYEeuvu5ayhp9Lzg" name="data">
+            <packagedElement xmi:type="uml:Package" xmi:id="_Z04uwLyYEeuvu5ayhp9Lzg" name="category">
+              <packagedElement xmi:type="uml:Interface" xmi:id="_L5pcwLy1Eeuvu5ayhp9Lzg" name="CategoryDataset" visibility="public"/>
+              <packagedElement xmi:type="uml:Class" xmi:id="_RjJmcLy2Eeuvu5ayhp9Lzg" name="DefaultCategoryDataset" visibility="public">
+                <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_JBoxALy5Eeuvu5ayhp9Lzg" name="     implements" client="_RjJmcLy2Eeuvu5ayhp9Lzg" supplier="_L5pcwLy1Eeuvu5ayhp9Lzg" contract="_L5pcwLy1Eeuvu5ayhp9Lzg"/>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_kCQmELy2Eeuvu5ayhp9Lzg" name="«create» DefaultCategoryDataset" visibility="public"/>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_mfqcoLy2Eeuvu5ayhp9Lzg" name="addValue" visibility="public">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_GjBEYLy3Eeuvu5ayhp9Lzg" name="value">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_o9bDELy3Eeuvu5ayhp9Lzg" name="rowKey" type="_WsgQcLy3Eeuvu5ayhp9Lzg"/>
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_u-J2cLy3Eeuvu5ayhp9Lzg" name="columnKey" type="_WsgQcLy3Eeuvu5ayhp9Lzg"/>
+                </ownedOperation>
+              </packagedElement>
+            </packagedElement>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Package" xmi:id="_hVrmsLyYEeuvu5ayhp9Lzg" name="chart">
+            <packagedElement xmi:type="uml:Class" xmi:id="_klApcLyYEeuvu5ayhp9Lzg" name="JFreeChart"/>
           </packagedElement>
         </packagedElement>
       </packagedElement>
