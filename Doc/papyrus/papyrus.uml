@@ -3092,7 +3092,16 @@
               <body>LoggerFactory.getLogger(ApartmentValueFunction.class)</body>
             </defaultValue>
           </ownedAttribute>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_qJPHIL2BEeuNvZtNly4PUA" name="booleanValueFunctions" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_qJPHIL2BEeuNvZtNly4PUA" name="booleanValueFunctions" visibility="public" type="_60wi4L15EeuXGJZ0raZrfA">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HCWLAL2DEeuNvZtNly4PUA" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_9oh78L2CEeuNvZtNly4PUA" name="doubleValueFunctions" visibility="public" type="_2fImcL15EeuXGJZ0raZrfA">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GLJdQL2DEeuNvZtNly4PUA" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_BK4BUL2DEeuNvZtNly4PUA" name="weight" visibility="public">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FFqb4L2DEeuNvZtNly4PUA" value="*"/>
+          </ownedAttribute>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_73BpsF_BEeqAAb4u4HLI7w" name="ApartmentValueFunction" specification="_729_UF_BEeqAAb4u4HLI7w">
             <language>JAVA</language>
             <body>&#xD;
@@ -3316,10 +3325,7 @@
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_EuMpAL2BEeuNvZtNly4PUA" name="withSubjectiveValueWeight" specification="_GtjLQL15EeuXGJZ0raZrfA"/>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_729_UF_BEeqAAb4u4HLI7w" name="ApartmentValueFunction" visibility="public" method="_73BpsF_BEeqAAb4u4HLI7w"/>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_74GAsF_BEeqAAb4u4HLI7w" name="getSubjectiveValue" visibility="public" method="_74H14F_BEeqAAb4u4HLI7w">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_74GnwF_BEeqAAb4u4HLI7w" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-            </ownedParameter>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_74HO0F_BEeqAAb4u4HLI7w" name="apart"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_74HO0F_BEeqAAb4u4HLI7w" name="apart" type="_rBU6AJ2dEeq5UMfZ1C8e7g"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_74JEAF_BEeqAAb4u4HLI7w" name="cloneAVF" visibility="private" method="_74KSIF_BEeqAAb4u4HLI7w">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_74JrEF_BEeqAAb4u4HLI7w" type="_72rEYF_BEeqAAb4u4HLI7w" direction="return"/>
