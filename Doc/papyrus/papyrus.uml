@@ -3092,6 +3092,7 @@
               <body>LoggerFactory.getLogger(ApartmentValueFunction.class)</body>
             </defaultValue>
           </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_qJPHIL2BEeuNvZtNly4PUA" name="booleanValueFunctions" visibility="public"/>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_73BpsF_BEeqAAb4u4HLI7w" name="ApartmentValueFunction" specification="_729_UF_BEeqAAb4u4HLI7w">
             <language>JAVA</language>
             <body>&#xD;
