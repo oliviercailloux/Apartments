@@ -5149,44 +5149,13 @@
             <defaultValue xmi:type="uml:InstanceValue" xmi:id="_Q6WVYKXeEeukrP4jUfIedQ" name="defaultPVF" type="_d19NUF_CEeqAAb4u4HLI7w"/>
           </ownedAttribute>
           <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_JMRLEKT8EeuPdIA6u3wedQ" client="_Thu5IKTzEeuFmKtN2pkKow" supplier="_siBZIF_CEeqAAb4u4HLI7w" contract="_siBZIF_CEeqAAb4u4HLI7w"/>
-          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mS4D8KTzEeuFmKtN2pkKow" name="DistanceValueFunction" specification="_6hywIKT6EeuPdIA6u3wedQ">
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mS4D8KTzEeuFmKtN2pkKow" name="DistanceValueFunction">
             <language>JAVA</language>
             <body>&#xD;
     interestlocation = new HashMap&lt;>();&#xD;
     this.appartlocation = appartlocation;&#xD;
     this.apiKey = apiKey;&#xD;
     maxDuration = 0;&#xD;
-</body>
-          </ownedBehavior>
-          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mS4rAKTzEeuFmKtN2pkKow" name="addInterestLocation" specification="_mS_YsKTzEeuFmKtN2pkKow">
-            <language>JAVA</language>
-            <body>&#xD;
-    double currentdistance = calculateDistanceLocation(interest);&#xD;
-    if (currentdistance > maxDuration)&#xD;
-        maxDuration = currentdistance;&#xD;
-    double utility = 1 - setUtility(currentdistance);&#xD;
-    interestlocation.put(interest, utility);&#xD;
-    LOGGER.info(&quot;The interest location (&quot; + interest + &quot;) with the utility &quot; + utility + &quot; has been had with success in the Map.&quot;);&#xD;
-</body>
-          </ownedBehavior>
-          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mS5SEaTzEeuFmKtN2pkKow" name="calculateDistanceLocation" specification="_mTDqIKTzEeuFmKtN2pkKow">
-            <language>JAVA</language>
-            <body>&#xD;
-    DistanceSubway dist = new DistanceSubway(interest, appartlocation, apiKey);&#xD;
-    double currentdistance = dist.calculateDistanceAddress(DistanceMode.COORDINATE);&#xD;
-    LOGGER.info(&quot;The distance between &quot; + interest + &quot; and &quot; + appartlocation + &quot; has been calculated and is equal to &quot; + currentdistance);&#xD;
-    return currentdistance;&#xD;
-</body>
-          </ownedBehavior>
-          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mS55IKTzEeuFmKtN2pkKow" name="setUtility" specification="_mTJwwKTzEeuFmKtN2pkKow">
-            <language>JAVA</language>
-            <body>&#xD;
-    Map&lt;Double, Double> map = new HashMap&lt;>();&#xD;
-    map.put(0d, 0d);&#xD;
-    map.put(3600d, 0.8);&#xD;
-    map.put(36000d, 1d);&#xD;
-    PieceWiseLinearValueFunction f = new PieceWiseLinearValueFunction(map);&#xD;
-    return f.getSubjectiveValue(currentdistance);&#xD;
 </body>
           </ownedBehavior>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mS6gMKTzEeuFmKtN2pkKow" name="getSubjectiveValue" specification="_mTNbIKTzEeuFmKtN2pkKow">
@@ -5199,6 +5168,10 @@
     return interestlocation.get(objectiveData);&#xD;
 </body>
           </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_uxqG8L2FEeuNvZtNly4PUA" name="given" specification="_YOXgML2FEeuNvZtNly4PUA"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_HCmiUL2GEeuNvZtNly4PUA" name="withDefaultDurationValueFunction" visibility="public" specification="_3KxuAL2FEeuNvZtNly4PUA"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GSGdAL2HEeuNvZtNly4PUA" name="getDistance" specification="_h0nMQL2GEeuNvZtNly4PUA"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Smg08L2HEeuNvZtNly4PUA" name="calculateSubjectiveValueInterestLocations" specification="_OuSboL2GEeuNvZtNly4PUA"/>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_mS7HQKTzEeuFmKtN2pkKow" name="DistanceValueFunction" visibility="private">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_BKO5MKT6EeuPdIA6u3wedQ" name="interestLocations" visibility="public">
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_yVJYkKXbEeukrP4jUfIedQ"/>
@@ -5211,32 +5184,28 @@
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
           </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_mS_YsKTzEeuFmKtN2pkKow" name="addInterestLocation" visibility="private" method="_mS4rAKTzEeuFmKtN2pkKow">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_mS_YsaTzEeuFmKtN2pkKow" name="interest" type="_ESE1Ul_AEeqAAb4u4HLI7w"/>
-          </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_mTDqIKTzEeuFmKtN2pkKow" name="calculateDistanceLocation" visibility="private" method="_mS5SEaTzEeuFmKtN2pkKow">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_mTDqIaTzEeuFmKtN2pkKow" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-            </ownedParameter>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_mTDqIqTzEeuFmKtN2pkKow" name="interest" type="_ESE1Ul_AEeqAAb4u4HLI7w"/>
-          </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_mTJwwKTzEeuFmKtN2pkKow" name="setUtility" visibility="private" method="_mS55IKTzEeuFmKtN2pkKow">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_mTJwwaTzEeuFmKtN2pkKow" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-            </ownedParameter>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_mTJwwqTzEeuFmKtN2pkKow" name="currentdistance">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-            </ownedParameter>
-          </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_mTNbIKTzEeuFmKtN2pkKow" name="getSubjectiveValue" visibility="public" method="_mS6gMKTzEeuFmKtN2pkKow">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="__xwAQKXeEeukrP4jUfIedQ" name="apartmentLocalization" type="_ESE1Ul_AEeqAAb4u4HLI7w"/>
           </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_6hywIKT6EeuPdIA6u3wedQ" name="getDistanceValueFunction" isStatic="true" method="_mS4D8KTzEeuFmKtN2pkKow">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_6hywIaT6EeuPdIA6u3wedQ" name="interestLocations" type="_ESE1Ul_AEeqAAb4u4HLI7w"/>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_6hywIqT6EeuPdIA6u3wedQ" name="PVF" type="_siBZIF_CEeqAAb4u4HLI7w"/>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_uNuZoKT-EeuPdIA6u3wedQ" name="apiKey">
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_YOXgML2FEeuNvZtNly4PUA" name="given" visibility="public" method="_uxqG8L2FEeuNvZtNly4PUA">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_kamzkL2FEeuNvZtNly4PUA" name="interestLocations" type="_ESE1Ul_AEeqAAb4u4HLI7w"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_osanAL2FEeuNvZtNly4PUA" name="apiKey">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_rz25EL2FEeuNvZtNly4PUA" name="durationValueFunction" type="_2fImcL15EeuXGJZ0raZrfA"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_3KxuAL2FEeuNvZtNly4PUA" name="withDefaultDurationValueFunction" visibility="public" method="_HCmiUL2GEeuNvZtNly4PUA">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_64pG4L2FEeuNvZtNly4PUA" name="apiKey">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="__UdK4L2FEeuNvZtNly4PUA" name="interestLocations" type="_ESE1Ul_AEeqAAb4u4HLI7w"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_OuSboL2GEeuNvZtNly4PUA" name="calculateSubjectiveValueInterestLocations" visibility="private" method="_Smg08L2HEeuNvZtNly4PUA">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_SdQAsL2GEeuNvZtNly4PUA" name="apartmentLocalization" type="_ESE1Ul_AEeqAAb4u4HLI7w"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_h0nMQL2GEeuNvZtNly4PUA" name="getDistance" visibility="private" method="_GSGdAL2HEeuNvZtNly4PUA">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_oLMT0L2GEeuNvZtNly4PUA" name="interestLocalization" type="_ESE1Ul_AEeqAAb4u4HLI7w"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_qvFM4L2GEeuNvZtNly4PUA" name="apartmentLocalization" type="_ESE1Ul_AEeqAAb4u4HLI7w"/>
           </ownedOperation>
         </packagedElement>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_TZLrAKT8EeuPdIA6u3wedQ" client="_Thu5IKTzEeuFmKtN2pkKow" supplier="_ESBK8F_AEeqAAb4u4HLI7w"/>
