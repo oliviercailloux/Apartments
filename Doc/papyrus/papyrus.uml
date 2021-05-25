@@ -3312,6 +3312,7 @@
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ZDA38L1_EeuNvZtNly4PUA" name="setWeightSubjectiveValue" specification="_1NkGUL14EeuXGJZ0raZrfA"/>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_r9m5sL1_EeuNvZtNly4PUA" name="getDoubleValueFunction" specification="_4vxBwL14EeuXGJZ0raZrfA"/>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_gGY-oL2AEeuNvZtNly4PUA" name="getBooleanValueFunction" specification="__EFfgL14EeuXGJZ0raZrfA"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_EuMpAL2BEeuNvZtNly4PUA" name="withSubjectiveValueWeight" specification="_GtjLQL15EeuXGJZ0raZrfA"/>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_729_UF_BEeqAAb4u4HLI7w" name="ApartmentValueFunction" visibility="public" method="_73BpsF_BEeqAAb4u4HLI7w"/>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_74GAsF_BEeqAAb4u4HLI7w" name="getSubjectiveValue" visibility="public" method="_74H14F_BEeqAAb4u4HLI7w">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_74GnwF_BEeqAAb4u4HLI7w" direction="return">
@@ -3389,10 +3390,15 @@
           <ownedOperation xmi:type="uml:Operation" xmi:id="_4vxBwL14EeuXGJZ0raZrfA" name="getDoubleValueFunction" visibility="public" method="_r9m5sL1_EeuNvZtNly4PUA">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_U9TKUL2AEeuNvZtNly4PUA" name="Criterion" type="__lgUEGVHEeq0U8CyxWHVBA"/>
           </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="__EFfgL14EeuXGJZ0raZrfA" name="getBooleanValueFunction" method="_gGY-oL2AEeuNvZtNly4PUA">
+          <ownedOperation xmi:type="uml:Operation" xmi:id="__EFfgL14EeuXGJZ0raZrfA" name="getBooleanValueFunction" visibility="public" method="_gGY-oL2AEeuNvZtNly4PUA">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_mgnQEL2AEeuNvZtNly4PUA" name="Criterion" type="__lgUEGVHEeq0U8CyxWHVBA"/>
           </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_GtjLQL15EeuXGJZ0raZrfA" name="withSubjectiveValueWeight"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_GtjLQL15EeuXGJZ0raZrfA" name="withSubjectiveValueWeight" visibility="public" method="_EuMpAL2BEeuNvZtNly4PUA">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_S1HgYL2BEeuNvZtNly4PUA" name="Criterion" type="__lgUEGVHEeq0U8CyxWHVBA"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_VsSh0L2BEeuNvZtNly4PUA" name="value">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+            </ownedParameter>
+          </ownedOperation>
         </packagedElement>
         <packagedElement xmi:type="uml:Interface" xmi:id="_siBZIF_CEeqAAb4u4HLI7w" name="PartialValueFunction" visibility="public">
           <ownedOperation xmi:type="uml:Operation" xmi:id="_siONcV_CEeqAAb4u4HLI7w" name="getSubjectiveValue" visibility="public" raisedException="_73FUEF_BEeqAAb4u4HLI7w">
