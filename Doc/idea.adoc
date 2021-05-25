@@ -87,6 +87,15 @@ In order to improve and make this window match with our ambitions, we might add 
 
 === Others (given by oliviercailloux)
 
+* `DistanceValueFunction` must depends on a service that compute distances. For now `DistanceValueFunction` use an API key to compute the distance between an apartment and the tenant's interest locations.
+* Generate SVG picture instead of PNG in the `SpiderPlot` class. Suggestion : Using Apache Batik (or JFreeSVG, but less powerful).
+* Take charge distant unit testing with link:https://github.com/oliviercailloux/JARiS[JARiS].
+* Find a way to store the user's interest places and how to question him about it.
+* Adapting the `ApartmentValueFunction` by asking differently the questions (for example : What do you prefer between an apartment of size x at y € and an apartment of size x' at y' € ?)
+and adapting the shape of the valuefunction depending on the tenant's answer.
+* The question selected to improve the `ApartmentValueFunction` should depend on the Tenant's answers to the questions previously proposed. Suggestion : Store the answers and give access to the answers to the GUI.
+* `AskOpinionForUtility` takes care of display and choice of questions. It's better to separate these 2 aspect and name them as `AskerGUI` or `QuestionChooser` depending on the aspect.
+* Create an `Orchestrator` class that manage the GUI interfaces. It allows to activate or desactivate the GUI components.
 * Remanufacture `DistanceSubway`, which mixes two features (address and contact request) and duplicates the creation of the request object. Integrate Localizer into this reflection. For example, you would need a `localize(String)` method: LatLng instead of `getGeometryLocation`.
 * Cleaner reading of the Google API key via a file or an environment variable in KeyManager (see link:https://github.com/Dauphine-MIDO/plaquette-MIDO-json[plaquette-MIDO-json])
 * Be able to visualize in a GUI the apartments from the JSON file
@@ -96,7 +105,6 @@ In order to improve and make this window match with our ambitions, we might add 
 * Display of the comparison of two apartments from the user's point of view: partial values ​​and total value (allowing him to understand why an apartment has a lower value)
 * Visualize the value function of the user: on a criterion, graph of the partial value function on this criterion
 * The `PartialValueFunction` interface should not extend Function. Simplify the creators of `PartialValueFunction` using lambda expressions.
-* Reduce redundancy in `ApartmentValueFunction`, simplify so that you can easily modify the criteria
 * Think about a pleasant and useful display of different apartments of great value for the user, in order to allow him to explore interesting alternatives
 * Allow the user to modify their value function and see the result at the same time on the relative value of two apartments
 * Investigate the possibility and propose a way to merge (parts of) this project with link:https://github.com/oliviercailloux/decision-uta-method/[decision-uta-method], which offers a generic way of dealing with a decision problem with criteria and alternatives (alternatives are the objects among which the user wants to choose, for example apartments, cars…)
