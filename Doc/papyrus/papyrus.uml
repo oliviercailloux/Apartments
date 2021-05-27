@@ -573,6 +573,58 @@ The CategoryDataset is required to be able to create a Spider Plot in the create
             <message xmi:type="uml:Message" xmi:id="_B-tyUKwaEeuurZpZ_MDBKw" name="" messageSort="asynchCall" receiveEvent="_B-vAcKwaEeuurZpZ_MDBKw" sendEvent="_B-uZYKwaEeuurZpZ_MDBKw" signature="_QZeiYKeeEeuzh8aae7HGjg"/>
           </packagedElement>
         </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_ddNfUL8UEeurw_7JqMZWRw" name="InteractionBetweenUserAndSpiderPlot">
+          <packagedElement xmi:type="uml:Interaction" xmi:id="_wxuc8L8UEeurw_7JqMZWRw" name="SeqDiag">
+            <lifeline xmi:type="uml:Lifeline" xmi:id="_4h2xYL8UEeurw_7JqMZWRw" name="Tenant" coveredBy="_m47rgL8XEeurw_7JqMZWRw _m452UL8XEeurw_7JqMZWRw _Op1_YL8ZEeurw_7JqMZWRw _Op1_Yb8ZEeurw_7JqMZWRw _ogZtsL8ZEeurw_7JqMZWRw _m48SkL8XEeurw_7JqMZWRw"/>
+            <lifeline xmi:type="uml:Lifeline" xmi:id="_9PDgUL8UEeurw_7JqMZWRw" name="Orchestrator" represents="_kOLJkKWpEeuDvJpHXMpY9A" coveredBy="_10ZlQL8XEeurw_7JqMZWRw _10Y-ML8XEeurw_7JqMZWRw _NzHoML8YEeurw_7JqMZWRw _NzHBIL8YEeurw_7JqMZWRw _udw5cL8YEeurw_7JqMZWRw _-yqrUL8YEeurw_7JqMZWRw _2ZhEgL8XEeurw_7JqMZWRw _2ZfPUL8XEeurw_7JqMZWRw _ogZtsb8ZEeurw_7JqMZWRw _A8RUwL8cEeurw_7JqMZWRw _b0E6IL8bEeurw_7JqMZWRw _b0ETEL8bEeurw_7JqMZWRw _b0FhML8bEeurw_7JqMZWRw _iSWvsL8cEeurw_7JqMZWRw _WEDm0L8cEeurw_7JqMZWRw _WECYsL8cEeurw_7JqMZWRw _m0hTUL8cEeurw_7JqMZWRw _IyRLMb8dEeurw_7JqMZWRw _2ZhrkL8XEeurw_7JqMZWRw"/>
+            <lifeline xmi:type="uml:Lifeline" xmi:id="__QArcL8UEeurw_7JqMZWRw" name="LayoutApartmentGUI" represents="_odFW0mXSEeqLXLaj_4v3Nw" coveredBy="_zI2vkL8YEeurw_7JqMZWRw _zI1hcL8YEeurw_7JqMZWRw _udw5cb8YEeurw_7JqMZWRw _-yqEQb8YEeurw_7JqMZWRw"/>
+            <lifeline xmi:type="uml:Lifeline" xmi:id="_FfN_sL8VEeurw_7JqMZWRw" name="SpiderPlot" represents="_LXpWML8WEeurw_7JqMZWRw" coveredBy="_yh1rgL8bEeurw_7JqMZWRw _yh1EcL8bEeurw_7JqMZWRw _A8R70L8cEeurw_7JqMZWRw _iSWIoL8cEeurw_7JqMZWRw _m0h6YL8cEeurw_7JqMZWRw _IyRLML8dEeurw_7JqMZWRw _yh2SkL8bEeurw_7JqMZWRw"/>
+            <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_m47rgL8XEeurw_7JqMZWRw" name="ActionExecutionSpecification5Start" covered="_4h2xYL8UEeurw_7JqMZWRw" execution="_m452UL8XEeurw_7JqMZWRw"/>
+            <fragment xmi:type="uml:ActionExecutionSpecification" xmi:id="_m452UL8XEeurw_7JqMZWRw" name="ActionExecutionSpecification5" covered="_4h2xYL8UEeurw_7JqMZWRw" finish="_m48SkL8XEeurw_7JqMZWRw" start="_m47rgL8XEeurw_7JqMZWRw"/>
+            <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_10ZlQL8XEeurw_7JqMZWRw" name="BehaviorExecutionSpecification8Start" covered="_9PDgUL8UEeurw_7JqMZWRw" execution="_10Y-ML8XEeurw_7JqMZWRw"/>
+            <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_10Y-ML8XEeurw_7JqMZWRw" name="BehaviorExecutionSpecification8" covered="_9PDgUL8UEeurw_7JqMZWRw" finish="_Op1_YL8ZEeurw_7JqMZWRw" start="_10ZlQL8XEeurw_7JqMZWRw" behavior="_P60wIKehEeuzh8aae7HGjg"/>
+            <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_NzHoML8YEeurw_7JqMZWRw" name="BehaviorExecutionSpecification14Start" covered="_9PDgUL8UEeurw_7JqMZWRw" execution="_NzHBIL8YEeurw_7JqMZWRw"/>
+            <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_NzHBIL8YEeurw_7JqMZWRw" name="BehaviorExecutionSpecification14" covered="_9PDgUL8UEeurw_7JqMZWRw" finish="_-yqrUL8YEeurw_7JqMZWRw" start="_NzHoML8YEeurw_7JqMZWRw"/>
+            <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_zI2vkL8YEeurw_7JqMZWRw" name="ActionExecutionSpecification20Start" covered="__QArcL8UEeurw_7JqMZWRw" execution="_zI1hcL8YEeurw_7JqMZWRw"/>
+            <fragment xmi:type="uml:ActionExecutionSpecification" xmi:id="_zI1hcL8YEeurw_7JqMZWRw" name="ActionExecutionSpecification20" covered="__QArcL8UEeurw_7JqMZWRw" finish="_-yqEQb8YEeurw_7JqMZWRw" start="_zI2vkL8YEeurw_7JqMZWRw"/>
+            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_udw5cL8YEeurw_7JqMZWRw" name="Message17SendEvent" covered="_9PDgUL8UEeurw_7JqMZWRw" message="_ucwM0L8YEeurw_7JqMZWRw"/>
+            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_udw5cb8YEeurw_7JqMZWRw" name="Message17ReceiveEvent" covered="__QArcL8UEeurw_7JqMZWRw" message="_ucwM0L8YEeurw_7JqMZWRw"/>
+            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_-yqEQb8YEeurw_7JqMZWRw" name="Message23SendEvent" covered="__QArcL8UEeurw_7JqMZWRw" message="_-yqEQL8YEeurw_7JqMZWRw"/>
+            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_-yqrUL8YEeurw_7JqMZWRw" name="Message23ReceiveEvent" covered="_9PDgUL8UEeurw_7JqMZWRw" message="_-yqEQL8YEeurw_7JqMZWRw"/>
+            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Op1_YL8ZEeurw_7JqMZWRw" name="Message24SendEvent" covered="_4h2xYL8UEeurw_7JqMZWRw" message="_Op1YUL8ZEeurw_7JqMZWRw"/>
+            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Op1_Yb8ZEeurw_7JqMZWRw" name="Message24ReceiveEvent" covered="_4h2xYL8UEeurw_7JqMZWRw" message="_Op1YUL8ZEeurw_7JqMZWRw"/>
+            <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_2ZhEgL8XEeurw_7JqMZWRw" name="BehaviorExecutionSpecification11Start" covered="_9PDgUL8UEeurw_7JqMZWRw" execution="_2ZfPUL8XEeurw_7JqMZWRw"/>
+            <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_2ZfPUL8XEeurw_7JqMZWRw" name="BehaviorExecutionSpecification11" covered="_9PDgUL8UEeurw_7JqMZWRw" finish="_2ZhrkL8XEeurw_7JqMZWRw" start="_2ZhEgL8XEeurw_7JqMZWRw" behavior="_XSh-YL8XEeurw_7JqMZWRw"/>
+            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_ogZtsL8ZEeurw_7JqMZWRw" name="Message26SendEvent" covered="_4h2xYL8UEeurw_7JqMZWRw" message="_ogYfkL8ZEeurw_7JqMZWRw"/>
+            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_ogZtsb8ZEeurw_7JqMZWRw" name="Message26ReceiveEvent" covered="_9PDgUL8UEeurw_7JqMZWRw" message="_ogYfkL8ZEeurw_7JqMZWRw"/>
+            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_A8RUwL8cEeurw_7JqMZWRw" name="Message35SendEvent" covered="_9PDgUL8UEeurw_7JqMZWRw" message="_A8QGoL8cEeurw_7JqMZWRw"/>
+            <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_b0E6IL8bEeurw_7JqMZWRw" name="BehaviorExecutionSpecification29Start" covered="_9PDgUL8UEeurw_7JqMZWRw" execution="_b0ETEL8bEeurw_7JqMZWRw"/>
+            <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_b0ETEL8bEeurw_7JqMZWRw" name="BehaviorExecutionSpecification29" covered="_9PDgUL8UEeurw_7JqMZWRw" finish="_b0FhML8bEeurw_7JqMZWRw" start="_b0E6IL8bEeurw_7JqMZWRw" behavior="_hZ470LyZEeuvu5ayhp9Lzg"/>
+            <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_yh1rgL8bEeurw_7JqMZWRw" name="ActionExecutionSpecification35Start" covered="_FfN_sL8VEeurw_7JqMZWRw" execution="_yh1EcL8bEeurw_7JqMZWRw"/>
+            <fragment xmi:type="uml:ActionExecutionSpecification" xmi:id="_yh1EcL8bEeurw_7JqMZWRw" name="ActionExecutionSpecification35" covered="_FfN_sL8VEeurw_7JqMZWRw" finish="_yh2SkL8bEeurw_7JqMZWRw" start="_yh1rgL8bEeurw_7JqMZWRw"/>
+            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_A8R70L8cEeurw_7JqMZWRw" name="Message35ReceiveEvent" covered="_FfN_sL8VEeurw_7JqMZWRw" message="_A8QGoL8cEeurw_7JqMZWRw"/>
+            <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_b0FhML8bEeurw_7JqMZWRw" name="BehaviorExecutionSpecification29Finish" covered="_9PDgUL8UEeurw_7JqMZWRw" execution="_b0ETEL8bEeurw_7JqMZWRw"/>
+            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_iSWIoL8cEeurw_7JqMZWRw" name="Message41SendEvent" covered="_FfN_sL8VEeurw_7JqMZWRw" message="_iSVhkL8cEeurw_7JqMZWRw"/>
+            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_iSWvsL8cEeurw_7JqMZWRw" name="Message41ReceiveEvent" covered="_9PDgUL8UEeurw_7JqMZWRw" message="_iSVhkL8cEeurw_7JqMZWRw"/>
+            <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_WEDm0L8cEeurw_7JqMZWRw" name="BehaviorExecutionSpecification38Start" covered="_9PDgUL8UEeurw_7JqMZWRw" execution="_WECYsL8cEeurw_7JqMZWRw"/>
+            <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_WECYsL8cEeurw_7JqMZWRw" name="displaySpiderPlot" covered="_9PDgUL8UEeurw_7JqMZWRw" finish="_IyRLMb8dEeurw_7JqMZWRw" start="_WEDm0L8cEeurw_7JqMZWRw" behavior="_ARo40L8bEeurw_7JqMZWRw"/>
+            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_m0hTUL8cEeurw_7JqMZWRw" name="Message44SendEvent" covered="_9PDgUL8UEeurw_7JqMZWRw" message="_m0gFML8cEeurw_7JqMZWRw"/>
+            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_m0h6YL8cEeurw_7JqMZWRw" name="Message44ReceiveEvent" covered="_FfN_sL8VEeurw_7JqMZWRw" message="_m0gFML8cEeurw_7JqMZWRw"/>
+            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_IyRLML8dEeurw_7JqMZWRw" name="Message47SendEvent" covered="_FfN_sL8VEeurw_7JqMZWRw" message="_IyQkIL8dEeurw_7JqMZWRw"/>
+            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_IyRLMb8dEeurw_7JqMZWRw" name="Message47ReceiveEvent" covered="_9PDgUL8UEeurw_7JqMZWRw" message="_IyQkIL8dEeurw_7JqMZWRw"/>
+            <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_m48SkL8XEeurw_7JqMZWRw" name="ActionExecutionSpecification5Finish" covered="_4h2xYL8UEeurw_7JqMZWRw" execution="_m452UL8XEeurw_7JqMZWRw"/>
+            <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_yh2SkL8bEeurw_7JqMZWRw" name="ActionExecutionSpecification35Finish" covered="_FfN_sL8VEeurw_7JqMZWRw" execution="_yh1EcL8bEeurw_7JqMZWRw"/>
+            <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_2ZhrkL8XEeurw_7JqMZWRw" name="BehaviorExecutionSpecification11Finish" covered="_9PDgUL8UEeurw_7JqMZWRw" execution="_2ZfPUL8XEeurw_7JqMZWRw"/>
+            <message xmi:type="uml:Message" xmi:id="_ucwM0L8YEeurw_7JqMZWRw" name="Message17" receiveEvent="_udw5cb8YEeurw_7JqMZWRw" sendEvent="_udw5cL8YEeurw_7JqMZWRw" signature="_VKs_UF_AEeqAAb4u4HLI7w"/>
+            <message xmi:type="uml:Message" xmi:id="_-yqEQL8YEeurw_7JqMZWRw" name="display a sorted apartment list" messageSort="reply" receiveEvent="_-yqrUL8YEeurw_7JqMZWRw" sendEvent="_-yqEQb8YEeurw_7JqMZWRw"/>
+            <message xmi:type="uml:Message" xmi:id="_Op1YUL8ZEeurw_7JqMZWRw" name="Choose 2 apartments to compare" messageSort="asynchCall" receiveEvent="_Op1_Yb8ZEeurw_7JqMZWRw" sendEvent="_Op1_YL8ZEeurw_7JqMZWRw"/>
+            <message xmi:type="uml:Message" xmi:id="_ogYfkL8ZEeurw_7JqMZWRw" name="Message26" messageSort="asynchCall" receiveEvent="_ogZtsb8ZEeurw_7JqMZWRw" sendEvent="_ogZtsL8ZEeurw_7JqMZWRw" signature="_1QNoML8ZEeurw_7JqMZWRw"/>
+            <message xmi:type="uml:Message" xmi:id="_A8QGoL8cEeurw_7JqMZWRw" name="Message35" receiveEvent="_A8R70L8cEeurw_7JqMZWRw" sendEvent="_A8RUwL8cEeurw_7JqMZWRw" signature="_a_j8sLyZEeuvu5ayhp9Lzg"/>
+            <message xmi:type="uml:Message" xmi:id="_iSVhkL8cEeurw_7JqMZWRw" name="Message41" messageSort="reply" receiveEvent="_iSWvsL8cEeurw_7JqMZWRw" sendEvent="_iSWIoL8cEeurw_7JqMZWRw"/>
+            <message xmi:type="uml:Message" xmi:id="_m0gFML8cEeurw_7JqMZWRw" name="Message44" receiveEvent="_m0h6YL8cEeurw_7JqMZWRw" sendEvent="_m0hTUL8cEeurw_7JqMZWRw" signature="_9mkZsL8aEeurw_7JqMZWRw"/>
+            <message xmi:type="uml:Message" xmi:id="_IyQkIL8dEeurw_7JqMZWRw" name="Message47" messageSort="reply" receiveEvent="_IyRLMb8dEeurw_7JqMZWRw" sendEvent="_IyRLML8dEeurw_7JqMZWRw"/>
+          </packagedElement>
+        </packagedElement>
       </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_VlcsAGrAEeqG6NsufvOKcA" name="io.github.oliviercailloux.y2018">
@@ -2768,12 +2820,16 @@ The CategoryDataset is required to be able to create a Spider Plot in the create
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_P60wIKehEeuzh8aae7HGjg" name="showLAG" specification="_V_AR8KWlEeuDvJpHXMpY9A"/>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_RS7LgKehEeuzh8aae7HGjg" name="chooseApartmentClick" specification="_QZeiYKeeEeuzh8aae7HGjg"/>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__fnIEKwYEeuurZpZ_MDBKw" name="finishButtonClick" specification="_7LCUgKwYEeuurZpZ_MDBKw"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_XSh-YL8XEeurw_7JqMZWRw" name="showSpiderPlot" specification="_OEUiYL8XEeurw_7JqMZWRw"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_S4mCUL8aEeurw_7JqMZWRw" name="compareApartClick" specification="_1QNoML8ZEeurw_7JqMZWRw"/>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_KRzD8KWlEeuDvJpHXMpY9A" name="showAOFU" visibility="public" method="_OgF3gKehEeuzh8aae7HGjg"/>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_V_AR8KWlEeuDvJpHXMpY9A" name="showLAG" visibility="public" method="_P60wIKehEeuzh8aae7HGjg"/>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_WvmU0KbLEeut96yX7t5ziQ" name="moreQuestionsClick" visibility="public" method="_MBz3MKehEeuzh8aae7HGjg"/>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_lf-okKd-EeuHaazZG4EP4A" name="addAnswerClick" visibility="public" method="_NZjtQKehEeuzh8aae7HGjg"/>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_QZeiYKeeEeuzh8aae7HGjg" name="chooseApartmentClick" visibility="public" method="_RS7LgKehEeuzh8aae7HGjg"/>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_7LCUgKwYEeuurZpZ_MDBKw" name="finishButtonClick" visibility="public" method="__fnIEKwYEeuurZpZ_MDBKw"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_OEUiYL8XEeurw_7JqMZWRw" name="showSpiderPlot" visibility="public" method="_XSh-YL8XEeurw_7JqMZWRw"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_1QNoML8ZEeurw_7JqMZWRw" name="compareApartClick" visibility="public" method="_S4mCUL8aEeurw_7JqMZWRw"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_AvDEALyeEeuvu5ayhp9Lzg" client="_VKBp4F_AEeqAAb4u4HLI7w" supplier="_3ns3QLyYEeuvu5ayhp9Lzg"/>
       </packagedElement>
@@ -5562,11 +5618,13 @@ The CategoryDataset is required to be able to create a Spider Plot in the create
       <packagedElement xmi:type="uml:Package" xmi:id="_1HbS4LyYEeuvu5ayhp9Lzg" name="plot">
         <packagedElement xmi:type="uml:Class" xmi:id="_3ns3QLyYEeuvu5ayhp9Lzg" name="SpiderPlot" visibility="public">
           <ownedAttribute xmi:type="uml:Property" xmi:id="_8lF-ULyYEeuvu5ayhp9Lzg" name="LOGGER" visibility="private" type="_ZCxH8F--EeqAAb4u4HLI7w"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_LXpWML8WEeurw_7JqMZWRw" visibility="public" type="_3ns3QLyYEeuvu5ayhp9Lzg"/>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_eDXr8LyZEeuvu5ayhp9Lzg" name="createChart" specification="_YwUd8LyZEeuvu5ayhp9Lzg"/>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_fK5UsLyZEeuvu5ayhp9Lzg" name="toCategoryDataSet" specification="_Z7uhILyZEeuvu5ayhp9Lzg"/>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_gRctELyZEeuvu5ayhp9Lzg" name="createImgChart" specification="_dFFewLyZEeuvu5ayhp9Lzg"/>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_hZ470LyZEeuvu5ayhp9Lzg" name="given" specification="_a_j8sLyZEeuvu5ayhp9Lzg"/>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ib5ycLyZEeuvu5ayhp9Lzg" name="SpiderPlot" specification="_cD02ELyZEeuvu5ayhp9Lzg"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ARo40L8bEeurw_7JqMZWRw" name="displaySpiderPlot" specification="_9mkZsL8aEeurw_7JqMZWRw"/>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_YwUd8LyZEeuvu5ayhp9Lzg" name="createChart" visibility="private" method="_eDXr8LyZEeuvu5ayhp9Lzg">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_8pUUALy5Eeuvu5ayhp9Lzg" name="dataset" type="_L5pcwLy1Eeuvu5ayhp9Lzg"/>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_aMgaMLy8Eeuvu5ayhp9Lzg" type="_klApcLyYEeuvu5ayhp9Lzg" direction="return"/>
@@ -5592,6 +5650,7 @@ The CategoryDataset is required to be able to create a Spider Plot in the create
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_DIK-4LybEeuvu5ayhp9Lzg" name="jfreechart" type="_klApcLyYEeuvu5ayhp9Lzg"/>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_r3Cs0Ly9Eeuvu5ayhp9Lzg" type="_flZVALy9Eeuvu5ayhp9Lzg" direction="return"/>
           </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_9mkZsL8aEeurw_7JqMZWRw" name="displaySpiderPlot" visibility="public" method="_ARo40L8bEeurw_7JqMZWRw"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_wTTDQLydEeuvu5ayhp9Lzg" client="_3ns3QLyYEeuvu5ayhp9Lzg" supplier="_72rEYF_BEeqAAb4u4HLI7w"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_8U1igLydEeuvu5ayhp9Lzg" client="_3ns3QLyYEeuvu5ayhp9Lzg" supplier="_1N7WIF--EeqAAb4u4HLI7w"/>
