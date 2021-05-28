@@ -21,7 +21,7 @@ Now that you have a small idea of the project, it is time to read the specific d
 == Read the documentation
 
 * Read the link:README.adoc[README.adoc] for a global overview of the app.
-* Read the link:packages.adoc[package.adoc] to learn the impletemented packages and have detailed explanation of its classes. The `valuefunction` package is the most important ! The whole project revolves around it. Now that you know the packages and classes, you can do the next step.
+* Read the link:packages.adoc[packages.adoc] to learn the impletemented packages and have detailed explanation of its classes. The `valuefunction` package is the most important ! The whole project revolves around it. Now that you know the packages and classes, you can do the next step.
 * Read the link:global.adoc[global.adoc] to see the general diagrams. You will find all the images under link:img[img].
 
 == UML
