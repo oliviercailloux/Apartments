@@ -4945,6 +4945,10 @@
               <element xmi:type="uml:EnumerationLiteral" href="papyrus.uml#__mDGoGVHEeq0U8CyxWHVBA"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_E9-345VcEeqmbJTzZahZGQ"/>
             </children>
+            <children xmi:type="notation:Shape" xmi:id="_YRlWQL-IEeupp6EzsendJg" type="EnumerationLiteral_LiteralLabel">
+              <element xmi:type="uml:EnumerationLiteral" href="papyrus.uml#_IpTZ0L-IEeupp6EzsendJg"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_YRlWQb-IEeupp6EzsendJg"/>
+            </children>
             <styles xmi:type="notation:TitleStyle" xmi:id="_7EXZVJVZEeqmbJTzZahZGQ"/>
             <styles xmi:type="notation:SortingStyle" xmi:id="_7EXZVZVZEeqmbJTzZahZGQ"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_7EXZVpVZEeqmbJTzZahZGQ"/>

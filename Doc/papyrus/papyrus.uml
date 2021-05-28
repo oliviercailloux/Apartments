@@ -3093,13 +3093,16 @@
             </defaultValue>
           </ownedAttribute>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_qJPHIL2BEeuNvZtNly4PUA" name="booleanValueFunctions" visibility="public" type="_60wi4L15EeuXGJZ0raZrfA">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ARiLsL-KEeupp6EzsendJg"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HCWLAL2DEeuNvZtNly4PUA" value="*"/>
           </ownedAttribute>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_9oh78L2CEeuNvZtNly4PUA" name="doubleValueFunctions" visibility="public" type="_2fImcL15EeuXGJZ0raZrfA">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CDIFIL-KEeupp6EzsendJg"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GLJdQL2DEeuNvZtNly4PUA" value="*"/>
           </ownedAttribute>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_BK4BUL2DEeuNvZtNly4PUA" name="weight" visibility="public">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_BTwdsL-KEeupp6EzsendJg"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FFqb4L2DEeuNvZtNly4PUA" value="*"/>
           </ownedAttribute>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_73BpsF_BEeqAAb4u4HLI7w" name="ApartmentValueFunction" specification="_729_UF_BEeqAAb4u4HLI7w">
@@ -3427,6 +3430,7 @@
           <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="__l8Y8GVHEeq0U8CyxWHVBA" name="NB_SLEEPING"/>
           <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="__l-1MGVHEeq0U8CyxWHVBA" name="NB_MIN_NIGHT"/>
           <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="__mDGoGVHEeq0U8CyxWHVBA" name="PRICE_PER_NIGHT"/>
+          <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_IpTZ0L-IEeupp6EzsendJg" name="DISTANCE"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_74b-8F_BEeqAAb4u4HLI7w" name="LinearValueFunction" visibility="public">
           <generalization xmi:type="uml:Generalization" xmi:id="_WnXfsF_CEeqAAb4u4HLI7w"/>
@@ -3504,7 +3508,9 @@
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_8udoAF_BEeqAAb4u4HLI7w" name="BooleanValueFunction" visibility="public">
           <generalization xmi:type="uml:Generalization" xmi:id="_8uePEF_BEeqAAb4u4HLI7w"/>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_8ugrUF_BEeqAAb4u4HLI7w" name="subjective" visibility="private" isUnique="false"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_8ugrUF_BEeqAAb4u4HLI7w" name="subjective" visibility="private" isUnique="false">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EMap"/>
+          </ownedAttribute>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_8uhSYF_BEeqAAb4u4HLI7w" name="LOGGER" visibility="private" isLeaf="true" isStatic="true" type="_ZCxH8F--EeqAAb4u4HLI7w" isUnique="false">
             <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_8uhSYV_BEeqAAb4u4HLI7w" name="defaultValue">
               <language>JAVA</language>
@@ -3551,11 +3557,11 @@
             </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_8ukVsV_BEeqAAb4u4HLI7w" name="getSubjectiveValue" visibility="public" method="_8unZAF_BEeqAAb4u4HLI7w" raisedException="_73FUEF_BEeqAAb4u4HLI7w">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_8uk8wF_BEeqAAb4u4HLI7w" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-            </ownedParameter>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_8umK4F_BEeqAAb4u4HLI7w" name="objectiveData">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_f-GnEPaLEeW5KOK8aDMdgA"/>
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_n_k8UL-MEeupp6EzsendJg" name="subjectiveValue" direction="out">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
             </ownedParameter>
           </ownedOperation>
         </packagedElement>
