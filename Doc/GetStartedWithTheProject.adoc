@@ -1,0 +1,38 @@
+:toc:
+:toc-placement!:
+:toclevels: 4
+:toclevels: 1
+
+= Apartments
+
+toc::[]
+
+== What's inside projet apartments ?
+
+Inside the project, you have three main topics. Under the folder link:[Doc], you will find everything you need for your UML iterations.
+Under the folder link:/src[src], you have the java code you need to work on. 
+Last but not least, the README.adoc allows you to understand what we've done this past year. 
+
+== First launch of the App
+
+Before getting into details, let's start the app and see what it does. Clone the project on your local repository, and then open it on Eclipse. In the documentation link:/run.adoc[run.adoc], you have an overview of all the executable classes. I advice you to launch all of them, and to read the documentation in order to understand how it operates, and what the main goal of the application is. Depending on the Tenant preferences, you have a different list of apartments showing up.
+Now that you have a small idea of the project, it is time to read the specific documentation.
+
+== Read the documentation
+
+* Read the link:README.adoc[README.adoc] for a global overview of the app.
+* Read the link:package.adoc[package.adoc] to learn the impletemented packages and have detailed explanation of its classes. The `valuefunction` package is the most important ! The whole project revolves around it. Now that you know the packages and classes, you can do the next step.
+* Read the link:global.adoc[global.adoc] to see the general diagrams. You will find all the images under link:img[img].
+
+== UML
+
+* Open the papyrus model on Eclipse. 
+* Make sure you understand the artefact behind the model. It is the key to your future iterations in UML. You need to keep it clean.
+* Observe all the diagrams in the model.
+
+
+
+
+
+
+
