@@ -30,10 +30,21 @@ Now that you have a small idea of the project, it is time to read the specific d
 * Make sure you understand the artefact behind the model. It is the key to your future iterations in UML. You need to keep it clean.
 * Observe all the diagrams in the model. They show all that has been implemented in Java. Understanding the diagrams will help you understand the java code behind.
 
+== JAVA 
 
+Maintenant que le projet n'est plus inconnu pour vous et que vous connaissez bien les packages et classes qu'il contient ainsi que leurs liens, il est temps de s'attaquer au code.
 
+* Avant de toucher à n'importe classe il est important et nécessaire de maîtriser le minimum du langage Java. C'est-à-dire il est absolument nécessaire de :
+      - Avoir les bases de la syntaxe java 
+      - De bien savoir les différences entre un package, une classe, une interface, une méthode. Cela ne doit pas évoquer des choses vagues pour vous mais des notions bien claires. 
+      - Comprendre Maven vous permettra de comprendre la découpe du projet. 
 
+* Dans le dossier src vous avez le code source du projet : Vous y retrouvez les différents packages ainsi que leurs classes. On vous conseille de commencer à regarder cette partie du projet. 
 
+Prenez le temps de parcourir tous les packages du projets en faisant sorte de comprendre l'implémentation de leurs classe. La vue javadoc sera votre meilleur outil pour comprendre le code, n'hésitez pas à l'utiliser pour savoir ce que fait une classe ou une méthode. Aidez vous également de toute la documentation que vous vous êtes imprégné auparavant, elle est vraiment là pour vous aider. 
 
+== Idées 
 
-
+* Maintenant que le projet n'a plus aucun secret pour vous, nous vous conseillons d'ouvrir idea.adoc pour vous faire pleins d'idées de ce que vous pourrez réaliser lors de vos itérations en UML et JAVA. Dans ce document, vous retrouvez toutes les idées que nous trouvons intéressantes à rajouter au projet que nous avons pas eût l'occasion d'implémenter lors de nos itérations. 
+        
+A vous de jouer le jeu ! 
