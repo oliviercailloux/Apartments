@@ -40,7 +40,7 @@ image::spider plot image.png?raw=true[Example of a spider plot]
 
 In the Java implementation, we created the `plot` package that contains the `SpiderPlot` class. It generates a SpiderPlot having in parameters two adresses and an AVF.
 
-image::diagram-class-package-plot.png?raw=true[Plot class package diagram]
+image::diagram-class-package-plot.svg?raw=true[Plot class package diagram]
 
 This class diagram gives a representation of the java implementation of this package and its class. We added, following the Teacher's recommandations, details about CategoryDataset interface and the JFreechart class to have a better overall understanding.
 
