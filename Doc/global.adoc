@@ -24,13 +24,13 @@ image::diagram-package-global.png?raw=true[Global package diagram]
 
 * Global class diagram (simplified)
 
-image::diagram-class-global-simplified.png?raw=true[Global class diagram (simplified)]
+image::diagram-class-global-simplified.svg?raw=true[Global class diagram (simplified)]
 
 This is a class diagram to describe interactions between each package of the projet-apartments. Here, we especially added the Plot package in the diagram so that we can understand its interactions with the other packages. More details regarding the classes and methods interactions are available in the `diagram-class-global-detailed`.
 
 * Global class diagram (detailed)
 
-image::diagram-class-global-detailed.png?raw=true[Global class diagram (detailed)]
+image::diagram-class-global-detailed.svg?raw=true[Global class diagram (detailed)]
 
 * Plot class package diagram
 
