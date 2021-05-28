@@ -446,6 +446,9 @@ These categories are represented by instances of Comparable. &#xD;
 In our case, the categories are represented by the addresses of the apartments being compared and the criterions.&#xD;
 The CategoryDataset is required to be able to create a Spider Plot in the createChart method.</body>
         </ownedComment>
+        <ownedComment xmi:type="uml:Comment" xmi:id="_W56BkL-cEeuTCode7H4oog" annotatedElement="_fTRnoL-ZEeuTCode7H4oog">
+          <body>Given a catagoryDataset as a parameter, the constructor of this class generates a Spider Plot.</body>
+        </ownedComment>
         <packagedElement xmi:type="uml:Package" xmi:id="_DFOKsGrDEeqG6NsufvOKcA" name="DC Global Detailed">
           <packagedElement xmi:type="uml:Association" xmi:id="_rrSy8GVIEeq0U8CyxWHVBA" name="&lt; a choisi" visibility="private" memberEnd="_rrjRoGVIEeq0U8CyxWHVBA _rrkfwGVIEeq0U8CyxWHVBA">
             <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_rrg1YGVIEeq0U8CyxWHVBA" source="org.eclipse.papyrus">
@@ -5627,26 +5630,41 @@ The CategoryDataset is required to be able to create a Spider Plot in the create
           </packagedElement>
         </packagedElement>
       </packagedElement>
-      <packagedElement xmi:type="uml:Package" xmi:id="_QFppULyYEeuvu5ayhp9Lzg" name="org">
-        <packagedElement xmi:type="uml:Package" xmi:id="_TN_TQLyYEeuvu5ayhp9Lzg" name="jfree">
-          <packagedElement xmi:type="uml:Package" xmi:id="_WU0hULyYEeuvu5ayhp9Lzg" name="data">
-            <packagedElement xmi:type="uml:Package" xmi:id="_Z04uwLyYEeuvu5ayhp9Lzg" name="category">
-              <packagedElement xmi:type="uml:Interface" xmi:id="_L5pcwLy1Eeuvu5ayhp9Lzg" name="CategoryDataset" visibility="public"/>
-              <packagedElement xmi:type="uml:Class" xmi:id="_RjJmcLy2Eeuvu5ayhp9Lzg" name="DefaultCategoryDataset" visibility="public">
-                <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_JBoxALy5Eeuvu5ayhp9Lzg" name="     implements" client="_RjJmcLy2Eeuvu5ayhp9Lzg" supplier="_L5pcwLy1Eeuvu5ayhp9Lzg" contract="_L5pcwLy1Eeuvu5ayhp9Lzg"/>
-                <ownedOperation xmi:type="uml:Operation" xmi:id="_kCQmELy2Eeuvu5ayhp9Lzg" name="«create» DefaultCategoryDataset" visibility="public"/>
-                <ownedOperation xmi:type="uml:Operation" xmi:id="_mfqcoLy2Eeuvu5ayhp9Lzg" name="addValue" visibility="public">
-                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_GjBEYLy3Eeuvu5ayhp9Lzg" name="value">
-                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
-                  </ownedParameter>
-                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_o9bDELy3Eeuvu5ayhp9Lzg" name="rowKey" type="_WsgQcLy3Eeuvu5ayhp9Lzg"/>
-                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_u-J2cLy3Eeuvu5ayhp9Lzg" name="columnKey" type="_WsgQcLy3Eeuvu5ayhp9Lzg"/>
-                </ownedOperation>
-              </packagedElement>
-            </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_QFppULyYEeuvu5ayhp9Lzg" name="org.jfree">
+        <packagedElement xmi:type="uml:Package" xmi:id="_TN_TQLyYEeuvu5ayhp9Lzg" name="data.category">
+          <packagedElement xmi:type="uml:Package" xmi:id="_WU0hULyYEeuvu5ayhp9Lzg" name="data"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_hVrmsLyYEeuvu5ayhp9Lzg" name="chart">
+          <packagedElement xmi:type="uml:Class" xmi:id="_klApcLyYEeuvu5ayhp9Lzg" name="JFreeChart" visibility="public">
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_FOLcIL-bEeuTCode7H4oog" name="«create» JFreeChart" visibility="public">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_OyLh8L-bEeuTCode7H4oog" name="title">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_V3D58L-bEeuTCode7H4oog" name="plot" type="_fTRnoL-ZEeuTCode7H4oog"/>
+            </ownedOperation>
           </packagedElement>
-          <packagedElement xmi:type="uml:Package" xmi:id="_hVrmsLyYEeuvu5ayhp9Lzg" name="chart">
-            <packagedElement xmi:type="uml:Class" xmi:id="_klApcLyYEeuvu5ayhp9Lzg" name="JFreeChart"/>
+          <packagedElement xmi:type="uml:Package" xmi:id="_YCQ4IL-ZEeuTCode7H4oog" name="plot">
+            <packagedElement xmi:type="uml:Class" xmi:id="_fTRnoL-ZEeuTCode7H4oog" name="SpiderWebPlot" visibility="public">
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_celdAL-aEeuTCode7H4oog" name="«create» SpiderWebPlot" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_088CQL-aEeuTCode7H4oog" name="dataset" type="_L5pcwLy1Eeuvu5ayhp9Lzg"/>
+              </ownedOperation>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Dependency" xmi:id="_-fQ3oL-bEeuTCode7H4oog" client="_fTRnoL-ZEeuTCode7H4oog" supplier="_L5pcwLy1Eeuvu5ayhp9Lzg"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Dependency" xmi:id="_G7hSQL-cEeuTCode7H4oog" client="_klApcLyYEeuvu5ayhp9Lzg" supplier="_fTRnoL-ZEeuTCode7H4oog"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_Z04uwLyYEeuvu5ayhp9Lzg" name="data.category">
+          <packagedElement xmi:type="uml:Interface" xmi:id="_L5pcwLy1Eeuvu5ayhp9Lzg" name="CategoryDataset" visibility="public"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_RjJmcLy2Eeuvu5ayhp9Lzg" name="DefaultCategoryDataset" visibility="public">
+            <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_JBoxALy5Eeuvu5ayhp9Lzg" name="     implements" client="_RjJmcLy2Eeuvu5ayhp9Lzg" supplier="_L5pcwLy1Eeuvu5ayhp9Lzg" contract="_L5pcwLy1Eeuvu5ayhp9Lzg"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_kCQmELy2Eeuvu5ayhp9Lzg" name="«create» DefaultCategoryDataset" visibility="public"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_mfqcoLy2Eeuvu5ayhp9Lzg" name="addValue" visibility="public">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_GjBEYLy3Eeuvu5ayhp9Lzg" name="value">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+              </ownedParameter>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_o9bDELy3Eeuvu5ayhp9Lzg" name="rowKey" type="_WsgQcLy3Eeuvu5ayhp9Lzg"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_u-J2cLy3Eeuvu5ayhp9Lzg" name="columnKey" type="_WsgQcLy3Eeuvu5ayhp9Lzg"/>
+            </ownedOperation>
           </packagedElement>
         </packagedElement>
       </packagedElement>
