@@ -3329,6 +3329,9 @@
           <ownedOperation xmi:type="uml:Operation" xmi:id="_729_UF_BEeqAAb4u4HLI7w" name="ApartmentValueFunction" visibility="public" method="_73BpsF_BEeqAAb4u4HLI7w"/>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_74GAsF_BEeqAAb4u4HLI7w" name="getSubjectiveValue" visibility="public" method="_74H14F_BEeqAAb4u4HLI7w">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_74HO0F_BEeqAAb4u4HLI7w" name="apart" type="_rBU6AJ2dEeq5UMfZ1C8e7g"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_1ZhmsL-REeupp6EzsendJg" name="subjectiveValue" direction="out">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+            </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_74JEAF_BEeqAAb4u4HLI7w" name="cloneAVF" visibility="private" method="_74KSIF_BEeqAAb4u4HLI7w">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_74JrEF_BEeqAAb4u4HLI7w" type="_72rEYF_BEeqAAb4u4HLI7w" direction="return"/>
@@ -3412,10 +3415,10 @@
         </packagedElement>
         <packagedElement xmi:type="uml:Interface" xmi:id="_siBZIF_CEeqAAb4u4HLI7w" name="PartialValueFunction" visibility="public">
           <ownedOperation xmi:type="uml:Operation" xmi:id="_siONcV_CEeqAAb4u4HLI7w" name="getSubjectiveValue" visibility="public" raisedException="_73FUEF_BEeqAAb4u4HLI7w">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_siO0gF_CEeqAAb4u4HLI7w" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-            </ownedParameter>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_siO0gV_CEeqAAb4u4HLI7w" name="objectiveData" type="_MMYHgV_CEeqAAb4u4HLI7w"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_7a6W0L-QEeupp6EzsendJg" name="subjectiveValue" direction="out">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+            </ownedParameter>
           </ownedOperation>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_73FUEF_BEeqAAb4u4HLI7w" name="IllegalArgumentException"/>
@@ -3692,9 +3695,6 @@
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_SVqZ8F_CEeqAAb4u4HLI7w" name="objectiveData" type="_MMYHgV_CEeqAAb4u4HLI7w"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_SVroEF_CEeqAAb4u4HLI7w" name="getSubjectiveValue" visibility="public" method="_SVtdQF_CEeqAAb4u4HLI7w" raisedException="_73FUEF_BEeqAAb4u4HLI7w">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_SVsPIF_CEeqAAb4u4HLI7w" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-            </ownedParameter>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_SVs2MF_CEeqAAb4u4HLI7w" name="objectiveData" type="_MMYHgV_CEeqAAb4u4HLI7w"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_SVurYF_CEeqAAb4u4HLI7w" name="discreteValueFunctionBeetween" visibility="public" isStatic="true" method="_SVy80F_CEeqAAb4u4HLI7w">
