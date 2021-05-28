@@ -3059,11 +3059,11 @@
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_d2Cs4F_CEeqAAb4u4HLI7w" name="utilParameters"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_d2EiEF_CEeqAAb4u4HLI7w" name="getSubjectiveValue" visibility="public" method="_d2FwMV_CEeqAAb4u4HLI7w">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_d2FJIF_CEeqAAb4u4HLI7w" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-            </ownedParameter>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_d2FwMF_CEeqAAb4u4HLI7w" name="objectiveData">
               <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_KgG0cPaLEeW5KOK8aDMdgA"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_LeH18L_4Eeu0yqX4zbq-jw" name="subjectiveValue" direction="out">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
             </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_d2HlYF_CEeqAAb4u4HLI7w" name="apply" visibility="public" method="_d2JakF_CEeqAAb4u4HLI7w">
@@ -3493,11 +3493,11 @@
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_WndmUF_CEeqAAb4u4HLI7w" type="_WnYGwF_CEeqAAb4u4HLI7w" direction="return"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_WndmUl_CEeqAAb4u4HLI7w" name="getSubjectiveValue" visibility="public" method="_Wnjs8F_CEeqAAb4u4HLI7w" raisedException="_Wne0cF_CEeqAAb4u4HLI7w">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_WndmU1_CEeqAAb4u4HLI7w" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-            </ownedParameter>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_WneNYF_CEeqAAb4u4HLI7w" name="objectiveData">
               <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_KgG0cPaLEeW5KOK8aDMdgA"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_VGLVUL_4Eeu0yqX4zbq-jw" name="subjectiveValue" direction="out">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
             </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_Wnk7EF_CEeqAAb4u4HLI7w" name="apply" visibility="public" method="_WnmJMF_CEeqAAb4u4HLI7w">
@@ -3603,10 +3603,10 @@
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_MMajwF_CEeqAAb4u4HLI7w" name="objectiveData" type="_MMYHgV_CEeqAAb4u4HLI7w"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_MMbK0F_CEeqAAb4u4HLI7w" name="getSubjectiveValue" visibility="public" method="_MMgDUF_CEeqAAb4u4HLI7w" raisedException="_73FUEF_BEeqAAb4u4HLI7w">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_MMbx4F_CEeqAAb4u4HLI7w" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-            </ownedParameter>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_MMcY8F_CEeqAAb4u4HLI7w" name="objectiveData" type="_MMYHgV_CEeqAAb4u4HLI7w"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_P8T4gL_4Eeu0yqX4zbq-jw" name="subjectiveValue" direction="out">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+            </ownedParameter>
           </ownedOperation>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_MMYHgV_CEeqAAb4u4HLI7w" name="T"/>
@@ -3696,6 +3696,9 @@
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_SVroEF_CEeqAAb4u4HLI7w" name="getSubjectiveValue" visibility="public" method="_SVtdQF_CEeqAAb4u4HLI7w" raisedException="_73FUEF_BEeqAAb4u4HLI7w">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_SVs2MF_CEeqAAb4u4HLI7w" name="objectiveData" type="_MMYHgV_CEeqAAb4u4HLI7w"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_8rtxkL_3Eeu0yqX4zbq-jw" name="subjectiveValue">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+            </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_SVurYF_CEeqAAb4u4HLI7w" name="discreteValueFunctionBeetween" visibility="public" isStatic="true" method="_SVy80F_CEeqAAb4u4HLI7w">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_SVwgkF_CEeqAAb4u4HLI7w" type="_SVVCwF_CEeqAAb4u4HLI7w" direction="return"/>
@@ -3755,11 +3758,11 @@
             </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_oHMzoV_CEeqAAb4u4HLI7w" name="getSubjectiveValue" visibility="public" method="_oHOBwF_CEeqAAb4u4HLI7w" raisedException="_73FUEF_BEeqAAb4u4HLI7w">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_oHMzol_CEeqAAb4u4HLI7w" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-            </ownedParameter>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_oHNasF_CEeqAAb4u4HLI7w" name="objectiveData">
               <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_KgG0cPaLEeW5KOK8aDMdgA"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_B0iFgL_4Eeu0yqX4zbq-jw" name="subjectiveValue" direction="out">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
             </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_oHPP4F_CEeqAAb4u4HLI7w" name="apply" visibility="public" method="_oHP28l_CEeqAAb4u4HLI7w">
@@ -5192,6 +5195,9 @@
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_mTNbIKTzEeuFmKtN2pkKow" name="getSubjectiveValue" visibility="public" method="_mS6gMKTzEeuFmKtN2pkKow">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="__xwAQKXeEeukrP4jUfIedQ" name="apartmentLocalization" type="_ESE1Ul_AEeqAAb4u4HLI7w"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_FWZpwL_4Eeu0yqX4zbq-jw" name="subjectiveValue" direction="out">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+            </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_YOXgML2FEeuNvZtNly4PUA" name="given" visibility="public" method="_uxqG8L2FEeuNvZtNly4PUA">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_kamzkL2FEeuNvZtNly4PUA" name="interestLocations" type="_ESE1Ul_AEeqAAb4u4HLI7w"/>
