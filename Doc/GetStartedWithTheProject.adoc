@@ -28,7 +28,8 @@ Now that you have a small idea of the project, it is time to read the specific d
 
 * Open the papyrus model on Eclipse. 
 * Make sure you understand the artefact behind the model. It is the key to your future iterations in UML. You need to keep it clean.
-* Observe all the diagrams in the model.
+* Observe all the diagrams in the model. They show all that has been implemented in Java. Understanding the diagrams will help you understand the java code behind.
+
 
 
 
