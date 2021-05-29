@@ -91,8 +91,7 @@ In order to improve and make this window match with our ambitions, we might add 
 * Generate SVG picture instead of PNG in the `SpiderPlot` class. Suggestion : Using Apache Batik (or JFreeSVG, but less powerful).
 * Take charge distant unit testing with link:https://github.com/oliviercailloux/JARiS[JARiS].
 * Find a way to store the user's interest places and how to question him about it.
-* Adapting the `ApartmentValueFunction` by asking differently the questions (for example : What do you prefer between an apartment of size x at y € and an apartment of size x' at y' € ?)
-and adapting the shape of the valuefunction depending on the tenant's answer.
+* Adapting the `ApartmentValueFunction` by asking differently the questions (for example : What do you prefer between an apartment of size x at y € and an apartment of size x' at y' € ?) and adapting the shape of the valuefunction depending on the tenant's answer.
 * The question selected to improve the `ApartmentValueFunction` should depend on the Tenant's answers to the questions previously proposed. Suggestion : Store the answers and give access to the answers to the GUI.
 * `AskOpinionForUtility` takes care of display and choice of questions. It's better to separate these 2 aspect and name them as `AskerGUI` or `QuestionChooser` depending on the aspect.
 * Create an `Orchestrator` class that manage the GUI interfaces. It allows to activate or desactivate the GUI components.
