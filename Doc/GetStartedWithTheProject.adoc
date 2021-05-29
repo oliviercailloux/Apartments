@@ -7,7 +7,7 @@
 
 toc::[]
 
-== What's inside projet apartments ?
+== What's inside project apartments ?
 
 Inside the project, you have three main topics. Under the folder link:[Doc], you will find everything you need for your UML iterations.
 Under the folder link:/src[src], you have the java code you need to work on. 
@@ -15,7 +15,7 @@ Last but not least, the link:/README.adoc[README.adoc] allows you to understand 
 
 == First launch of the App
 
-Before getting into details, let's start the app and see what it does. Clone the project on your local repository, and then open it on Eclipse. In the documentation link:/run.adoc[run.adoc], you have an overview of all the executable classes. I advice you to launch all of them, and to read the documentation in order to understand how it operates, and what the main goal of the application is. Depending on the Tenant preferences, you have a different list of apartments showing up.
+Before getting into details, let's start the app and see what it does. Clone the project on your local repository, and then open it on Eclipse. In the documentation https://github.com/oliviercailloux-org/projet-apartments/blob/ProjectExplanation/Doc/run.adoc[run.adoc], you have an overview of all the executable classes. I advice you to launch all of them, and to read the documentation in order to understand how it operates, and what the main goal of the application is. Depending on the Tenant preferences, you have a different list of apartments showing up.
 Now that you have a small idea of the project, it is time to read the specific documentation.
 
 == Read the documentation
