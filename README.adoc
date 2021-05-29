@@ -228,6 +228,44 @@ This file only explains the distribution of work between the different teams and
 
 All of these tasks are related to the 4th iteration of UML : link:https://github.com/oliviercailloux-org/projet-apartments/pull/28[PR #28]
 
+
+==== Iteration 3 Java
+
+[IMPORTANT]
+====
+Deadline : **June the 6th, ** 2021
+This file only explains the distribution of work between the different teams and indicates their realization.
+====
+
+
+==== Abla MIKOU & Samy MEGUENI
+
+* SM/PO for this iteration.
+* Split the work between the two groups.
+* Organize meetings throughout the week to have a better understanding of the project.
+* Made sure everybody is on board and respected the deadline.
+
+==== Seif BOUGUERRA & Stellan WEA
+
+* Generate statistics : by creating a new class `ApartmentStatistics` that generates statistics for a specified criterion. 
+To do this, we will use the link:https://docs.oracle.com/javase/8/docs/api/java/util/DoubleSummaryStatistics.html[DoubleSummaryStatistics].
+**Prerequisite : Formatting in Google style.**
+* Create a new class in the package `Plot` to generate other types of plot in addition of the statistics. We will use again the link:https://www.jfree.org/jfreechart/[JFreeChart] library.
+**Prerequisite : Formatting in Google style.**
+
+It's one of the future idea suggested as : "Generate graphs and statistics of available apartments (average surface, median, number of apartments per surface, …)" in
+link:https://github.com/oliviercailloux-org/projet-apartments/blob/master/Doc/idea.adoc[Idea].
+
+==== Maïrame NDIAYE & Ewen MARGUET
+
+* Reformatting code in link:https://google.github.io/styleguide/[Google Style], referring to your future suggestion in link:https://github.com/oliviercailloux-org/projet-apartments/pull/31[PR #31].
+* Continue the implementation of the `SpiderPlot` class according to the professor's advice on this link:https://github.com/oliviercailloux-org/projet-apartments/pull/36[PR #36].
+**Prerequisite : Formatting in Google style.**
+* Add the button "Compare" on `LayoutApartmentGUI` to compare 2 apartments by generating the spider plot. 
+**Prerequisite : Formatting in Google style.**
+
+The main purpose of this iteration is to make functional the spider plot. 
+
 The project documentation is link:Doc/README.adoc[here].
 
 The code is hereby published under the MIT License, with the permission of the contributors.
