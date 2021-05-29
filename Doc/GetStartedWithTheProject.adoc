@@ -11,7 +11,7 @@ toc::[]
 
 Inside the project, you have three main topics. Under the folder link:[Doc], you will find everything you need for your UML iterations.
 Under the folder link:/src[src], you have the java code you need to work on. 
-Last but not least, the README.adoc allows you to understand what we've done this past year. 
+Last but not least, the link:/README.adoc[README.adoc] allows you to understand what we've done this past year. 
 
 == First launch of the App
 
@@ -32,19 +32,20 @@ Now that you have a small idea of the project, it is time to read the specific d
 
 == JAVA 
 
-Maintenant que le projet n'est plus inconnu pour vous et que vous connaissez bien les packages et classes qu'il contient ainsi que leurs liens, il est temps de s'attaquer au code.
+Now you should know everything about the different packages and classes and how they interact. Next step is to understand the code !
 
-* Avant de toucher à n'importe classe il est important et nécessaire de maîtriser le minimum du langage Java. C'est-à-dire il est absolument nécessaire de :
-      - Avoir les bases de la syntaxe java 
-      - De bien savoir les différences entre un package, une classe, une interface, une méthode. Cela ne doit pas évoquer des choses vagues pour vous mais des notions bien claires. 
-      - Comprendre Maven vous permettra de comprendre la découpe du projet. 
+* Before modifying any class, it is mandatory to have a minimum level in Java. It includes :
+      - Knowing the basics of Java syntax.
+      - Clearly identify the differences between a package, a class, an interface and a method.
+      - Understand Maven to see how the project is designed.
 
-* Dans le dossier src vous avez le code source du projet : Vous y retrouvez les différents packages ainsi que leurs classes. On vous conseille de commencer à regarder cette partie du projet. 
+* In the folder link:/src[src], you have the code for the project : you will find the different packages and their classes. We advice you to look at it now.
 
-Prenez le temps de parcourir tous les packages du projets en faisant sorte de comprendre l'implémentation de leurs classe. La vue javadoc sera votre meilleur outil pour comprendre le code, n'hésitez pas à l'utiliser pour savoir ce que fait une classe ou une méthode. Aidez vous également de toute la documentation que vous vous êtes imprégné auparavant, elle est vraiment là pour vous aider. 
+Take time to go through all the packages in order to understand their classes' implementation. The javadoc view in Eclispe is your best tool to understand the code, do not hesitate to use it to understand what a class or a method does. Use as well the different documentations that you must have read by now. It is only here to help you.
 
-== Idées 
+== Ideas
 
-* Maintenant que le projet n'a plus aucun secret pour vous, nous vous conseillons d'ouvrir idea.adoc pour vous faire pleins d'idées de ce que vous pourrez réaliser lors de vos itérations en UML et JAVA. Dans ce document, vous retrouvez toutes les idées que nous trouvons intéressantes à rajouter au projet que nous avons pas eût l'occasion d'implémenter lors de nos itérations. 
+* For ideas about your next iterations, you can open link:idea.adoc[idea.adoc]. In this document, you will find all the ideas that we thought were interesting to add to the project but we didn't have time to implement them.
         
-A vous de jouer le jeu ! 
+        
+Your time to play !
