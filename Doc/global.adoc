@@ -20,7 +20,6 @@ toc::[]
 image::diagram-package-global.png?raw=true[Global package diagram]
 
 The package diagram is used to illustrate the links between the different packages in the project.
-Here we have specially integrated the Plot package in this diagram.
 
 == Class
 
@@ -28,7 +27,7 @@ Here we have specially integrated the Plot package in this diagram.
 
 image::diagram-class-global-simplified.svg?raw=true[Global class diagram (simplified)]
 
-This is a class diagram to describe interactions between each package of the projet-apartments. Here, we especially added the Plot package in the diagram so that we can understand its interactions with the other packages. More details regarding the classes and methods interactions are available in the `diagram-class-global-detailed`.
+This is a class diagram to describe interactions between each package of the projet-apartments. More details regarding the classes and methods interactions are available in the `diagram-class-global-detailed`.
 
 * Global class diagram (detailed)
 
@@ -38,7 +37,7 @@ image::diagram-class-global-detailed.svg?raw=true[Global class diagram (detailed
 
 image::diagram-class-package-plot.svg?raw=true[Plot class package diagram]
 
-This class diagram gives a representation of the java implementation of the `plot package` and its `SpiderPlot` class. We added, following the Teacher's recommandations, details about CategoryDataset interface and the JFreechart class to have a better overall understanding.
+This class diagram gives a representation of the java implementation of the `plot package` and its `SpiderPlot` class. There are details about CategoryDataset interface and the JFreechart class to have a better overall understanding.
 
 == Use case
 
