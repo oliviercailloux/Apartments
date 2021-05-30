@@ -187,7 +187,7 @@
                 <path d="M743 403 L762 403 L762 418 L743 418 L743 403 Z"/>
             </clipPath>
             <clipPath clipPathUnits="userSpaceOnUse" id="clipPath46">
-                <path d="M209 629 L301 629 L301 642 L209 642 L209 629 Z"/>
+                <path d="M149 569 L241 569 L241 582 L149 582 L149 569 Z"/>
             </clipPath>
             <clipPath clipPathUnits="userSpaceOnUse" id="clipPath47">
                 <path d="M313 603 L332 603 L332 618 L313 618 L313 603 Z"/>
@@ -269,7 +269,7 @@
             <line clip-path="url(#clipPath34)" fill="none" x1="330" x2="264" y1="530" y2="530" stroke-dasharray="none"/>
             <line clip-path="url(#clipPath34)" fill="none" x1="264" x2="264" y1="530" y2="610" stroke-dasharray="none"/>
             <line clip-path="url(#clipPath34)" fill="none" x1="264" x2="330" y1="610" y2="610" stroke-dasharray="none"/>
-            <text x="210" y="642" clip-path="url(#clipPath46)" stroke-dasharray="none" stroke="none" xml:space="preserve">  displaySpiderPlot()</text>
+            <text x="150" y="582" clip-path="url(#clipPath46)" stroke-dasharray="none" stroke="none" xml:space="preserve">  displaySpiderPlot()</text>
             <polygon stroke-dasharray="none" clip-path="url(#clipPath47)" points=" 330 610 314 616 314 604" stroke="none"/>
             <polygon fill="none" stroke-dasharray="none" clip-path="url(#clipPath47)" points=" 330 610 314 616 314 604"/>
             <line clip-path="url(#clipPath34)" fill="none" x1="360" x2="550" y1="170" y2="170" stroke-dasharray="none"/>
@@ -300,7 +300,7 @@
             <line clip-path="url(#clipPath34)" fill="none" x1="330" x2="264" y1="530" y2="530" stroke-dasharray="none"/>
             <line clip-path="url(#clipPath34)" fill="none" x1="264" x2="264" y1="530" y2="610" stroke-dasharray="none"/>
             <line clip-path="url(#clipPath34)" fill="none" x1="264" x2="330" y1="610" y2="610" stroke-dasharray="none"/>
-            <text x="210" y="642" clip-path="url(#clipPath46)" stroke-dasharray="none" stroke="none" xml:space="preserve">  displaySpiderPlot()</text>
+            <text x="150" y="582" clip-path="url(#clipPath46)" stroke-dasharray="none" stroke="none" xml:space="preserve">  displaySpiderPlot()</text>
             <polygon stroke-dasharray="none" clip-path="url(#clipPath47)" points=" 330 610 314 616 314 604" stroke="none"/>
             <polygon fill="none" stroke-dasharray="none" clip-path="url(#clipPath47)" points=" 330 610 314 616 314 604"/>
         </g>
