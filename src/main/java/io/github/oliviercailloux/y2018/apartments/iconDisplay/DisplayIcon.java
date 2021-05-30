@@ -27,7 +27,8 @@ public class DisplayIcon {
 
       LOGGER.info("The image is perfectly loaded");
       while (!s.isDisposed()) {
-        if (!d.readAndDispatch()) d.sleep();
+        if (!d.readAndDispatch())
+          d.sleep();
       }
       i.dispose();
       s.dispose();

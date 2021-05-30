@@ -37,25 +37,11 @@ public class JsonConvertTests {
   void testApartmentsToJson() throws Exception {
     Builder apartBuilder = new Apartment.Builder();
     ArrayList<Apartment> apartments = new ArrayList<>();
-    apartments.add(
-        apartBuilder
-            .setAddress("118 rue du père noel 77480")
-            .setFloorArea(1182118.48)
-            .setTitle("Grand Igloo")
-            .setTerrace(false)
-            .setWifi(false)
-            .setTele(false)
-            .build());
+    apartments.add(apartBuilder.setAddress("118 rue du père noel 77480").setFloorArea(1182118.48)
+        .setTitle("Grand Igloo").setTerrace(false).setWifi(false).setTele(false).build());
     apartBuilder = new Apartment.Builder();
-    apartments.add(
-        apartBuilder
-            .setAddress("123 rue du soleil")
-            .setFloorArea(1234567.89)
-            .setTitle("Maison Test")
-            .setTerrace(false)
-            .setWifi(false)
-            .setTele(false)
-            .build());
+    apartments.add(apartBuilder.setAddress("123 rue du soleil").setFloorArea(1234567.89)
+        .setTitle("Maison Test").setTerrace(false).setWifi(false).setTele(false).build());
 
     String expectedApartmentsJsonString =
         Files.readString(Path.of("expectedApartmentsJsonString.json"));
@@ -73,25 +59,11 @@ public class JsonConvertTests {
   void testJsonToApartments() throws Exception {
     Builder apartBuilder = new Apartment.Builder();
     List<Apartment> apartmentsRef = new ArrayList<>();
-    apartmentsRef.add(
-        apartBuilder
-            .setAddress("118 rue du père noel 77480")
-            .setFloorArea(1182118.48)
-            .setTitle("Grand Igloo")
-            .setTerrace(false)
-            .setWifi(false)
-            .setTele(false)
-            .build());
+    apartmentsRef.add(apartBuilder.setAddress("118 rue du père noel 77480").setFloorArea(1182118.48)
+        .setTitle("Grand Igloo").setTerrace(false).setWifi(false).setTele(false).build());
     apartBuilder = new Apartment.Builder();
-    apartmentsRef.add(
-        apartBuilder
-            .setAddress("123 rue du soleil")
-            .setFloorArea(1234567.89)
-            .setTitle("Maison Test")
-            .setTerrace(false)
-            .setWifi(false)
-            .setTele(false)
-            .build());
+    apartmentsRef.add(apartBuilder.setAddress("123 rue du soleil").setFloorArea(1234567.89)
+        .setTitle("Maison Test").setTerrace(false).setWifi(false).setTele(false).build());
 
     List<Apartment> apartmentsTest = JsonConvert.jsonToApartments(this.jsonTestPath);
 
@@ -104,21 +76,11 @@ public class JsonConvertTests {
   void testGetAdapter() throws Exception {
     JsonbAdapter<Apartment, Apartment.Builder> adapter = JsonConvert.getAdapter();
     Apartment.Builder builder1 =
-        new Apartment.Builder()
-            .setAddress("118 rue du père noel 77480")
-            .setFloorArea(1182118.48)
-            .setTitle("Grand Igloo")
-            .setTerrace(false)
-            .setWifi(false)
-            .setTele(false);
+        new Apartment.Builder().setAddress("118 rue du père noel 77480").setFloorArea(1182118.48)
+            .setTitle("Grand Igloo").setTerrace(false).setWifi(false).setTele(false);
     Apartment.Builder builder2 =
-        new Apartment.Builder()
-            .setAddress("118 rue du père noel 77480")
-            .setFloorArea(1182118.48)
-            .setTitle("Grand Igloo")
-            .setTerrace(false)
-            .setWifi(false)
-            .setTele(false);
+        new Apartment.Builder().setAddress("118 rue du père noel 77480").setFloorArea(1182118.48)
+            .setTitle("Grand Igloo").setTerrace(false).setWifi(false).setTele(false);
     Apartment a = adapter.adaptFromJson(builder1);
     Apartment b = builder2.build();
     assertEquals(a, b);

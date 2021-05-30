@@ -67,9 +67,9 @@ public abstract class ApartmentFactory {
   /**
    * This function aims to generate a new apartment with random characteristics.
    *
-   * @param realAddress - True indicates that the address is necessarily real (may have an {@link
-   *     AddressApiException}) <br>
-   *     False indicates that if a real address cannot be returned we will have an unreal address
+   * @param realAddress - True indicates that the address is necessarily real (may have an
+   *        {@link AddressApiException}) <br>
+   *        False indicates that if a real address cannot be returned we will have an unreal address
    * @see #getRandomAddress()
    * @return the apartment built
    * @throws AddressApiException in case the API does not return a good address format
@@ -86,31 +86,17 @@ public abstract class ApartmentFactory {
     boolean hasTerrace = Math.random() >= 0.5;
     double floorAreaTerrace = (hasTerrace) ? simulateRandomDraw(15d, 2d) : 0;
     String title = "Location Apartement " + rand.nextInt(10000);
-    String description =
-        "This apartment has "
-            + nbBedrooms
-            + " bedrooms and a size of "
-            + floorArea
-            + "square meters";
+    String description = "This apartment has " + nbBedrooms + " bedrooms and a size of " + floorArea
+        + "square meters";
     boolean wifi = Math.random() >= 0.5;
     double pricePerNight = floorArea * simulateRandomDraw(11d, 3d);
     boolean tele = Math.random() >= 0.5;
     int nbMinNight = rand.nextInt(700) + 1;
     Builder apartBuilder = new Builder();
-    return apartBuilder
-        .setFloorArea(floorArea)
-        .setAddress(address)
-        .setNbBedrooms(nbBedrooms)
-        .setNbSleeping(nbSleeping)
-        .setNbBathrooms(nbBathrooms)
-        .setTerrace(hasTerrace)
-        .setFloorAreaTerrace(floorAreaTerrace)
-        .setDescription(description)
-        .setTitle(title)
-        .setWifi(wifi)
-        .setPricePerNight(pricePerNight)
-        .setNbMinNight(nbMinNight)
-        .setTele(tele)
+    return apartBuilder.setFloorArea(floorArea).setAddress(address).setNbBedrooms(nbBedrooms)
+        .setNbSleeping(nbSleeping).setNbBathrooms(nbBathrooms).setTerrace(hasTerrace)
+        .setFloorAreaTerrace(floorAreaTerrace).setDescription(description).setTitle(title)
+        .setWifi(wifi).setPricePerNight(pricePerNight).setNbMinNight(nbMinNight).setTele(tele)
         .build();
   }
 
@@ -182,21 +168,24 @@ public abstract class ApartmentFactory {
    * Call an API which generates a random address. This function aims at getting the random address
    * generated.
    *
-   * <p>So, we generate a random latitude and a longitude and try to retrive an address
+   * <p>
+   * So, we generate a random latitude and a longitude and try to retrive an address
    *
-   * <p><b>Regarding the API call:</b> <br>
+   * <p>
+   * <b>Regarding the API call:</b> <br>
    *
-   * <p>The probability that this function will return an exception of type AddressApiException is
+   * <p>
+   * The probability that this function will return an exception of type AddressApiException is
    * 0.032% <br>
    * Empirically, the probability that we get a possible failure of the application is around
    * 0.0533% The API used:
    *
    * <ul>
-   *   <li>Is maintained by the interdepartmental digital department
-   *   <li>Is free
-   *   <li>Virtually no constraint on the number of calls (so it doesn't matter if a call fails)
-   *   <li>Does not ask for authentication (API key or others)
-   *   <li>Does not depend on openstreetmap or GoogleMaps
+   * <li>Is maintained by the interdepartmental digital department
+   * <li>Is free
+   * <li>Virtually no constraint on the number of calls (so it doesn't matter if a call fails)
+   * <li>Does not ask for authentication (API key or others)
+   * <li>Does not depend on openstreetmap or GoogleMaps
    * </ul>
    *
    * <br>
@@ -205,9 +194,9 @@ public abstract class ApartmentFactory {
    *     </code> but return an apipa address in case an Exception is thrown
    * @return the address generated.
    * @throws AddressApiException in case the API doesn't return a good format after a certain number
-   *     of attempts
+   *         of attempts
    * @throws ClientErrorException in case the JAX-RS call fails, for example because of no
-   *     connection or an HTTP 500, 404 or others
+   *         connection or an HTTP 500, 404 or others
    */
   private static String getOnlineRandomAddress() throws ClientErrorException, AddressApiException {
     /**
@@ -267,10 +256,8 @@ public abstract class ApartmentFactory {
       // We return an apipa address
       LOGGER.error("Problem while getting random address {}", e.toString());
       StringBuilder sb = new StringBuilder();
-      sb.append(ApartmentFactory.rand.nextInt(3000))
-          .append(" rue de l'appel échoué ")
-          .append(ApartmentFactory.rand.nextInt(19) + 75001)
-          .append(" Paris ");
+      sb.append(ApartmentFactory.rand.nextInt(3000)).append(" rue de l'appel échoué ")
+          .append(ApartmentFactory.rand.nextInt(19) + 75001).append(" Paris ");
       return sb.toString();
     }
   }
@@ -300,22 +287,23 @@ public abstract class ApartmentFactory {
    * Make an HTTP call and check if the features.properties.label field is present in In case it is
    * not present, we return an empty <code>Optional</code>
    *
-   * <p>The case where the optional is empty is as follows: jsonString equals to <code>
+   * <p>
+   * The case where the optional is empty is as follows: jsonString equals to <code>
    * {"type": "FeatureCollection", "version": "draft", "features": [], "attribution": "BAN", "licence": "ETALAB-2.0", "limit": 1}
    * </code>
    *
    * @see #getOnlineRandomAddress() For more information about the used API
    * @param client jax-rs to make the HTTP call. This function do not close the Client! In case an
-   *     Exception is thrown, it will return to the caller
+   *        Exception is thrown, it will return to the caller
    * @param longitude corresponds to the longitude which will be passed in API parameter. Cannot be
-   *     null
+   *        null
    * @param latitude corresponds to the latitude which will be passed in API parameter. Cannot be
-   *     null
+   *        null
    * @return an optional which is empty if we have not managed to recover the field. Otherwise, it
-   *     returns the address
+   *         returns the address
    */
-  static Optional<String> tryToGetOnlineRandomAddress(
-      Client client, final String longitude, final String latitude) {
+  static Optional<String> tryToGetOnlineRandomAddress(Client client, final String longitude,
+      final String latitude) {
     checkNotNull(client, "client can't be null");
     checkNotNull(longitude, "longitude can't be null");
     checkNotNull(latitude, "latitude can't be null");

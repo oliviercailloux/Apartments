@@ -21,16 +21,13 @@ public class ReversedLinearValueFunction implements PartialValueFunction<Double>
    */
   public ReversedLinearValueFunction(double min, double max) {
     if (min == max) {
-      LOGGER.error(
-          "The upper bound is equal to the lower bound in the constructor of the"
-              + " LinearValueFunction.");
+      LOGGER.error("The upper bound is equal to the lower bound in the constructor of the"
+          + " LinearValueFunction.");
       throw new IllegalArgumentException("The upper bound can't be equal to the lower bound.");
     }
     interval = Range.closed(min, max);
-    LOGGER.info(
-        "The interval [{}, {}] has been set with success in the LinearValueFunction class.",
-        min,
-        max);
+    LOGGER.info("The interval [{}, {}] has been set with success in the LinearValueFunction class.",
+        min, max);
   }
 
   public Range<Double> getInterval() {
@@ -44,9 +41,8 @@ public class ReversedLinearValueFunction implements PartialValueFunction<Double>
     } else if (interval.upperEndpoint() < objectiveData) {
       return 0;
     } else {
-      return 1
-          - (objectiveData - interval.lowerEndpoint())
-              / (interval.upperEndpoint() - interval.lowerEndpoint());
+      return 1 - (objectiveData - interval.lowerEndpoint())
+          / (interval.upperEndpoint() - interval.lowerEndpoint());
     }
   }
 

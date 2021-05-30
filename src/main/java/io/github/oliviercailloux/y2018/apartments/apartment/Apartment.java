@@ -85,21 +85,16 @@ public class Apartment extends Object {
 
   @Override
   public boolean equals(Object obj) {
-    if (!(obj instanceof Apartment)) return false;
+    if (!(obj instanceof Apartment))
+      return false;
     Apartment apart = (Apartment) obj;
-    return apart.floorArea == this.floorArea
-        && apart.address.equals(this.address)
-        && apart.nbBedrooms == this.nbBedrooms
-        && apart.nbSleeping == this.nbSleeping
-        && apart.nbBathrooms == this.nbBathrooms
-        && apart.hasTerrace == this.hasTerrace
+    return apart.floorArea == this.floorArea && apart.address.equals(this.address)
+        && apart.nbBedrooms == this.nbBedrooms && apart.nbSleeping == this.nbSleeping
+        && apart.nbBathrooms == this.nbBathrooms && apart.hasTerrace == this.hasTerrace
         && apart.floorAreaTerrace == this.floorAreaTerrace
-        && apart.description.equals(this.description)
-        && apart.title.equals(this.title)
-        && apart.wifi == this.wifi
-        && apart.pricePerNight == this.pricePerNight
-        && apart.nbMinNight == this.nbMinNight
-        && apart.tele == this.tele;
+        && apart.description.equals(this.description) && apart.title.equals(this.title)
+        && apart.wifi == this.wifi && apart.pricePerNight == this.pricePerNight
+        && apart.nbMinNight == this.nbMinNight && apart.tele == this.tele;
   }
 
   @Override
@@ -138,50 +133,30 @@ public class Apartment extends Object {
     dispTitle = "\nTitle : " + this.title;
     dispAddress = "\nAddress : " + this.address;
     dispFloorArea = "\nFloor area : " + Double.toString(this.floorArea) + " square meters";
-    dispNbBedrooms =
-        "\nNumber of bedrooms : "
-            + ((this.nbBedrooms == 0) ? "N/A" : Integer.toString(this.nbBedrooms) + " bedroom(s)");
-    dispNbSleeping =
-        "\nNumber of sleeping (capacity) : "
-            + ((this.nbSleeping == 0) ? "N/A" : Integer.toString(this.nbSleeping) + " person(s)");
-    dispNbBathrooms =
-        "\nNumber of bathrooms : "
-            + ((this.nbBathrooms == 0)
-                ? "N/A"
-                : Integer.toString(this.nbBathrooms) + " bathroom(s)");
+    dispNbBedrooms = "\nNumber of bedrooms : "
+        + ((this.nbBedrooms == 0) ? "N/A" : Integer.toString(this.nbBedrooms) + " bedroom(s)");
+    dispNbSleeping = "\nNumber of sleeping (capacity) : "
+        + ((this.nbSleeping == 0) ? "N/A" : Integer.toString(this.nbSleeping) + " person(s)");
+    dispNbBathrooms = "\nNumber of bathrooms : "
+        + ((this.nbBathrooms == 0) ? "N/A" : Integer.toString(this.nbBathrooms) + " bathroom(s)");
     dispTerrace = "\nTerrace : " + (this.hasTerrace ? "Yes" : "No");
     dispFloorAreaTerrace =
-        new StringBuilder()
-            .append(!this.hasTerrace ? "" : "\nTerrace floor area : ")
-            .append(
-                (floorAreaTerrace == 0)
-                    ? "N/A"
-                    : Double.toString(this.floorAreaTerrace) + " square meters")
+        new StringBuilder().append(!this.hasTerrace ? "" : "\nTerrace floor area : ")
+            .append((floorAreaTerrace == 0) ? "N/A"
+                : Double.toString(this.floorAreaTerrace) + " square meters")
             .toString();
     dispDescription =
         "\nDescription : " + (Objects.equals(this.description, "") ? "N/A" : this.description);
     dispWifi = "\nWifi : " + (this.wifi ? "Yes" : "No");
     dispTele = "\nTelevision : " + (this.tele ? "Yes" : "No");
-    dispPricePerNight =
-        "\nPrice per night : "
-            + ((this.pricePerNight == 0) ? "N/A" : Double.toString(this.pricePerNight) + "€");
-    dispNbMinNight =
-        "\nNumber of night minimum to rent this apartment : "
-            + ((this.nbMinNight == 0) ? "N/A" : Integer.toString(this.nbMinNight) + " night(s)");
+    dispPricePerNight = "\nPrice per night : "
+        + ((this.pricePerNight == 0) ? "N/A" : Double.toString(this.pricePerNight) + "€");
+    dispNbMinNight = "\nNumber of night minimum to rent this apartment : "
+        + ((this.nbMinNight == 0) ? "N/A" : Integer.toString(this.nbMinNight) + " night(s)");
 
-    return dispTitle
-        + dispAddress
-        + dispFloorArea
-        + dispNbBedrooms
-        + dispNbSleeping
-        + dispNbBathrooms
-        + dispTerrace
-        + dispFloorAreaTerrace
-        + dispDescription
-        + dispWifi
-        + dispPricePerNight
-        + dispNbMinNight
-        + dispTele;
+    return dispTitle + dispAddress + dispFloorArea + dispNbBedrooms + dispNbSleeping
+        + dispNbBathrooms + dispTerrace + dispFloorAreaTerrace + dispDescription + dispWifi
+        + dispPricePerNight + dispNbMinNight + dispTele;
   }
 
   /**
@@ -392,20 +367,8 @@ public class Apartment extends Object {
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        address,
-        floorArea,
-        nbBedrooms,
-        nbSleeping,
-        nbBathrooms,
-        hasTerrace,
-        floorAreaTerrace,
-        description,
-        title,
-        wifi,
-        pricePerNight,
-        nbMinNight,
-        tele);
+    return Objects.hash(address, floorArea, nbBedrooms, nbSleeping, nbBathrooms, hasTerrace,
+        floorAreaTerrace, description, title, wifi, pricePerNight, nbMinNight, tele);
   }
 
   /**

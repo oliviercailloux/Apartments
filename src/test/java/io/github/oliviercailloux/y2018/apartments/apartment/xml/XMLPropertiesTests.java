@@ -17,26 +17,15 @@ class XMLPropertiesTests {
   void testReadApartment() throws Exception {
     XMLProperties j = new XMLProperties();
 
-    Apartment a =
-        new Builder()
-            .setFloorArea(1182118.48)
-            .setAddress("118 rue du père noel 77480")
-            .setNbBedrooms(5)
-            .setNbSleeping(10)
-            .setNbBathrooms(1)
-            .setTerrace(true)
-            .setFloorAreaTerrace(8.6)
-            .setDescription("Un igloo tout mignon en compagnie du père noël et de la mère noël")
-            .setTitle("Grand Igloo")
-            .setWifi(true)
-            .setPricePerNight(404)
-            .setNbMinNight(1)
-            .setTele(false)
-            .build();
+    Apartment a = new Builder().setFloorArea(1182118.48).setAddress("118 rue du père noel 77480")
+        .setNbBedrooms(5).setNbSleeping(10).setNbBathrooms(1).setTerrace(true)
+        .setFloorAreaTerrace(8.6)
+        .setDescription("Un igloo tout mignon en compagnie du père noël et de la mère noël")
+        .setTitle("Grand Igloo").setWifi(true).setPricePerNight(404).setNbMinNight(1).setTele(false)
+        .build();
 
-    File f =
-        new File(
-            "src/test/resources/io/github/oliviercailloux/y2018/apartments/apartment/xml/xmlfileTest.xml");
+    File f = new File(
+        "src/test/resources/io/github/oliviercailloux/y2018/apartments/apartment/xml/xmlfileTest.xml");
     try (FileOutputStream s = new FileOutputStream(f.getAbsolutePath())) {
       j.toXML(a, s);
     }
@@ -49,8 +38,8 @@ class XMLPropertiesTests {
 
       assertEquals("118 rue du père noel 77480", a1.getAddress());
       assertEquals("Grand Igloo", a1.getTitle());
-      assertEquals(
-          "Un igloo tout mignon en compagnie du père noël et de la mère noël", a1.getDescription());
+      assertEquals("Un igloo tout mignon en compagnie du père noël et de la mère noël",
+          a1.getDescription());
       assertEquals(10, a1.getNbSleeping());
       assertEquals(1, a1.getNbBathrooms());
       assertEquals(5, a1.getNbBedrooms());

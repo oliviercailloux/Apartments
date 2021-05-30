@@ -14,9 +14,10 @@ public class RandomRange {
    */
   public static List<Double> weightRangeOfSum(double s, int size) {
 
-    List<Double> weightRange = new ArrayList<Double>();
+    List<Double> weightRange = new ArrayList<>();
 
-    for (int i = 0; i < size; ++i) weightRange.add(Math.random());
+    for (int i = 0; i < size; ++i)
+      weightRange.add(Math.random());
 
     /**
      * Found on

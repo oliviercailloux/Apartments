@@ -313,36 +313,37 @@ public class ApartmentValueFunction {
    */
   public double getSubjectiveValue(Apartment apart) {
     checkNotNull(apart);
-    ImmutableMap<Criterion, Double> subjectiveValue = new ImmutableMap.Builder<Criterion, Double>()
-        .put(Criterion.FLOOR_AREA,
-            this.doubleValueFunctions.get(Criterion.FLOOR_AREA)
-                .getSubjectiveValue(apart.getFloorArea()))
-        .put(Criterion.NB_BEDROOMS,
-            this.doubleValueFunctions.get(Criterion.NB_BEDROOMS)
-                .getSubjectiveValue((double) apart.getNbBedrooms()))
-        .put(Criterion.NB_SLEEPING,
-            this.doubleValueFunctions.get(Criterion.NB_SLEEPING)
-                .getSubjectiveValue((double) apart.getNbSleeping()))
-        .put(Criterion.NB_BATHROOMS,
-            this.doubleValueFunctions.get(Criterion.NB_BATHROOMS)
-                .getSubjectiveValue((double) apart.getNbBathrooms()))
-        .put(Criterion.TERRACE,
-            this.booleanValueFunctions.get(Criterion.TERRACE)
-                .getSubjectiveValue(apart.getTerrace()))
-        .put(Criterion.FLOOR_AREA_TERRACE,
-            this.doubleValueFunctions.get(Criterion.FLOOR_AREA_TERRACE)
-                .getSubjectiveValue(apart.getFloorAreaTerrace()))
-        .put(Criterion.WIFI,
-            this.booleanValueFunctions.get(Criterion.WIFI).getSubjectiveValue(apart.getWifi()))
-        .put(Criterion.PRICE_PER_NIGHT,
-            this.doubleValueFunctions.get(Criterion.PRICE_PER_NIGHT)
-                .getSubjectiveValue(apart.getPricePerNight()))
-        .put(Criterion.NB_MIN_NIGHT,
-            this.doubleValueFunctions.get(Criterion.NB_MIN_NIGHT)
-                .getSubjectiveValue((double) apart.getNbMinNight()))
-        .put(Criterion.TELE,
-            this.booleanValueFunctions.get(Criterion.TELE).getSubjectiveValue(apart.getTele()))
-        .build();
+    ImmutableMap<Criterion,
+        Double> subjectiveValue = new ImmutableMap.Builder<Criterion, Double>()
+            .put(Criterion.FLOOR_AREA,
+                this.doubleValueFunctions.get(Criterion.FLOOR_AREA)
+                    .getSubjectiveValue(apart.getFloorArea()))
+            .put(Criterion.NB_BEDROOMS,
+                this.doubleValueFunctions.get(Criterion.NB_BEDROOMS)
+                    .getSubjectiveValue((double) apart.getNbBedrooms()))
+            .put(Criterion.NB_SLEEPING,
+                this.doubleValueFunctions.get(Criterion.NB_SLEEPING)
+                    .getSubjectiveValue((double) apart.getNbSleeping()))
+            .put(Criterion.NB_BATHROOMS,
+                this.doubleValueFunctions.get(Criterion.NB_BATHROOMS)
+                    .getSubjectiveValue((double) apart.getNbBathrooms()))
+            .put(Criterion.TERRACE,
+                this.booleanValueFunctions.get(Criterion.TERRACE)
+                    .getSubjectiveValue(apart.getTerrace()))
+            .put(Criterion.FLOOR_AREA_TERRACE,
+                this.doubleValueFunctions.get(Criterion.FLOOR_AREA_TERRACE)
+                    .getSubjectiveValue(apart.getFloorAreaTerrace()))
+            .put(Criterion.WIFI,
+                this.booleanValueFunctions.get(Criterion.WIFI).getSubjectiveValue(apart.getWifi()))
+            .put(Criterion.PRICE_PER_NIGHT,
+                this.doubleValueFunctions.get(Criterion.PRICE_PER_NIGHT)
+                    .getSubjectiveValue(apart.getPricePerNight()))
+            .put(Criterion.NB_MIN_NIGHT,
+                this.doubleValueFunctions.get(Criterion.NB_MIN_NIGHT)
+                    .getSubjectiveValue((double) apart.getNbMinNight()))
+            .put(Criterion.TELE,
+                this.booleanValueFunctions.get(Criterion.TELE).getSubjectiveValue(apart.getTele()))
+            .build();
 
     // Check that the subjective values ​​do have a value between 0 and 1
     subjectiveValue.entrySet().stream().filter(c -> c.getValue() < 0 || c.getValue() > 1)
@@ -414,5 +415,4 @@ public class ApartmentValueFunction {
         .forEach(apartValueFunction::setWeightSubjectiveValue);
     return apartValueFunction;
   }
-
 }

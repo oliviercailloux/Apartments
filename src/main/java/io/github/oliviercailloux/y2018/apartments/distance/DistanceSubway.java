@@ -78,15 +78,15 @@ public class DistanceSubway {
 
   /**
    * This method enables the user to calculate a distance between two points using Google Maps API.
-   * The method uses DistanceMatrix of Google Maps library. The API key can be found here : <a href=
-   * "https://developers.google.com/maps/documentation/geocoding/start?hl=fr#get-a-key">Get your api
-   * key </a> The request return an Object DistanceMatrix with three properties ;
+   * The method uses DistanceMatrix of Google Maps library. The API key can be found here :
+   * <a href= "https://developers.google.com/maps/documentation/geocoding/start?hl=fr#get-a-key">Get
+   * your api key </a> The request return an Object DistanceMatrix with three properties ;
    * desitnation_addresses, origin_addresses and rows. Rows is an Array of elements. In our case
    * there is only one element. In this element, there is the properties distance and duration, and
    * both have the properties Text (human reading) and value (double).
    *
    * @param distanceMode is a enum type, allow the user to choose between address mode (by the name)
-   *     or by coordinate mode.
+   *        or by coordinate mode.
    * @return distance in hours between the two points given in the constructor.
    * @throws Exception
    */
@@ -98,24 +98,12 @@ public class DistanceSubway {
 
     switch (distancemode) {
       case ADDRESS:
-        result =
-            request
-                .origins(startPoint)
-                .destinations(endPoint)
-                .mode(TravelMode.TRANSIT)
-                .transitModes(TransitMode.SUBWAY)
-                .language("fr-FR")
-                .await();
+        result = request.origins(startPoint).destinations(endPoint).mode(TravelMode.TRANSIT)
+            .transitModes(TransitMode.SUBWAY).language("fr-FR").await();
         break;
       case COORDINATE:
-        result =
-            request
-                .origins(startCoordinate)
-                .destinations(endCoordinate)
-                .mode(TravelMode.TRANSIT)
-                .transitModes(TransitMode.SUBWAY)
-                .language("fr-FR")
-                .await();
+        result = request.origins(startCoordinate).destinations(endCoordinate)
+            .mode(TravelMode.TRANSIT).transitModes(TransitMode.SUBWAY).language("fr-FR").await();
         break;
       default:
         throw new Exception("The distance mode specified is not correct.");

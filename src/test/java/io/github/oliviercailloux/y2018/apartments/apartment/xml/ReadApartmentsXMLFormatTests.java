@@ -22,10 +22,8 @@ class ReadApartmentsXMLFormatTests {
     // Read the resource file
     ReadApartmentsXMLFormat r = new ReadApartmentsXMLFormat();
     // Construct the apartment
-    Apartment a =
-        r.readApartment(
-            ReadApartmentsXMLFormatTests.class.getResourceAsStream(
-                "start-apartment-classpath.xml"));
+    Apartment a = r.readApartment(
+        ReadApartmentsXMLFormatTests.class.getResourceAsStream("start-apartment-classpath.xml"));
     assertEquals("5 avenue Roger Salengro 92370 Chaville France", a.getAddress());
     assertEquals("Villa à louer", a.getTitle());
     assertEquals("", a.getDescription());
@@ -42,17 +40,9 @@ class ReadApartmentsXMLFormatTests {
     // Test equals apartments
     Apartment.Builder apartBuilder = new Apartment.Builder();
     Apartment apartmentEqual =
-        apartBuilder
-            .setAddress("5 avenue Roger Salengro 92370 Chaville France")
-            .setTitle("Villa à louer")
-            .setFloorArea(150.0d)
-            .setNbSleeping(5)
-            .setTele(true)
-            .setWifi(true)
-            .setTerrace(true)
-            .setFloorAreaTerrace(160)
-            .setPricePerNight(3)
-            .build();
+        apartBuilder.setAddress("5 avenue Roger Salengro 92370 Chaville France")
+            .setTitle("Villa à louer").setFloorArea(150.0d).setNbSleeping(5).setTele(true)
+            .setWifi(true).setTerrace(true).setFloorAreaTerrace(160).setPricePerNight(3).build();
     assertEquals(apartmentEqual, a);
   }
 
@@ -76,16 +66,9 @@ class ReadApartmentsXMLFormatTests {
     assertFalse(a.getTele());
     // Test equals apartments
     Apartment.Builder apartBuilder = new Apartment.Builder();
-    Apartment apartmentEqual =
-        apartBuilder
-            .setTitle("hotel")
-            .setAddress("5 rue de la Ronce 92410 Ville d'Avray France")
-            .setFloorArea(15)
-            .setNbBathrooms(16)
-            .setWifi(false)
-            .setTerrace(false)
-            .setTele(false)
-            .build();
+    Apartment apartmentEqual = apartBuilder.setTitle("hotel")
+        .setAddress("5 rue de la Ronce 92410 Ville d'Avray France").setFloorArea(15)
+        .setNbBathrooms(16).setWifi(false).setTerrace(false).setTele(false).build();
     assertEquals(apartmentEqual, a);
   }
 }

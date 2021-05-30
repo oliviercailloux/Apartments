@@ -55,9 +55,8 @@ public class LayoutApartmentGUI {
     for (int i = 0; i < 49; i++) {
       appart.add(listApartment.get(i));
     }
-    appart.sort(
-        (Apartment c, Apartment d) ->
-            -Double.compare(linearAVF.getSubjectiveValue(c), linearAVF.getSubjectiveValue(d)));
+    appart.sort((Apartment c, Apartment d) -> -Double.compare(linearAVF.getSubjectiveValue(c),
+        linearAVF.getSubjectiveValue(d)));
 
     return appart;
   }
@@ -179,38 +178,36 @@ public class LayoutApartmentGUI {
     Button button = new Button(shell, SWT.NONE);
     button.setText("View more");
     button.setSize(100, 25);
-    button.addListener(
-        SWT.Selection,
-        event -> {
-          if (button.getText().equals("View more")) {
-            nbBathroomLabel.setVisible(true);
-            wifiLabel.setVisible(true);
-            tvLabel.setVisible(true);
-            terraceLabel.setVisible(true);
-            nbBathroom.setVisible(true);
-            wifi.setVisible(true);
-            tv.setVisible(true);
-            terrace.setVisible(true);
+    button.addListener(SWT.Selection, event -> {
+      if (button.getText().equals("View more")) {
+        nbBathroomLabel.setVisible(true);
+        wifiLabel.setVisible(true);
+        tvLabel.setVisible(true);
+        terraceLabel.setVisible(true);
+        nbBathroom.setVisible(true);
+        wifi.setVisible(true);
+        tv.setVisible(true);
+        terrace.setVisible(true);
 
-            dataLabelHide.exclude = false;
-            appartInfo.pack();
+        dataLabelHide.exclude = false;
+        appartInfo.pack();
 
-            button.setText("Hide fields");
-          } else {
-            nbBathroomLabel.setVisible(false);
-            wifiLabel.setVisible(false);
-            tvLabel.setVisible(false);
-            terraceLabel.setVisible(false);
-            nbBathroom.setVisible(false);
-            wifi.setVisible(false);
-            tv.setVisible(false);
-            terrace.setVisible(false);
+        button.setText("Hide fields");
+      } else {
+        nbBathroomLabel.setVisible(false);
+        wifiLabel.setVisible(false);
+        tvLabel.setVisible(false);
+        terraceLabel.setVisible(false);
+        nbBathroom.setVisible(false);
+        wifi.setVisible(false);
+        tv.setVisible(false);
+        terrace.setVisible(false);
 
-            dataLabelHide.exclude = true;
+        dataLabelHide.exclude = true;
 
-            button.setText("View more");
-          }
-        });
+        button.setText("View more");
+      }
+    });
 
     shell.setSize(1180, 550);
     this.centerShellInWindow();
@@ -245,40 +242,28 @@ public class LayoutApartmentGUI {
    * @param tv the label for TV
    * @param terrace the label for Terrace
    */
-  private void onClick(
-      Label address,
-      Label floorArea,
-      Label price,
-      Label nbBedrooms,
-      Label nbBathroom,
-      Label wifi,
-      Label tv,
-      Label terrace) {
-    SelectionAdapter selectApp =
-        new SelectionAdapter() {
-          @Override
-          public void widgetSelected(SelectionEvent event) {
-            int[] selectedItems = listShell.getSelectionIndices();
+  private void onClick(Label address, Label floorArea, Label price, Label nbBedrooms,
+      Label nbBathroom, Label wifi, Label tv, Label terrace) {
+    SelectionAdapter selectApp = new SelectionAdapter() {
+      @Override
+      public void widgetSelected(SelectionEvent event) {
+        int[] selectedItems = listShell.getSelectionIndices();
 
-            for (int loopIndex = 0; loopIndex < selectedItems.length; loopIndex++) {
-              address.setText(
-                  listApp.get(listShell.getSelectionIndex()).getAddress().replace(", ", "\n"));
-              floorArea.setText(
-                  " "
-                      + Math.round(listApp.get(listShell.getSelectionIndex()).getFloorArea())
-                      + "m²");
-              price.setText(
-                  " "
-                      + Math.round(listApp.get(listShell.getSelectionIndex()).getPricePerNight())
-                      + "€");
-              nbBedrooms.setText(" " + listApp.get(listShell.getSelectionIndex()).getNbBedrooms());
-              nbBathroom.setText(" " + listApp.get(listShell.getSelectionIndex()).getNbBathrooms());
-              wifi.setText(" " + listApp.get(listShell.getSelectionIndex()).getWifi());
-              tv.setText(" " + listApp.get(listShell.getSelectionIndex()).getTele());
-              terrace.setText(" " + listApp.get(listShell.getSelectionIndex()).getTerrace());
-            }
-          }
-        };
+        for (int loopIndex = 0; loopIndex < selectedItems.length; loopIndex++) {
+          address
+              .setText(listApp.get(listShell.getSelectionIndex()).getAddress().replace(", ", "\n"));
+          floorArea.setText(
+              " " + Math.round(listApp.get(listShell.getSelectionIndex()).getFloorArea()) + "m²");
+          price.setText(" "
+              + Math.round(listApp.get(listShell.getSelectionIndex()).getPricePerNight()) + "€");
+          nbBedrooms.setText(" " + listApp.get(listShell.getSelectionIndex()).getNbBedrooms());
+          nbBathroom.setText(" " + listApp.get(listShell.getSelectionIndex()).getNbBathrooms());
+          wifi.setText(" " + listApp.get(listShell.getSelectionIndex()).getWifi());
+          tv.setText(" " + listApp.get(listShell.getSelectionIndex()).getTele());
+          terrace.setText(" " + listApp.get(listShell.getSelectionIndex()).getTerrace());
+        }
+      }
+    };
     listShell.addSelectionListener(selectApp);
   }
 

@@ -29,8 +29,7 @@ public class DiscreteValueFunction<T> implements PartialValueFunction<T> {
    * @param s3 third key not null which corresponds to the subjective value 1
    */
   public DiscreteValueFunction(T s1, T s2, T s3) {
-    checkArgument(
-        !Objects.equals(s1, s2) && !Objects.equals(s1, s3) && !Objects.equals(s2, s3),
+    checkArgument(!Objects.equals(s1, s2) && !Objects.equals(s1, s3) && !Objects.equals(s2, s3),
         "The elements have to be different");
     subjective = ImmutableMap.of(s1, 0.0, s2, 0.5, s3, 1.0);
     LOGGER.info("The Map with the three elements have been set with success");
@@ -53,13 +52,12 @@ public class DiscreteValueFunction<T> implements PartialValueFunction<T> {
    * Create a map that match the not null keys and the subjective values associated
    *
    * @param subjective a Map<T, Double> where the key is of type <b>T</b> and the associated value,
-   *     a double between 0 and 1, defines its subjective value.
+   *        a double between 0 and 1, defines its subjective value.
    */
   public DiscreteValueFunction(Map<T, Double> subjective) {
 
-    Stream<Entry<T, Double>> erreur =
-        subjective.entrySet().stream()
-            .filter((entry) -> entry.getValue() < 0 || entry.getValue() > 1);
+    Stream<Entry<T, Double>> erreur = subjective.entrySet().stream()
+        .filter((entry) -> entry.getValue() < 0 || entry.getValue() > 1);
     Map<T, Double> mapError =
         erreur.collect(Collectors.toMap((entry) -> entry.getKey(), (entry) -> entry.getValue()));
     if (!(mapError.isEmpty())) {
@@ -86,7 +84,7 @@ public class DiscreteValueFunction<T> implements PartialValueFunction<T> {
    * @param min the minimum required for the random number
    * @param max the maximum required for the random number
    * @return DiscreteValueFunction with a map of utilities from min to max (it is not set by default
-   *     to uniform, that way it is not equivalent to a LinearValue Function)
+   *         to uniform, that way it is not equivalent to a LinearValue Function)
    */
   public static DiscreteValueFunction<Double> discreteValueFunctionBeetween(int min, int max) {
 

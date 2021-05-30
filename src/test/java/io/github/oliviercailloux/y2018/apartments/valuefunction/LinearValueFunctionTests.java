@@ -27,11 +27,9 @@ class LinearValueFunctionTests {
 
   @Test
   void testExceptionIllegalArgEquals() {
-    assertThrows(
-        IllegalArgumentException.class,
-        () -> {
-          @SuppressWarnings("unused")
-          LinearValueFunction e = new LinearValueFunction(10, 10);
-        });
+    assertThrows(IllegalArgumentException.class, () -> {
+      @SuppressWarnings("unused")
+      LinearValueFunction e = new LinearValueFunction(10, 10);
+    });
   }
 }
