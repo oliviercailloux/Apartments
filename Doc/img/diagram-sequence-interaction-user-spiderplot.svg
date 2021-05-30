@@ -11,7 +11,7 @@
                 <stop stop-opacity="1" stop-color="white" offset="0%"/>
                 <stop stop-opacity="1" stop-color="rgb(195,209,213)" offset="100%"/>
             </linearGradient>
-            <linearGradient x1="130" x2="130" y1="86" gradientUnits="userSpaceOnUse" y2="611" xlink:type="simple" xlink:actuate="onLoad" id="linearGradient3" xlink:show="other" spreadMethod="pad">
+            <linearGradient x1="130" x2="130" y1="90" gradientUnits="userSpaceOnUse" y2="610" xlink:type="simple" xlink:actuate="onLoad" id="linearGradient3" xlink:show="other" spreadMethod="pad">
                 <stop stop-opacity="1" stop-color="white" offset="0%"/>
                 <stop stop-opacity="1" stop-color="rgb(195,209,213)" offset="100%"/>
             </linearGradient>
@@ -31,7 +31,7 @@
                 <stop stop-opacity="1" stop-color="white" offset="0%"/>
                 <stop stop-opacity="1" stop-color="rgb(195,209,213)" offset="100%"/>
             </linearGradient>
-            <linearGradient x1="340" x2="340" y1="409" gradientUnits="userSpaceOnUse" y2="451" xlink:type="simple" xlink:actuate="onLoad" id="linearGradient8" xlink:show="other" spreadMethod="pad">
+            <linearGradient x1="340" x2="340" y1="413" gradientUnits="userSpaceOnUse" y2="453" xlink:type="simple" xlink:actuate="onLoad" id="linearGradient8" xlink:show="other" spreadMethod="pad">
                 <stop stop-opacity="1" stop-color="white" offset="0%"/>
                 <stop stop-opacity="1" stop-color="rgb(195,209,213)" offset="100%"/>
             </linearGradient>
@@ -47,7 +47,7 @@
                 <stop stop-opacity="1" stop-color="white" offset="0%"/>
                 <stop stop-opacity="1" stop-color="rgb(195,209,213)" offset="100%"/>
             </linearGradient>
-            <linearGradient x1="750" x2="750" y1="410" gradientUnits="userSpaceOnUse" y2="450" xlink:type="simple" xlink:actuate="onLoad" id="linearGradient12" xlink:show="other" spreadMethod="pad">
+            <linearGradient x1="750" x2="750" y1="414" gradientUnits="userSpaceOnUse" y2="454" xlink:type="simple" xlink:actuate="onLoad" id="linearGradient12" xlink:show="other" spreadMethod="pad">
                 <stop stop-opacity="1" stop-color="white" offset="0%"/>
                 <stop stop-opacity="1" stop-color="rgb(195,209,213)" offset="100%"/>
             </linearGradient>
@@ -70,10 +70,10 @@
                 <path d="M125 42 L157 42 L157 55 L125 55 L125 42 Z"/>
             </clipPath>
             <clipPath clipPathUnits="userSpaceOnUse" id="clipPath7">
-                <path d="M130 86 L130 610 L149 610 L149 86 Z"/>
+                <path d="M130 90 L130 609 L149 609 L149 90 Z"/>
             </clipPath>
             <clipPath clipPathUnits="userSpaceOnUse" id="clipPath8">
-                <path d="M129 85 L151 85 L151 612 L129 612 L129 85 Z"/>
+                <path d="M129 89 L151 89 L151 611 L129 611 L129 89 Z"/>
             </clipPath>
             <clipPath clipPathUnits="userSpaceOnUse" id="clipPath9">
                 <path d="M289 39 L391 39 L391 793 L289 793 L289 39 Z"/>
@@ -109,13 +109,13 @@
                 <path d="M339 164 L361 164 L361 207 L339 207 L339 164 Z"/>
             </clipPath>
             <clipPath clipPathUnits="userSpaceOnUse" id="clipPath20">
-                <path d="M340 409 L340 450 L359 450 L359 409 Z"/>
+                <path d="M340 413 L340 452 L359 452 L359 413 Z"/>
             </clipPath>
             <clipPath clipPathUnits="userSpaceOnUse" id="clipPath21">
-                <path d="M339 408 L361 408 L361 452 L339 452 L339 408 Z"/>
+                <path d="M339 412 L361 412 L361 454 L339 454 L339 412 Z"/>
             </clipPath>
             <clipPath clipPathUnits="userSpaceOnUse" id="clipPath22">
-                <path d="M358 426 L389 426 L389 441 L358 441 L358 426 Z"/>
+                <path d="M358 430 L389 430 L389 445 L358 445 L358 430 Z"/>
             </clipPath>
             <clipPath clipPathUnits="userSpaceOnUse" id="clipPath23">
                 <path d="M509 39 L611 39 L611 793 L509 793 L509 39 Z"/>
@@ -142,10 +142,10 @@
                 <path d="M732 42 L789 42 L789 55 L732 55 L732 42 Z"/>
             </clipPath>
             <clipPath clipPathUnits="userSpaceOnUse" id="clipPath31">
-                <path d="M750 410 L750 449 L769 449 L769 410 Z"/>
+                <path d="M750 414 L750 453 L769 453 L769 414 Z"/>
             </clipPath>
             <clipPath clipPathUnits="userSpaceOnUse" id="clipPath32">
-                <path d="M749 409 L771 409 L771 451 L749 451 L749 409 Z"/>
+                <path d="M749 413 L771 413 L771 455 L749 455 L749 413 Z"/>
             </clipPath>
             <clipPath clipPathUnits="userSpaceOnUse" id="clipPath33">
                 <path d="M9 9 L868 9 L868 812 L9 812 L9 9 Z"/>
@@ -175,22 +175,22 @@
                 <path d="M533 163 L552 163 L552 178 L533 178 L533 163 Z"/>
             </clipPath>
             <clipPath clipPathUnits="userSpaceOnUse" id="clipPath42">
-                <path d="M207 291 L357 291 L357 304 L207 304 L207 291 Z"/>
+                <path d="M169 269 L319 269 L319 282 L169 282 L169 269 Z"/>
             </clipPath>
             <clipPath clipPathUnits="userSpaceOnUse" id="clipPath43">
-                <path d="M129 303 L148 303 L148 318 L129 318 L129 303 Z"/>
+                <path d="M113 303 L132 303 L132 318 L113 318 L113 303 Z"/>
             </clipPath>
             <clipPath clipPathUnits="userSpaceOnUse" id="clipPath44">
                 <path d="M446 391 L837 391 L837 404 L446 404 L446 391 Z"/>
             </clipPath>
             <clipPath clipPathUnits="userSpaceOnUse" id="clipPath45">
-                <path d="M733 403 L752 403 L752 418 L733 418 L733 403 Z"/>
+                <path d="M743 403 L762 403 L762 418 L743 418 L743 403 Z"/>
             </clipPath>
             <clipPath clipPathUnits="userSpaceOnUse" id="clipPath46">
-                <path d="M395 564 L487 564 L487 577 L395 577 L395 564 Z"/>
+                <path d="M209 629 L301 629 L301 642 L209 642 L209 629 Z"/>
             </clipPath>
             <clipPath clipPathUnits="userSpaceOnUse" id="clipPath47">
-                <path d="M329 603 L348 603 L348 618 L329 618 L329 603 Z"/>
+                <path d="M313 603 L332 603 L332 618 L313 618 L313 603 Z"/>
             </clipPath>
         </defs>
         <g font-size="14" fill="url(#linearGradient1)" font-family="'.AppleSystemUIFont'" stroke-linejoin="round" stroke="url(#linearGradient1)" stroke-width="0" stroke-miterlimit="0">
@@ -209,8 +209,8 @@
         <g stroke-linecap="butt" font-size="14" fill="url(#linearGradient2)" font-family="'.AppleSystemUIFont'" stroke-dasharray="5,5" stroke="url(#linearGradient2)" stroke-width="1.1">
             <rect x="90" y="40" clip-path="url(#clipPath5)" width="100" opacity="0" height="752" stroke="none"/>
             <text x="126" font-size="12" y="55" clip-path="url(#clipPath6)" fill="black" stroke="none" xml:space="preserve">Tenant</text>
-            <rect x="130" y="86" clip-path="url(#clipPath7)" fill="url(#linearGradient3)" width="20" height="525" stroke="none"/>
-            <rect x="130" y="86" clip-path="url(#clipPath8)" fill="none" width="19" stroke-dasharray="none" rx="0" ry="0" height="524" stroke="black"/>
+            <rect x="130" y="90" clip-path="url(#clipPath7)" fill="url(#linearGradient3)" width="20" height="520" stroke="none"/>
+            <rect x="130" y="90" clip-path="url(#clipPath8)" fill="none" width="19" stroke-dasharray="none" rx="0" ry="0" height="519" stroke="black"/>
             <rect x="290" y="40" clip-path="url(#clipPath9)" fill="none" width="99" stroke-dasharray="none" height="14" stroke="black"/>
             <line clip-path="url(#clipPath9)" fill="none" x1="340" x2="340" y1="54" y2="791" stroke="black"/>
             <rect x="290" y="40" clip-path="url(#clipPath10)" fill="url(#linearGradient4)" width="100" opacity="0" height="752" stroke="none"/>
@@ -223,9 +223,9 @@
             <text x="349" y="361" clip-path="url(#clipPath17)" fill="black" stroke-dasharray="none" stroke="none" xml:space="preserve">showSpiderPlot</text>
             <rect x="340" y="165" clip-path="url(#clipPath18)" fill="url(#linearGradient7)" width="20" stroke-dasharray="none" height="41" stroke="none"/>
             <rect x="340" y="165" clip-path="url(#clipPath19)" fill="none" width="19" stroke-dasharray="none" rx="0" ry="0" height="40" stroke="black"/>
-            <rect x="340" y="409" clip-path="url(#clipPath20)" fill="url(#linearGradient8)" width="20" stroke-dasharray="none" height="42" stroke="none"/>
-            <rect x="340" y="409" clip-path="url(#clipPath21)" fill="none" width="19" stroke-dasharray="none" rx="0" ry="0" height="41" stroke="black"/>
-            <text x="359" y="441" clip-path="url(#clipPath22)" fill="black" stroke-dasharray="none" stroke="none" xml:space="preserve">given</text>
+            <rect x="340" y="413" clip-path="url(#clipPath20)" fill="url(#linearGradient8)" width="20" stroke-dasharray="none" height="40" stroke="none"/>
+            <rect x="340" y="413" clip-path="url(#clipPath21)" fill="none" width="19" stroke-dasharray="none" rx="0" ry="0" height="39" stroke="black"/>
+            <text x="359" y="445" clip-path="url(#clipPath22)" fill="black" stroke-dasharray="none" stroke="none" xml:space="preserve">given</text>
             <rect x="510" y="40" clip-path="url(#clipPath23)" fill="none" width="99" stroke-dasharray="none" height="14" stroke="black"/>
             <line clip-path="url(#clipPath23)" fill="none" x1="560" x2="560" y1="54" y2="791" stroke="black"/>
             <rect x="510" y="40" clip-path="url(#clipPath24)" fill="url(#linearGradient9)" width="100" opacity="0" height="752" stroke="none"/>
@@ -236,8 +236,8 @@
             <line clip-path="url(#clipPath28)" fill="none" x1="760" x2="760" y1="54" y2="791" stroke="black"/>
             <rect x="710" y="40" clip-path="url(#clipPath29)" fill="url(#linearGradient11)" width="100" opacity="0" height="752" stroke="none"/>
             <text x="733" font-size="12" y="55" clip-path="url(#clipPath30)" fill="black" stroke="none" xml:space="preserve"> : SpiderPlot</text>
-            <rect x="750" y="410" clip-path="url(#clipPath31)" fill="url(#linearGradient12)" width="20" height="40" stroke="none"/>
-            <rect x="750" y="410" clip-path="url(#clipPath32)" fill="none" width="19" stroke-dasharray="none" rx="0" ry="0" height="39" stroke="black"/>
+            <rect x="750" y="414" clip-path="url(#clipPath31)" fill="url(#linearGradient12)" width="20" height="40" stroke="none"/>
+            <rect x="750" y="414" clip-path="url(#clipPath32)" fill="none" width="19" stroke-dasharray="none" rx="0" ry="0" height="39" stroke="black"/>
             <rect x="10" y="10" clip-path="url(#clipPath33)" fill="none" width="856" stroke-dasharray="none" rx="0" ry="0" height="800" stroke="black"/>
         </g>
         <g text-rendering="optimizeLegibility" stroke-width="1.1" stroke-dasharray="6.6,3.3" font-family="'.AppleSystemUIFont'" stroke-linecap="butt">
@@ -256,22 +256,22 @@
             <text x="419" y="164" clip-path="url(#clipPath40)" stroke-dasharray="none" stroke="none" xml:space="preserve">  displayAppart()</text>
             <polygon stroke-dasharray="none" clip-path="url(#clipPath41)" points=" 550 170 534 176 534 164" stroke="none"/>
             <polygon fill="none" stroke-dasharray="none" clip-path="url(#clipPath41)" points=" 550 170 534 176 534 164"/>
-            <line clip-path="url(#clipPath34)" fill="none" x1="130" x2="192" y1="270" y2="270" stroke-dasharray="none"/>
-            <line clip-path="url(#clipPath34)" fill="none" x1="192" x2="192" y1="270" y2="310" stroke-dasharray="none"/>
-            <line clip-path="url(#clipPath34)" fill="none" x1="192" x2="130" y1="310" y2="310" stroke-dasharray="none"/>
-            <text x="208" y="304" clip-path="url(#clipPath42)" stroke-dasharray="none" stroke="none" xml:space="preserve">Choose 2 apartments to compare</text>
-            <line clip-path="url(#clipPath43)" fill="none" x1="146" x2="130" y1="304" y2="310" stroke-dasharray="none"/>
-            <line clip-path="url(#clipPath43)" fill="none" x1="130" x2="146" y1="310" y2="316" stroke-dasharray="none"/>
-            <line clip-path="url(#clipPath34)" fill="none" x1="360" x2="750" y1="410" y2="410" stroke-dasharray="none"/>
+            <line clip-path="url(#clipPath34)" fill="none" x1="130" x2="68" y1="270" y2="270" stroke-dasharray="none"/>
+            <line clip-path="url(#clipPath34)" fill="none" x1="68" x2="68" y1="270" y2="310" stroke-dasharray="none"/>
+            <line clip-path="url(#clipPath34)" fill="none" x1="68" x2="130" y1="310" y2="310" stroke-dasharray="none"/>
+            <text x="170" y="282" clip-path="url(#clipPath42)" stroke-dasharray="none" stroke="none" xml:space="preserve">Choose 2 apartments to compare</text>
+            <line clip-path="url(#clipPath43)" fill="none" x1="114" x2="130" y1="316" y2="310" stroke-dasharray="none"/>
+            <line clip-path="url(#clipPath43)" fill="none" x1="130" x2="114" y1="310" y2="304" stroke-dasharray="none"/>
+            <line clip-path="url(#clipPath34)" fill="none" x1="350" x2="760" y1="410" y2="410" stroke-dasharray="none"/>
             <text x="447" y="404" clip-path="url(#clipPath44)" stroke-dasharray="none" stroke="none" xml:space="preserve">  given(apart1: Apartment, apart2: Apartment, avf: ApartmentValueFunction): SpiderPlot</text>
-            <polygon stroke-dasharray="none" clip-path="url(#clipPath45)" points=" 750 410 734 416 734 404" stroke="none"/>
-            <polygon fill="none" stroke-dasharray="none" clip-path="url(#clipPath45)" points=" 750 410 734 416 734 404"/>
-            <line clip-path="url(#clipPath34)" fill="none" x1="330" x2="392" y1="530" y2="530" stroke-dasharray="none"/>
-            <line clip-path="url(#clipPath34)" fill="none" x1="392" x2="392" y1="530" y2="610" stroke-dasharray="none"/>
-            <line clip-path="url(#clipPath34)" fill="none" x1="392" x2="330" y1="610" y2="610" stroke-dasharray="none"/>
-            <text x="396" y="577" clip-path="url(#clipPath46)" stroke-dasharray="none" stroke="none" xml:space="preserve">  displaySpiderPlot()</text>
-            <polygon stroke-dasharray="none" clip-path="url(#clipPath47)" points=" 330 610 346 604 346 616" stroke="none"/>
-            <polygon fill="none" stroke-dasharray="none" clip-path="url(#clipPath47)" points=" 330 610 346 604 346 616"/>
+            <polygon stroke-dasharray="none" clip-path="url(#clipPath45)" points=" 760 410 744 416 744 404" stroke="none"/>
+            <polygon fill="none" stroke-dasharray="none" clip-path="url(#clipPath45)" points=" 760 410 744 416 744 404"/>
+            <line clip-path="url(#clipPath34)" fill="none" x1="330" x2="264" y1="530" y2="530" stroke-dasharray="none"/>
+            <line clip-path="url(#clipPath34)" fill="none" x1="264" x2="264" y1="530" y2="610" stroke-dasharray="none"/>
+            <line clip-path="url(#clipPath34)" fill="none" x1="264" x2="330" y1="610" y2="610" stroke-dasharray="none"/>
+            <text x="210" y="642" clip-path="url(#clipPath46)" stroke-dasharray="none" stroke="none" xml:space="preserve">  displaySpiderPlot()</text>
+            <polygon stroke-dasharray="none" clip-path="url(#clipPath47)" points=" 330 610 314 616 314 604" stroke="none"/>
+            <polygon fill="none" stroke-dasharray="none" clip-path="url(#clipPath47)" points=" 330 610 314 616 314 604"/>
             <line clip-path="url(#clipPath34)" fill="none" x1="360" x2="550" y1="170" y2="170" stroke-dasharray="none"/>
             <text x="419" y="164" clip-path="url(#clipPath40)" stroke-dasharray="none" stroke="none" xml:space="preserve">  displayAppart()</text>
             <polygon stroke-dasharray="none" clip-path="url(#clipPath41)" points=" 550 170 534 176 534 164" stroke="none"/>
@@ -280,29 +280,29 @@
             <text xml:space="preserve" x="387" y="230" clip-path="url(#clipPath38)" stroke="none">display a sorted apartment list</text>
             <line clip-path="url(#clipPath39)" fill="none" x1="366" x2="350" y1="204" y2="210" stroke-dasharray="none"/>
             <line clip-path="url(#clipPath39)" fill="none" x1="350" x2="366" y1="210" y2="216" stroke-dasharray="none"/>
-            <line clip-path="url(#clipPath34)" fill="none" x1="130" x2="192" y1="270" y2="270" stroke-dasharray="none"/>
-            <line clip-path="url(#clipPath34)" fill="none" x1="192" x2="192" y1="270" y2="310" stroke-dasharray="none"/>
-            <line clip-path="url(#clipPath34)" fill="none" x1="192" x2="130" y1="310" y2="310" stroke-dasharray="none"/>
-            <text x="208" y="304" clip-path="url(#clipPath42)" stroke-dasharray="none" stroke="none" xml:space="preserve">Choose 2 apartments to compare</text>
-            <line clip-path="url(#clipPath43)" fill="none" x1="146" x2="130" y1="304" y2="310" stroke-dasharray="none"/>
-            <line clip-path="url(#clipPath43)" fill="none" x1="130" x2="146" y1="310" y2="316" stroke-dasharray="none"/>
+            <line clip-path="url(#clipPath34)" fill="none" x1="130" x2="68" y1="270" y2="270" stroke-dasharray="none"/>
+            <line clip-path="url(#clipPath34)" fill="none" x1="68" x2="68" y1="270" y2="310" stroke-dasharray="none"/>
+            <line clip-path="url(#clipPath34)" fill="none" x1="68" x2="130" y1="310" y2="310" stroke-dasharray="none"/>
+            <text x="170" y="282" clip-path="url(#clipPath42)" stroke-dasharray="none" stroke="none" xml:space="preserve">Choose 2 apartments to compare</text>
+            <line clip-path="url(#clipPath43)" fill="none" x1="114" x2="130" y1="316" y2="310" stroke-dasharray="none"/>
+            <line clip-path="url(#clipPath43)" fill="none" x1="130" x2="114" y1="310" y2="304" stroke-dasharray="none"/>
             <line clip-path="url(#clipPath34)" fill="none" x1="150" x2="330" y1="350" y2="350" stroke-dasharray="none"/>
             <text x="193" y="344" clip-path="url(#clipPath36)" stroke-dasharray="none" stroke="none" xml:space="preserve">  compareApartClick()</text>
             <line clip-path="url(#clipPath37)" fill="none" x1="314" x2="330" y1="356" y2="350" stroke-dasharray="none"/>
             <line clip-path="url(#clipPath37)" fill="none" x1="330" x2="314" y1="350" y2="344" stroke-dasharray="none"/>
-            <line clip-path="url(#clipPath34)" fill="none" x1="360" x2="750" y1="410" y2="410" stroke-dasharray="none"/>
+            <line clip-path="url(#clipPath34)" fill="none" x1="350" x2="760" y1="410" y2="410" stroke-dasharray="none"/>
             <text x="447" y="404" clip-path="url(#clipPath44)" stroke-dasharray="none" stroke="none" xml:space="preserve">  given(apart1: Apartment, apart2: Apartment, avf: ApartmentValueFunction): SpiderPlot</text>
-            <polygon stroke-dasharray="none" clip-path="url(#clipPath45)" points=" 750 410 734 416 734 404" stroke="none"/>
-            <polygon fill="none" stroke-dasharray="none" clip-path="url(#clipPath45)" points=" 750 410 734 416 734 404"/>
+            <polygon stroke-dasharray="none" clip-path="url(#clipPath45)" points=" 760 410 744 416 744 404" stroke="none"/>
+            <polygon fill="none" stroke-dasharray="none" clip-path="url(#clipPath45)" points=" 760 410 744 416 744 404"/>
             <line clip-path="url(#clipPath34)" fill="none" x1="750" x2="360" y1="450" y2="450"/>
             <line clip-path="url(#clipPath35)" fill="none" x1="376" x2="360" y1="444" y2="450" stroke-dasharray="none"/>
             <line clip-path="url(#clipPath35)" fill="none" x1="360" x2="376" y1="450" y2="456" stroke-dasharray="none"/>
-            <line clip-path="url(#clipPath34)" fill="none" x1="330" x2="392" y1="530" y2="530" stroke-dasharray="none"/>
-            <line clip-path="url(#clipPath34)" fill="none" x1="392" x2="392" y1="530" y2="610" stroke-dasharray="none"/>
-            <line clip-path="url(#clipPath34)" fill="none" x1="392" x2="330" y1="610" y2="610" stroke-dasharray="none"/>
-            <text x="396" y="577" clip-path="url(#clipPath46)" stroke-dasharray="none" stroke="none" xml:space="preserve">  displaySpiderPlot()</text>
-            <polygon stroke-dasharray="none" clip-path="url(#clipPath47)" points=" 330 610 346 604 346 616" stroke="none"/>
-            <polygon fill="none" stroke-dasharray="none" clip-path="url(#clipPath47)" points=" 330 610 346 604 346 616"/>
+            <line clip-path="url(#clipPath34)" fill="none" x1="330" x2="264" y1="530" y2="530" stroke-dasharray="none"/>
+            <line clip-path="url(#clipPath34)" fill="none" x1="264" x2="264" y1="530" y2="610" stroke-dasharray="none"/>
+            <line clip-path="url(#clipPath34)" fill="none" x1="264" x2="330" y1="610" y2="610" stroke-dasharray="none"/>
+            <text x="210" y="642" clip-path="url(#clipPath46)" stroke-dasharray="none" stroke="none" xml:space="preserve">  displaySpiderPlot()</text>
+            <polygon stroke-dasharray="none" clip-path="url(#clipPath47)" points=" 330 610 314 616 314 604" stroke="none"/>
+            <polygon fill="none" stroke-dasharray="none" clip-path="url(#clipPath47)" points=" 330 610 314 616 314 604"/>
         </g>
     </g>
 </svg>
