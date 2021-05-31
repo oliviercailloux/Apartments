@@ -37,7 +37,7 @@ public class ApartmentStatitics {
    * 
    * @param featureName : The name of the criteria thats we want to extract statistics.
    * @return A Map (size 1) that has the name of the feature as its entry, and its statistics
-   *         through a DoubleSummaryStatistics as values of the Map.
+   *         through a DescriptiveStatistics as values of the Map.
    */
 
   public static HashMap<String, DescriptiveStatistics>
@@ -131,7 +131,7 @@ public class ApartmentStatitics {
 
   /**
    * <p>
-   * Create a DoubleSummaryStatistics able to propose severals statistics about the double data
+   * Create a DescriptiveStatistics able to propose severals statistics about the double data
    * provided in parameter.
    * </p>
    * <p>
@@ -216,7 +216,7 @@ public class ApartmentStatitics {
    * </p>
    * 
    * @param A Map (size 1) that has the name of the feature as its entry, and its statistics through
-   *        a DoubleSummaryStatistics as values of the Map.
+   *        a DescriptiveStatistics as values of the Map.
    * 
    * @return a short string describing this instance.
    */
@@ -241,7 +241,7 @@ public class ApartmentStatitics {
    * </p>
    * 
    * @param A Map (size 1) that has the name of the feature as its entry, and its statistics through
-   *        a DoubleSummaryStatistics as values of the Map.
+   *        a DescriptiveStatistics as values of the Map.
    * 
    * @return a short string describing this instance.
    */
@@ -262,7 +262,5 @@ public class ApartmentStatitics {
     System.out.println(displayNumericStatistics(generateNumericStatitics("floorArea")));
     System.out.println(displayBooleanStatistics(generateBooleanStatitics("wifi")));
 
-    // voir diagramme en barres
-    // retirer valeur null
   }
 }
