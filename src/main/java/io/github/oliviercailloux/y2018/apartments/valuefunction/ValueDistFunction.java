@@ -24,7 +24,7 @@ public class ValueDistFunction implements PartialValueFunction<LatLng> {
    *
    * @param appartlocation Object LatLng which represents the apartment location.
    * @param apiKey string that represent the API Key used by the Google Maps Api to calculate the
-   *     distances
+   *        distances
    */
   public ValueDistFunction(LatLng appartlocation, String apiKey) {
     interestlocation = new HashMap<>();
@@ -41,18 +41,18 @@ public class ValueDistFunction implements PartialValueFunction<LatLng> {
    */
   public void addInterestLocation(LatLng interest) throws Exception {
     double currentdistance = calculateDistanceLocation(interest);
-    if (currentdistance > maxDuration) maxDuration = currentdistance;
+    if (currentdistance > maxDuration)
+      maxDuration = currentdistance;
     double utility = 1 - setUtility(currentdistance);
     interestlocation.put(interest, utility);
     LOGGER.info(
         "The interest location ({}) with the utility {} has been added with success in the Map.",
-        interest,
-        utility);
+        interest, utility);
   }
 
   /**
    * @return a double which corresponds to the maximum of the duration between an interest place and
-   *     the apartment.
+   *         the apartment.
    */
   public double getMaxDuration() {
     return maxDuration;
@@ -61,18 +61,15 @@ public class ValueDistFunction implements PartialValueFunction<LatLng> {
   /**
    * @param interest
    * @return double number which corresponds to the distance (seconds) between the Location
-   *     appartocation and the Location interest in parameter.
+   *         appartocation and the Location interest in parameter.
    * @throws Exception if the latitude and longitude does not have the good format
-   *     (com.google.maps.model.LatLng)
+   *         (com.google.maps.model.LatLng)
    */
   public double calculateDistanceLocation(LatLng interest) throws Exception {
     DistanceSubway dist = new DistanceSubway(interest, appartlocation, apiKey);
     double currentdistance = dist.calculateDistanceAddress(DistanceMode.COORDINATE);
-    LOGGER.debug(
-        "The distance between {} and {} has been calculated and is equal to {}",
-        interest,
-        appartlocation,
-        currentdistance);
+    LOGGER.debug("The distance between {} and {} has been calculated and is equal to {}", interest,
+        appartlocation, currentdistance);
     return currentdistance;
   }
 

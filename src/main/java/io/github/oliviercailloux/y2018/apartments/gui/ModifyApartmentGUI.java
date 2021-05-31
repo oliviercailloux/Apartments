@@ -29,8 +29,10 @@ public class ModifyApartmentGUI extends FormApartmentGUI {
    */
   public static void main(String args[]) throws IOException {
     ModifyApartmentGUI c;
-    if (args[0] == null) c = new ModifyApartmentGUI("GUITest");
-    else c = new ModifyApartmentGUI(args[0]);
+    if (args[0] == null)
+      c = new ModifyApartmentGUI("GUITest");
+    else
+      c = new ModifyApartmentGUI(args[0]);
     c.screenDisplay();
   }
 
@@ -45,22 +47,30 @@ public class ModifyApartmentGUI extends FormApartmentGUI {
     getApartment();
     if (!apart.getTitle().equals("") && !apart.getTitle().isEmpty())
       title.setText(apart.getTitle());
-    if (apart.getTele()) tele.setSelection(true);
-    if (apart.getTerrace()) terrace.setSelection(true);
-    if (apart.getWifi()) wifi.setSelection(true);
+    if (apart.getTele())
+      tele.setSelection(true);
+    if (apart.getTerrace())
+      terrace.setSelection(true);
+    if (apart.getWifi())
+      wifi.setSelection(true);
     if (!apart.getAddress().equals("") && !apart.getAddress().isEmpty())
       address.setText(apart.getAddress());
     if (!apart.getDescription().equals("") && !apart.getDescription().isEmpty())
       description.setText(apart.getDescription());
-    if (apart.getFloorArea() != 0) floorArea.setText(Double.toString(apart.getFloorArea()));
+    if (apart.getFloorArea() != 0)
+      floorArea.setText(Double.toString(apart.getFloorArea()));
     if (apart.getFloorAreaTerrace() != 0) {
       floorAreaTerrace.setText(Double.toString(apart.getFloorAreaTerrace()));
       floorAreaTerrace.setEditable(true);
     }
-    if (apart.getNbBathrooms() != 0) nbBathrooms.setText(Integer.toString(apart.getNbBathrooms()));
-    if (apart.getNbBedrooms() != 0) nbBedrooms.setText(Integer.toString(apart.getNbBedrooms()));
-    if (apart.getNbMinNight() != 0) nbMinNight.setText(Integer.toString(apart.getNbMinNight()));
-    if (apart.getNbSleeping() != 0) nbSleeping.setText(Integer.toString(apart.getNbSleeping()));
+    if (apart.getNbBathrooms() != 0)
+      nbBathrooms.setText(Integer.toString(apart.getNbBathrooms()));
+    if (apart.getNbBedrooms() != 0)
+      nbBedrooms.setText(Integer.toString(apart.getNbBedrooms()));
+    if (apart.getNbMinNight() != 0)
+      nbMinNight.setText(Integer.toString(apart.getNbMinNight()));
+    if (apart.getNbSleeping() != 0)
+      nbSleeping.setText(Integer.toString(apart.getNbSleeping()));
     if (apart.getPricePerNight() != 0)
       pricePerNight.setText(Double.toString(apart.getPricePerNight()));
   }
@@ -106,7 +116,8 @@ public class ModifyApartmentGUI extends FormApartmentGUI {
       initializeField();
       loadMessage(MessageInfo.LOAD, "Everything is loaded !");
       while (!shell.isDisposed()) {
-        if (!display.readAndDispatch()) display.sleep();
+        if (!display.readAndDispatch())
+          display.sleep();
       }
       i.dispose();
       display.dispose();

@@ -35,22 +35,11 @@ class ApartmentFactoryTests {
     int nbMinNight = 60;
     boolean tele = false;
     Builder apartBuilder = new Builder();
-    Apartment apart =
-        apartBuilder
-            .setFloorArea(floorArea)
-            .setAddress(address)
-            .setNbBedrooms(nbBedrooms)
-            .setNbSleeping(nbSleeping)
-            .setNbBathrooms(nbBathrooms)
-            .setTerrace(hasTerrace)
-            .setFloorAreaTerrace(floorAreaTerrace)
-            .setDescription(description)
-            .setTitle(title)
-            .setWifi(wifi)
-            .setPricePerNight(pricePerNight)
-            .setNbMinNight(nbMinNight)
-            .setTele(tele)
-            .build();
+    Apartment apart = apartBuilder.setFloorArea(floorArea).setAddress(address)
+        .setNbBedrooms(nbBedrooms).setNbSleeping(nbSleeping).setNbBathrooms(nbBathrooms)
+        .setTerrace(hasTerrace).setFloorAreaTerrace(floorAreaTerrace).setDescription(description)
+        .setTitle(title).setWifi(wifi).setPricePerNight(pricePerNight).setNbMinNight(nbMinNight)
+        .setTele(tele).build();
 
     assertEquals(floorArea, apart.getFloorArea());
     assertEquals(address, apart.getAddress());
@@ -73,8 +62,8 @@ class ApartmentFactoryTests {
    */
   @Test
   public void testGenerateApartmentFromJsonException() {
-    assertThrows(
-        IOException.class, () -> ApartmentFactory.generateApartmentsFromJsonPath(Path.of("abc")));
+    assertThrows(IOException.class,
+        () -> ApartmentFactory.generateApartmentsFromJsonPath(Path.of("abc")));
   }
 
   /** Make an API call and verify that the return format of the API has not changed */
@@ -87,9 +76,7 @@ class ApartmentFactoryTests {
       Optional<String> address =
           ApartmentFactory.tryToGetOnlineRandomAddress(client, lontitude, latitude);
       assertTrue(address.isPresent(), "We are supposed to retrieve an address");
-      assertEquals(
-          "2 Chemin des Lacs à la Porte Dauphine 75016 Paris",
-          address.get(),
+      assertEquals("2 Chemin des Lacs à la Porte Dauphine 75016 Paris", address.get(),
           "Call to the address retrieval API with a fixed longitude and attitude need to return a"
               + " good result");
     } finally {

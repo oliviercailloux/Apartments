@@ -33,11 +33,9 @@ class ReversedLinearValueFunctionTests {
 
   @Test
   void testExceptionIllegalArgEquals() {
-    assertThrows(
-        IllegalArgumentException.class,
-        () -> {
-          @SuppressWarnings("unused")
-          ReversedLinearValueFunction e = new ReversedLinearValueFunction(10, 10);
-        });
+    assertThrows(IllegalArgumentException.class, () -> {
+      @SuppressWarnings("unused")
+      ReversedLinearValueFunction e = new ReversedLinearValueFunction(10, 10);
+    });
   }
 }

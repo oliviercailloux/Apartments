@@ -66,22 +66,20 @@ public class FormApartmentGUI {
     tele = createCheckboxComposite("Television: ");
     description = createFormFieldComposite("Description:");
     information = createCompositeInformation();
-    terrace.addListener(
-        SWT.Selection,
-        new Listener() {
-          @Override
-          public void handleEvent(Event e) {
-            Button b = (Button) e.widget;
-            if (b.getSelection()) {
-              floorAreaTerrace.setEditable(true);
-              floorAreaTerrace.setVisible(true);
-            } else {
-              floorAreaTerrace.setEditable(false);
-              floorAreaTerrace.setVisible(false);
-            }
-            informationToFile();
-          }
-        });
+    terrace.addListener(SWT.Selection, new Listener() {
+      @Override
+      public void handleEvent(Event e) {
+        Button b = (Button) e.widget;
+        if (b.getSelection()) {
+          floorAreaTerrace.setEditable(true);
+          floorAreaTerrace.setVisible(true);
+        } else {
+          floorAreaTerrace.setEditable(false);
+          floorAreaTerrace.setVisible(false);
+        }
+        informationToFile();
+      }
+    });
     validationField();
   }
 
@@ -91,28 +89,27 @@ public class FormApartmentGUI {
    * format.
    */
   private void validationField() {
-    Listener textVerification =
-        new Listener() {
-          @Override
-          public void handleEvent(Event e) {
-            Text t = (Text) e.widget;
-            if (!t.getText().isEmpty()) {
-              t.setBackground(new Color(display, 255, 255, 255));
-            } else {
-              Label l = (Label) t.getParent().getChildren()[0];
-              if (l.getText().contains("*")) t.setBackground(new Color(display, 255, 200, 200));
-            }
-            informationToFile();
-          }
-        };
+    Listener textVerification = new Listener() {
+      @Override
+      public void handleEvent(Event e) {
+        Text t = (Text) e.widget;
+        if (!t.getText().isEmpty()) {
+          t.setBackground(new Color(display, 255, 255, 255));
+        } else {
+          Label l = (Label) t.getParent().getChildren()[0];
+          if (l.getText().contains("*"))
+            t.setBackground(new Color(display, 255, 200, 200));
+        }
+        informationToFile();
+      }
+    };
 
-    Listener selectionListener =
-        new Listener() {
-          @Override
-          public void handleEvent(Event arg0) {
-            informationToFile();
-          }
-        };
+    Listener selectionListener = new Listener() {
+      @Override
+      public void handleEvent(Event arg0) {
+        informationToFile();
+      }
+    };
 
     title.addListener(SWT.KeyUp, textVerification);
     address.addListener(SWT.KeyUp, textVerification);
@@ -151,21 +148,16 @@ public class FormApartmentGUI {
       loadMessage(MessageInfo.ERROR, "Floor Area Terrace should not be empty !");
     } else {
       Builder apartBuilder = new Builder();
-      apart =
-          apartBuilder
-              .setFloorArea(Double.parseDouble(floorArea.getText()))
-              .setAddress(address.getText())
-              .setNbBedrooms(Integer.parseInt(nbBedrooms.getText()))
-              .setNbSleeping(Integer.parseInt(nbSleeping.getText()))
-              .setNbBathrooms(Integer.parseInt(nbBathrooms.getText()))
-              .setTerrace(terrace.getSelection())
-              .setFloorAreaTerrace(Double.parseDouble(floorAreaTerrace.getText()))
-              .setDescription(description.getText())
-              .setTitle(title.getText())
-              .setWifi(wifi.getSelection())
-              .setPricePerNight(Double.parseDouble(pricePerNight.getText()))
-              .setTele(tele.getSelection())
-              .build();
+      apart = apartBuilder.setFloorArea(Double.parseDouble(floorArea.getText()))
+          .setAddress(address.getText()).setNbBedrooms(Integer.parseInt(nbBedrooms.getText()))
+          .setNbSleeping(Integer.parseInt(nbSleeping.getText()))
+          .setNbBathrooms(Integer.parseInt(nbBathrooms.getText()))
+          .setTerrace(terrace.getSelection())
+          .setFloorAreaTerrace(Double.parseDouble(floorAreaTerrace.getText()))
+          .setDescription(description.getText()).setTitle(title.getText())
+          .setWifi(wifi.getSelection())
+          .setPricePerNight(Double.parseDouble(pricePerNight.getText()))
+          .setTele(tele.getSelection()).build();
       write(apart);
       loadMessage(MessageInfo.SAVED, "Apartment have been saved !");
       System.out.println("saved");
@@ -224,7 +216,8 @@ public class FormApartmentGUI {
     t.setText("");
     t.setLayoutData(a);
 
-    if (label.equalsIgnoreCase("Floor area terrace: ")) t.setEditable(false);
+    if (label.equalsIgnoreCase("Floor area terrace: "))
+      t.setEditable(false);
     if (label.contains("*") && (t.getText().equals(" ") || !t.getText().isEmpty()))
       t.setBackground(alertColor);
 
@@ -266,11 +259,8 @@ public class FormApartmentGUI {
           } catch (NumberFormatException e) {
             text.setText("");
             Label l = (Label) text.getParent().getChildren()[0];
-            loadMessage(
-                MessageInfo.ERROR,
-                "Error : "
-                    + l.getText().substring(0, l.getText().length() - 2)
-                    + "have not a valid format");
+            loadMessage(MessageInfo.ERROR, "Error : "
+                + l.getText().substring(0, l.getText().length() - 2) + "have not a valid format");
             LOGGER.error("The argument set is not valid " + e.getMessage());
           }
         }
@@ -326,8 +316,8 @@ public class FormApartmentGUI {
     try (FileOutputStream s = new FileOutputStream(file.getAbsolutePath())) {
       xmlFile.toXML(a, s);
     } catch (Exception e) {
-      MessageDialog.openError(
-          shell, "Error", "Insertion Problem in the XML File\n\nTry to restart the app");
+      MessageDialog.openError(shell, "Error",
+          "Insertion Problem in the XML File\n\nTry to restart the app");
       LOGGER.error("Error while inserting data into XML File" + e.getMessage());
       throw new IllegalStateException(e);
     }

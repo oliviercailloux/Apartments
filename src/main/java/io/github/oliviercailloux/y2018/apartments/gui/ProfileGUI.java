@@ -85,25 +85,21 @@ public class ProfileGUI {
     shell.setLayout(rowLayout);
     for (int i = 0; i < profileTypesAvailable.size(); i++) {
       final int index = i;
-      final String profileName =
-          profileTypesAvailable.get(i).name().substring(0, 1).toUpperCase()
-              + profileTypesAvailable.get(i).name().substring(1).toUpperCase();
+      final String profileName = profileTypesAvailable.get(i).name().substring(0, 1).toUpperCase()
+          + profileTypesAvailable.get(i).name().substring(1).toUpperCase();
       try (InputStream f = ProfileGUI.class.getResourceAsStream(profileName + "Subtitle.png")) {
-        Image image =
-            new Image(
-                this.display,
-                new Image(this.display, f).getImageData().scaledTo(IMAGES_WIDTH, IMAGES_HEIGHT));
+        Image image = new Image(this.display,
+            new Image(this.display, f).getImageData().scaledTo(IMAGES_WIDTH, IMAGES_HEIGHT));
 
         Button b = new Button(this.shell, SWT.PUSH);
         b.setBackground(new Color(display, new RGB(220, 220, 220), 0));
         b.setImage(image);
 
-        Listener selectionlistener =
-            event -> {
-              shell.close();
-              selectedProfile = profileTypesAvailable.get(index);
-              LOGGER.info("Open Question GUI with Profile {}", profileName);
-            };
+        Listener selectionlistener = event -> {
+          shell.close();
+          selectedProfile = profileTypesAvailable.get(index);
+          LOGGER.info("Open Question GUI with Profile {}", profileName);
+        };
         b.addListener(SWT.Selection, selectionlistener);
       }
     }

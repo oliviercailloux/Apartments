@@ -30,7 +30,7 @@ public class ReadApartmentsXMLFormat {
    *
    * @param input is the path of XML file
    * @return an apartment object with values for each parameters found in the XML files and default
-   *     values for the other parameters.
+   *         values for the other parameters.
    * @throws IOException, NumberFormatException, InvalidPropertiesFormatException
    */
   public Apartment readApartment(InputStream input) throws IOException {
@@ -40,8 +40,7 @@ public class ReadApartmentsXMLFormat {
 
     LOGGER.info("XML Files loaded with success");
 
-    if (!prop.containsKey("floorArea")
-        || !prop.containsKey("address")
+    if (!prop.containsKey("floorArea") || !prop.containsKey("address")
         || !prop.containsKey("title")) {
       LOGGER.error(
           "Impossible to create an apartment if a floor Area, a title or an address is missing.");

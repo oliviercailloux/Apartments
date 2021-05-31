@@ -22,7 +22,7 @@ public class XMLProperties {
    *
    * @param a the apartment to put into an XML file
    * @param xmlFile a file object where the apartment will be store. Warning : if the file already
-   *     exists, it will be erased.
+   *        exists, it will be erased.
    * @throws IOException
    */
   public void toXML(Apartment a, OutputStream xmlFile) throws IOException {
