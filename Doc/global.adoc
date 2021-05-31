@@ -19,30 +19,25 @@ toc::[]
 
 image::diagram-package-global.png?raw=true[Global package diagram]
 
+The package diagram is used to illustrate the links between the different packages in the project.
 
 == Class
 
 * Global class diagram (simplified)
 
-image::diagram-class-global-simplified.png?raw=true[Global class diagram (simplified)]
+image::diagram-class-global-simplified.svg?raw=true[Global class diagram (simplified)]
 
-This is a class diagram to describe interactions between each package of the projet-apartments. Here, we especially added the Plot package in the diagram so that we can understand its interactions with the other packages. More details regarding the classes and methods interactions are available in the `diagram-class-global-detailed`.
+This is a class diagram to describe interactions between each package of the projet-apartments. More details regarding the classes and methods interactions are available in the `diagram-class-global-detailed`.
 
 * Global class diagram (detailed)
 
-image::diagram-class-global-detailed.png?raw=true[Global class diagram (detailed)]
+image::diagram-class-global-detailed.svg?raw=true[Global class diagram (detailed)]
 
 * Plot class package diagram
 
-We decided to implement a SpiderPlot in order to compare two apartments based on the subjective values of their criterias. This way the Tenant will have a better summary of its choices. Below is an example of the result the Tenant will get by clicking on the SpiderPlot button.
+image::diagram-class-package-plot.svg?raw=true[Plot class package diagram]
 
-image::spider plot image.png?raw=true[Example of a spider plot]
-
-In the Java implementation, we created the `plot` package that contains the `SpiderPlot` class. It generates a SpiderPlot having in parameters two adresses and an AVF.
-
-image::diagram-class-package-plot.png?raw=true[Plot class package diagram]
-
-This class diagram gives a representation of the java implementation of this package and its class. We added, following the Teacher's recommandations, details about CategoryDataset interface and the JFreechart class to have a better overall understanding.
+This class diagram gives a representation of the java implementation of the `plot package` and its `SpiderPlot` class. There are details about CategoryDataset interface and the JFreechart class to have a better overall understanding.
 
 == Use case
 
