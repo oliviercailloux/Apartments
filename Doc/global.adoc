@@ -19,11 +19,13 @@ toc::[]
 
 image::diagram-package-global.png?raw=true[Global package diagram]
 
+
 == Class
 
 * Global class diagram (simplified)
 
 image::diagram-class-global-simplified.png?raw=true[Global class diagram (simplified)]
+
 
 == Use case
 
