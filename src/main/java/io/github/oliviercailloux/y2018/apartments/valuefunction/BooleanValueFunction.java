@@ -16,7 +16,7 @@ public class BooleanValueFunction implements PartialValueFunction<Boolean> {
    * for the other.
    *
    * @param isPrefered a boolean that indicates whether true or false represent the "good" value for
-   *     the corresponding attribute
+   *        the corresponding attribute
    */
   public BooleanValueFunction(boolean isPrefered) {
     subjective = new HashMap<>();

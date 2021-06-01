@@ -82,12 +82,9 @@ public abstract class JsonConvert {
     LOGGER.info("Create ArrayList of Apartment");
     try (Jsonb jsonb = JsonbBuilder.create(config)) {
       LOGGER.info("Create Json builder");
-      apartments =
-          jsonb.fromJson(
-              jsonString,
-              new ArrayList<Apartment>() {
-                /**/
-              }.getClass().getGenericSuperclass());
+      apartments = jsonb.fromJson(jsonString, new ArrayList<Apartment>() {
+        /**/
+      }.getClass().getGenericSuperclass());
     } catch (Exception e) {
       throw new IllegalArgumentException(e);
     }
@@ -137,7 +134,7 @@ public abstract class JsonConvert {
    * data in the file will be overwritten.
    *
    * @param listApartments <code>{@link List}</code> object to convert into JSON
-   *     (<b>listApartments</b> could contain only one apartment)
+   *        (<b>listApartments</b> could contain only one apartment)
    * @param jsonPath <i>String</i> the path where to create the JSON file
    * @throws IOException if the JSON file can't be created.
    */
@@ -151,7 +148,7 @@ public abstract class JsonConvert {
    * Converts a list of Apartments to a JSON file.
    *
    * @param listApartments <code>{@link List}</code> object to convert into JSON
-   *     (<b>listApartments</b> could contain only one apartment)
+   *        (<b>listApartments</b> could contain only one apartment)
    * @return <i>String</i> containing the list of Apartments in JSON format
    */
   public static String apartmentsToJsonString(List<Apartment> listApartments) {

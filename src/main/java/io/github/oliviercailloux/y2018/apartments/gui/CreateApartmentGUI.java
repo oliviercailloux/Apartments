@@ -36,8 +36,10 @@ public class CreateApartmentGUI extends FormApartmentGUI {
    */
   public static void main(String args[]) throws IOException {
     CreateApartmentGUI c;
-    if (args[0] == null) c = new CreateApartmentGUI("GUITest");
-    else c = new CreateApartmentGUI(args[0]);
+    if (args[0] == null)
+      c = new CreateApartmentGUI("GUITest");
+    else
+      c = new CreateApartmentGUI(args[0]);
     c.screenDisplay();
   }
 
@@ -68,7 +70,8 @@ public class CreateApartmentGUI extends FormApartmentGUI {
       LOGGER.info("The Shell was opened with success.");
 
       while (!shell.isDisposed()) {
-        if (!display.readAndDispatch()) display.sleep();
+        if (!display.readAndDispatch())
+          display.sleep();
       }
       i.dispose();
       display.dispose();

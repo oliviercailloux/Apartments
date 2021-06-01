@@ -64,9 +64,8 @@ public class ProfileQuestionGUI {
    */
   public LinearAVF askQuestions(ProfileType profileTypeSelected) {
     Profile profileSelected = ProfileManager.getInstance().getProfile(profileTypeSelected);
-    String profileName =
-        profileTypeSelected.name().substring(0, 1)
-            + profileTypeSelected.name().toLowerCase().substring(1);
+    String profileName = profileTypeSelected.name().substring(0, 1)
+        + profileTypeSelected.name().toLowerCase().substring(1);
 
     shell.setText("Profile selection - Questions");
     shell.setLayout(new GridLayout());
@@ -112,36 +111,33 @@ public class ProfileQuestionGUI {
     buttonchoix2.setText(falseQuestionPriceArea);
     buttonchoix2.setSelection(false);
     final boolean[] result1 = new boolean[1];
-    buttonchoix1.addSelectionListener(
-        new SelectionAdapter() {
+    buttonchoix1.addSelectionListener(new SelectionAdapter() {
 
-          @Override
-          public void widgetSelected(SelectionEvent e) {
-            Button source = (Button) e.widget;
+      @Override
+      public void widgetSelected(SelectionEvent e) {
+        Button source = (Button) e.widget;
 
-            if (source.getSelection()) {
-              result1[0] = true;
-            }
-          }
-        });
+        if (source.getSelection()) {
+          result1[0] = true;
+        }
+      }
+    });
 
-    buttonchoix2.addSelectionListener(
-        new SelectionAdapter() {
-          @Override
-          public void widgetSelected(SelectionEvent e) {
-            Button source = (Button) e.getSource();
-            if (source.getSelection()) {
-              result1[0] = false;
-            }
-          }
-        });
+    buttonchoix2.addSelectionListener(new SelectionAdapter() {
+      @Override
+      public void widgetSelected(SelectionEvent e) {
+        Button source = (Button) e.getSource();
+        if (source.getSelection()) {
+          result1[0] = false;
+        }
+      }
+    });
     // the listener when we click on finish
-    Listener finishlistener =
-        event -> {
-          shell.close();
-          question.resolve(profileSelected, result1[0]);
-          LOGGER.info("ProfileQuestionGUI closed");
-        };
+    Listener finishlistener = event -> {
+      shell.close();
+      question.resolve(profileSelected, result1[0]);
+      LOGGER.info("ProfileQuestionGUI closed");
+    };
 
     // This is a submit button, it will close the shell when the user click on Submit
     final Button finish = new Button(shell, SWT.PUSH);

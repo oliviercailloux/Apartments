@@ -17,23 +17,12 @@ class LinearAVFTests {
   @BeforeEach
   void initEach() {
     LinearAVF.Builder builderLinearAVF = new LinearAVF.Builder();
-    a =
-        new Builder()
-            .setFloorArea(250)
-            .setAddress("108 rue de chat-ville Ville-d'Avray 92410")
-            .setNbBedrooms(1)
-            .setNbSleeping(4)
-            .setNbBathrooms(1)
-            .setTerrace(true)
-            .setFloorAreaTerrace(40)
-            .setDescription(
-                "Une ferme rustique en compagnie de Dwight Schrute, interdit à Jim Halpert")
-            .setTitle("Une ferme")
-            .setWifi(false)
-            .setPricePerNight(3.3)
-            .setNbMinNight(3)
-            .setTele(false)
-            .build();
+    a = new Builder().setFloorArea(250).setAddress("108 rue de chat-ville Ville-d'Avray 92410")
+        .setNbBedrooms(1).setNbSleeping(4).setNbBathrooms(1).setTerrace(true)
+        .setFloorAreaTerrace(40)
+        .setDescription("Une ferme rustique en compagnie de Dwight Schrute, interdit à Jim Halpert")
+        .setTitle("Une ferme").setWifi(false).setPricePerNight(3.3).setNbMinNight(3).setTele(false)
+        .build();
 
     LinearValueFunction floorAreaV = new LinearValueFunction(0d, 200d);
     builderLinearAVF.setFloorAreaValueFunction(floorAreaV);

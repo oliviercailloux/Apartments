@@ -1,0 +1,51 @@
+:toc:
+:toc-placement!:
+:toclevels: 4
+:toclevels: 1
+
+= Apartments
+
+toc::[]
+
+== What's inside project apartments ?
+
+Inside the project, you have three main topics. Under the folder link:[Doc], you will find everything you need for your UML iterations.
+Under the folder link:/src[src], you have the java code you need to work on. 
+Last but not least, the link:/README.adoc[README.adoc] allows you to understand what we've done this past year. 
+
+== First launch of the App
+
+Before getting into details, let's start the app and see what it does. Clone the project on your local repository, and then open it on Eclipse. In the documentation https://github.com/oliviercailloux-org/projet-apartments/blob/ProjectExplanation/Doc/run.adoc[run.adoc], you have an overview of all the executable classes. I advice you to launch all of them, and to read the documentation in order to understand how it operates, and what the main goal of the application is. Depending on the Tenant preferences, you have a different list of apartments showing up.
+Now that you have a small idea of the project, it is time to read the specific documentation.
+
+== Read the documentation
+
+* Read the link:README.adoc[README.adoc] for a global overview of the app.
+* Read the link:packages.adoc[packages.adoc] to learn the impletemented packages and have detailed explanation of its classes. The `valuefunction` package is the most important ! The whole project revolves around it. Now that you know the packages and classes, you can do the next step.
+* Read the link:global.adoc[global.adoc] to see the general diagrams. You will find all the images under link:img[img].
+
+== UML
+
+* Open the papyrus model on Eclipse. 
+* Make sure you understand the artefact behind the model. It is the key to your future iterations in UML. You need to keep it clean.
+* Observe all the diagrams in the model. They show all that has been implemented in Java. Understanding the diagrams will help you understand the java code behind.
+
+== JAVA 
+
+Now you should know everything about the different packages and classes and how they interact. Next step is to understand the code !
+
+* Before modifying any class, it is mandatory to have a minimum level in Java. It includes :
+      - Knowing the basics of Java syntax.
+      - Clearly identify the differences between a package, a class, an interface and a method.
+      - Understand Maven to see how the project is designed.
+
+* In the folder link:/src[src], you have the code for the project : you will find the different packages and their classes. We advice you to look at it now.
+
+Take time to go through all the packages in order to understand their classes' implementation. The javadoc view in Eclispe is your best tool to understand the code, do not hesitate to use it to understand what a class or a method does. Use as well the different documentations that you must have read by now. It is only here to help you.
+
+== Ideas
+
+* For ideas about your next iterations, you can open link:idea.adoc[idea.adoc]. In this document, you will find all the ideas that we thought were interesting to add to the project but we didn't have time to implement them.
+        
+        
+Your time to play !
