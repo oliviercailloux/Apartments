@@ -53,27 +53,32 @@ public class ApartmentStatitics {
     
     if (listOfContinousFeatures.contains(featureName) || listOfDiscreteFeatures.contains(featureName)) {
       
+      LOGGER.info("{} is part of our numeric criteria", featureName);
       HashMap<String, ArrayList<Double>> criteriaStats = getNumericData(featureName);
       String writtenStats = displayNumericStatistics(criteriaStats);
       return writtenStats;
     
     } else if (listOfBooleanFeatures.contains(featureName)) {
       
+      LOGGER.info("{} is part of our boolean criteria", featureName);
       ImmutableMap<Boolean, Integer> criteriaStats = getBooleanData(featureName);
       String writtenStats = displayBooleanStatistics(criteriaStats);
       return writtenStats;
 
-    } else {
+    } else if (listOfStringFeatures.contains(featureName)) {
+      
+      LOGGER.info("{} is part of our string criteria", featureName);
       return("No statistics are available for String criterias like "+featureName);
+      
+    } else {
+      
+      throw new IllegalArgumentException(featureName+" isn't one of our criteria");
       
     }
   }
   
 
   public static HashMap<String, ArrayList<Double>> getNumericData(String featureName) {
-
-    checkArgument(listOfContinousFeatures.contains(featureName) || listOfDiscreteFeatures.contains(featureName));
-    LOGGER.info("{} is part of our numeric criteria", featureName);
 
     HashMap<String, ArrayList<Double>> criteriaStats = new HashMap<>(1);
 
@@ -165,9 +170,6 @@ public class ApartmentStatitics {
    * @param featureName : The name of the criteria thats we want to extract data.
    */
   public static ImmutableMap<Boolean, Integer> getBooleanData(String featureName) {
-
-    checkArgument(listOfFeatures.contains(featureName));
-    LOGGER.info("{} is part of our criteria", featureName);
 
     HashMap<Boolean, Integer> results = new HashMap<>();
     int yes = 0;
