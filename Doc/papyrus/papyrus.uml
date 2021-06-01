@@ -413,6 +413,27 @@
             </nestedClassifier>
           </packagedElement>
           <packagedElement xmi:type="uml:Usage" xmi:id="_Q9OikJieEeupk9giDf-csg" name="see apartments" client="_fIsF4GS3EeqTxqp8Bmjtjg" supplier="_czcs0GS3EeqTxqp8Bmjtjg"/>
+          <packagedElement xmi:type="uml:Association" xmi:id="_fcu5EJieEeupk9giDf-csg" name="GenerateForManager" memberEnd="_fogEMJieEeupk9giDf-csg _fohSUJieEeupk9giDf-csg">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_foQMkJieEeupk9giDf-csg" source="org.eclipse.papyrus">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_foRasJieEeupk9giDf-csg" key="nature" value="UML_Nature"/>
+            </eAnnotations>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_fogEMJieEeupk9giDf-csg" name="manager" type="_nMIOoINeEeuKr4GKR77Z1g" association="_fcu5EJieEeupk9giDf-csg"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_fohSUJieEeupk9giDf-csg" name="generate database statistics" type="_oYvPkIS6EeuzdriENguzmA" association="_fcu5EJieEeupk9giDf-csg"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_E7XZUJu2Eeuncr8gT3yhGw" name="compare appartments" memberEnd="_E78oIJu2Eeuncr8gT3yhGw _E792QJu2Eeuncr8gT3yhGw">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_E749wJu2Eeuncr8gT3yhGw" source="org.eclipse.papyrus">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_E76L4Ju2Eeuncr8gT3yhGw" key="nature" value="UML_Nature"/>
+            </eAnnotations>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_E78oIJu2Eeuncr8gT3yhGw" name="compare 2 apartments using spiderplot" type="_rB2xcIS7EeuzdriENguzmA" association="_E7XZUJu2Eeuncr8gT3yhGw"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_E792QJu2Eeuncr8gT3yhGw" name="tenant" type="_jkbIIINeEeuKr4GKR77Z1g" association="_E7XZUJu2Eeuncr8gT3yhGw"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_XdBWoJu2Eeuncr8gT3yhGw" name="see apartments'" memberEnd="_XdFBAZu2Eeuncr8gT3yhGw _XdFoEJu2Eeuncr8gT3yhGw">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_XdEZ8Ju2Eeuncr8gT3yhGw" source="org.eclipse.papyrus">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_XdFBAJu2Eeuncr8gT3yhGw" key="nature" value="UML_Nature"/>
+            </eAnnotations>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_XdFBAZu2Eeuncr8gT3yhGw" name="see ordered apartments' list" type="_czcs0GS3EeqTxqp8Bmjtjg" association="_XdBWoJu2Eeuncr8gT3yhGw"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_XdFoEJu2Eeuncr8gT3yhGw" name="tenant" type="_jkbIIINeEeuKr4GKR77Z1g" association="_XdBWoJu2Eeuncr8gT3yhGw"/>
+          </packagedElement>
         </packagedElement>
         <packagedElement xmi:type="uml:Interaction" xmi:id="_bm_iMIPvEeqm2vrDV_e-Xg" name="InterractionBetweenUsersAndApplication">
           <nestedClassifier xmi:type="uml:Association" xmi:id="_rfnPQJwuEeqGkeU796yVmw" memberEnd="_rfqSkpwuEeqGkeU796yVmw _rfq5oZwuEeqGkeU796yVmw">
@@ -5365,27 +5386,6 @@ The CategoryDataset is required to be able to create a Spider Plot in the create
           </packagedElement>
         </packagedElement>
       </packagedElement>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_fcu5EJieEeupk9giDf-csg" name="GenerateForManager" memberEnd="_fogEMJieEeupk9giDf-csg _fohSUJieEeupk9giDf-csg">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_foQMkJieEeupk9giDf-csg" source="org.eclipse.papyrus">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_foRasJieEeupk9giDf-csg" key="nature" value="UML_Nature"/>
-      </eAnnotations>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_fogEMJieEeupk9giDf-csg" name="manager" type="_nMIOoINeEeuKr4GKR77Z1g" association="_fcu5EJieEeupk9giDf-csg"/>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_fohSUJieEeupk9giDf-csg" name="generate database statistics" type="_oYvPkIS6EeuzdriENguzmA" association="_fcu5EJieEeupk9giDf-csg"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_E7XZUJu2Eeuncr8gT3yhGw" name="compare appartments" memberEnd="_E78oIJu2Eeuncr8gT3yhGw _E792QJu2Eeuncr8gT3yhGw">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_E749wJu2Eeuncr8gT3yhGw" source="org.eclipse.papyrus">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_E76L4Ju2Eeuncr8gT3yhGw" key="nature" value="UML_Nature"/>
-      </eAnnotations>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_E78oIJu2Eeuncr8gT3yhGw" name="compare 2 apartments using spiderplot" type="_rB2xcIS7EeuzdriENguzmA" association="_E7XZUJu2Eeuncr8gT3yhGw"/>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_E792QJu2Eeuncr8gT3yhGw" name="tenant" type="_jkbIIINeEeuKr4GKR77Z1g" association="_E7XZUJu2Eeuncr8gT3yhGw"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_XdBWoJu2Eeuncr8gT3yhGw" name="see apartments'" memberEnd="_XdFBAZu2Eeuncr8gT3yhGw _XdFoEJu2Eeuncr8gT3yhGw">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_XdEZ8Ju2Eeuncr8gT3yhGw" source="org.eclipse.papyrus">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_XdFBAJu2Eeuncr8gT3yhGw" key="nature" value="UML_Nature"/>
-      </eAnnotations>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_XdFBAZu2Eeuncr8gT3yhGw" name="see ordered apartments' list" type="_czcs0GS3EeqTxqp8Bmjtjg" association="_XdBWoJu2Eeuncr8gT3yhGw"/>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_XdFoEJu2Eeuncr8gT3yhGw" name="tenant" type="_jkbIIINeEeuKr4GKR77Z1g" association="_XdBWoJu2Eeuncr8gT3yhGw"/>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_ZAfQAF--EeqAAb4u4HLI7w">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ZAkIgF--EeqAAb4u4HLI7w" source="http://www.eclipse.org/uml2/2.0.0/UML">
