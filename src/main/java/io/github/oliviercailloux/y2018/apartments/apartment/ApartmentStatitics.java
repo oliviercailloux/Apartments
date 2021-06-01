@@ -25,10 +25,10 @@ import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 public class ApartmentStatitics {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(Apartment.class);
-  final static HashSet<String> listOfFeatures = new HashSet<>(Arrays.asList("address",
+  private static final HashSet<String> listOfFeatures = new HashSet<>(Arrays.asList("address",
       "description", "floorArea", "floorAreaTerrace", "nbBathrooms", "nbBedrooms", "nbMinNight",
       "nbSleeping", "pricePerNight", "tele", "terrace", "title", "wifi"));
-  static List<Apartment> listOfApartments = JsonConvert.getDefaultApartments();
+  private static List<Apartment> listOfApartments = JsonConvert.getDefaultApartments();
 
   /**
    * <p>
