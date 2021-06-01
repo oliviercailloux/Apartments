@@ -25,9 +25,15 @@ import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 public class ApartmentStatitics {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(Apartment.class);
+  
   private static final HashSet<String> listOfFeatures = new HashSet<>(Arrays.asList("address",
       "description", "floorArea", "floorAreaTerrace", "nbBathrooms", "nbBedrooms", "nbMinNight",
       "nbSleeping", "pricePerNight", "tele", "terrace", "title", "wifi"));
+  private static final HashSet<String> listOfContinousFeatures = new HashSet<>(Arrays.asList("floorArea", "floorAreaTerrace","pricePerNight"));
+  private static final HashSet<String> listOfDiscreteFeatures = new HashSet<>(Arrays.asList("nbBathrooms", "nbBedrooms", "nbMinNight","nbSleeping"));
+  private static final HashSet<String> listOfBooleanFeatures = new HashSet<>(Arrays.asList("tele", "terrace", "wifi"));
+  private static final HashSet<String> listOfStringFeatures = new HashSet<>(Arrays.asList("address","description","title"));
+  
   private static List<Apartment> listOfApartments = JsonConvert.getDefaultApartments();
 
   /**
@@ -42,11 +48,32 @@ public class ApartmentStatitics {
    * @return A Map (size 1) that has the name of the feature as its entry, and its data
    *         through a ArrayList as values of the Map.
    */
+  
+  public static String getStats(String featureName) {
+    
+    if (listOfContinousFeatures.contains(featureName) || listOfDiscreteFeatures.contains(featureName)) {
+      
+      HashMap<String, ArrayList<Double>> criteriaStats = getNumericData(featureName);
+      String writtenStats = displayNumericStatistics(criteriaStats);
+      return writtenStats;
+    
+    } else if (listOfBooleanFeatures.contains(featureName)) {
+      
+      ImmutableMap<Boolean, Integer> criteriaStats = getBooleanData(featureName);
+      String writtenStats = displayBooleanStatistics(criteriaStats);
+      return writtenStats;
+
+    } else {
+      return("No statistics are available for String criterias like "+featureName);
+      
+    }
+  }
+  
 
   public static HashMap<String, ArrayList<Double>> getNumericData(String featureName) {
 
-    checkArgument(listOfFeatures.contains(featureName));
-    LOGGER.info("{} is part of our criteria", featureName);
+    checkArgument(listOfContinousFeatures.contains(featureName) || listOfDiscreteFeatures.contains(featureName));
+    LOGGER.info("{} is part of our numeric criteria", featureName);
 
     HashMap<String, ArrayList<Double>> criteriaStats = new HashMap<>(1);
 
@@ -244,9 +271,13 @@ public class ApartmentStatitics {
     System.out.println(displayBooleanStatistics(teleStats));
     System.out.println(displayNumericStatistics(nbBedroomsStats));
 
-    System.out.println(displayNumericStatistics(getNumericData("nbMinNight")));
-    System.out.println(displayNumericStatistics(getNumericData("pricePerNight")));
-    System.out.println(displayBooleanStatistics(getBooleanData("wifi")));
+    //System.out.println(displayNumericStatistics(getNumericData("nbMinNight")));
+    //System.out.println(displayNumericStatistics(getNumericData("pricePerNight")));
+    //System.out.println(displayBooleanStatistics(getBooleanData("wifi")));
+    
+    System.out.println(getStats("nbMinNight"));
+    System.out.println(getStats("pricePerNight"));
+    System.out.println(getStats("wifi"));
 
     // https://www.codota.com/code/java/classes/com.google.common.math.Stats
     // https://vimsky.com/examples/detail/java-method-com.google.common.math.Stats.of.html
