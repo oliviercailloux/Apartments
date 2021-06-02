@@ -35,7 +35,7 @@ public class ApartmentStatitics {
   
   private static List<Apartment> listOfApartments = JsonConvert.getDefaultApartments();
   
-  public static String getStatistics(String featureName) {
+  public static String getStatisticsOf(String featureName) {
     
     checkNotNull(featureName);
 
@@ -237,6 +237,7 @@ public class ApartmentStatitics {
   
   public static String displayNumericStatistics(HashMap<String, ArrayList<Double>> dataMap) {
 
+    checkNotNull(dataMap);
     Entry<String, ArrayList<Double>> firstEntry = dataMap.entrySet().iterator().next();
     String feature = firstEntry.getKey();
     List<Double> listOfDoubles = firstEntry.getValue();
@@ -265,6 +266,7 @@ public class ApartmentStatitics {
   
   public static String displayBooleanStatistics(ImmutableMap<String, Integer> criteriaStats) {
 
+    checkNotNull(criteriaStats);
     List<String> modalities = new ArrayList<>();
     List<Integer> numbers = new ArrayList<>();
     
@@ -290,9 +292,10 @@ public class ApartmentStatitics {
     //System.out.println(displayNumericStatistics(getNumericData("pricePerNight")));
     //System.out.println(displayBooleanStatistics(getBooleanData("wifi")));
     
-    System.out.println(getStatistics("nbMinNight"));
-    System.out.println(getStatistics("pricePerNight"));
-    System.out.println(getStatistics("terrace"));
+    System.out.println(getStatisticsOf("nbMinNight"));
+    System.out.println(getStatisticsOf("pricePerNight"));
+    //System.out.println(getStatistics("pricePerNight2"));
+    System.out.println(getStatisticsOf("terrace"));
 
     // https://www.codota.com/code/java/classes/com.google.common.math.Stats
     // https://vimsky.com/examples/detail/java-method-com.google.common.math.Stats.of.html
