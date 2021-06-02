@@ -19,6 +19,7 @@ toc::[]
 
 image::diagram-package-global.png?raw=true[Global package diagram]
 
+
 == Class
 
 * Global class diagram (simplified)
