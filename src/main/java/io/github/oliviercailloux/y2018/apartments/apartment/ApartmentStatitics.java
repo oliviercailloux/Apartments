@@ -49,7 +49,7 @@ public class ApartmentStatitics {
     } else if (listOfBooleanFeatures.contains(featureName)) {
       
       LOGGER.info("{} is part of our Boolean criteria", featureName);
-      ImmutableMap<Boolean, Integer> criteriaStats = getBooleanData(featureName);
+      ImmutableMap<String, Integer> criteriaStats = getBooleanData(featureName);
       String writtenStats = displayBooleanStatistics(criteriaStats);
       return writtenStats;
 
@@ -170,9 +170,9 @@ public class ApartmentStatitics {
    * @param featureName : The name of the criteria thats we want to extract data.
    */
   
-  public static ImmutableMap<Boolean, Integer> getBooleanData(String featureName) {
+  public static ImmutableMap<String, Integer> getBooleanData(String featureName) {
 
-    HashMap<Boolean, Integer> results = new HashMap<>();
+    HashMap<String, Integer> results = new HashMap<>();
     int yes = 0;
     int no = 0;
 
@@ -218,8 +218,8 @@ public class ApartmentStatitics {
         throw new IllegalArgumentException(featureName+" isn't a Apartment feature");
     
     }
-    results.put(true, yes);
-    results.put(false, no);
+    results.put(featureName, yes);
+    results.put("No "+featureName, no);
     return ImmutableMap.copyOf(results);
 
   }
@@ -263,16 +263,25 @@ public class ApartmentStatitics {
    * @return a short string describing this instance.
    */
   
-  public static String displayBooleanStatistics(ImmutableMap<Boolean, Integer> criteriaStats) {
+  public static String displayBooleanStatistics(ImmutableMap<String, Integer> criteriaStats) {
 
-    return ("\nTrue : " + criteriaStats.get(true) + "\nFalse : " + criteriaStats.get(false) + "\n");
+    List<String> modalities = new ArrayList<>();
+    List<Integer> numbers = new ArrayList<>();
+    
+    for (Entry<String, Integer> s: criteriaStats.entrySet()) {
+      modalities.add(s.getKey());
+      numbers.add(s.getValue());
+      }
+    return ("\n"+modalities.get(0)+" : " + numbers.get(0) + 
+            "\n"+modalities.get(1)+" : " + numbers.get(1) +
+            "\n");
   
   }
 
   public static void main(String[] args) {
 
     HashMap<String, ArrayList<Double>> nbBedroomsStats = getNumericData("nbBedrooms");
-    ImmutableMap<Boolean, Integer> teleStats = getBooleanData("tele");
+    ImmutableMap<String, Integer> teleStats = getBooleanData("tele");
 
     System.out.println(displayBooleanStatistics(teleStats));
     System.out.println(displayNumericStatistics(nbBedroomsStats));
@@ -283,7 +292,7 @@ public class ApartmentStatitics {
     
     System.out.println(getStatistics("nbMinNight"));
     System.out.println(getStatistics("pricePerNight"));
-    System.out.println(getStatistics("wifi"));
+    System.out.println(getStatistics("terrace"));
 
     // https://www.codota.com/code/java/classes/com.google.common.math.Stats
     // https://vimsky.com/examples/detail/java-method-com.google.common.math.Stats.of.html
