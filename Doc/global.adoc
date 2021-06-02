@@ -19,8 +19,6 @@ toc::[]
 
 image::diagram-package-global.png?raw=true[Global package diagram]
 
-The package diagram is used to illustrate the links between the different packages in the project.
-
 == Class
 
 * Global class diagram (simplified)
