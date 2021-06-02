@@ -35,6 +35,18 @@ public class ApartmentStatitics {
   
   private static List<Apartment> listOfApartments = JsonConvert.getDefaultApartments();
   
+  /**
+   * <p>
+   * This method is able to return the statistics of all types of criteria (boolean, numeric, string, etc.)
+   * </p>
+   * <p>
+   * <em>Note </em>: the first character of the criteria must be in lower case.
+   * </p>
+   * 
+   * @param featureName : The name of the criteria thats we want to extract statistics.
+   * @return The statistics of the given criteria 
+   */
+  
   public static String getStatisticsOf(String featureName) {
     
     checkNotNull(featureName);
@@ -258,7 +270,7 @@ public class ApartmentStatitics {
    * Return the total occurrence of the criteria for all apartments.
    * </p>
    * 
-   * @param A Map (size 1) that has the name of the feature as its entry, and its statistics through
+   * @param A ImmutableMap (size 1) that has the name of the feature as its entry, and its statistics through
    *        a DescriptiveStatistics as values of the Map.
    * 
    * @return a short string describing this instance.
@@ -287,17 +299,11 @@ public class ApartmentStatitics {
 
     System.out.println(displayBooleanStatistics(teleStats));
     System.out.println(displayNumericStatistics(nbBedroomsStats));
-
-    //System.out.println(displayNumericStatistics(getNumericData("nbMinNight")));
-    //System.out.println(displayNumericStatistics(getNumericData("pricePerNight")));
-    //System.out.println(displayBooleanStatistics(getBooleanData("wifi")));
-    
+    System.out.println(displayNumericStatistics(getNumericData("nbMinNight")));
     System.out.println(getStatisticsOf("nbMinNight"));
     System.out.println(getStatisticsOf("pricePerNight"));
-    //System.out.println(getStatistics("pricePerNight2"));
     System.out.println(getStatisticsOf("terrace"));
 
-    // https://www.codota.com/code/java/classes/com.google.common.math.Stats
-    // https://vimsky.com/examples/detail/java-method-com.google.common.math.Stats.of.html
+    
   }
 }
