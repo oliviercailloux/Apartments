@@ -24,39 +24,17 @@ class ApartmentTests {
   @Test
   void testEqualsTrue() {
     Builder apartBuilder = new Builder();
-    Apartment a1 =
-        apartBuilder
-            .setFloorArea(floorArea)
-            .setAddress(address)
-            .setNbBedrooms(nbBedrooms)
-            .setNbSleeping(nbSleeping)
-            .setNbBathrooms(nbBathrooms)
-            .setTerrace(hasTerrace)
-            .setFloorAreaTerrace(floorAreaTerrace)
-            .setDescription(description)
-            .setTitle(title)
-            .setWifi(wifi)
-            .setPricePerNight(pricePerNight)
-            .setNbMinNight(nbMinNight)
-            .setTele(tele)
-            .build();
+    Apartment a1 = apartBuilder.setFloorArea(floorArea).setAddress(address)
+        .setNbBedrooms(nbBedrooms).setNbSleeping(nbSleeping).setNbBathrooms(nbBathrooms)
+        .setTerrace(hasTerrace).setFloorAreaTerrace(floorAreaTerrace).setDescription(description)
+        .setTitle(title).setWifi(wifi).setPricePerNight(pricePerNight).setNbMinNight(nbMinNight)
+        .setTele(tele).build();
     apartBuilder = new Builder();
-    Apartment a2 =
-        apartBuilder
-            .setFloorArea(floorArea)
-            .setAddress(address)
-            .setNbBedrooms(nbBedrooms)
-            .setNbSleeping(nbSleeping)
-            .setNbBathrooms(nbBathrooms)
-            .setTerrace(hasTerrace)
-            .setFloorAreaTerrace(floorAreaTerrace)
-            .setDescription(description)
-            .setTitle(title)
-            .setWifi(wifi)
-            .setPricePerNight(pricePerNight)
-            .setNbMinNight(nbMinNight)
-            .setTele(tele)
-            .build();
+    Apartment a2 = apartBuilder.setFloorArea(floorArea).setAddress(address)
+        .setNbBedrooms(nbBedrooms).setNbSleeping(nbSleeping).setNbBathrooms(nbBathrooms)
+        .setTerrace(hasTerrace).setFloorAreaTerrace(floorAreaTerrace).setDescription(description)
+        .setTitle(title).setWifi(wifi).setPricePerNight(pricePerNight).setNbMinNight(nbMinNight)
+        .setTele(tele).build();
 
     assertTrue(a1.equals(a2));
   }
@@ -64,39 +42,17 @@ class ApartmentTests {
   @Test
   void testEqualsFalse() {
     Builder apartBuilder = new Builder();
-    Apartment a1 =
-        apartBuilder
-            .setFloorArea(floorArea)
-            .setAddress("Chaville")
-            .setNbBedrooms(nbBedrooms)
-            .setNbSleeping(nbSleeping)
-            .setNbBathrooms(nbBathrooms)
-            .setTerrace(hasTerrace)
-            .setFloorAreaTerrace(floorAreaTerrace)
-            .setDescription(description)
-            .setTitle("Marc's home")
-            .setWifi(wifi)
-            .setPricePerNight(pricePerNight)
-            .setNbMinNight(nbMinNight)
-            .setTele(tele)
-            .build();
+    Apartment a1 = apartBuilder.setFloorArea(floorArea).setAddress("Chaville")
+        .setNbBedrooms(nbBedrooms).setNbSleeping(nbSleeping).setNbBathrooms(nbBathrooms)
+        .setTerrace(hasTerrace).setFloorAreaTerrace(floorAreaTerrace).setDescription(description)
+        .setTitle("Marc's home").setWifi(wifi).setPricePerNight(pricePerNight)
+        .setNbMinNight(nbMinNight).setTele(tele).build();
     apartBuilder = new Builder();
-    Apartment a2 =
-        apartBuilder
-            .setFloorArea(floorArea)
-            .setAddress("Arras")
-            .setNbBedrooms(nbBedrooms)
-            .setNbSleeping(nbSleeping)
-            .setNbBathrooms(nbBathrooms)
-            .setTerrace(hasTerrace)
-            .setFloorAreaTerrace(floorAreaTerrace)
-            .setDescription(description)
-            .setTitle("Micky's home")
-            .setWifi(wifi)
-            .setPricePerNight(pricePerNight)
-            .setNbMinNight(nbMinNight)
-            .setTele(tele)
-            .build();
+    Apartment a2 = apartBuilder.setFloorArea(floorArea).setAddress("Arras")
+        .setNbBedrooms(nbBedrooms).setNbSleeping(nbSleeping).setNbBathrooms(nbBathrooms)
+        .setTerrace(hasTerrace).setFloorAreaTerrace(floorAreaTerrace).setDescription(description)
+        .setTitle("Micky's home").setWifi(wifi).setPricePerNight(pricePerNight)
+        .setNbMinNight(nbMinNight).setTele(tele).build();
 
     assertFalse(a1.equals(a2));
   }
@@ -104,39 +60,17 @@ class ApartmentTests {
   @Test
   void testHashCodeTrue() {
     Builder apartBuilder = new Builder();
-    Apartment a1 =
-        apartBuilder
-            .setFloorArea(floorArea)
-            .setAddress(address)
-            .setNbBedrooms(nbBedrooms)
-            .setNbSleeping(nbSleeping)
-            .setNbBathrooms(nbBathrooms)
-            .setTerrace(hasTerrace)
-            .setFloorAreaTerrace(floorAreaTerrace)
-            .setDescription(description)
-            .setTitle(title)
-            .setWifi(wifi)
-            .setPricePerNight(pricePerNight)
-            .setNbMinNight(nbMinNight)
-            .setTele(tele)
-            .build();
+    Apartment a1 = apartBuilder.setFloorArea(floorArea).setAddress(address)
+        .setNbBedrooms(nbBedrooms).setNbSleeping(nbSleeping).setNbBathrooms(nbBathrooms)
+        .setTerrace(hasTerrace).setFloorAreaTerrace(floorAreaTerrace).setDescription(description)
+        .setTitle(title).setWifi(wifi).setPricePerNight(pricePerNight).setNbMinNight(nbMinNight)
+        .setTele(tele).build();
     apartBuilder = new Builder();
-    Apartment a2 =
-        apartBuilder
-            .setFloorArea(floorArea)
-            .setAddress(address)
-            .setNbBedrooms(nbBedrooms)
-            .setNbSleeping(nbSleeping)
-            .setNbBathrooms(nbBathrooms)
-            .setTerrace(hasTerrace)
-            .setFloorAreaTerrace(floorAreaTerrace)
-            .setDescription(description)
-            .setTitle(title)
-            .setWifi(wifi)
-            .setPricePerNight(pricePerNight)
-            .setNbMinNight(nbMinNight)
-            .setTele(tele)
-            .build();
+    Apartment a2 = apartBuilder.setFloorArea(floorArea).setAddress(address)
+        .setNbBedrooms(nbBedrooms).setNbSleeping(nbSleeping).setNbBathrooms(nbBathrooms)
+        .setTerrace(hasTerrace).setFloorAreaTerrace(floorAreaTerrace).setDescription(description)
+        .setTitle(title).setWifi(wifi).setPricePerNight(pricePerNight).setNbMinNight(nbMinNight)
+        .setTele(tele).build();
 
     assertEquals(a1.hashCode(), a2.hashCode());
   }
@@ -145,39 +79,17 @@ class ApartmentTests {
   void testHashCodeFalse() {
 
     Builder apartBuilder = new Builder();
-    Apartment a1 =
-        apartBuilder
-            .setFloorArea(floorArea)
-            .setAddress("Chaville")
-            .setNbBedrooms(nbBedrooms)
-            .setNbSleeping(nbSleeping)
-            .setNbBathrooms(nbBathrooms)
-            .setTerrace(hasTerrace)
-            .setFloorAreaTerrace(floorAreaTerrace)
-            .setDescription(description)
-            .setTitle("Marc's home")
-            .setWifi(wifi)
-            .setPricePerNight(pricePerNight)
-            .setNbMinNight(nbMinNight)
-            .setTele(tele)
-            .build();
+    Apartment a1 = apartBuilder.setFloorArea(floorArea).setAddress("Chaville")
+        .setNbBedrooms(nbBedrooms).setNbSleeping(nbSleeping).setNbBathrooms(nbBathrooms)
+        .setTerrace(hasTerrace).setFloorAreaTerrace(floorAreaTerrace).setDescription(description)
+        .setTitle("Marc's home").setWifi(wifi).setPricePerNight(pricePerNight)
+        .setNbMinNight(nbMinNight).setTele(tele).build();
     apartBuilder = new Builder();
-    Apartment a2 =
-        apartBuilder
-            .setFloorArea(floorArea)
-            .setAddress("Arras")
-            .setNbBedrooms(nbBedrooms)
-            .setNbSleeping(nbSleeping)
-            .setNbBathrooms(nbBathrooms)
-            .setTerrace(hasTerrace)
-            .setFloorAreaTerrace(floorAreaTerrace)
-            .setDescription(description)
-            .setTitle("Micky's home")
-            .setWifi(wifi)
-            .setPricePerNight(pricePerNight)
-            .setNbMinNight(nbMinNight)
-            .setTele(tele)
-            .build();
+    Apartment a2 = apartBuilder.setFloorArea(floorArea).setAddress("Arras")
+        .setNbBedrooms(nbBedrooms).setNbSleeping(nbSleeping).setNbBathrooms(nbBathrooms)
+        .setTerrace(hasTerrace).setFloorAreaTerrace(floorAreaTerrace).setDescription(description)
+        .setTitle("Micky's home").setWifi(wifi).setPricePerNight(pricePerNight)
+        .setNbMinNight(nbMinNight).setTele(tele).build();
 
     assertFalse(a1.hashCode() == a2.hashCode());
   }

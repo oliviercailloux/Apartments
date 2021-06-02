@@ -18,17 +18,11 @@ public class ProfileTests {
   void initEach() {
     Profile.Builder profileBuilder = new Profile.Builder();
     LinearAVF.Builder blavf =
-        new LinearAVF.Builder()
-            .setTeleValueFunction(true)
-            .setTerraceValueFunction(true)
-            .setWifiValueFunction(true)
-            .setFloorAreaTerraceValueFunction(10d, 20d)
-            .setFloorAreaValueFunction(50d, 100d)
-            .setNbBathroomsValueFunction(2, 4)
-            .setNbBedroomsValueFunction(2, 4)
-            .setNbSleepingValueFunction(2, 4)
-            .setNbMinNightValueFunction(5, 10)
-            .setPricePerNightValueFunction(30d, 60d);
+        new LinearAVF.Builder().setTeleValueFunction(true).setTerraceValueFunction(true)
+            .setWifiValueFunction(true).setFloorAreaTerraceValueFunction(10d, 20d)
+            .setFloorAreaValueFunction(50d, 100d).setNbBathroomsValueFunction(2, 4)
+            .setNbBedroomsValueFunction(2, 4).setNbSleepingValueFunction(2, 4)
+            .setNbMinNightValueFunction(5, 10).setPricePerNightValueFunction(30d, 60d);
     for (Criterion c : Criterion.values()) {
       blavf.setWeight(c, 2d);
     }
@@ -54,8 +48,7 @@ public class ProfileTests {
   @Test
   void testBuilder() {
     Profile.Builder profileBuilder = new Profile.Builder();
-    assertThrows(
-        IllegalArgumentException.class,
+    assertThrows(IllegalArgumentException.class,
         () -> profileBuilder.setWeightRange(Criterion.NB_SLEEPING, 10d, 0d));
   }
 }

@@ -392,6 +392,18 @@ Depending on this boolean, we will adapt differently the range of weight contain
 
 * If the answer is `false`, that means that price is more important for the user than floor area. Here, the computation is the same that the precedent point except that we switch the price part and the floor area part. That gives the following computation. For the price, we adapt the lower bound of the range : lowerBoundOfPrice + middleOfRange * 0,2 and for the floor area we adapt the upper bound of the range: upperBoundOfFloorArea - middleOfRange * 0,1.
 
+== plot 
+
+In the Java implementation, we created the `plot` package that contains the `SpiderPlot` class. It generates a SpiderPlot having in parameters two adresses and an AVF
+
+* *`SpiderPlot` class*
+
+
+We decided to implement a SpiderPlot in order to compare two apartments based on the subjective values of their criterias. This way the Tenant will have a better summary of its choices. Below is an example of the result the Tenant will get by clicking on the SpiderPlot button.
+
+image::SpiderPlotImage.png?raw=true[Example of a spider plot]
+
+How to read the image above ? Overall, we can judge at first sight that the red apartment covers more criterias. In fact, it has a better score for Tele, floor area, Terrace, Terrace area, Wifi and bedrooms. On the other hand, the blue apartment is better in terms of Price, bathroom, sleeping, and distance. If the price is the most important criteria, the Tenant should choose the blue apartment, knowing that it lacks many other criterias. If the Tenant is looking for the best compromise, he should choose tbe red apartment for the reason described.
 
 [%hardbreaks]
 link:#toc[⬆ back to top]

@@ -28,17 +28,11 @@ public class Profile {
 
   private Profile() {
     LinearAVF.Builder blavf =
-        new LinearAVF.Builder()
-            .setTeleValueFunction(true)
-            .setTerraceValueFunction(true)
-            .setWifiValueFunction(true)
-            .setFloorAreaTerraceValueFunction(1d, 50d)
-            .setFloorAreaValueFunction(9d, 200d)
-            .setNbBathroomsValueFunction(1, 10)
-            .setNbBedroomsValueFunction(0, 30)
-            .setNbSleepingValueFunction(1, 30)
-            .setNbMinNightValueFunction(1, 31)
-            .setPricePerNightValueFunction(30d, 200d);
+        new LinearAVF.Builder().setTeleValueFunction(true).setTerraceValueFunction(true)
+            .setWifiValueFunction(true).setFloorAreaTerraceValueFunction(1d, 50d)
+            .setFloorAreaValueFunction(9d, 200d).setNbBathroomsValueFunction(1, 10)
+            .setNbBedroomsValueFunction(0, 30).setNbSleepingValueFunction(1, 30)
+            .setNbMinNightValueFunction(1, 31).setPricePerNightValueFunction(30d, 200d);
     for (Criterion c : Criterion.values()) {
       blavf.setWeight(c, 0d);
     }
@@ -53,8 +47,7 @@ public class Profile {
   private Profile(EnumMap<Criterion, Range<Double>> rangesMap, LinearAVF linearAvf) {
     this.linearAvf = checkNotNull(linearAvf);
     checkNotNull(rangesMap);
-    checkArgument(
-        rangesMap.keySet().containsAll(Arrays.asList(Criterion.values())),
+    checkArgument(rangesMap.keySet().containsAll(Arrays.asList(Criterion.values())),
         "rangesMap must have all Criterion");
     this.rangesMap = rangesMap;
   }
@@ -97,7 +90,7 @@ public class Profile {
    * (subjective value) associated with each <code>Criterion</code>
    *
    * @return An <code>ImmutableMap</code>, which for each <code>Criterion</code> associates its
-   *     subjective value
+   *         subjective value
    */
   public ImmutableMap<Criterion, Range<Double>> getWeightsRange() {
     return Maps.immutableEnumMap(this.rangesMap);
@@ -139,8 +132,8 @@ public class Profile {
     Double weight = linearAVF.getWeight(crit);
     checkNotNull(range);
     checkNotNull(weight);
-    checkArgument(
-        range.contains(weight), "A weight in the linear AVF is not in the targeted range");
+    checkArgument(range.contains(weight),
+        "A weight in the linear AVF is not in the targeted range");
   }
 
   /**
@@ -162,7 +155,7 @@ public class Profile {
    *
    * @param value the Range to check
    * @throws IllegalArgumentException when doubles contained are < 0 or if there are only 1 value in
-   *     the range
+   *         the range
    */
   private void checkRangeValidity(Range<Double> value) {
     checkNotNull(value, "The rage cannot be null");
@@ -171,8 +164,7 @@ public class Profile {
         value.lowerBoundType().equals(BoundType.CLOSED)
             && value.upperBoundType().equals(BoundType.CLOSED),
         "The given range must have closed bounds");
-    checkArgument(
-        value.lowerEndpoint() >= 0 && value.upperEndpoint() > 0,
+    checkArgument(value.lowerEndpoint() >= 0 && value.upperEndpoint() > 0,
         "The weight of the range cannot be negative");
   }
 
