@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map.Entry;
 
 import org.slf4j.Logger;
@@ -15,59 +18,44 @@ import com.google.common.math.DoubleMath;
 import com.google.common.math.Stats;
 
 import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.base.Preconditions.checkNotNull;
 
 import io.github.oliviercailloux.y2018.apartments.apartment.json.JsonConvert;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
+
 
 public class ApartmentStatitics {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(Apartment.class);
   
-  private static final HashSet<String> listOfFeatures = new HashSet<>(Arrays.asList("address",
-      "description", "floorArea", "floorAreaTerrace", "nbBathrooms", "nbBedrooms", "nbMinNight",
-      "nbSleeping", "pricePerNight", "tele", "terrace", "title", "wifi"));
+  private static final HashSet<String> listOfFeatures = new HashSet<>(Arrays.asList("address", "description", "floorArea", "floorAreaTerrace", "nbBathrooms", "nbBedrooms", "nbMinNight","nbSleeping", "pricePerNight", "tele", "terrace", "title", "wifi"));
   private static final HashSet<String> listOfContinousFeatures = new HashSet<>(Arrays.asList("floorArea", "floorAreaTerrace","pricePerNight"));
   private static final HashSet<String> listOfDiscreteFeatures = new HashSet<>(Arrays.asList("nbBathrooms", "nbBedrooms", "nbMinNight","nbSleeping"));
   private static final HashSet<String> listOfBooleanFeatures = new HashSet<>(Arrays.asList("tele", "terrace", "wifi"));
   private static final HashSet<String> listOfStringFeatures = new HashSet<>(Arrays.asList("address","description","title"));
   
   private static List<Apartment> listOfApartments = JsonConvert.getDefaultApartments();
-
-  /**
-   * <p>
-   * Create a Map able to store the name of a criteria and its data in a ArrayList.
-   * </p>
-   * <p>
-   * <em>Note </em>: the first character of the criteria must be in lower case.
-   * </p>
-   * 
-   * @param featureName : The name of the criteria thats we want to extract statistics.
-   * @return A Map (size 1) that has the name of the feature as its entry, and its data
-   *         through a ArrayList as values of the Map.
-   */
   
-  public static String getStats(String featureName) {
+  public static String getStatistics(String featureName) {
     
+    checkNotNull(featureName);
+
     if (listOfContinousFeatures.contains(featureName) || listOfDiscreteFeatures.contains(featureName)) {
       
-      LOGGER.info("{} is part of our numeric criteria", featureName);
+      LOGGER.info("{} is part of our Numeric criteria", featureName);
       HashMap<String, ArrayList<Double>> criteriaStats = getNumericData(featureName);
       String writtenStats = displayNumericStatistics(criteriaStats);
       return writtenStats;
     
     } else if (listOfBooleanFeatures.contains(featureName)) {
       
-      LOGGER.info("{} is part of our boolean criteria", featureName);
+      LOGGER.info("{} is part of our Boolean criteria", featureName);
       ImmutableMap<Boolean, Integer> criteriaStats = getBooleanData(featureName);
       String writtenStats = displayBooleanStatistics(criteriaStats);
       return writtenStats;
 
     } else if (listOfStringFeatures.contains(featureName)) {
       
-      LOGGER.info("{} is part of our string criteria", featureName);
+      LOGGER.info("{} is part of our String criteria", featureName);
       return("No statistics are available for String criterias like "+featureName);
       
     } else {
@@ -75,9 +63,22 @@ public class ApartmentStatitics {
       throw new IllegalArgumentException(featureName+" isn't one of our criteria");
       
     }
+    
   }
   
-
+  /**
+   * <p>
+   * Create a HashMap able to store the name of a criteria and its data in a ArrayList.
+   * </p>
+   * <p>
+   * <em>Note </em>: the first character of the criteria must be in lower case.
+   * </p>
+   * 
+   * @param featureName : The name of the criteria thats we want to extract statistics.
+   * @return A HashMap (size 1) that has the name of the feature as its entry, and its data
+   *         through a ArrayList as values of the Map.
+   */
+  
   public static HashMap<String, ArrayList<Double>> getNumericData(String featureName) {
 
     HashMap<String, ArrayList<Double>> criteriaStats = new HashMap<>(1);
@@ -97,8 +98,7 @@ public class ApartmentStatitics {
       case "floorAreaTerrace": {
         ArrayList<Double> floorAreaTerraceStats = new ArrayList<>();
         for (int i = 0; i < listOfApartments.size(); i++) {
-          floorAreaTerraceStats
-              .add(Math.round(listOfApartments.get(i).getFloorAreaTerrace() * 100.0) / 100.0);
+          floorAreaTerraceStats.add(Math.round(listOfApartments.get(i).getFloorAreaTerrace() * 100.0) / 100.0);
         }
         criteriaStats.put(featureName, floorAreaTerraceStats);
         LOGGER.info("Floor area terrace statistics are available :\n");
@@ -169,6 +169,7 @@ public class ApartmentStatitics {
    * 
    * @param featureName : The name of the criteria thats we want to extract data.
    */
+  
   public static ImmutableMap<Boolean, Integer> getBooleanData(String featureName) {
 
     HashMap<Boolean, Integer> results = new HashMap<>();
@@ -233,6 +234,7 @@ public class ApartmentStatitics {
    * 
    * @return a short string describing this instance.
    */
+  
   public static String displayNumericStatistics(HashMap<String, ArrayList<Double>> dataMap) {
 
     Entry<String, ArrayList<Double>> firstEntry = dataMap.entrySet().iterator().next();
@@ -260,9 +262,11 @@ public class ApartmentStatitics {
    * 
    * @return a short string describing this instance.
    */
+  
   public static String displayBooleanStatistics(ImmutableMap<Boolean, Integer> criteriaStats) {
 
     return ("\nTrue : " + criteriaStats.get(true) + "\nFalse : " + criteriaStats.get(false) + "\n");
+  
   }
 
   public static void main(String[] args) {
@@ -277,9 +281,9 @@ public class ApartmentStatitics {
     //System.out.println(displayNumericStatistics(getNumericData("pricePerNight")));
     //System.out.println(displayBooleanStatistics(getBooleanData("wifi")));
     
-    System.out.println(getStats("nbMinNight"));
-    System.out.println(getStats("pricePerNight"));
-    System.out.println(getStats("wifi"));
+    System.out.println(getStatistics("nbMinNight"));
+    System.out.println(getStatistics("pricePerNight"));
+    System.out.println(getStatistics("wifi"));
 
     // https://www.codota.com/code/java/classes/com.google.common.math.Stats
     // https://vimsky.com/examples/detail/java-method-com.google.common.math.Stats.of.html
