@@ -29,19 +29,29 @@ import java.util.Map.Entry;
  */
 
 public class Histograms {
-    final static HashSet<Criterion> listOfFeatures = new HashSet<>(Arrays.asList(Criterion.FLOOR_AREA,Criterion.FLOOR_AREA_TERRACE,Criterion.NB_BATHROOMS,Criterion.NB_BEDROOMS,Criterion.NB_MIN_NIGHT,Criterion.NB_SLEEPING,Criterion.PRICE_PER_NIGHT));
+  
+    final static HashSet<Criterion> listOfNumericFeatures = new HashSet<>(Arrays.asList(Criterion.FLOOR_AREA,Criterion.FLOOR_AREA_TERRACE,Criterion.NB_BATHROOMS,Criterion.NB_BEDROOMS,Criterion.NB_MIN_NIGHT,Criterion.NB_SLEEPING,Criterion.PRICE_PER_NIGHT));
     static List<Apartment> listOfApartments = JsonConvert.getDefaultApartments();
     private static final Logger LOGGER = LoggerFactory.getLogger(Histograms.class);
-
+    
+    
+    public static Histograms given(Criterion featureName) {
+      return new Histograms(featureName);
+    }
+    
+    private Histograms(Criterion featureName) {
+      launchHistogram(getDataAsAList(featureName)) ;
+    }
+    
     /**
     * Get the data of all the apartments and return them as a map in which the key is the criterion given
     * as a parameter and the value is a list of data.
     * @param a criterion that we want to study.
-    * @return a hashmap that stores the criterion name and its data.
+    * @return a HashMap that stores the criterion name and its data.
     */
     public static HashMap<Criterion, List<Double>> getDataAsAList(Criterion featureName) {
         
-        checkArgument(listOfFeatures.contains(featureName));
+        checkArgument(listOfNumericFeatures.contains(featureName));
         LOGGER.info("{} is part of our criteria",featureName);
 
         HashMap<Criterion, List<Double>> dataMap = new HashMap<>();
@@ -133,7 +143,7 @@ public class Histograms {
     
     /**
     * Create an histogram and save it.
-    * @param  a hashmap that stores the criterion name and its data.
+    * @param  a HashMap that stores the criterion name and its data.
     */
     
     public static void launchHistogram(HashMap<Criterion, List<Double>>  dataMap) {
@@ -145,7 +155,7 @@ public class Histograms {
         var dataset = new HistogramDataset();
         dataset.addSeries("key", data, 50);
         JFreeChart histogram = ChartFactory.createHistogram(feature.toString()+" statistics",feature.toString(), "Effectif", dataset);
-
+        
         try {          
             ChartUtils.saveChartAsPNG(new File(feature+".png"), histogram, 450, 400);
             LOGGER.info("Image successfully created.");
