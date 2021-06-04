@@ -217,22 +217,4 @@ public HashMap<Boolean,Integer> getBooleanStatistics(Criterion featureName) {
   
   }
 
-  public static void main(String[] args) {
-    
-    ApartmentStatistics listOfAparts = ApartmentStatistics.given(listOfApartments, 1);
-    ArrayList<Apartment> sampleApartments = listOfAparts.myApartments;
-    System.out.println(listOfAparts.getNumericStatistics(Criterion.NB_MIN_NIGHT).max());
-    double pricePerNightStats = 1444.9659;
-    double roundedDouble2 = Math.round(pricePerNightStats * 100)/100;
-    System.out.println(roundedDouble2);
-    double d=636;
-    double e = 73;
-    
-    double roundedDouble = Math.round(((d+e)/2) * 100.0) / 100.0;
-    System.out.println("Non rounded double: "+(d+e)/2);
-    System.out.println("Rounded double: "+roundedDouble);
-    System.out.println(listOfAparts.getNumericStatistics(Criterion.PRICE_PER_NIGHT).max());
-
-
-  }
 }
