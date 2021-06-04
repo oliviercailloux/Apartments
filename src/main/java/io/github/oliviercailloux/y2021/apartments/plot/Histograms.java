@@ -18,11 +18,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
 
 /**
  * The public class Histograms enables to get histograms according a given criterion.
@@ -30,8 +27,8 @@ import java.util.Map.Entry;
 
 public class Histograms {
   
-    final static HashSet<Criterion> listOfNumericFeatures = new HashSet<>(Arrays.asList(Criterion.FLOOR_AREA,Criterion.FLOOR_AREA_TERRACE,Criterion.NB_BATHROOMS,Criterion.NB_BEDROOMS,Criterion.NB_MIN_NIGHT,Criterion.NB_SLEEPING,Criterion.PRICE_PER_NIGHT));
-    static List<Apartment> listOfApartments = JsonConvert.getDefaultApartments();
+    private static final HashSet<Criterion> listOfNumericFeatures = new HashSet<>(Arrays.asList(Criterion.FLOOR_AREA,Criterion.FLOOR_AREA_TERRACE,Criterion.NB_BATHROOMS,Criterion.NB_BEDROOMS,Criterion.NB_MIN_NIGHT,Criterion.NB_SLEEPING,Criterion.PRICE_PER_NIGHT));
+    private static List<Apartment> listOfApartments = JsonConvert.getDefaultApartments();
     private static final Logger LOGGER = LoggerFactory.getLogger(Histograms.class);
     
     public static JFreeChart myHistogram;
@@ -179,6 +176,15 @@ public class Histograms {
       Histograms newHist = new Histograms(newCrit)  ;
       LOGGER.info("A new histogram has been created.");
       return newHist;
+      
+    }
+    
+    /**
+     * This method is about to be implemented.
+     * Enables to display to the user the image of the histogram.  
+     */
+    
+    public void displayHistogram() {
       
     }
   
