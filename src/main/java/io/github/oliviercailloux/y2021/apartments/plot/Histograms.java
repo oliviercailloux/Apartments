@@ -47,90 +47,81 @@ public class Histograms {
     }
     
     /**
-    * Get the data of all the apartments and return them as a map in which the key is the criterion given
-    * as a parameter and the value is a list of data.
+    * Get all data of the given criterion of the list of apartments
+    * 
     * @param a criterion that we want to study.
     * @return a HashMap that stores the criterion name and its data.
     */
-    private static HashMap<Criterion, List<Double>> getDataAsAList(Criterion featureName) {
+    private static ArrayList<Double> getDataAsAList(Criterion featureName) {
         
         checkArgument(listOfNumericFeatures.contains(featureName));
         LOGGER.info("{} is part of our criteria",featureName);
-
-        HashMap<Criterion, List<Double>> dataMap = new HashMap<>(1);
 
         switch(featureName) {
         
         case FLOOR_AREA : {
             LOGGER.info("Data about the floor area are available :");
-            List <Double> floorAreaStats = new ArrayList<>();
+            ArrayList <Double> floorAreaStats = new ArrayList<>();
             for (int i=0; i< listOfApartments.size(); i++) {
                 floorAreaStats.add(Math.round(listOfApartments.get(i).getFloorArea()* 100.0) / 100.0);
             }
-            dataMap.put(featureName, floorAreaStats);
-            return dataMap;
+            return floorAreaStats;
             
         }
         
         case FLOOR_AREA_TERRACE : {
             LOGGER.info("Data about the floor area terrace are available :");
-            List <Double> floorAreaTerraceStats = new ArrayList<>();
+            ArrayList <Double> floorAreaTerraceStats = new ArrayList<>();
             for (int i=0; i< listOfApartments.size(); i++) {
                 floorAreaTerraceStats.add(Math.round(listOfApartments.get(i).getFloorAreaTerrace()* 100.0) / 100.0);
             }
-            dataMap.put(featureName, floorAreaTerraceStats);
-            return dataMap;
+            return floorAreaTerraceStats;
             
         }
         case PRICE_PER_NIGHT : {
             LOGGER.info("Data about the price per night statistics are available :");
-            List <Double> pricePerNightStats = new ArrayList<>();
+            ArrayList <Double> pricePerNightStats = new ArrayList<>();
             for (int i=0; i< listOfApartments.size(); i++) {
                 pricePerNightStats.add(Math.round(listOfApartments.get(i).getPricePerNight()* 100.0) / 100.0);
             }
-            dataMap.put(featureName, pricePerNightStats);
-            return dataMap;
+            return pricePerNightStats;
             
         }
         case NB_BATHROOMS : {
             LOGGER.info("Data about the number of bathrooms are available :");
-            List <Double> pricePerNightStats = new ArrayList<>();
+            ArrayList <Double> nbBathroomsStats = new ArrayList<>();
             for (int i=0; i< listOfApartments.size(); i++) {
-                pricePerNightStats.add(Math.round(listOfApartments.get(i).getPricePerNight()* 100.0) / 100.0);
+              nbBathroomsStats.add(Math.round(listOfApartments.get(i).getNbBathrooms()* 100.0) / 100.0);
             }
-            dataMap.put(featureName, pricePerNightStats);
-            return dataMap; 
+            return nbBathroomsStats; 
             
         }
         
         case NB_BEDROOMS : {
             LOGGER.info("Data about the number of bedrooms are available :");
-            List <Double> pricePerNightStats = new ArrayList<>();
+            ArrayList <Double> nbBedroomsStats = new ArrayList<>();
             for (int i=0; i< listOfApartments.size(); i++) {
-                pricePerNightStats.add(Math.round(listOfApartments.get(i).getPricePerNight()* 100.0) / 100.0);
+              nbBedroomsStats.add(Math.round(listOfApartments.get(i).getNbBedrooms()* 100.0) / 100.0);
             }
-            dataMap.put(featureName, pricePerNightStats);
-            return dataMap;
+            return nbBedroomsStats;
             
         }
         case NB_MIN_NIGHT: {
             LOGGER.info("Data about the the minimum number of night are available :");
-            List <Double> pricePerNightStats = new ArrayList<>();
+            ArrayList <Double> nbMinNightStats = new ArrayList<>();
             for (int i=0; i< listOfApartments.size(); i++) {
-                pricePerNightStats.add(Math.round(listOfApartments.get(i).getPricePerNight()* 100.0) / 100.0);
+              nbMinNightStats.add(Math.round(listOfApartments.get(i).getNbMinNight()* 100.0) / 100.0);
             }
-            dataMap.put(featureName, pricePerNightStats);
-            return dataMap;
+            return nbMinNightStats;
             
         }
         case NB_SLEEPING : {
             LOGGER.info("Data about the number of sleeping are available :");
-            List <Double> pricePerNightStats = new ArrayList<>();
+            ArrayList <Double> nbSleepingStats = new ArrayList<>();
             for (int i=0; i< listOfApartments.size(); i++) {
-                pricePerNightStats.add(Math.round(listOfApartments.get(i).getPricePerNight()* 100.0) / 100.0);
+              nbSleepingStats.add(Math.round(listOfApartments.get(i).getNbSleeping()* 100.0) / 100.0);
             }
-            dataMap.put(featureName, pricePerNightStats);
-            return dataMap;   
+            return nbSleepingStats;   
             
         }
         
@@ -150,19 +141,16 @@ public class Histograms {
     
     /**
     * Create and returns an histogram of the given criterion.
-    * @param a HashMap that stores the criterion name and its data.
+    * @param an ArrayList that stores the criterion and its data.
     */
     
-    private static JFreeChart launchHistogram(HashMap<Criterion, List<Double>>  dataMap) {
-         Entry<Criterion, List<Double>> entry = dataMap.entrySet().iterator().next();
-         Criterion feature = entry.getKey();
-         List<Double> dataList = entry.getValue();
+    private static JFreeChart launchHistogram(ArrayList<Double>  dataList) {
 
         double[] data = dataList.stream().mapToDouble(Double::doubleValue).toArray();
         var dataset = new HistogramDataset();
         dataset.addSeries("key", data, 50);
-        LOGGER.info("The {} histogram has been successfully created.", feature.toString());
-        JFreeChart histogram = ChartFactory.createHistogram(feature.toString()+" statistics",feature.toString(), "Effectif", dataset);
+        LOGGER.info("The {} histogram has been successfully created.", crit.toString());
+        JFreeChart histogram = ChartFactory.createHistogram(crit.toString()+" statistics",crit.toString(), "Effectif", dataset);
         
         return histogram;
     }
