@@ -21,14 +21,14 @@ public class ApartmentStatistics {
   
   private static List<Apartment> listOfApartments = JsonConvert.getDefaultApartments();
   
-  private ArrayList<Apartment> sampleOfApartments; 
+  public ArrayList<Apartment> myApartments; 
   
   public static ApartmentStatistics given(List<Apartment> listApartments, Integer number) {
     return new ApartmentStatistics(listApartments, number);
   }
   
   private ApartmentStatistics(List<Apartment> listApartments, Integer number) {
-    this.sampleOfApartments = getApartmentsSample(listApartments, number);
+    this.myApartments = getApartmentsSample(listApartments, number);
   }
 
   /**
@@ -69,24 +69,24 @@ public class ApartmentStatistics {
 
       case FLOOR_AREA: 
         ArrayList<Double> floorAreaStats = new ArrayList<>();
-        for (int i = 0; i < sampleOfApartments.size(); i++) {
-          floorAreaStats.add(Math.round(sampleOfApartments.get(i).getFloorArea() * 100.0) / 100.0);
+        for (int i = 0; i < myApartments.size(); i++) {
+          floorAreaStats.add(Math.round(myApartments.get(i).getFloorArea() * 100.0) / 100.0);
         }
         LOGGER.info("Floor area statistics are available :\n");
         return Stats.of(floorAreaStats);
         
       case FLOOR_AREA_TERRACE: 
         ArrayList<Double> floorAreaTerraceStats = new ArrayList<>();
-        for (int i = 0; i < sampleOfApartments.size(); i++) {
-          floorAreaTerraceStats.add(Math.round(sampleOfApartments.get(i).getFloorAreaTerrace() * 100.0) / 100.0);
+        for (int i = 0; i < myApartments.size(); i++) {
+          floorAreaTerraceStats.add(Math.round(myApartments.get(i).getFloorAreaTerrace() * 100.0) / 100.0);
         }
         LOGGER.info("Floor area terrace statistics are available :\n");
         return Stats.of(floorAreaTerraceStats);
       
       case NB_BATHROOMS: {
         ArrayList<Double> nbBathroomsStats = new ArrayList<>();
-        for (int i = 0; i < sampleOfApartments.size(); i++) {
-          nbBathroomsStats.add(Double.valueOf(sampleOfApartments.get(i).getNbBathrooms()));
+        for (int i = 0; i < myApartments.size(); i++) {
+          nbBathroomsStats.add(Double.valueOf(myApartments.get(i).getNbBathrooms()));
         }
         LOGGER.info("Number of bathrooms statistics are available :\n");
         return Stats.of(nbBathroomsStats);
@@ -94,8 +94,8 @@ public class ApartmentStatistics {
 
       case NB_BEDROOMS: {
         ArrayList<Double> nbBedroomsStats = new ArrayList<>();
-        for (int i = 0; i < sampleOfApartments.size(); i++) {
-          nbBedroomsStats.add(Double.valueOf(sampleOfApartments.get(i).getNbBedrooms()));
+        for (int i = 0; i < myApartments.size(); i++) {
+          nbBedroomsStats.add(Double.valueOf(myApartments.get(i).getNbBedrooms()));
         }
         criteriaStats.put(featureName, nbBedroomsStats);
         LOGGER.info("Number of bedrooms statistics are available  :\n");
@@ -104,8 +104,8 @@ public class ApartmentStatistics {
 
       case NB_MIN_NIGHT : {
         ArrayList<Double> nbMinNightStats = new ArrayList<>();
-        for (int i = 0; i < sampleOfApartments.size(); i++) {
-          nbMinNightStats.add(Double.valueOf(sampleOfApartments.get(i).getNbMinNight()));
+        for (int i = 0; i < myApartments.size(); i++) {
+          nbMinNightStats.add(Double.valueOf(myApartments.get(i).getNbMinNight()));
         }
         LOGGER.info("The requested minimum number of night statistics are available :\n");
         return Stats.of(nbMinNightStats);
@@ -113,8 +113,8 @@ public class ApartmentStatistics {
 
       case NB_SLEEPING : {
         ArrayList<Double> nbSleepingStats = new ArrayList<>();
-        for (int i = 0; i < sampleOfApartments.size(); i++) {
-          nbSleepingStats.add(Double.valueOf(sampleOfApartments.get(i).getNbSleeping()));
+        for (int i = 0; i < myApartments.size(); i++) {
+          nbSleepingStats.add(Double.valueOf(myApartments.get(i).getNbSleeping()));
         }
         LOGGER.info("The number of sleepings statistics are available :\n");
         return Stats.of(nbSleepingStats);
@@ -122,8 +122,8 @@ public class ApartmentStatistics {
 
       case PRICE_PER_NIGHT : {
         ArrayList<Double> pricePerNightStats = new ArrayList<>();
-        for (int i = 0; i < sampleOfApartments.size(); i++) {
-          pricePerNightStats.add(Math.round(sampleOfApartments.get(i).getPricePerNight() * 100.0) / 100.0);
+        for (int i = 0; i < myApartments.size(); i++) {
+          pricePerNightStats.add(Math.round(myApartments.get(i).getPricePerNight() * 100.0) / 100.0);
         }
         LOGGER.info("The price per night statistics are available :\n");
         return Stats.of(pricePerNightStats);
@@ -159,8 +159,8 @@ public HashMap<Boolean,Integer> getBooleanStatistics(Criterion featureName) {
   switch (featureName) {
 
     case TELE: 
-      for (int i = 0; i < sampleOfApartments.size(); i++) {
-        if (sampleOfApartments.get(i).getTele()) {
+      for (int i = 0; i < myApartments.size(); i++) {
+        if (myApartments.get(i).getTele()) {
           yes++;
         } else {
           no++;
@@ -172,8 +172,8 @@ public HashMap<Boolean,Integer> getBooleanStatistics(Criterion featureName) {
       return results;
     
     case TERRACE : 
-      for (int i = 0; i < sampleOfApartments.size(); i++) {
-        if (sampleOfApartments.get(i).getTerrace()) {
+      for (int i = 0; i < myApartments.size(); i++) {
+        if (myApartments.get(i).getTerrace()) {
           yes++;
         } else {
           no++;
@@ -185,8 +185,8 @@ public HashMap<Boolean,Integer> getBooleanStatistics(Criterion featureName) {
       return results;
     
     case WIFI : 
-      for (int i = 0; i < sampleOfApartments.size(); i++) {
-        if (sampleOfApartments.get(i).getTerrace()) {
+      for (int i = 0; i < myApartments.size(); i++) {
+        if (myApartments.get(i).getTerrace()) {
           yes++;
         } else {
           no++;
@@ -198,23 +198,41 @@ public HashMap<Boolean,Integer> getBooleanStatistics(Criterion featureName) {
       return results;
       
     case FLOOR_AREA:
-      throw new IllegalArgumentException(featureName+" isn't a numeric Apartment feature");
+      throw new IllegalArgumentException(featureName+" isn't a boolean Apartment feature");
     case FLOOR_AREA_TERRACE:
-      throw new IllegalArgumentException(featureName+" isn't a numeric Apartment feature");
+      throw new IllegalArgumentException(featureName+" isn't a boolean Apartment feature");
     case NB_BATHROOMS:
-      throw new IllegalArgumentException(featureName+" isn't a numeric Apartment feature");
+      throw new IllegalArgumentException(featureName+" isn't a boolean Apartment feature");
     case NB_BEDROOMS:
-      throw new IllegalArgumentException(featureName+" isn't a numeric Apartment feature");
+      throw new IllegalArgumentException(featureName+" isn't a boolean Apartment feature");
     case NB_MIN_NIGHT:
-      throw new IllegalArgumentException(featureName+" isn't a numeric Apartment feature");
+      throw new IllegalArgumentException(featureName+" isn't a boolean Apartment feature");
     case NB_SLEEPING:
-      throw new IllegalArgumentException(featureName+" isn't a numeric Apartment feature");
+      throw new IllegalArgumentException(featureName+" isn't a boolean Apartment feature");
     case PRICE_PER_NIGHT:
-      throw new IllegalArgumentException(featureName+" isn't a numeric Apartment feature");
+      throw new IllegalArgumentException(featureName+" isn't a boolean Apartment feature");
     default:
-      throw new IllegalArgumentException(featureName+" isn't a numeric Apartment feature");
+      throw new IllegalArgumentException(featureName+" isn't a boolean Apartment feature");
     }
   
   }
- 
+
+  public static void main(String[] args) {
+    
+    ApartmentStatistics listOfAparts = ApartmentStatistics.given(listOfApartments, 1);
+    ArrayList<Apartment> sampleApartments = listOfAparts.myApartments;
+    System.out.println(listOfAparts.getNumericStatistics(Criterion.NB_MIN_NIGHT).max());
+    double pricePerNightStats = 1444.9659;
+    double roundedDouble2 = Math.round(pricePerNightStats * 100)/100;
+    System.out.println(roundedDouble2);
+    double d=636;
+    double e = 73;
+    
+    double roundedDouble = Math.round(((d+e)/2) * 100.0) / 100.0;
+    System.out.println("Non rounded double: "+(d+e)/2);
+    System.out.println("Rounded double: "+roundedDouble);
+    System.out.println(listOfAparts.getNumericStatistics(Criterion.PRICE_PER_NIGHT).max());
+
+
+  }
 }
