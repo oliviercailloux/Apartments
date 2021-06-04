@@ -34,7 +34,7 @@ public class ApartmentStatistics {
   /**
    * Give a list of apartments on which we will work, his length is given by the user.
    * In the future, we would want to sort all apartments according to their value function of each apartment. 
-   * So that, the number would take the best apartments.
+   * So that, the number would take the best apartments of the sorted list.
    * 
    * @param a larger list of apartments and the number that we want to study 
    * @return a sample of apartments
@@ -60,7 +60,7 @@ public class ApartmentStatistics {
    * @return an object of Stats type.
    */
   
-  private Stats getNumericStatistics(Criterion featureName) {
+  public Stats getNumericStatistics(Criterion featureName) {
     
     HashMap<Criterion, ArrayList<Double>> criteriaStats = new HashMap<>(1);
     checkNotNull(featureName);
@@ -149,7 +149,7 @@ public class ApartmentStatistics {
    * @return an HashMap with the occurrences of each boolean.
    */
   
-private HashMap<Boolean,Integer> getBooleanStatistics(Criterion featureName) {
+public HashMap<Boolean,Integer> getBooleanStatistics(Criterion featureName) {
   
   checkNotNull(featureName);
   HashMap<Boolean, Integer> results = new HashMap<>();
