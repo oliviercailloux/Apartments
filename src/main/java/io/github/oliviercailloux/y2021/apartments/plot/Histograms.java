@@ -34,13 +34,16 @@ public class Histograms {
     static List<Apartment> listOfApartments = JsonConvert.getDefaultApartments();
     private static final Logger LOGGER = LoggerFactory.getLogger(Histograms.class);
     
+    public static JFreeChart myHistogram;
+    public static Criterion crit;
     
     public static Histograms given(Criterion featureName) {
       return new Histograms(featureName);
     }
     
     private Histograms(Criterion featureName) {
-      launchHistogram(getDataAsAList(featureName)) ;
+      this.myHistogram  = launchHistogram(getDataAsAList(featureName));
+      this.crit = featureName;
     }
     
     /**
@@ -49,7 +52,7 @@ public class Histograms {
     * @param a criterion that we want to study.
     * @return a HashMap that stores the criterion name and its data.
     */
-    public static HashMap<Criterion, List<Double>> getDataAsAList(Criterion featureName) {
+    private static HashMap<Criterion, List<Double>> getDataAsAList(Criterion featureName) {
         
         checkArgument(listOfNumericFeatures.contains(featureName));
         LOGGER.info("{} is part of our criteria",featureName);
@@ -66,6 +69,7 @@ public class Histograms {
             }
             dataMap.put(featureName, floorAreaStats);
             return dataMap;
+            
         }
         
         case FLOOR_AREA_TERRACE : {
@@ -76,6 +80,7 @@ public class Histograms {
             }
             dataMap.put(featureName, floorAreaTerraceStats);
             return dataMap;
+            
         }
         case PRICE_PER_NIGHT : {
             LOGGER.info("Data about the price per night statistics are available :");
@@ -95,6 +100,7 @@ public class Histograms {
             }
             dataMap.put(featureName, pricePerNightStats);
             return dataMap; 
+            
         }
         
         case NB_BEDROOMS : {
@@ -125,6 +131,7 @@ public class Histograms {
             }
             dataMap.put(featureName, pricePerNightStats);
             return dataMap;   
+            
         }
         
         case TELE:
@@ -146,7 +153,7 @@ public class Histograms {
     * @param  a HashMap that stores the criterion name and its data.
     */
     
-    public static void launchHistogram(HashMap<Criterion, List<Double>>  dataMap) {
+    private static JFreeChart launchHistogram(HashMap<Criterion, List<Double>>  dataMap) {
          Entry<Criterion, List<Double>> entry = dataMap.entrySet().iterator().next();
          Criterion feature = entry.getKey();
          List<Double> dataList = entry.getValue();
@@ -156,13 +163,31 @@ public class Histograms {
         dataset.addSeries("key", data, 50);
         JFreeChart histogram = ChartFactory.createHistogram(feature.toString()+" statistics",feature.toString(), "Effectif", dataset);
         
-        try {          
-            ChartUtils.saveChartAsPNG(new File(feature+".png"), histogram, 450, 400);
+        return histogram;
+    }
+    
+    /**
+     * Enables to save the image of the histogram stored in the instance of Histograms
+     */
+    
+    public void saveImage() {
+     
+      try {          
+            ChartUtils.saveChartAsPNG(new File(crit+".png"), myHistogram, 450, 400);
             LOGGER.info("Image successfully created.");
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
-     }
-
+    }
+    
+    /**
+     * Enables to change the criteria and its linked histogram with a method 
+     * that works like the given (but more usable from the user point of the view).
+     */
+    public Histograms modifyCriterion(Criterion newCrit) {
+      
+      return new Histograms(newCrit);
+      
+    }
+  
 }
