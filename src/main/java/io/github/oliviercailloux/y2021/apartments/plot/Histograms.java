@@ -57,7 +57,7 @@ public class Histograms {
         checkArgument(listOfNumericFeatures.contains(featureName));
         LOGGER.info("{} is part of our criteria",featureName);
 
-        HashMap<Criterion, List<Double>> dataMap = new HashMap<>();
+        HashMap<Criterion, List<Double>> dataMap = new HashMap<>(1);
 
         switch(featureName) {
         
@@ -149,8 +149,8 @@ public class Histograms {
     }
     
     /**
-    * Create an histogram and save it.
-    * @param  a HashMap that stores the criterion name and its data.
+    * Create and returns an histogram of the given criterion.
+    * @param a HashMap that stores the criterion name and its data.
     */
     
     private static JFreeChart launchHistogram(HashMap<Criterion, List<Double>>  dataMap) {
@@ -161,6 +161,7 @@ public class Histograms {
         double[] data = dataList.stream().mapToDouble(Double::doubleValue).toArray();
         var dataset = new HistogramDataset();
         dataset.addSeries("key", data, 50);
+        LOGGER.info("The {} histogram has been successfully created.", feature.toString());
         JFreeChart histogram = ChartFactory.createHistogram(feature.toString()+" statistics",feature.toString(), "Effectif", dataset);
         
         return histogram;
@@ -173,7 +174,7 @@ public class Histograms {
     public void saveImage() {
      
       try {          
-            ChartUtils.saveChartAsPNG(new File(crit+".png"), myHistogram, 450, 400);
+            ChartUtils.saveChartAsPNG(new File("Doc/img/"+crit+".png"), myHistogram, 450, 400);
             LOGGER.info("Image successfully created.");
         } catch (IOException e) {
             e.printStackTrace();
@@ -184,9 +185,12 @@ public class Histograms {
      * Enables to change the criteria and its linked histogram with a method 
      * that works like the given (but more usable from the user point of the view).
      */
+    
     public Histograms modifyCriterion(Criterion newCrit) {
       
-      return new Histograms(newCrit);
+      Histograms newHist = new Histograms(newCrit)  ;
+      LOGGER.info("A new histogram has been created.");
+      return newHist;
       
     }
   
