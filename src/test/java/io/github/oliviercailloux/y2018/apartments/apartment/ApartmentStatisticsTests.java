@@ -26,18 +26,18 @@ import io.github.oliviercailloux.y2018.apartments.valuefunction.Criterion;
    }
  @Test
    void testGetNumericStatistics() {
-     double pricePerNight = 1214.9881539759867;
-     double nbMinNight = 354.5;
+     double pricePerNight = (listOfApartments.get(0).getPricePerNight()+listOfApartments.get(1).getPricePerNight() )/2;
+     double nbMinNight = listOfApartments.get(0).getNbMinNight();
      ApartmentStatistics listOfAparts = ApartmentStatistics.given(listOfApartments, 2);
-     assertEquals(listOfAparts.getNumericStatistics(Criterion.NB_MIN_NIGHT).mean(), Math.round(nbMinNight * 100.0) / 100.0);
+     assertEquals(listOfAparts.getNumericStatistics(Criterion.NB_MIN_NIGHT).max(), Math.round(nbMinNight * 100.0) / 100.0);
      assertEquals(listOfAparts.getNumericStatistics(Criterion.PRICE_PER_NIGHT).mean(), Math.round(pricePerNight * 100.0) / 100.0);
    
    }
  
    void testGetBooleanStatistics() {
-     int tele = 2;
-     int terrace = 1;
-     ApartmentStatistics listOfAparts = ApartmentStatistics.given(listOfApartments, 1);
+     int tele = 3;
+     int terrace = 2;
+     ApartmentStatistics listOfAparts = ApartmentStatistics.given(listOfApartments, 2);
      assertEquals(listOfAparts.getBooleanStatistics(Criterion.TELE).get(true),tele);
      assertEquals(listOfAparts.getBooleanStatistics(Criterion.TERRACE).get(true),terrace);
 
