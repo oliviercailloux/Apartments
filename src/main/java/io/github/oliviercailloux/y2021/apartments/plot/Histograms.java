@@ -49,7 +49,8 @@ public class Histograms {
     * @param a criterion that we want to study.
     * @return a HashMap that stores the criterion name and its data.
     */
-    private static ArrayList<Double> getDataAsAList(Criterion featureName) {
+    
+    public static ArrayList<Double> getDataAsAList(Criterion featureName) {
         
         checkArgument(listOfNumericFeatures.contains(featureName));
         LOGGER.info("{} is part of our criteria",featureName);
@@ -141,7 +142,7 @@ public class Histograms {
     * @param an ArrayList that stores the criterion and its data.
     */
     
-    private static JFreeChart launchHistogram(ArrayList<Double>  dataList) {
+    public static JFreeChart launchHistogram(ArrayList<Double> dataList) {
 
         double[] data = dataList.stream().mapToDouble(Double::doubleValue).toArray();
         var dataset = new HistogramDataset();
