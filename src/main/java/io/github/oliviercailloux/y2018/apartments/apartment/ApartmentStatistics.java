@@ -20,7 +20,6 @@ public class ApartmentStatistics {
   private static final Logger LOGGER = LoggerFactory.getLogger(Apartment.class);
   
   private static List<Apartment> listOfApartments = JsonConvert.getDefaultApartments();
-  
   public ArrayList<Apartment> myApartments; 
   
   public static ApartmentStatistics given(List<Apartment> listApartments, Integer number) {
@@ -152,7 +151,7 @@ public class ApartmentStatistics {
 public HashMap<Boolean,Integer> getBooleanStatistics(Criterion featureName) {
   
   checkNotNull(featureName);
-  HashMap<Boolean, Integer> results = new HashMap<>();
+  HashMap<Boolean, Integer> results = new HashMap<>(2);
   int yes = 0;
   int no = 0;
   
