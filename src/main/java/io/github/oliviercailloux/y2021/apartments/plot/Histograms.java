@@ -27,7 +27,6 @@ import java.util.List;
 
 public class Histograms {
   
-    private static final HashSet<Criterion> listOfNumericFeatures = new HashSet<>(Arrays.asList(Criterion.FLOOR_AREA,Criterion.FLOOR_AREA_TERRACE,Criterion.NB_BATHROOMS,Criterion.NB_BEDROOMS,Criterion.NB_MIN_NIGHT,Criterion.NB_SLEEPING,Criterion.PRICE_PER_NIGHT));
     private static List<Apartment> listOfApartments = JsonConvert.getDefaultApartments();
     private static final Logger LOGGER = LoggerFactory.getLogger(Histograms.class);
     
@@ -47,78 +46,81 @@ public class Histograms {
     * Get all data of the given criterion of the list of apartments
     * 
     * @param a criterion that we want to study.
-    * @return a HashMap that stores the criterion name and its data.
+    * @return a ArrayList that stores the criterion data.
     */
     
     public static ArrayList<Double> getDataAsAList(Criterion featureName) {
         
-        checkArgument(listOfNumericFeatures.contains(featureName));
-        LOGGER.info("{} is part of our criteria",featureName);
-
         switch(featureName) {
         
         case FLOOR_AREA : {
-            LOGGER.info("Data about the floor area are available :");
+            LOGGER.info("{} is part of our criteria",featureName);
             ArrayList <Double> floorAreaStats = new ArrayList<>();
             for (int i=0; i< listOfApartments.size(); i++) {
                 floorAreaStats.add(Math.round(listOfApartments.get(i).getFloorArea()* 100.0) / 100.0);
             }
+            LOGGER.info("Data about the floor area are available");
             return floorAreaStats;
-            
         }
         
         case FLOOR_AREA_TERRACE : {
-            LOGGER.info("Data about the floor area terrace are available :");
+            LOGGER.info("{} is part of our criteria",featureName);
             ArrayList <Double> floorAreaTerraceStats = new ArrayList<>();
             for (int i=0; i< listOfApartments.size(); i++) {
                 floorAreaTerraceStats.add(Math.round(listOfApartments.get(i).getFloorAreaTerrace()* 100.0) / 100.0);
             }
+            LOGGER.info("Data about the floor area terrace are available");
             return floorAreaTerraceStats;
-            
         }
+        
         case PRICE_PER_NIGHT : {
-            LOGGER.info("Data about the price per night statistics are available :");
+            LOGGER.info("{} is part of our criteria",featureName);
             ArrayList <Double> pricePerNightStats = new ArrayList<>();
             for (int i=0; i< listOfApartments.size(); i++) {
                 pricePerNightStats.add(Math.round(listOfApartments.get(i).getPricePerNight()* 100.0) / 100.0);
             }
+            LOGGER.info("Data about the price per night statistics are available");
             return pricePerNightStats;
-            
         }
+        
         case NB_BATHROOMS : {
-            LOGGER.info("Data about the number of bathrooms are available :");
+            LOGGER.info("{} is part of our criteria",featureName);
             ArrayList <Double> nbBathroomsStats = new ArrayList<>();
             for (int i=0; i< listOfApartments.size(); i++) {
               nbBathroomsStats.add(Math.round(listOfApartments.get(i).getNbBathrooms()* 100.0) / 100.0);
             }
+            LOGGER.info("Data about the number of bathrooms are available");
             return nbBathroomsStats; 
             
         }
         
         case NB_BEDROOMS : {
-            LOGGER.info("Data about the number of bedrooms are available :");
+            LOGGER.info("{} is part of our criteria",featureName);   
             ArrayList <Double> nbBedroomsStats = new ArrayList<>();
             for (int i=0; i< listOfApartments.size(); i++) {
               nbBedroomsStats.add(Math.round(listOfApartments.get(i).getNbBedrooms()* 100.0) / 100.0);
             }
+            LOGGER.info("Data about the number of bedrooms are available");
             return nbBedroomsStats;
             
         }
         case NB_MIN_NIGHT: {
-            LOGGER.info("Data about the the minimum number of night are available :");
+            LOGGER.info("{} is part of our criteria",featureName);
             ArrayList <Double> nbMinNightStats = new ArrayList<>();
             for (int i=0; i< listOfApartments.size(); i++) {
               nbMinNightStats.add(Math.round(listOfApartments.get(i).getNbMinNight()* 100.0) / 100.0);
             }
+            LOGGER.info("Data about the the minimum number of night are available");
             return nbMinNightStats;
             
         }
         case NB_SLEEPING : {
-            LOGGER.info("Data about the number of sleeping are available :");
+            LOGGER.info("{} is part of our criteria",featureName);
             ArrayList <Double> nbSleepingStats = new ArrayList<>();
             for (int i=0; i< listOfApartments.size(); i++) {
               nbSleepingStats.add(Math.round(listOfApartments.get(i).getNbSleeping()* 100.0) / 100.0);
             }
+            LOGGER.info("Data about the number of sleeping are available");
             return nbSleepingStats;   
             
         }
@@ -177,15 +179,6 @@ public class Histograms {
       Histograms newHist = new Histograms(newCrit)  ;
       LOGGER.info("A new histogram has been created.");
       return newHist;
-      
-    }
-    
-    /**
-     * This method is about to be implemented.
-     * Enables to display to the user the image of the histogram.  
-     */
-    
-    public void displayHistogram() {
       
     }
   
