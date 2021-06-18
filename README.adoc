@@ -296,9 +296,7 @@ into account the calculations made by the application. *Prerequisite : It's nece
 
 * Continue the creation of the class `Histograms` in the package `Plot` to generate other types of plot according to the professor's advice on this link:https://github.com/oliviercailloux-org/projet-apartments/pull/49[PR #49].
 * Continue the creation of the class `ApartmentStatistics` in the package `Apartment` to generate statistics about the apartment according to the professor's advice on this link:https://github.com/oliviercailloux-org/projet-apartments/pull/48[PR #48].
-* Continue the implementation of the `SpiderPlot` by taking into account the professor's recommendations during the last iteration : https://github.com/oliviercailloux-org/projet-apartments/pull/51[PR #51] and https://github.com/oliviercailloux-org/projet-apartments/pull/50[PR #50] : 
- ** Improve the `SpiderPlot` class code.
- ** Complete the integration of the `SpiderPlot` button in the `LayoutApartmentGUI` class.
+* Add the statistics on `LayoutApartmentGUI` by creating a grid that will display the statistics about the apartments. (*Prerequisite : It's necessary to do the first and second task to did this*)
 
 The project documentation is link:Doc/README.adoc[here].
 
