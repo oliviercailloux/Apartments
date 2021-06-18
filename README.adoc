@@ -187,7 +187,7 @@ This file only explains the distribution of work between the different teams and
 
 ==== Ewen MARGUET & Samy MEGUENI
 
-* Update the `idea.adoc` by regrouping your FUTURE mentions. Moreover, Iin case we can't merge the SpiderPlot into the master branch, we would like to create a documentation for the future students of the projet in order to make them able to carry this work on. This task can be relevant because some diagrams in master include SpiderPlot notions.
+* Update the `idea.adoc` by regrouping your FUTURE mentions. Moreover, we would like to create a documentation for the future students of the projet in order to make them able to carry this work on. This task can be relevant because some diagrams in master include SpiderPlot notions.
 * Add the latest diagrams and their respective comments in the `global.adoc`.
 * Update the `GetStartedWithTheProject` documentation according to the professor given in the PR#44.
 
