@@ -1797,6 +1797,8 @@ The CategoryDataset is required to be able to create a Spider Plot in the create
             </ownedParameter>
           </ownedOperation>
         </packagedElement>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_j3lEUNRVEeuAtMHnf8XRdw" client="_JNgWwNRHEeuAtMHnf8XRdw" supplier="_1N7WIF--EeqAAb4u4HLI7w"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_pHbNUNRVEeuAtMHnf8XRdw" client="_JNgWwNRHEeuAtMHnf8XRdw" supplier="_OIB8MJj3EeqYP-aD6j0wRg"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_JAqEUF_AEeqAAb4u4HLI7w" name="distance">
         <packagedElement xmi:type="uml:Class" xmi:id="_ESBK8F_AEeqAAb4u4HLI7w" name="DistanceSubway" visibility="public">
