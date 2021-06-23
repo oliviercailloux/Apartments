@@ -371,6 +371,9 @@
         </packagedElement>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_hV56kMK2EeuWlaXkP3RhUQ" name="Global">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_X4iOUNQnEeuAtMHnf8XRdw" annotatedElement="_72rEYF_BEeqAAb4u4HLI7w">
+          <body>ApartmentValueFunction uses all PartialValueFunction implementations and all enumerations</body>
+        </ownedComment>
         <packagedElement xmi:type="uml:Package" xmi:id="_RYNkoGrCEeqG6NsufvOKcA" name="UCD_UseApartmentRentalPlatform">
           <packagedElement xmi:type="uml:Interaction" xmi:id="_TPRn4GS3EeqTxqp8Bmjtjg" name="GlobalUseCase" useCase="_fIsF4GS3EeqTxqp8Bmjtjg _czcs0GS3EeqTxqp8Bmjtjg _oYvPkIS6EeuzdriENguzmA _rB2xcIS7EeuzdriENguzmA _C9OZ4ITGEeugKObI8pgoGA _K5JuoITGEeugKObI8pgoGA _Io6xYITGEeugKObI8pgoGA">
             <ownedRule xmi:type="uml:Constraint" xmi:id="_uAj5cJifEeupk9giDf-csg" name="Constraint" constrainedElement="_fcu5EJieEeupk9giDf-csg _TeQkQIS7EeuzdriENguzmA">
@@ -1820,6 +1823,7 @@ The CategoryDataset is required to be able to create a Spider Plot in the create
           <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_ByRGkGVIEeq0U8CyxWHVBA" name="ADDRESS"/>
           <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_ByRGkWVIEeq0U8CyxWHVBA" name="COORDINATE"/>
         </packagedElement>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_qhvK0NQ3EeuAtMHnf8XRdw" client="_ESBK8F_AEeqAAb4u4HLI7w" supplier="_qfC2QKgQEeuQ07mwWsrMMA"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_S32y8F_AEeqAAb4u4HLI7w" name="gui">
         <packagedElement xmi:type="uml:Class" xmi:id="_VP_vAF_AEeqAAb4u4HLI7w" name="AskOpinionForUtility" visibility="public">
