@@ -149,7 +149,7 @@ public class DistanceValueFunction implements PartialValueFunction<LatLng> {
       interestLocationsSubjectiveValue =
           calculateSubjectiveValueInterestLocations(apartmentLocalization);
     } catch (ApiException | InterruptedException | IOException | NullPointerException e) {
-      throw new VerifyException(e);
+      throw new NullPointerException();
     }
     double subjectiveValue = 0;
     Collection<Double> listValues = interestLocationsSubjectiveValue.values();
