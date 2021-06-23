@@ -6351,7 +6351,7 @@
     <styles xmi:type="style:PapyrusDiagramStyle" xmi:id="_iLlhk9QeEeuAtMHnf8XRdw" diagramKindId="org.eclipse.papyrus.uml.diagram.class">
       <owner xmi:type="uml:Package" href="papyrus.uml#_hV56kMK2EeuWlaXkP3RhUQ"/>
     </styles>
-    <element xmi:type="uml:Package" href="papyrus.uml#_hV56kMK2EeuWlaXkP3RhUQ"/>
+    <element xmi:type="uml:Model" href="papyrus.uml#_7UbegF-3EeqrPafii89tnw"/>
     <edges xmi:type="notation:Connector" xmi:id="_hhZi0NQjEeuAtMHnf8XRdw" type="Dependency_Edge" source="_PF1jQNQfEeuAtMHnf8XRdw" target="_8trgMNQeEeuAtMHnf8XRdw">
       <children xmi:type="notation:DecorationNode" xmi:id="_hhaJ4NQjEeuAtMHnf8XRdw" type="Dependency_NameLabel">
         <layoutConstraint xmi:type="notation:Location" xmi:id="_hhaJ4dQjEeuAtMHnf8XRdw" y="40"/>
