@@ -1,8 +1,10 @@
 package io.github.oliviercailloux.y2018.apartments.apartment;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,6 +13,7 @@ import com.google.common.math.Stats;
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
 
+import io.github.oliviercailloux.y2018.apartments.apartment.Apartment.Builder;
 import io.github.oliviercailloux.y2018.apartments.apartment.json.JsonConvert;
 import io.github.oliviercailloux.y2018.apartments.valuefunction.Criterion;
 
@@ -19,8 +22,7 @@ public class ApartmentStatistics {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(Apartment.class);
   
-  private static List<Apartment> listOfApartments = JsonConvert.getDefaultApartments();
-  public ArrayList<Apartment> myApartments; 
+  private List<Apartment> myApartments; 
   
   public static ApartmentStatistics given(List<Apartment> listApartments, Integer number) {
     return new ApartmentStatistics(listApartments, number);
@@ -39,15 +41,16 @@ public class ApartmentStatistics {
    * @return a sample of apartments
    */
   
-  private ArrayList<Apartment> getApartmentsSample(List<Apartment> listApartments, Integer number) {
+  private List<Apartment> getApartmentsSample(List<Apartment> listApartments, Integer number) {
     
-    checkArgument(number<=listOfApartments.size() && number>0);
-    ArrayList<Apartment> newListOfApartments = new ArrayList<>();
-    for (int i = 0; i < number; i++) {
-      newListOfApartments.add(listApartments.get(i));
-    }
-    LOGGER.info("A list of {} apartments is available", number);
-    return newListOfApartments;
+	  List<Apartment> apartments = JsonConvert.getDefaultApartments();
+	  checkArgument(number<=apartments.size() && number>0);
+	    
+	  List<Apartment> newApartments = new ArrayList<>();
+	  newApartments.addAll(listApartments.subList(0, number));
+	    
+	  LOGGER.info("A list of {} apartments is available", number);
+	  return newApartments;
   }
   
   /**
@@ -61,7 +64,7 @@ public class ApartmentStatistics {
   
   public Stats getNumericStatistics(Criterion featureName) {
     
-    HashMap<Criterion, ArrayList<Double>> criteriaStats = new HashMap<>(1);
+    HashMap<Criterion, ArrayList<Double>> criteriaStats = new HashMap<>();
     checkNotNull(featureName);
     
     switch (featureName) {
@@ -71,7 +74,7 @@ public class ApartmentStatistics {
         for (int i = 0; i < myApartments.size(); i++) {
           floorAreaStats.add(Math.round(myApartments.get(i).getFloorArea() * 100.0) / 100.0);
         }
-        LOGGER.info("Floor area statistics are available :\n");
+        LOGGER.info("Floor area statistics are available");
         return Stats.of(floorAreaStats);
         
       case FLOOR_AREA_TERRACE: 
@@ -79,7 +82,7 @@ public class ApartmentStatistics {
         for (int i = 0; i < myApartments.size(); i++) {
           floorAreaTerraceStats.add(Math.round(myApartments.get(i).getFloorAreaTerrace() * 100.0) / 100.0);
         }
-        LOGGER.info("Floor area terrace statistics are available :\n");
+        LOGGER.info("Floor area terrace statistics are available");
         return Stats.of(floorAreaTerraceStats);
       
       case NB_BATHROOMS: {
@@ -87,7 +90,7 @@ public class ApartmentStatistics {
         for (int i = 0; i < myApartments.size(); i++) {
           nbBathroomsStats.add(Double.valueOf(myApartments.get(i).getNbBathrooms()));
         }
-        LOGGER.info("Number of bathrooms statistics are available :\n");
+        LOGGER.info("Number of bathrooms statistics are available");
         return Stats.of(nbBathroomsStats);
       }
 
@@ -97,7 +100,7 @@ public class ApartmentStatistics {
           nbBedroomsStats.add(Double.valueOf(myApartments.get(i).getNbBedrooms()));
         }
         criteriaStats.put(featureName, nbBedroomsStats);
-        LOGGER.info("Number of bedrooms statistics are available  :\n");
+        LOGGER.info("Number of bedrooms statistics are available");
         return Stats.of(nbBedroomsStats);
       }
 
@@ -106,7 +109,7 @@ public class ApartmentStatistics {
         for (int i = 0; i < myApartments.size(); i++) {
           nbMinNightStats.add(Double.valueOf(myApartments.get(i).getNbMinNight()));
         }
-        LOGGER.info("The requested minimum number of night statistics are available :\n");
+        LOGGER.info("The requested minimum number of night statistics are available");
         return Stats.of(nbMinNightStats);
       }
 
@@ -115,7 +118,7 @@ public class ApartmentStatistics {
         for (int i = 0; i < myApartments.size(); i++) {
           nbSleepingStats.add(Double.valueOf(myApartments.get(i).getNbSleeping()));
         }
-        LOGGER.info("The number of sleepings statistics are available :\n");
+        LOGGER.info("The number of sleepings statistics are available");
         return Stats.of(nbSleepingStats);
       }
 
@@ -124,16 +127,10 @@ public class ApartmentStatistics {
         for (int i = 0; i < myApartments.size(); i++) {
           pricePerNightStats.add(Math.round(myApartments.get(i).getPricePerNight() * 100.0) / 100.0);
         }
-        LOGGER.info("The price per night statistics are available :\n");
+        LOGGER.info("The price per night statistics are available");
         return Stats.of(pricePerNightStats);
      
       }
-      case TELE: 
-        throw new IllegalArgumentException(featureName+" isn't a numeric Apartment feature");
-      case TERRACE:
-        throw new IllegalArgumentException(featureName+" isn't a numeric Apartment feature");
-      case WIFI:
-        throw new IllegalArgumentException(featureName+" isn't a numeric Apartment feature");
       default:
         throw new IllegalArgumentException(featureName+" isn't a numeric Apartment feature");
   }
@@ -148,10 +145,10 @@ public class ApartmentStatistics {
    * @return an HashMap with the occurrences of each boolean.
    */
   
-public HashMap<Boolean,Integer> getBooleanStatistics(Criterion featureName) {
+public Map<Boolean,Integer> getBooleanStatistics(Criterion featureName) {
   
   checkNotNull(featureName);
-  HashMap<Boolean, Integer> results = new HashMap<>(2);
+  Map<Boolean, Integer> results = new HashMap<>();
   int yes = 0;
   int no = 0;
   
@@ -167,7 +164,7 @@ public HashMap<Boolean,Integer> getBooleanStatistics(Criterion featureName) {
       }
       results.put(true, yes);
       results.put(false, no);
-      LOGGER.info("The {} statistics are available :\n", featureName);
+      LOGGER.info("The {} statistics are available", featureName);
       return results;
     
     case TERRACE : 
@@ -180,7 +177,7 @@ public HashMap<Boolean,Integer> getBooleanStatistics(Criterion featureName) {
       }
       results.put(true, yes);
       results.put(false, no);
-      LOGGER.info("The {} presence statistics are available :\n", featureName);
+      LOGGER.info("The {} presence statistics are available", featureName);
       return results;
     
     case WIFI : 
@@ -193,27 +190,18 @@ public HashMap<Boolean,Integer> getBooleanStatistics(Criterion featureName) {
       }
       results.put(true, yes);
       results.put(false, no);
-      LOGGER.info("The {} presence statistics are available :\n", featureName);
+      LOGGER.info("The {} presence statistics are available", featureName);
       return results;
       
-    case FLOOR_AREA:
-      throw new IllegalArgumentException(featureName+" isn't a boolean Apartment feature");
-    case FLOOR_AREA_TERRACE:
-      throw new IllegalArgumentException(featureName+" isn't a boolean Apartment feature");
-    case NB_BATHROOMS:
-      throw new IllegalArgumentException(featureName+" isn't a boolean Apartment feature");
-    case NB_BEDROOMS:
-      throw new IllegalArgumentException(featureName+" isn't a boolean Apartment feature");
-    case NB_MIN_NIGHT:
-      throw new IllegalArgumentException(featureName+" isn't a boolean Apartment feature");
-    case NB_SLEEPING:
-      throw new IllegalArgumentException(featureName+" isn't a boolean Apartment feature");
-    case PRICE_PER_NIGHT:
-      throw new IllegalArgumentException(featureName+" isn't a boolean Apartment feature");
     default:
       throw new IllegalArgumentException(featureName+" isn't a boolean Apartment feature");
     }
   
   }
+
+	public List<Apartment> getMyApartments() {
+		return myApartments;
+	}
+
 
 }
