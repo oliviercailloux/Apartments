@@ -8,6 +8,7 @@ import com.google.common.collect.ImmutableMap;
 import io.github.oliviercailloux.y2018.apartments.apartment.Apartment;
 import java.util.Arrays;
 import java.util.EnumMap;
+import java.util.Objects;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -65,37 +66,36 @@ public class LinearAVF {
    */
   public double getSubjectiveValue(Apartment apart) {
     checkNotNull(apart);
-    ImmutableMap<Criterion,
-        Double> subjectiveValue = new ImmutableMap.Builder<Criterion, Double>()
-            .put(Criterion.FLOOR_AREA,
-                this.linearValueFunctions.get(Criterion.FLOOR_AREA)
-                    .getSubjectiveValue(apart.getFloorArea()))
-            .put(Criterion.NB_BEDROOMS,
-                this.linearValueFunctions.get(Criterion.NB_BEDROOMS)
-                    .getSubjectiveValue((double) apart.getNbBedrooms()))
-            .put(Criterion.NB_SLEEPING,
-                this.linearValueFunctions.get(Criterion.NB_SLEEPING)
-                    .getSubjectiveValue((double) apart.getNbSleeping()))
-            .put(Criterion.NB_BATHROOMS,
-                this.linearValueFunctions.get(Criterion.NB_BATHROOMS)
-                    .getSubjectiveValue((double) apart.getNbBathrooms()))
-            .put(Criterion.TERRACE,
-                this.booleanValueFunctions.get(Criterion.TERRACE)
-                    .getSubjectiveValue(apart.getTerrace()))
-            .put(Criterion.FLOOR_AREA_TERRACE,
-                this.linearValueFunctions.get(Criterion.FLOOR_AREA_TERRACE)
-                    .getSubjectiveValue(apart.getFloorAreaTerrace()))
-            .put(Criterion.WIFI,
-                this.booleanValueFunctions.get(Criterion.WIFI).getSubjectiveValue(apart.getWifi()))
-            .put(Criterion.PRICE_PER_NIGHT,
-                this.reversedValueFunctions.get(Criterion.PRICE_PER_NIGHT)
-                    .getSubjectiveValue(apart.getPricePerNight()))
-            .put(Criterion.NB_MIN_NIGHT,
-                this.reversedValueFunctions.get(Criterion.NB_MIN_NIGHT)
-                    .getSubjectiveValue((double) apart.getNbMinNight()))
-            .put(Criterion.TELE,
-                this.booleanValueFunctions.get(Criterion.TELE).getSubjectiveValue(apart.getTele()))
-            .build();
+    ImmutableMap<Criterion, Double> subjectiveValue = new ImmutableMap.Builder<Criterion, Double>()
+        .put(Criterion.FLOOR_AREA,
+            this.linearValueFunctions.get(Criterion.FLOOR_AREA)
+                .getSubjectiveValue(apart.getFloorArea()))
+        .put(Criterion.NB_BEDROOMS,
+            this.linearValueFunctions.get(Criterion.NB_BEDROOMS)
+                .getSubjectiveValue((double) apart.getNbBedrooms()))
+        .put(Criterion.NB_SLEEPING,
+            this.linearValueFunctions.get(Criterion.NB_SLEEPING)
+                .getSubjectiveValue((double) apart.getNbSleeping()))
+        .put(Criterion.NB_BATHROOMS,
+            this.linearValueFunctions.get(Criterion.NB_BATHROOMS)
+                .getSubjectiveValue((double) apart.getNbBathrooms()))
+        .put(Criterion.TERRACE,
+            this.booleanValueFunctions.get(Criterion.TERRACE)
+                .getSubjectiveValue(apart.getTerrace()))
+        .put(Criterion.FLOOR_AREA_TERRACE,
+            this.linearValueFunctions.get(Criterion.FLOOR_AREA_TERRACE)
+                .getSubjectiveValue(apart.getFloorAreaTerrace()))
+        .put(Criterion.WIFI,
+            this.booleanValueFunctions.get(Criterion.WIFI).getSubjectiveValue(apart.getWifi()))
+        .put(Criterion.PRICE_PER_NIGHT,
+            this.reversedValueFunctions.get(Criterion.PRICE_PER_NIGHT)
+                .getSubjectiveValue(apart.getPricePerNight()))
+        .put(Criterion.NB_MIN_NIGHT,
+            this.reversedValueFunctions.get(Criterion.NB_MIN_NIGHT)
+                .getSubjectiveValue((double) apart.getNbMinNight()))
+        .put(Criterion.TELE,
+            this.booleanValueFunctions.get(Criterion.TELE).getSubjectiveValue(apart.getTele()))
+        .build();
 
     // Check that the subjective values ​​do have a value between 0 and 1
     subjectiveValue.forEach((criterion, aDouble) -> {
@@ -281,6 +281,68 @@ public class LinearAVF {
     return this.reversedValueFunctions.get(criterion);
   }
 
+  /**
+   * We make the assumption (by casting), that the runtime PartialValueFunction associated to
+   * criteria is a LinearValueFunction, even if in real life it would be a discrete criteria (e.g.
+   * the number of bedrooms)
+   *
+   * <p>
+   * The goal is to replace a LinearValueFunction's bound by a new bound Warning : The values of the
+   * object should be instantiate before using this function or an error will appear
+   *
+   * @param criterion the criterion to adapt. This criterion should not be a boolean as TV for
+   *        example.
+   * @param newBound the new bound to define
+   * @param lower true if we want to adapt the lower bound, false on the other case
+   * @return an object ApartmentValueFunction
+   */
+  public LinearAVF adaptBounds(Criterion criterion, double newBound, boolean lower) {
+    LinearAVF avf = this.cloneLinearAVF();
+    LinearValueFunction lvf = avf.getInternalLinearValueFunction(criterion);
+    avf.setInternalValueFunction(criterion, adaptLinearValueFunction(lvf, newBound, lower));
+    return avf;
+  }
+
+  /**
+   * Adapt linear value function by defining a new lower or upper bound
+   *
+   * @param oldLVF the old linear value function used
+   * @param newBound the new lower or upper bound
+   * @param lower used to say whether we change the lower or upper bound
+   * @return an new object LinearValueFunction set with new bound
+   */
+  private static LinearValueFunction adaptLinearValueFunction(LinearValueFunction oldLVF,
+      double newBound, boolean lower) {
+    checkNotNull(oldLVF);
+    if (lower) {
+      return new LinearValueFunction(newBound, oldLVF.getInterval().upperEndpoint());
+    }
+    return new LinearValueFunction(oldLVF.getInterval().lowerEndpoint(), newBound);
+  }
+
+  /**
+   * This method assumes that the preference between true and false is known but doesn't matter.
+   *
+   * @param moreImportant is the criterion that is to be prioritized in this object of
+   *        ApartmentValueFunction
+   * @param lessImportant is the criterion that is to be less important in this object of
+   *        ApartmentValueFunction
+   * @return an object ApartmentValueFunction
+   */
+  public LinearAVF adaptWeight(Criterion moreImportant, Criterion lessImportant) {
+    checkNotNull(lessImportant, "This criterion cannot be null");
+    checkNotNull(moreImportant, "This criterion cannot be null");
+    checkArgument(!Objects.equals(moreImportant, lessImportant), "Both fields are the same.");
+    LinearAVF avf = cloneLinearAVF();
+    double weightSum =
+        avf.getWeightSubjectiveValue(moreImportant) + avf.getWeightSubjectiveValue(lessImportant);
+
+    avf = avf.withWeight(moreImportant, 9 * weightSum / 10);
+    avf = avf.withWeight(lessImportant, weightSum / 10);
+
+    return avf;
+  }
+
   public static class Builder {
     private LinearAVF toBuild;
 
@@ -402,8 +464,8 @@ public class LinearAVF {
      * @param floorAreaTerraceValueFunction a LinearValueFunction
      * @return the current instance of Builder
      */
-    public Builder
-        setFloorAreaTerraceValueFunction(LinearValueFunction floorAreaTerraceValueFunction) {
+    public Builder setFloorAreaTerraceValueFunction(
+        LinearValueFunction floorAreaTerraceValueFunction) {
       toBuild.setInternalValueFunction(Criterion.FLOOR_AREA_TERRACE, floorAreaTerraceValueFunction);
       return this;
     }
@@ -526,8 +588,8 @@ public class LinearAVF {
      * @param pricePerNightValueFunction a ReversedLinearValueFunction
      * @return the current instance of Builder
      */
-    public Builder
-        setPricePerNightValueFunction(ReversedLinearValueFunction pricePerNightValueFunction) {
+    public Builder setPricePerNightValueFunction(
+        ReversedLinearValueFunction pricePerNightValueFunction) {
       toBuild.setInternalValueFunction(Criterion.PRICE_PER_NIGHT, pricePerNightValueFunction);
       return this;
     }
