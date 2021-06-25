@@ -59,13 +59,14 @@ public class DistanceValueFunction implements PartialValueFunction<LatLng> {
    * @param interestLocations
    * @param durationValueFunction a decreasing value function.
    * @return an instance of <code>DistanceValueFunction</code>.
-   * @throws IOException 
-   * @throws InterruptedException 
-   * @throws ApiException 
+   * @throws IOException
+   * @throws InterruptedException
+   * @throws ApiException
    * @throws Exception
    */
   public static DistanceValueFunction given(String apiKey, Set<LatLng> interestLocations,
-      PartialValueFunction<Double> durationValueFunction) throws ApiException, InterruptedException, IOException{
+      PartialValueFunction<Double> durationValueFunction)
+      throws ApiException, InterruptedException, IOException {
     if (apiKey.equals("")) {
       throw new IllegalArgumentException("The apikey is empty");
     }
@@ -90,7 +91,7 @@ public class DistanceValueFunction implements PartialValueFunction<LatLng> {
    * @throws Exception
    */
   public static DistanceValueFunction withDefaultDurationValueFunction(String apiKey,
-      Set<LatLng> interestLocations) throws ApiException, InterruptedException, IOException{
+      Set<LatLng> interestLocations) throws ApiException, InterruptedException, IOException {
     Map<Double, Double> map = new HashMap<>();
     map.put(0d, 1d);
     map.put(3600d, 0.8);
@@ -149,7 +150,8 @@ public class DistanceValueFunction implements PartialValueFunction<LatLng> {
       interestLocationsSubjectiveValue =
           calculateSubjectiveValueInterestLocations(apartmentLocalization);
     } catch (ApiException | InterruptedException | IOException | NullPointerException e) {
-      throw new NullPointerException();
+      throw new IllegalArgumentException(
+          "Error during the interest locations subjective value computation");
     }
     double subjectiveValue = 0;
     Collection<Double> listValues = interestLocationsSubjectiveValue.values();

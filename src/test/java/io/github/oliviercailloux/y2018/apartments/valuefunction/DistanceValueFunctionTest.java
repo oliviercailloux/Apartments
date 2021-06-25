@@ -74,7 +74,7 @@ class DistanceValueFunctionTest {
     DistanceValueFunction distanceVF =
         DistanceValueFunction.withDefaultDurationValueFunction(apiKey, interestLocations);
     LatLng apartCoordinates = Localizer.getGeometryLocation(apart, apiKey);
-    assertThrows(NullPointerException.class,
+    assertThrows(IllegalArgumentException.class,
         () -> distanceVF.getSubjectiveValue(apartCoordinates));
   }
 
