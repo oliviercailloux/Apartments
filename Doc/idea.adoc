@@ -33,6 +33,27 @@ It would be interesting to do the same for `aparment.xml` : Make the same class 
 * Offer a feature that allows the user to say whether the list of apartments offered suits him or not. If not, ask him a series of questions to change the different weights and improve the end result.
 * Reflect on the use of inheritance
 
+===== Add `distance` criterion
+* The tenant will be able to add as many places of interest as he wants thanks to a button on the interface and put them in a set that will be stocked in `Profil`. After that, it will be integrated into the calculation of the `ApartementValueFunction`. By default, the user's only interest place is the center of Paris.
+In the package documentation, we added the `DistanceValueFunction` link:https://github.com/oliviercailloux-org/projet-apartments/blob/createDVFclass/Doc/packages.adoc#valuefunction[explanation] and how we would integrate it in the AVF’s calculation. 
+
+* To add the distance criteria in the `ApartmentValueFunction`, we should proceed as follows :
+** A criterion `distance` of type `IS_LATLNG_DECREASE` must be added in the `Criterion` enum class of the `ValueFunction` package.
+** Add ‘IS_LATLNG_DECREASE` in the `ValueFunctionType` class because DVF implements `PartialValueFunction<LatLng>` and a method to check the domain LatLng.
+** To be able to use the `DistanceValueFunction` class, we will add a variable of type `PartialValueFunction<LatLng>` in the `AVF` class.
+** Add the subjective value of the `DISTANCE` criterion in the calculation of the subjective value of the apartment made in the Builder of the `getSubjectiveValue` method.
+** Add in the class `Apartment` a method `getAdressLatLng` that returns the coordinates of the apartment location. We propose the following approach which still requires some thought : The method `getAdressLatLng` will use the `Localizer` class (already implemented in the project) that allows use to obtain the coordinates of an apartment knowing its adress.
+** After these changes, the unit tests fail because the calculations are based on 10 criteria. Therefore, the calculations must be modified to take into account the new criteria. We should modify the default weight : incream from 0.1 to 1/(number of criterion) for each criterion and change the method `adaptWeight` in the `AVF`. Unfortunately, the unit tests can fail because of the API that give the distance in real time and depends on the current traffic circumstances.
+
+===== About `ApartmentValueFunction` and `LinearAVF` classes
+We compared these two classes and found that they have the same role: Compute and give apartment values. `LinearAVF` class is an improved version of `ApartmentValueFunction` that delivers actionable and consistent results according to all value function classes. In the current state of the project, the `AVF` is only used in the `AskOpinionForUtility` class which is not yet integrated to the rest of the application. However, `LinearAVF` is used in `LayoutApartmentGUI` class which is integrated to the application and sorts apartments according to the subjectives values retrieved from a `LinearAVF` object and it is also used in `ProfileQuestionGUI` class also integrated to the application and which returns a `LinearAVF` object when the user gives those preferences.
+
+Following this observation, we propose to: 
+
+* Delete the `ApartmentValueFunction` class because there is no point in keeping it if the `LinearAVF` class is its upgraded version.
+* Make `AskOpinionForUtility` class depend on `LinearAVF` objects to integrate it into the application like the other classes.
+* Rename the `LinearAVF` class with a name more representative of its role.
+
 ===== valuefunction.profile
 
 * Implement new questions in Profile, it might be useful to go through a QuestionManager
@@ -74,6 +95,14 @@ In order to improve and make this window match with our ambitions, we might add 
 
 === Others (given by oliviercailloux)
 
+* `DistanceValueFunction` must depends on a service that compute distances. For now `DistanceValueFunction` use an API key to compute the distance between an apartment and the tenant's interest locations.
+* Generate SVG picture instead of PNG in the `SpiderPlot` class. Suggestion : Using Apache Batik (or JFreeSVG, but less powerful).
+* Take charge distant unit testing with link:https://github.com/oliviercailloux/JARiS[JARiS].
+* Find a way to store the user's interest places and how to question him about it.
+* Adapting the `ApartmentValueFunction` by asking differently the questions (for example : What do you prefer between an apartment of size x at y € and an apartment of size x' at y' € ?) and adapting the shape of the valuefunction depending on the tenant's answer.
+* The question selected to improve the `ApartmentValueFunction` should depend on the Tenant's answers to the questions previously proposed. Suggestion : Store the answers and give access to the answers to the GUI.
+* `AskOpinionForUtility` takes care of display and choice of questions. It's better to separate these 2 aspect and name them as `AskerGUI` or `QuestionChooser` depending on the aspect.
+* Create an `Orchestrator` class that manage the GUI interfaces. It allows to activate or desactivate the GUI components.
 * Remanufacture `DistanceSubway`, which mixes two features (address and contact request) and duplicates the creation of the request object. Integrate Localizer into this reflection. For example, you would need a `localize(String)` method: LatLng instead of `getGeometryLocation`.
 * Cleaner reading of the Google API key via a file or an environment variable in KeyManager (see link:https://github.com/Dauphine-MIDO/plaquette-MIDO-json[plaquette-MIDO-json])
 * Be able to visualize in a GUI the apartments from the JSON file
@@ -83,7 +112,6 @@ In order to improve and make this window match with our ambitions, we might add 
 * Display of the comparison of two apartments from the user's point of view: partial values ​​and total value (allowing him to understand why an apartment has a lower value)
 * Visualize the value function of the user: on a criterion, graph of the partial value function on this criterion
 * The `PartialValueFunction` interface should not extend Function. Simplify the creators of `PartialValueFunction` using lambda expressions.
-* Reduce redundancy in `ApartmentValueFunction`, simplify so that you can easily modify the criteria
 * Think about a pleasant and useful display of different apartments of great value for the user, in order to allow him to explore interesting alternatives
 * Allow the user to modify their value function and see the result at the same time on the relative value of two apartments
 * Investigate the possibility and propose a way to merge (parts of) this project with link:https://github.com/oliviercailloux/decision-uta-method/[decision-uta-method], which offers a generic way of dealing with a decision problem with criteria and alternatives (alternatives are the objects among which the user wants to choose, for example apartments, cars…)

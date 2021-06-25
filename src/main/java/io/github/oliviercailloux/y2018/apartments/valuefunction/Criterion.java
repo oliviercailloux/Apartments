@@ -1,16 +1,15 @@
 package io.github.oliviercailloux.y2018.apartments.valuefunction;
 
 public enum Criterion {
-  TELE(ValueFunctionType.IS_BOOLEAN_CRESCENT),
-  TERRACE(ValueFunctionType.IS_BOOLEAN_CRESCENT),
-  WIFI(ValueFunctionType.IS_BOOLEAN_CRESCENT),
-  FLOOR_AREA(ValueFunctionType.IS_DOUBLE_CRESCENT),
-  FLOOR_AREA_TERRACE(ValueFunctionType.IS_DOUBLE_CRESCENT),
-  NB_BATHROOMS(ValueFunctionType.IS_DOUBLE_CRESCENT),
-  NB_BEDROOMS(ValueFunctionType.IS_DOUBLE_CRESCENT),
-  NB_SLEEPING(ValueFunctionType.IS_DOUBLE_CRESCENT),
-  NB_MIN_NIGHT(ValueFunctionType.IS_DOUBLE_DECREASE),
-  PRICE_PER_NIGHT(ValueFunctionType.IS_DOUBLE_DECREASE);
+  TELE(ValueFunctionType.IS_BOOLEAN_CRESCENT), TERRACE(ValueFunctionType.IS_BOOLEAN_CRESCENT), WIFI(
+      ValueFunctionType.IS_BOOLEAN_CRESCENT), FLOOR_AREA(
+          ValueFunctionType.IS_DOUBLE_CRESCENT), FLOOR_AREA_TERRACE(
+              ValueFunctionType.IS_DOUBLE_CRESCENT), NB_BATHROOMS(
+                  ValueFunctionType.IS_DOUBLE_CRESCENT), NB_BEDROOMS(
+                      ValueFunctionType.IS_DOUBLE_CRESCENT), NB_SLEEPING(
+                          ValueFunctionType.IS_DOUBLE_CRESCENT), NB_MIN_NIGHT(
+                              ValueFunctionType.IS_DOUBLE_DECREASE), PRICE_PER_NIGHT(
+                                  ValueFunctionType.IS_DOUBLE_DECREASE);
 
   private ValueFunctionType valueFunctionType;
 

@@ -76,31 +76,23 @@ public class QuestionPriceArea {
     /** In this part we compute the different rates of increasment the question is proposing. */
     Range<Double> surfaceRange =
         p.getLinearAVF().getInternalLinearValueFunction(Criterion.FLOOR_AREA).getInterval();
-    double surfaceR =
-        this.surface
-            / (surfaceRange.upperEndpoint().doubleValue()
-                - surfaceRange.lowerEndpoint().doubleValue());
+    double surfaceR = this.surface
+        / (surfaceRange.upperEndpoint().doubleValue() - surfaceRange.lowerEndpoint().doubleValue());
 
-    Range<Double> priceRange =
-        p.getLinearAVF()
-            .getInternalReversedLinearValueFunction(Criterion.PRICE_PER_NIGHT)
-            .getInterval();
-    double priceR =
-        this.price
-            / (priceRange.upperEndpoint().doubleValue() - priceRange.lowerEndpoint().doubleValue());
+    Range<Double> priceRange = p.getLinearAVF()
+        .getInternalReversedLinearValueFunction(Criterion.PRICE_PER_NIGHT).getInterval();
+    double priceR = this.price
+        / (priceRange.upperEndpoint().doubleValue() - priceRange.lowerEndpoint().doubleValue());
 
     if (response) {
       rate = priceR / surfaceR;
       closedRange =
-          Range.closed(
-              Math.min(rate, p.getWeightRange(Criterion.FLOOR_AREA).upperEndpoint()),
+          Range.closed(Math.min(rate, p.getWeightRange(Criterion.FLOOR_AREA).upperEndpoint()),
               p.getWeightRange(Criterion.FLOOR_AREA).upperEndpoint());
     } else {
       rate = surfaceR / priceR;
-      closedRange =
-          Range.closed(
-              p.getWeightRange(Criterion.FLOOR_AREA).lowerEndpoint(),
-              Math.max(rate, p.getWeightRange(Criterion.FLOOR_AREA).lowerEndpoint()));
+      closedRange = Range.closed(p.getWeightRange(Criterion.FLOOR_AREA).lowerEndpoint(),
+          Math.max(rate, p.getWeightRange(Criterion.FLOOR_AREA).lowerEndpoint()));
     }
     profileWeights.put(Criterion.FLOOR_AREA, closedRange);
     return Profile.create(profileWeights, p.getLinearAVF());
