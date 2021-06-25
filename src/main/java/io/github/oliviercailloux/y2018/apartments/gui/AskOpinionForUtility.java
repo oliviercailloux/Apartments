@@ -77,7 +77,7 @@ public class AskOpinionForUtility {
     AskOpinionForUtility asker = new AskOpinionForUtility();
     LinearAVF avf =
         new LinearAVF.Builder().setFloorAreaValueFunction(new LinearValueFunction(0d, 300d))
-            .setNbBathroomsValueFunction(new LinearValueFunction(0d, 6d))
+            .setNbBedroomsValueFunction(new LinearValueFunction(0d, 6d))
             .setNbSleepingValueFunction(new LinearValueFunction(0d, 6d))
             .setNbBathroomsValueFunction(new LinearValueFunction(0d, 6d))
             .setFloorAreaTerraceValueFunction(new LinearValueFunction(0d, 100d))
