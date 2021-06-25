@@ -526,7 +526,7 @@ public class LinearAVF {
      * Set the function which will be used to calculate the subjective value of the presence of a
      * terrace.
      *
-     * @param value boolean true iif having a Terrace is a benefit
+     * @param value boolean true if having a Terrace is a benefit
      * @return the current instance of Builder
      */
     public Builder setTerraceValueFunction(boolean value) {
