@@ -18,9 +18,9 @@ import org.slf4j.LoggerFactory;
  * apartment : An object of and an associated weight. Each Value function used are restricted to be
  * able to deal with profiles and questions
  */
-public class LinearAVF {
+public class ApartementVF {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(LinearAVF.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(ApartementVF.class);
 
   /**
    * The next argument are the objects used to compute the value function of the characteristics of
@@ -42,7 +42,7 @@ public class LinearAVF {
    * default, all the weights have the same value and their sum is 1. The setters functions enable
    * to set those two.
    */
-  private LinearAVF() {
+  private ApartementVF() {
     this.booleanValueFunctions = new EnumMap<>(Criterion.class);
     this.linearValueFunctions = new EnumMap<>(Criterion.class);
     this.reversedValueFunctions = new EnumMap<>(Criterion.class);
@@ -115,8 +115,8 @@ public class LinearAVF {
    *
    * @return an object LinearAVF
    */
-  private LinearAVF cloneLinearAVF() {
-    LinearAVF avf = new LinearAVF();
+  private ApartementVF cloneLinearAVF() {
+    ApartementVF avf = new ApartementVF();
     // value function
     Arrays.stream(Criterion.values()).forEach(c -> {
       if (c.hasBooleanDomain()) {
@@ -171,9 +171,9 @@ public class LinearAVF {
    * @param value the value we want to assign at this criterion
    * @return an object LinearAVF with the modified criterion
    */
-  public LinearAVF withWeight(Criterion criterion, double value) {
+  public ApartementVF withWeight(Criterion criterion, double value) {
     checkArgument(value >= 0, "The given weight cannot be negative");
-    LinearAVF avf = cloneLinearAVF();
+    ApartementVF avf = cloneLinearAVF();
     avf.setWeightSubjectiveValue(criterion, value);
     return avf;
   }
@@ -296,8 +296,8 @@ public class LinearAVF {
    * @param lower true if we want to adapt the lower bound, false on the other case
    * @return an object ApartmentValueFunction
    */
-  public LinearAVF adaptBounds(Criterion criterion, double newBound, boolean lower) {
-    LinearAVF avf = this.cloneLinearAVF();
+  public ApartementVF adaptBounds(Criterion criterion, double newBound, boolean lower) {
+    ApartementVF avf = this.cloneLinearAVF();
     LinearValueFunction lvf = avf.getInternalLinearValueFunction(criterion);
     avf.setInternalValueFunction(criterion, adaptLinearValueFunction(lvf, newBound, lower));
     return avf;
@@ -329,11 +329,11 @@ public class LinearAVF {
    *        ApartmentValueFunction
    * @return an object LinearAVF
    */
-  public LinearAVF adaptWeight(Criterion moreImportant, Criterion lessImportant) {
+  public ApartementVF adaptWeight(Criterion moreImportant, Criterion lessImportant) {
     checkNotNull(lessImportant, "This criterion cannot be null");
     checkNotNull(moreImportant, "This criterion cannot be null");
     checkArgument(!Objects.equals(moreImportant, lessImportant), "Both fields are the same.");
-    LinearAVF avf = cloneLinearAVF();
+    ApartementVF avf = cloneLinearAVF();
     double weightSum =
         avf.getWeightSubjectiveValue(moreImportant) + avf.getWeightSubjectiveValue(lessImportant);
 
@@ -344,13 +344,13 @@ public class LinearAVF {
   }
 
   public static class Builder {
-    private LinearAVF toBuild;
+    private ApartementVF toBuild;
 
     public Builder() {
-      toBuild = new LinearAVF();
+      toBuild = new ApartementVF();
     }
 
-    public LinearAVF build() {
+    public ApartementVF build() {
       checkNotNull(toBuild.getInternalLinearValueFunction(Criterion.FLOOR_AREA_TERRACE));
       checkNotNull(toBuild.getInternalLinearValueFunction(Criterion.FLOOR_AREA));
       checkNotNull(toBuild.getInternalLinearValueFunction(Criterion.NB_BATHROOMS));
