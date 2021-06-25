@@ -550,7 +550,7 @@ public class LinearAVF {
      * Set the function which will be used to calculate the subjective value of the presence of a
      * television.
      *
-     * @param value boolean true iif having a TV is a benefit
+     * @param value boolean true if having a TV is a benefit
      * @return the current instance of Builder
      */
     public Builder setTeleValueFunction(boolean value) {
@@ -574,7 +574,7 @@ public class LinearAVF {
      * Set the function which will be used to calculate the subjective value of the presence of a
      * wireless connection.
      *
-     * @param value boolean true iif having Wifi is a benefit
+     * @param value boolean true if having Wifi is a benefit
      * @return the current instance of Builder
      */
     public Builder setWifiValueFunction(boolean value) {
