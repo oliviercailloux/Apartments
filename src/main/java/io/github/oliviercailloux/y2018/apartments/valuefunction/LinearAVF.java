@@ -304,7 +304,7 @@ public class LinearAVF {
   }
 
   /**
-   * Adapt linear value function by defining a new lower or upper bound
+   * Adapt linear value function by defining a new lower or upper bound.
    *
    * @param oldLVF the old linear value function used
    * @param newBound the new lower or upper bound
@@ -321,13 +321,13 @@ public class LinearAVF {
   }
 
   /**
-   * This method assumes that the preference between true and false is known but doesn't matter.
+   * This method allows to adapt the weight of the criterias given in parameter.
    *
    * @param moreImportant is the criterion that is to be prioritized in this object of
    *        ApartmentValueFunction
    * @param lessImportant is the criterion that is to be less important in this object of
    *        ApartmentValueFunction
-   * @return an object ApartmentValueFunction
+   * @return an object LinearAVF
    */
   public LinearAVF adaptWeight(Criterion moreImportant, Criterion lessImportant) {
     checkNotNull(lessImportant, "This criterion cannot be null");
