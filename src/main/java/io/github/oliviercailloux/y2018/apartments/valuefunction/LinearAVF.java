@@ -282,7 +282,7 @@ public class LinearAVF {
   }
 
   /**
-   * We make the assumption (by casting), that the runtime PartialValueFunction associated to
+   * We make the assumption, that the runtime PartialValueFunction associated to
    * criteria is a LinearValueFunction, even if in real life it would be a discrete criteria (e.g.
    * the number of bedrooms)
    *
