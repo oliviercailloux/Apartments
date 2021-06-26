@@ -371,6 +371,9 @@
         </packagedElement>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_hV56kMK2EeuWlaXkP3RhUQ" name="Global">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_X4iOUNQnEeuAtMHnf8XRdw" annotatedElement="_72rEYF_BEeqAAb4u4HLI7w">
+          <body>ApartmentValueFunction uses all PartialValueFunction implementations and all enumerations</body>
+        </ownedComment>
         <packagedElement xmi:type="uml:Package" xmi:id="_RYNkoGrCEeqG6NsufvOKcA" name="UCD_UseApartmentRentalPlatform">
           <packagedElement xmi:type="uml:Interaction" xmi:id="_TPRn4GS3EeqTxqp8Bmjtjg" name="GlobalUseCase" useCase="_fIsF4GS3EeqTxqp8Bmjtjg _czcs0GS3EeqTxqp8Bmjtjg _oYvPkIS6EeuzdriENguzmA _rB2xcIS7EeuzdriENguzmA _C9OZ4ITGEeugKObI8pgoGA _K5JuoITGEeugKObI8pgoGA _Io6xYITGEeugKObI8pgoGA">
             <ownedRule xmi:type="uml:Constraint" xmi:id="_uAj5cJifEeupk9giDf-csg" name="Constraint" constrainedElement="_fcu5EJieEeupk9giDf-csg _TeQkQIS7EeuzdriENguzmA">
@@ -1736,6 +1739,67 @@ The CategoryDataset is required to be able to create a Spider Plot in the create
           </packagedElement>
           <packagedElement xmi:type="uml:Dependency" xmi:id="_ZVIt0Jj3EeqYP-aD6j0wRg" client="_OIB8MJj3EeqYP-aD6j0wRg" supplier="_1N7WIF--EeqAAb4u4HLI7w"/>
         </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_JNgWwNRHEeuAtMHnf8XRdw" name="ApartmentStatistics" visibility="public">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_ogTxsNRPEeuAtMHnf8XRdw" name="LOGGER" visibility="private" type="_ZCxH8F--EeqAAb4u4HLI7w"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_97-MkNRQEeuAtMHnf8XRdw" name="listOfApartments" visibility="private" type="_1N7WIF--EeqAAb4u4HLI7w">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rO9o8NRSEeuAtMHnf8XRdw"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rQ0qINRSEeuAtMHnf8XRdw" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_yInoYNRSEeuAtMHnf8XRdw" name="myApartments" visibility="private" type="_1N7WIF--EeqAAb4u4HLI7w">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Bs-uINRTEeuAtMHnf8XRdw"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BvjhANRTEeuAtMHnf8XRdw" value="*"/>
+          </ownedAttribute>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_7ht00NRJEeuAtMHnf8XRdw" name="given" specification="_pubEQNRHEeuAtMHnf8XRdw"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_9Bx5YNRJEeuAtMHnf8XRdw" name="ApartmentStatistics" specification="_rtnU0NRHEeuAtMHnf8XRdw"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_xoDyoNRKEeuAtMHnf8XRdw" name="getApartmentSample" specification="_tCutoNRHEeuAtMHnf8XRdw"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_9lhDINRKEeuAtMHnf8XRdw" name="getNumericStatistics" specification="_7wc-8NRKEeuAtMHnf8XRdw"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-5HZANRKEeuAtMHnf8XRdw" name="getBooleanStatistics" specification="_8jHyANRKEeuAtMHnf8XRdw"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_pubEQNRHEeuAtMHnf8XRdw" name="given" visibility="public" method="_7ht00NRJEeuAtMHnf8XRdw">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_-92Z8NRIEeuAtMHnf8XRdw" name="listApartments" type="_1N7WIF--EeqAAb4u4HLI7w">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DlJ8QNRJEeuAtMHnf8XRdw"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DlmoMNRJEeuAtMHnf8XRdw" value="*"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_OHmAQNRJEeuAtMHnf8XRdw" name="number">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_Zha_QNRJEeuAtMHnf8XRdw" type="_JNgWwNRHEeuAtMHnf8XRdw" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_rtnU0NRHEeuAtMHnf8XRdw" name="«create» ApartmentStatistics" visibility="private" method="_9Bx5YNRJEeuAtMHnf8XRdw">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_xgfngNRJEeuAtMHnf8XRdw" name="listApartments" type="_1N7WIF--EeqAAb4u4HLI7w">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zIybANRJEeuAtMHnf8XRdw"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zI_PUNRJEeuAtMHnf8XRdw" value="*"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_3mUWQNRJEeuAtMHnf8XRdw" name="number">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_tCutoNRHEeuAtMHnf8XRdw" name="getApartmentsSample" visibility="private" method="_xoDyoNRKEeuAtMHnf8XRdw">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_jtFFgNRKEeuAtMHnf8XRdw" name="listApartments" type="_1N7WIF--EeqAAb4u4HLI7w">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lanlYNRKEeuAtMHnf8XRdw"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_la0ZsNRKEeuAtMHnf8XRdw" value="*"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_pCN-MNRKEeuAtMHnf8XRdw" name="number">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_sRk2INRKEeuAtMHnf8XRdw" type="_1N7WIF--EeqAAb4u4HLI7w" direction="return">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tmA5gNRKEeuAtMHnf8XRdw"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tmPjANRKEeuAtMHnf8XRdw" value="*"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_7wc-8NRKEeuAtMHnf8XRdw" name="getNumericStatistics" visibility="public" method="_9lhDINRKEeuAtMHnf8XRdw">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_QcKZANRLEeuAtMHnf8XRdw" name="featureName" type="__lgUEGVHEeq0U8CyxWHVBA"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_05IFUNRLEeuAtMHnf8XRdw" type="_j_nxkNRLEeuAtMHnf8XRdw" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_8jHyANRKEeuAtMHnf8XRdw" name="getBooleanStatistics" visibility="public" method="_-5HZANRKEeuAtMHnf8XRdw">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_JPm2QNRMEeuAtMHnf8XRdw" name="featureName" type="__lgUEGVHEeq0U8CyxWHVBA"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_SAw38NROEeuAtMHnf8XRdw" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EMap"/>
+            </ownedParameter>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_j3lEUNRVEeuAtMHnf8XRdw" client="_JNgWwNRHEeuAtMHnf8XRdw" supplier="_1N7WIF--EeqAAb4u4HLI7w"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_pHbNUNRVEeuAtMHnf8XRdw" client="_JNgWwNRHEeuAtMHnf8XRdw" supplier="_OIB8MJj3EeqYP-aD6j0wRg"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_ZZqzoNRYEeuAtMHnf8XRdw" client="_JNgWwNRHEeuAtMHnf8XRdw" supplier="__lgUEGVHEeq0U8CyxWHVBA"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_JAqEUF_AEeqAAb4u4HLI7w" name="distance">
         <packagedElement xmi:type="uml:Class" xmi:id="_ESBK8F_AEeqAAb4u4HLI7w" name="DistanceSubway" visibility="public">
@@ -1820,6 +1884,7 @@ The CategoryDataset is required to be able to create a Spider Plot in the create
           <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_ByRGkGVIEeq0U8CyxWHVBA" name="ADDRESS"/>
           <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_ByRGkWVIEeq0U8CyxWHVBA" name="COORDINATE"/>
         </packagedElement>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_qhvK0NQ3EeuAtMHnf8XRdw" client="_ESBK8F_AEeqAAb4u4HLI7w" supplier="_qfC2QKgQEeuQ07mwWsrMMA"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_S32y8F_AEeqAAb4u4HLI7w" name="gui">
         <packagedElement xmi:type="uml:Class" xmi:id="_VP_vAF_AEeqAAb4u4HLI7w" name="AskOpinionForUtility" visibility="public">
@@ -5356,7 +5421,7 @@ The CategoryDataset is required to be able to create a Spider Plot in the create
         <packagedElement xmi:type="uml:Dependency" xmi:id="_Nqz9kL8UEeuIw8dENjJnGg" client="_1HbS4LyYEeuvu5ayhp9Lzg" supplier="_1QqroF-_EeqAAb4u4HLI7w"/>
       </packagedElement>
     </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="__C89EHEuEeq9ooUMj2JdaQ" name="java">
+    <packagedElement xmi:type="uml:Package" xmi:id="__C89EHEuEeq9ooUMj2JdaQ" name="other packages">
       <packagedElement xmi:type="uml:Package" xmi:id="__DER0HEuEeq9ooUMj2JdaQ" name="java">
         <packagedElement xmi:type="uml:Package" xmi:id="__DER0XEuEeq9ooUMj2JdaQ" name="lang">
           <packagedElement xmi:type="uml:Class" xmi:id="__DK_gHEuEeq9ooUMj2JdaQ" name="Object"/>
@@ -5421,6 +5486,9 @@ The CategoryDataset is required to be able to create a Spider Plot in the create
             </ownedOperation>
           </packagedElement>
         </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_clxPINRLEeuAtMHnf8XRdw" name="com.google.common.math">
+        <packagedElement xmi:type="uml:Class" xmi:id="_j_nxkNRLEeuAtMHnf8XRdw" name="Stats" visibility="public"/>
       </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_YzGkkHEzEeq9ooUMj2JdaQ" name="swt">
