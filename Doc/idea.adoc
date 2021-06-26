@@ -45,15 +45,6 @@ In the package documentation, we added the `DistanceValueFunction` link:https://
 ** Add in the class `Apartment` a method `getAdressLatLng` that returns the coordinates of the apartment location. We propose the following approach which still requires some thought : The method `getAdressLatLng` will use the `Localizer` class (already implemented in the project) that allows use to obtain the coordinates of an apartment knowing its adress.
 ** After these changes, the unit tests fail because the calculations are based on 10 criteria. Therefore, the calculations must be modified to take into account the new criteria. We should modify the default weight : incream from 0.1 to 1/(number of criterion) for each criterion and change the method `adaptWeight` in the `AVF`. Unfortunately, the unit tests can fail because of the API that give the distance in real time and depends on the current traffic circumstances.
 
-===== About `ApartmentValueFunction` and `LinearAVF` classes
-We compared these two classes and found that they have the same role: Compute and give apartment values. `LinearAVF` class is an improved version of `ApartmentValueFunction` that delivers actionable and consistent results according to all value function classes. In the current state of the project, the `AVF` is only used in the `AskOpinionForUtility` class which is not yet integrated to the rest of the application. However, `LinearAVF` is used in `LayoutApartmentGUI` class which is integrated to the application and sorts apartments according to the subjectives values retrieved from a `LinearAVF` object and it is also used in `ProfileQuestionGUI` class also integrated to the application and which returns a `LinearAVF` object when the user gives those preferences.
-
-Following this observation, we propose to: 
-
-* Delete the `ApartmentValueFunction` class because there is no point in keeping it if the `LinearAVF` class is its upgraded version.
-* Make `AskOpinionForUtility` class depend on `LinearAVF` objects to integrate it into the application like the other classes.
-* Rename the `LinearAVF` class with a name more representative of its role.
-
 ===== valuefunction.profile
 
 * Implement new questions in Profile, it might be useful to go through a QuestionManager
