@@ -27,19 +27,19 @@ This is one of the most important packages in the application.
 
 This part of the project explains the model of an apartment and the creation methods of apartments. His classes: 
 
-* `Apartment` : This class allows the creation of an apartment using a builder. The class also makes it possible update and retrieve the fields of an apartment thanks to a set of getters and setters.
+* *`Apartment`* : This class allows the creation of an apartment using a builder. The class also makes it possible update and retrieve the fields of an apartment thanks to a set of getters and setters.
 
-* `ApartmentFactory` : This class allows you to manage the creation of an apartment. It contains, for example, methods which allow to generate apartments with random characteristics and real addresses.
+* *`ApartmentFactory`* : This class allows you to manage the creation of an apartment. It contains, for example, methods which allow to generate apartments with random characteristics and real addresses.
 
-* `ApartmentStatistics` : This class provides methods for obtaining statistics on apartments for a given criterion. For example, if you want to know the part of apartments containing a terrace, you should use this class.
+* *`ApartmentStatistics`* : This class provides methods for obtaining statistics on apartments for a given criterion. For example, if you want to know the part of apartments containing a terrace, you should use this class.
 
 
 === apartment.xml
 
 This package is made up of two classes:
 
-* `ReadApartmentsXMLFormat` : allows to get an apartment from an XML file. We can imagine making this class an abstract and the operations static because we don’t have to keep in memory immediately treated data.
-* `XMLProperties` : allows to export apartment’s informations in a XML file.
+* *`ReadApartmentsXMLFormat`* : allows to get an apartment from an XML file. We can imagine making this class an abstract and the operations static because we don’t have to keep in memory immediately treated data.
+* *`XMLProperties`* : allows to export apartment’s informations in a XML file.
 
 === apartment.json
 
@@ -135,19 +135,43 @@ It’s very important for this package to do minimum operations linked to the th
 
 Here are the classes of the package :
 
-* `FormApartmentGUI` : This class enables to create a form in the application for creating/modifying an apartment.
+* *`FormApartmentGUI`* : This class enables to create a form in the application for creating/modifying an apartment.
 
-* `ModifyApartmentGUI` : This class initializes a GUI for modifying an apartment from an XML File.
+* *`ModifyApartmentGUI`* : This class initializes a GUI for modifying an apartment from an XML File.
 
-* `CreateApartmentGUI` : The class enables the user to enter information about an apartment and to record it in a XML File thanks to a GUI.
+* *`CreateApartmentGUI`* : The class enables the user to enter information about an apartment and to record it in a XML File thanks to a GUI.
 
-* `ProfileGUI` : This class is the starting point for the application. Indeed, it implements the first screen of the application which is used to retrieve the profile of the user (Student, Couple or Family). 
+* *`ProfileGUI`* : This class is the starting point for the application. Indeed, it implements the first screen of the application which is used to retrieve the profile of the user (Student, Couple or Family).
 
-* `ProfileQuestionsGUI` : As its name suggests, this class is used to display questions on the screen that address a profile type selected in the `ProfileGUI` class. At the moment, it only display one question per profile, it might be interesting to add questions that are useful to refine user preferences. 
+.see Selection profile screen
+[%collapsible]
+====
+image::gui-select-profile.png?raw=true[Selection profile screen]
+====
 
-* `AskOpinionForUtility` : This class is used to retrieve the user's basic preferences. It displays a list of basic questions on the screen to allow the user to indicate these apartment preferences. Depending on the answers retrieved, the class is responsible for updating the values of the apartments. 
+* *`ProfileQuestionsGUI`* : As its name suggests, this class is used to display questions on the screen that address a profile type selected in the `ProfileGUI` class. At the moment, it only display one question per profile, it might be interesting to add questions that are useful to refine user preferences. 
 
-* `LayoutApartmentGUI` : This class is responsible for sorting the list of apartments according to their value and it also display the sorted apartments list on the screen. It offers features that allow to have more details about the apartments.
+.see Profile selection question
+[%collapsible]
+====
+image::gui-questions.png?raw=true[Profile selection question]
+====
+
+* *`AskOpinionForUtility`* : This class is used to retrieve the user's basic preferences. It displays a list of basic questions on the screen to allow the user to indicate these apartment preferences. Depending on the answers retrieved, the class is responsible for updating the values of the apartments. 
+
+.see AskOpinionForUtility questions
+[%collapsible]
+====
+image::gui-askopinionforutility.png?raw=true[AskOpinionForUtility questions]
+====
+
+* *`LayoutApartmentGUI`* : This class is responsible for sorting the list of apartments according to their value and it also display the sorted apartments list on the screen. It offers features that allow to have more details about the apartments.
+
+.see An example of filtered results display
+[%collapsible]
+====
+image::gui-layoutapartment.png?raw=true[An example of filtered results]
+====
 
 == iconDisplay
 
@@ -399,7 +423,7 @@ A student would never need a fourth bedroom and will always chose the terrace ov
 
 image::gui-questions.png?raw=true[GUI - questions]
 
-Currently, only the first question is implemented (in `QuestionPriceArea`) +
+Currently, only this question is implemented (in `QuestionPriceArea`) +
 
 ==== valuefunction.profile.QuestionPriceArea
 
