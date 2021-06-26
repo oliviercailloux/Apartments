@@ -282,9 +282,9 @@ public class LinearAVF {
   }
 
   /**
-   * We make the assumption, that the runtime PartialValueFunction associated to
-   * criteria is a LinearValueFunction, even if in real life it would be a discrete criteria (e.g.
-   * the number of bedrooms)
+   * We make the assumption, that the runtime PartialValueFunction associated to criteria is a
+   * LinearValueFunction, even if in real life it would be a discrete criteria (e.g. the number of
+   * bedrooms)
    *
    * <p>
    * The goal is to replace a LinearValueFunction's bound by a new bound Warning : The values of the
