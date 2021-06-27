@@ -57,6 +57,7 @@ public class ProfileGUI {
       LOGGER.info("L'Opération a été annulée. \n Fin du ProfileGUI");
       return;
     }
+    AskOpinionForUtility.process();
     ProfileQuestionGUI.process(gui.selectedProfile);
   }
 
