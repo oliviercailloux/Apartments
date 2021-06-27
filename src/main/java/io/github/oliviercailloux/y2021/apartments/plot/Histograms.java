@@ -30,8 +30,8 @@ public class Histograms {
     private static List<Apartment> listOfApartments = JsonConvert.getDefaultApartments();
     private static final Logger LOGGER = LoggerFactory.getLogger(Histograms.class);
     
-    public static JFreeChart myHistogram;
-    public static Criterion crit;
+    private static JFreeChart myHistogram;
+    private static Criterion crit;
     
     public static Histograms given(Criterion featureName) {
       return new Histograms(featureName);
