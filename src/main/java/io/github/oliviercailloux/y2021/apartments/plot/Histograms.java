@@ -77,7 +77,7 @@ public class Histograms {
             LOGGER.info("Data about the floor area terrace are available");
             return floorAreaTerraceStats;
         
-        case PRICE_PER_NIGHT : 
+        case PRICE_PER_NIGHT :
             LOGGER.info("{} is part of our criteria",featureName);
             ArrayList <Double> pricePerNightStats = new ArrayList<>();
             for (int i=0; i< apartments.size(); i++) {
