@@ -1,9 +1,10 @@
 package io.github.oliviercailloux.y2018.apartments.gui;
 
 import com.google.common.base.Preconditions;
-import io.github.oliviercailloux.y2018.apartments.valuefunction.ApartmentValueFunction;
 import io.github.oliviercailloux.y2018.apartments.valuefunction.Criterion;
+import io.github.oliviercailloux.y2018.apartments.valuefunction.LinearAVF;
 import io.github.oliviercailloux.y2018.apartments.valuefunction.LinearValueFunction;
+import io.github.oliviercailloux.y2018.apartments.valuefunction.ReversedLinearValueFunction;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -73,29 +74,30 @@ public class AskOpinionForUtility {
   public static void main(String[] args) {
 
     AskOpinionForUtility asker = new AskOpinionForUtility();
-    ApartmentValueFunction avf = new ApartmentValueFunction();
-    asker.askQuestions();
+    LinearAVF avf =
+        new LinearAVF.Builder().setFloorAreaValueFunction(new LinearValueFunction(0d, 300d))
+            .setNbBedroomsValueFunction(new LinearValueFunction(0d, 6d))
+            .setNbSleepingValueFunction(new LinearValueFunction(0d, 6d))
+            .setNbBathroomsValueFunction(new LinearValueFunction(0d, 6d))
+            .setFloorAreaTerraceValueFunction(new LinearValueFunction(0d, 100d))
+            .setPricePerNightValueFunction(new ReversedLinearValueFunction(0d, 80d))
+            .setNbMinNightValueFunction(new ReversedLinearValueFunction(0d, 6d)).build();
 
-    avf.setDoubleValueFunction(Criterion.FLOOR_AREA, new LinearValueFunction(0d, 300d));
-    avf.setDoubleValueFunction(Criterion.NB_BEDROOMS, new LinearValueFunction(0d, 6d));
-    avf.setDoubleValueFunction(Criterion.NB_SLEEPING, new LinearValueFunction(0d, 6d));
-    avf.setDoubleValueFunction(Criterion.NB_BATHROOMS, new LinearValueFunction(0d, 6d));
-    avf.setDoubleValueFunction(Criterion.FLOOR_AREA_TERRACE, new LinearValueFunction(0d, 100d));
-    avf.setDoubleValueFunction(Criterion.PRICE_PER_NIGHT, new LinearValueFunction(0d, 80d));
-    avf.setDoubleValueFunction(Criterion.NB_MIN_NIGHT, new LinearValueFunction(0d, 6d));
+    asker.askQuestions();
 
     avf = asker.adaptAnswers(avf);
 
-    avf = avf.withSubjectiveValueWeight(Criterion.FLOOR_AREA, 0.5);
-    avf = avf.withSubjectiveValueWeight(Criterion.FLOOR_AREA_TERRACE, 0);
-    avf = avf.withSubjectiveValueWeight(Criterion.NB_BATHROOMS, 0);
-    avf = avf.withSubjectiveValueWeight(Criterion.NB_BEDROOMS, 0.5);
-    avf = avf.withSubjectiveValueWeight(Criterion.NB_MIN_NIGHT, 0);
-    avf = avf.withSubjectiveValueWeight(Criterion.NB_SLEEPING, 0);
-    avf = avf.withSubjectiveValueWeight(Criterion.PRICE_PER_NIGHT, 0);
-    avf = avf.withSubjectiveValueWeight(Criterion.TELE, 0);
-    avf = avf.withSubjectiveValueWeight(Criterion.TERRACE, 0);
-    avf = avf.withSubjectiveValueWeight(Criterion.WIFI, 0);
+    avf = avf.withWeight(Criterion.FLOOR_AREA, 0.5);
+    avf = avf.withWeight(Criterion.FLOOR_AREA_TERRACE, 0);
+    avf = avf.withWeight(Criterion.NB_BATHROOMS, 0);
+    avf = avf.withWeight(Criterion.NB_BEDROOMS, 0.5);
+    avf = avf.withWeight(Criterion.NB_MIN_NIGHT, 0);
+    avf = avf.withWeight(Criterion.NB_SLEEPING, 0);
+    avf = avf.withWeight(Criterion.PRICE_PER_NIGHT, 0);
+    avf = avf.withWeight(Criterion.TELE, 0);
+    avf = avf.withWeight(Criterion.TERRACE, 0);
+    avf = avf.withWeight(Criterion.WIFI, 0);
+    avf = avf.withWeight(Criterion.FLOOR_AREA, 0.5);
 
     LOGGER.info("Begining the Layout.");
   }
@@ -247,7 +249,7 @@ public class AskOpinionForUtility {
   }
 
   /** This function will adapt the utility of the user using ApartmentValueFunction */
-  public ApartmentValueFunction adaptAnswers(ApartmentValueFunction avf) {
+  public LinearAVF adaptAnswers(LinearAVF avf) {
 
     // we collect the answers on the minimums and we adapt the utility of the user
     avf.adaptBounds(Criterion.NB_BEDROOMS, nbBedMin, true);

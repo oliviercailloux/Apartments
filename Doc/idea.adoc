@@ -45,7 +45,6 @@ In the package documentation, we added the `DistanceValueFunction` link:https://
 ** Add in the class `Apartment` a method `getAdressLatLng` that returns the coordinates of the apartment location. We propose the following approach which still requires some thought : The method `getAdressLatLng` will use the `Localizer` class (already implemented in the project) that allows use to obtain the coordinates of an apartment knowing its adress.
 ** After these changes, the unit tests fail because the calculations are based on 10 criteria. Therefore, the calculations must be modified to take into account the new criteria. We should modify the default weight : incream from 0.1 to 1/(number of criterion) for each criterion and change the method `adaptWeight` in the `AVF`. Unfortunately, the unit tests can fail because of the API that give the distance in real time and depends on the current traffic circumstances.
 
-
 ===== valuefunction.profile
 
 * Implement new questions in Profile, it might be useful to go through a QuestionManager
@@ -63,6 +62,32 @@ Examples of questions to implement:
 * Create a main menu to navigate between the different functionalities of the application
 
 === Main classes
+
+==== SpiderPlot
+
+One interesting improvement is a spiderplot visualisation to compare 2 selected apartments.
+
+The `SpiderPlot` class will be located in the `Plot` package.
+
+Some diagrams are related to it : link:https://github.com/oliviercailloux-org/projet-apartments/blob/master/Doc/img/diagram-class-package-plot.svg[plot package] and link:https://github.com/oliviercailloux-org/projet-apartments/blob/master/Doc/img/diagram-sequence-interaction-user-spiderplot.svg[Interaction between user and the spiderplot].
+
+Creating the spiderplot remains on the link:https://www.jfree.org/jfreechart/[JFreeChart] library.
+It allows to create a spiderplot by taking a link:https://www.jfree.org/jfreechart/api/javadoc/org/jfree/data/category/CategoryDataset.html[`CategoryDataset`] in entrance.
+
+We thought of the following functions (taking into account the teacher's remarks):
+
+* `toCategoryDataset` : take 2 apartments and a valuefunction in entrance and convert them into a `CategoryDataset`.
+* `createChart` : take the `CategoryDataset` and create the `SpiderPlot` chart.
+* `createImgChart` : return a link:https://docs.oracle.com/javase/7/docs/api/java/awt/image/RenderedImage.html[`RenderedImage`] of the SpiderPlot.
+* `saveImgChart` : save the `RenderedImage` into a specified `Path` in a SVG format (use link:https://xmlgraphics.apache.org/batik/[Apache Batik] for saving in SVG) 
+
+Then, the spiderplot need to be integrate into the `LayoutApartmentGUI` by :
+
+* Creating a button on the interface : by selecting 2 apartments in the list, 
+tenant could push the button to compare these 2 apartments.
+* Displaying the spiderplot on the same interface (at the bottom right for example).
+
+link:https://github.com/oliviercailloux-org/projet-apartments/blob/master/Doc/packages.adoc#plot[Overview of the result and his interpretation]
 
 ==== AskOpinionForUtility
 
@@ -88,7 +113,6 @@ In order to improve and make this window match with our ambitions, we might add 
 === Others (given by oliviercailloux)
 
 * `DistanceValueFunction` must depends on a service that compute distances. For now `DistanceValueFunction` use an API key to compute the distance between an apartment and the tenant's interest locations.
-* Generate SVG picture instead of PNG in the `SpiderPlot` class. Suggestion : Using Apache Batik (or JFreeSVG, but less powerful).
 * Take charge distant unit testing with link:https://github.com/oliviercailloux/JARiS[JARiS].
 * Find a way to store the user's interest places and how to question him about it.
 * Adapting the `ApartmentValueFunction` by asking differently the questions (for example : What do you prefer between an apartment of size x at y € and an apartment of size x' at y' € ?) and adapting the shape of the valuefunction depending on the tenant's answer.

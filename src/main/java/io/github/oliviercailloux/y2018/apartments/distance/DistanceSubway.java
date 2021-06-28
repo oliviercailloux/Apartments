@@ -8,7 +8,6 @@ import com.google.maps.model.DistanceMatrix;
 import com.google.maps.model.LatLng;
 import com.google.maps.model.TransitMode;
 import com.google.maps.model.TravelMode;
-import io.github.oliviercailloux.y2018.apartments.valuefunction.DistanceMode;
 import java.io.IOException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -88,9 +87,12 @@ public class DistanceSubway {
    * @param distanceMode is a enum type, allow the user to choose between address mode (by the name)
    *        or by coordinate mode.
    * @return distance in hours between the two points given in the constructor.
+   * @throws IOException 
+   * @throws InterruptedException 
+   * @throws ApiException 
    * @throws Exception
    */
-  public double calculateDistanceAddress(DistanceMode distancemode) throws Exception {
+  public double calculateDistanceAddress(DistanceMode distancemode) throws ApiException, InterruptedException, IOException {
 
     DistanceMatrixApiRequest request = DistanceMatrixApi.newRequest(dist);
 
@@ -106,7 +108,7 @@ public class DistanceSubway {
             .mode(TravelMode.TRANSIT).transitModes(TransitMode.SUBWAY).language("fr-FR").await();
         break;
       default:
-        throw new Exception("The distance mode specified is not correct.");
+        throw new IllegalArgumentException("The distance mode specified is not correct.");
     }
 
     return result.rows[0].elements[0].duration.inSeconds;
