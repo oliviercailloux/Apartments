@@ -1,59 +1,51 @@
-:tip-caption: :bulb:
-:note-caption: :information_source:
-:important-caption: :heavy_exclamation_mark:
-:caution-caption: :fire:
-:warning-caption: :warning:
-:imagesdir: img/
 :toc:
 :toc-placement!:
+:toclevels: 4
+:toclevels: 1
 
-= Documentation 📙
+= Apartments
 
 toc::[]
 
-== Overview 👀
+== What's inside project apartments ?
 
-We decided to give a goal to our app and to define clearly the users of it. +
-Indeed, the current state of the application is not obvious: it is difficult to see who will use the app and the uses of it. +
-In other words, the current application has no real user. These are just features developed with no real link yet.
+Inside the project, you have three main topics. Under the folder link:[Doc], you will find everything you need for your UML iterations.
+Under the folder link:/src[src], you have the java code you need to work on. 
 
-So, we decided to clarify these points. +
-First, let’s talk about the goal of the app. We will try to develop this app so that it will be used for long-term apartment’s rental. +
-Users will be able to see the different apartments and to select them according to the most important criteria for them. That led us to the second point: for whom will be this app designed. +
-We decided that the main users of this app will be the tenants. The apartment’s owner won’t interact with the app. +
-To put the apartments online and eventually to modify them, we add a second actor in our model : a manager. The role of this actor is basically to put the apartments online, to modify them if needed and to delete them if a place is rented for example.
+== First launch of the App
 
-== Runnable class 🏃
+Before getting into details, let's start the app and see what it does. Clone the project on your local repository, and then open it on Eclipse. In the documentation https://github.com/oliviercailloux-org/projet-apartments/blob/ProjectExplanation/Doc/run.adoc[run.adoc], you have an overview of all the executable classes. I advice you to launch all of them, and to read the documentation in order to understand how it operates, and what the main goal of the application is. Depending on the Tenant preferences, you have a different list of apartments showing up.
+Now that you have a small idea of the project, it is time to read the specific documentation.
 
-To have an overview of all executable classes, you can go to link:run.adoc[run.adoc]
+== Read the documentation
 
-== Packages 📦
+* Read the link:packages.adoc[packages.adoc] to learn the impletemented packages and have detailed explanation of its classes. The `valuefunction` package is the most important ! The whole project revolves around it. Now that you know the packages and classes, you can do the next step.
+* Read the link:global.adoc[global.adoc] to see the general diagrams. You will find all the images under link:img[img].
 
-A package-by-package explanation is available, in link:packages.adoc[packages.adoc]. +
-*Most of the documentation is available in this file!*
+== UML
 
-== Diagrams UML
+* Open the papyrus model on Eclipse. 
+* Make sure you understand the artefact behind the model. It is the key to your future iterations in UML. You need to keep it clean.
+* Observe all the diagrams in the model. They show all that has been implemented in Java. Understanding the diagrams will help you understand the java code behind.
 
-For an overview of all diagrams, you can see the link:img/[img/] folder or go directly to Papyrus.
+== JAVA 
 
-In addition, link:global.adoc[global.adoc] includes all the global diagrams of the application &rarr; allows an overview.
+Now you should know everything about the different packages and classes and how they interact. Next step is to understand the code !
 
-[IMPORTANT]
-====
-We have detected that some themes prevent the proper functioning of papyrus (for example, transparent arrows). +
-We noticed this bug with the link:https://www.genuitec.com/products/devstyle/[DevStyle theme] +
-_Thanks link:https://github.com/GabG02[gab202]_
-====
+* Before modifying any class, it is mandatory to have a minimum level in Java. It includes :
+      - Knowing the basics of Java syntax.
+      - Clearly identify the differences between a package, a class, an interface and a method.
+      - Understand Maven to see how the project is designed.
+
+* In the folder link:/src[src], you have the code for the project : you will find the different packages and their classes. We advice you to look at it now.
+
+Take time to go through all the packages in order to understand their classes' implementation. The javadoc view in Eclispe is your best tool to understand the code, do not hesitate to use it to understand what a class or a method does. Use as well the different documentations that you must have read by now. It is only here to help you.
 
 == Convention for naming packages (for papyrus)
 
 * The name of a package must start with the type of diagram he contains (CD, UCD, ID) and should look like this: "TypeOfDiagram_Description”. +
 The only exception is for the `JavaIteration` package as it may contain different type of diagram.
 * When you create a new child such as a use case or a new class, the name of it should finish with "UC” if it is a use case, "CD” if it is for a class diagram or "I” for an interaction diagram.
-
-== Idea 💡
-
-For all ideas under development, not integrated into the application and the elements to be considered, please refer to link:idea.adoc[this documentation].
 
 == Create API KEY
 
@@ -77,6 +69,11 @@ For all ideas under development, not integrated into the application and the ele
 
 * Go back to the cloud google website, and verify that the API request was successful. (Be aware, you only have 300$ of free credits).
 
+== Ideas
+
+* For ideas about your next iterations, you can open link:idea.adoc[idea.adoc]. In this document, you will find all the ideas that we thought were interesting to add to the project but we didn't have time to implement them.
+        
+Your time to play !
 
 [%hardbreaks]
 link:#toc[⬆ back to top]

@@ -3,7 +3,6 @@ package io.github.oliviercailloux.y2018.apartments.distance;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import io.github.oliviercailloux.y2018.apartments.utils.KeyManager;
-import io.github.oliviercailloux.y2018.apartments.valuefunction.DistanceMode;
 
 /**
  * Inspiration for reading .txt file :

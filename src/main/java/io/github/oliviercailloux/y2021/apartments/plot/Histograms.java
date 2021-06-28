@@ -169,7 +169,6 @@ public class Histograms {
     	Histograms newHist = new Histograms(newCrit, this.myApartments);
     	LOGGER.info("A new histogram has been created.");
     	return newHist;
-      
     }
     
     public static JFreeChart getMyHistogram() {

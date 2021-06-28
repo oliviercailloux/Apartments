@@ -169,6 +169,36 @@ This file only explains the distribution of work between the different teams and
 * Integration of the `Plot` package in the `diagram-package-global`. This task is provided to the realisation of the first task.
 * Beginning of a creation of a clear documentation that will fully explain the project in order to make easier the projet comprehension next year.
 
+
+=== Itération 6 UML
+
+[IMPORTANT]
+====
+Deadline : **June the 28th, ** 2021.
+This file only explains the distribution of work between the different teams and indicates their realization.
+====
+
+==== Abla MIKOU & Stellan WEA
+
+* SM/PO for this iteration.
+* Split the work between the two groups.
+* Organise meetings throughout the week to have a better understanding of the project.
+* Made sure everybody is on board and respected the deadline.
+
+==== Ewen MARGUET & Samy MEGUENI
+
+* Update the `idea.adoc` by regrouping your FUTURE mentions. Moreover, we would like to create a documentation for the future students of the projet in order to make them able to carry this work on. This task can be relevant because some diagrams in master include SpiderPlot notions.
+* Add the latest diagrams and their respective comments in the `global.adoc`.
+* Update the `GetStartedWithTheProject` documentation according to the professor given in the link:https://github.com/oliviercailloux-org/projet-apartments/pull/44[PR#44].
+
+==== Maïrame NDIAYE & Seifeddine BOUGUERRA
+
+* Update the `package.adoc` : 
+** Improvement of the existing documentation by adding our own vision of the project.
+** Add explanations of all works added this year.
+* Integrate the `ApartmentStatistics` and `Histograms` classes created at the link:https://github.com/oliviercailloux-org/projet-apartments/pull/48[PR#48] and the link:https://github.com/oliviercailloux-org/projet-apartments/pull/49[PR#49] in `global-detailed` and `global-simplified` class diagrams.
+* Compare the `LinearAVF` and `ApartmentValueFunction` classes to know if it's necessary to keep both of them and make it as a documentation that will be used in the Java iteration.
+
 == Iterations Java 2021
 
 ==== Iteration 1 Java 
@@ -265,6 +295,38 @@ link:https://github.com/oliviercailloux-org/projet-apartments/blob/master/Doc/id
 **Prerequisite : Formatting in Google style.**
 
 The main purpose of this iteration is to make functional the spider plot. 
+
+==== Iteration 4 Java
+
+[IMPORTANT]
+====
+Deadline : **June the 27th, ** 2021
+This file only explains the distribution of work between the different teams and indicates their realization.
+====
+
+
+==== Maïrame NDIAYE & Seifeddine BOUGUERRA
+
+* SM/PO for this iteration.
+* Split the work between the two groups.
+* Organize meetings throughout the week to have a better understanding of the project.
+* Made sure everybody is on board and respected the deadline.
+
+==== Abla MIKOU & Ewen MARGUET
+
+* Modify the `ApartmentValueFunction` and `LinearAVF` by taking into account the documentation done in the UML Iteration 6 about the comparison of this classes. 
+* Integrate `AskOpinionForUtility` in the application. In fact, this class has been implemented but it is still disconnected from the rest of the application while 
+it is necessary to recover the answers of the Tenant to have the subjective values of the apartments. Thus, this will allow us to display correctly the list taking 
+into account the calculations made by the application. *Prerequisite : It's necessary to do the first task to did this*. 
+* Continue the integration of the criterion distance in the `ValueFunction` (*Prerequisite : It's necessary to do the first task to did this*) : 
+** Correct the `DistanceValueFunction` according to the teacher's advices at link:https://github.com/oliviercailloux-org/projet-apartments/pull/35[PR #35].
+** Continue the link:https://github.com/oliviercailloux-org/projet-apartments/pull/37[PR #37] by taking care teacher's recommendations. 
+
+==== Stellan WEA & Samy MEGUENI
+
+* Continue the creation of the class `Histograms` in the package `Plot` to generate other types of plot according to the professor's advice on this link:https://github.com/oliviercailloux-org/projet-apartments/pull/49[PR #49].
+* Continue the creation of the class `ApartmentStatistics` in the package `Apartment` to generate statistics about the apartment according to the professor's advice on this link:https://github.com/oliviercailloux-org/projet-apartments/pull/48[PR #48].
+* Add the statistics on `LayoutApartmentGUI` by creating a grid that will display the statistics about the apartments. (*Prerequisite : It's necessary to do the first and second task to did this*)
 
 The project documentation is link:Doc/README.adoc[here].
 
