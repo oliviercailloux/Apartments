@@ -82,6 +82,20 @@ The latter method takes as parameters an avf and a criterion list. It will enabl
 
 Once the tenant gets a new sorted list of apartments, if he's satisfied, he has the opportunity to select an apartment, otherwise, he isn't blocked and is free to do what he wants.
 
+* Diagram sequence SpiderPlot
+
+image::diagram-sequence-interaction-user-spiderplot.svg?raw=true[SpiderPlot Sequence Diagram]
+
+The purpose of this sequence diagram is to show that the tenant has the possibility to select 2 apartments in order to compare them thanks to a spiderplot.
+
+Once the tenant has selected 2 apartments on the list displayed by the `Orchestrator`, he can push a compare button that will generate a `SpiderPlot` thanks to the dedicated class and display it on the `LayoutApartmentGUI` via the `Orchestrator`.
+
+Class unimplemented yet :
+
+** `Orchestrator` : see more details above.
+** `SpiderPlot` : allows to generate a SpiderPlot that compare 2 apartments according to their `AVF` for each criterion.
+
+
 
 [%hardbreaks]
 link:#toc[⬆ back to top]
