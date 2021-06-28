@@ -109,6 +109,7 @@ In order to improve and make this window match with our ambitions, we might add 
 
 === Others (given by oliviercailloux)
 
+* The `Histograms` picture should be exported as a `RenderedImage` like the `SpiderPlot` class. See more details above in the SpiderPlot section.
 * `DistanceValueFunction` must depends on a service that compute distances. For now `DistanceValueFunction` use an API key to compute the distance between an apartment and the tenant's interest locations.
 * Take charge distant unit testing with link:https://github.com/oliviercailloux/JARiS[JARiS].
 * Find a way to store the user's interest places and how to question him about it.
