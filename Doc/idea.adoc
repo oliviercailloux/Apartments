@@ -92,6 +92,7 @@ link:https://github.com/oliviercailloux-org/projet-apartments/blob/master/Doc/pa
 ==== AskOpinionForUtility
 
 The `AskOpinionForUtility` interface is no really connected to the rest of the application. In fact, while running `ProfileGUI` you display the `AskOpinionForUtility` GUI but the adaptation of the value function is not implemented. You have to take into account the tenant's responses in the value function calculation.
+For the moment, all questions are in French and unwell worded. One objective could be translating these sentences and reformulating them to precisely guide the user.
 
 ==== LayoutApartmentGUI
 
