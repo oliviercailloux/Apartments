@@ -137,8 +137,8 @@ public class Histograms {
         double[] data = dataList.stream().mapToDouble(Double::doubleValue).toArray();
         HistogramDataset dataset = new HistogramDataset();
         dataset.addSeries("key", data, 50);
-        LOGGER.info("The {} histogram has been successfully created.", crit.toString());
-        JFreeChart histogram = ChartFactory.createHistogram(crit.toString()+" statistics",crit.toString(), "Effectif", dataset);
+        LOGGER.info("The {} histogram has been successfully created.", crit);
+        JFreeChart histogram = ChartFactory.createHistogram(crit+" statistics",crit.toString(), "Number of apartments", dataset);
         return histogram;
     }
     
