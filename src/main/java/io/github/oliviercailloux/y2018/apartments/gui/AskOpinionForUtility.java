@@ -64,6 +64,14 @@ public class AskOpinionForUtility {
   }
 
   /**
+   * Function that allows us to run the <code> AskOpinionForUtility</code> GUI.
+   */
+  public static void process() {
+    AskOpinionForUtility asker = new AskOpinionForUtility();
+    asker.askQuestions();
+  }
+
+  /**
    * This is the main function, it asks Questions , AdaptAnswers and then displays the list of
    * Apartments
    *
