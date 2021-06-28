@@ -9,7 +9,7 @@
 
 = Packages 📦
 
-This file explains how the different application packages work
+This file explains how the different application packages work.
 
 The actual program is divided in few packages:
 
@@ -20,29 +20,32 @@ toc::[]
 .see class diagram
 [%collapsible]
 ====
-image::diagram-class-package-apartment.png?raw=true[Last simplified class diagram]
+image::diagram-class-package-apartment.svg?raw=true[Last version of the class diagram]
 ====
 
-This is the most important package in the application
+This is one of the most important packages in the application.
 
-This part explains the model of an apartment and creation methods of apartments.
+This part of the project explains the model of an apartment and the creation methods of apartments. His classes: 
 
-The creation of an apartment is done using a builder.
+* *`Apartment`* : This class allows the creation of an apartment using a builder. The class also makes it possible update and retrieve the fields of an apartment thanks to a set of getters and setters.
 
-The `ApartmentFactory` class allows you to manage the creation of an apartment
+* *`ApartmentFactory`* : This class allows you to manage the creation of an apartment. It contains, for example, methods which allow to generate apartments with random characteristics and real addresses.
+
+* *`ApartmentStatistics`* : This class provides methods for obtaining statistics on apartments for a given criterion. For example, if you want to know the part of apartments containing a terrace, you should use this class.
+
 
 === apartment.xml
 
 This package is made up of two classes:
 
-* `ReadApartmentsXMLFormat` : allows to get an apartment form an XML file. We can imagine making this class an abstract and the operations static because we don’t have to keep in memory immediately treated data.
-* `XMLProperties` : allows to export apartment’s informations in a XML file.
+* *`ReadApartmentsXMLFormat`* : allows to get an apartment from an XML file. We can imagine making this class an abstract and the operations static because we don’t have to keep in memory immediately treated data.
+* *`XMLProperties`* : allows to export apartment’s informations in a XML file.
 
 === apartment.json
 
-This package contains only one class: `JsonConvert` which allows reciprocal conversions between the Apartment class and the JSON file format
+This package contains only one class: `JsonConvert` which allows reciprocal conversions between the  `Apartment` class and the JSON file format.
 
-=== Address generation for random apartment
+=== Some details about address generation for random apartment
 
 This section deals with the generation of random apartments.
 
@@ -53,7 +56,7 @@ The challenge is then to generate addresses randomly as a function of latitude a
 Longitude and latitude are restricted in a geographic area.
 ====
 
-You can see an implementation in `ApartmentFactory#getOnlineRandomAddress()`
+You can see an implementation in the `ApartmentFactory` class. 
 
 .see detailed documentation on the risk of non-return
 [%collapsible]
@@ -91,7 +94,7 @@ In this sense, this function is not intended to be at the heart of the program. 
 Plus, it importance to notice that `getRandomAddress()` calls `getOnlineRandomAddress()` but return an apipa address incase an Exception is thrown.
 ====
 
-Indeed, the logic is to generate a longitude/latitude as explained above. Then reverse the longitude and latitude using the link:https://geo.api.gouv.fr/adresse[government API] by calling a JSON parser
+Indeed, the logic is to generate a longitude/latitude as explained above. Then reverse the longitude and latitude using the link:https://geo.api.gouv.fr/adresse[government API] by calling a JSON parser.
 
 In order to solve the problem concerning the API used, we decided to carry out a benchmark to compare different solutions.
 
@@ -130,6 +133,46 @@ We can use it with 2 modes:
 All this package concerns the Graphical User Interface and all interactions with the user. +
 It’s very important for this package to do minimum operations linked to the thoughts of the program and keep only his role of builder of the display for the user and to send all requests to the thought part of the code.
 
+Here are the classes of the package :
+
+* *`FormApartmentGUI`* : This class enables to create a form in the application for creating/modifying an apartment.
+
+* *`ModifyApartmentGUI`* : This class initializes a GUI for modifying an apartment from an XML File.
+
+* *`CreateApartmentGUI`* : The class enables the user to enter information about an apartment and to record it in a XML File thanks to a GUI.
+
+* *`ProfileGUI`* : This class is the starting point for the application. Indeed, it implements the first screen of the application which is used to retrieve the profile of the user (Student, Couple or Family).
+
+.see Selection profile screen
+[%collapsible]
+====
+image::gui-select-profile.png?raw=true[Selection profile screen]
+====
+
+* *`ProfileQuestionsGUI`* : As its name suggests, this class is used to display questions on the screen that address a profile type selected in the `ProfileGUI` class. At the moment, it only display one question per profile, it might be interesting to add questions that are useful to refine user preferences. 
+
+.see Profile selection question
+[%collapsible]
+====
+image::gui-questions.png?raw=true[Profile selection question]
+====
+
+* *`AskOpinionForUtility`* : This class is used to retrieve the user's basic preferences. It displays a list of basic questions on the screen to allow the user to indicate these apartment preferences. Depending on the answers retrieved, the class is responsible for updating the values of the apartments. 
+
+.see AskOpinionForUtility questions
+[%collapsible]
+====
+image::gui-askopinionforutility.png?raw=true[AskOpinionForUtility questions]
+====
+
+* *`LayoutApartmentGUI`* : This class is responsible for sorting the list of apartments according to their value and it also display the sorted apartments list on the screen. It offers features that allow to have more details about the apartments.
+
+.see An example of filtered results display
+[%collapsible]
+====
+image::gui-layoutapartment.png?raw=true[An example of filtered results]
+====
+
 == iconDisplay
 
 This package contains a class getting the logo of the application. +
@@ -155,33 +198,31 @@ In fact, if we want to change well-known method (like a date comparator) to adap
 
 Class diagram : `valuefunction` package
 
-image::diagram-class-value-function.png?raw=true[Class Diagram : value function package]
+image::diagram-class-value-function.svg?raw=true[Class Diagram : value function package]
 ====
 
 This package is fairly central to which retrieves user preferences in order to offer him a list of apartments corresponding to his needs.
 
-This package includes thoughts about calculating the satisfaction of a property's criteria for a customer
+This package includes thoughts about calculating the satisfaction of a property's criteria for a customer.
 
 The valueFunction package gathers all the functions which attribute a value to each apartment according to some criteria. +
 The functions of this package are called by `AskOpinionForUtilities` class. Apartments are sorted by value to show the user the apartments which are the most likely to suit them.
 
 * *`PartialValueFunction<T>` interface*
 +
-This interface attributes a subjective value to a parameter. This is interface extends the class `Function<T, Double>` which transform the generic type in input to a double: see link:https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html[here]
+This interface attributes a subjective value to a parameter. This interface extends the class `Function<T, Double>` which transform the generic type in input to a double: see link:https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html[here]
 +
 This interface uses a `getSubjectiveValue(T objectiveData)` method and can throws an `IllegalArgumentException`. `objectiveData` is the parameter on which we want to get the subjective value between 0 and 1.
 
 * *`ApartmentValueFunction` class*
 +
-This class create an object `ApartmentValueFunction` from the different classes in the package. Every criterion, such as the number of bedrooms, the presence of a terrace or the TV, etc., is associated to a value and a weight. +
+This class create an `ApartmentValueFunction` object from the different classes in the package. Every criterion, such as the number of bedrooms, the presence of a terrace or the TV, etc., is associated to a value and a weight. +
 The default value for the criterion is 0 and its default weight is 0.1. At the end, the `ApartmentValueFunction` method returns the value of the apartment, that is the weighted sum of all criterion value divided by the sum of all weight. It’s a basic weighted average. 
 
 * *`LinearValueFunction` class & `ReversedLinearValueFunction` class* 
 +
 The tricky part is that you can’t ask the user to attribute a value between 0 and 1. +
-As we saw, `AskOpinionForUtilities` only ask the user how many bedrooms he desires or the surface he would like to have. The `LinearValueFunction` class transforms a number (for example 5 bedrooms) into a value between 0 and 1 using linear interpolation
-+
-`ReversedLinearValueFunction` is only used for the minimal number of nights. `LinearValueFunction` is for the floor area and the price per night. 
+As we saw, `AskOpinionForUtilities` only ask the user how many bedrooms he desires or the surface he would like to have. The `LinearValueFunction` class transforms a number (for example 5 bedrooms) into a value between 0 and 1 using linear interpolation. `ReversedLinearValueFunction` is used for pricePerNight and nbMinNight criterias. These are the criteria for which the less we have, the better it is. 
 
 * *`BooleanValueFunction` class*
 +
@@ -192,6 +233,10 @@ As we saw, `AskOpinionForUtilities` only ask the user how many bedrooms he desir
 This class will be used to compute the subjective value of the `distance` criteria. It implements the interface `PartialValueFunction<LatLng>` and takes a set of the tenant's interest places, an api key and a `PartialValueFunction<Double>`. The PVFDouble will be used to calculate the subjective value of a ride time. By default, the PVFDouble used is the `PieceWiseLinearValueFunction`.The subjective value of each interest location is PVFDouble(x) where x is the distance between the apartment and the interest place in seconds. Finally, the method `getSubjectiveValue` takes an apartment's localization in parameter and returns the subjective value of the distance criteria that is the sum of the subjective values of the interest places divided by the number of interest locations. Its shape is represented below.
 +
 image::graph-PWLVF-distance.png?raw=true[Graph-PWLVF-distance]
+
+.see detailed documentation on the `ApartmentValueFunction` class
+[%collapsible]
+====
 
 We could find a way to simplify the attribution of a value to an apartment because every time we use `AskOpinionForUtility`, the value of each apartment is once again calculated. +
 Maybe we could also lighten the `ApartmentValueFunction` which is very long and redundant. +
@@ -236,6 +281,8 @@ The higher the weight is, the more this criterion is important. It allows us to 
 By default, in `ApartmentValueFunction` constructors, all the weights are set to 0,1. A good idea can be to add in a Builder a section to set the weight according to the profile selected (we will detail this later).
 
 To compute the subjective value of an apartment, you then must multiply each attribute subjective value with its weight. Then you sum all the results obtained and divide the result by the sum of each attribute weight.
+[%collapsible]
+====
 
 === valuefunction.profile
 
@@ -376,7 +423,7 @@ A student would never need a fourth bedroom and will always chose the terrace ov
 
 image::gui-questions.png?raw=true[GUI - questions]
 
-Currently, only the first question is implemented (in `QuestionPriceArea`) +
+Currently, only this question is implemented (in `QuestionPriceArea`) +
 
 ==== valuefunction.profile.QuestionPriceArea
 
@@ -392,18 +439,29 @@ Depending on this boolean, we will adapt differently the range of weight contain
 
 * If the answer is `false`, that means that price is more important for the user than floor area. Here, the computation is the same that the precedent point except that we switch the price part and the floor area part. That gives the following computation. For the price, we adapt the lower bound of the range : lowerBoundOfPrice + middleOfRange * 0,2 and for the floor area we adapt the upper bound of the range: upperBoundOfFloorArea - middleOfRange * 0,1.
 
-== plot 
+== plot
 
-In the Java implementation, we created the `plot` package that contains the `SpiderPlot` class. It generates a SpiderPlot having in parameters two adresses and an AVF
+.see class diagram of the package plot
+[%collapsible]
+====
+image::diagram-class-package-plot.svg?raw=true[class diagram of the package plot]
+====
+
+In the Java implementation, we created the `plot` package that contains all the classes that use plots to compare apartments. This package is, for the moment, composed of two classes.
 
 * *`SpiderPlot` class*
-
 
 We decided to implement a SpiderPlot in order to compare two apartments based on the subjective values of their criterias. This way the Tenant will have a better summary of its choices. Below is an example of the result the Tenant will get by clicking on the SpiderPlot button.
 
 image::SpiderPlotImage.png?raw=true[Example of a spider plot]
 
 How to read the image above ? Overall, we can judge at first sight that the red apartment covers more criterias. In fact, it has a better score for Tele, floor area, Terrace, Terrace area, Wifi and bedrooms. On the other hand, the blue apartment is better in terms of Price, bathroom, sleeping, and distance. If the price is the most important criteria, the Tenant should choose the blue apartment, knowing that it lacks many other criterias. If the Tenant is looking for the best compromise, he should choose tbe red apartment for the reason described.
+
+*Note :* We didn't have the ability to merge all of the code we created for `SpiderPlot` class. In link:https://github.com/oliviercailloux-org/projet-apartments/blob/master/Doc/idea.adoc[idea.adoc] you will find all our information on the creation of this Spider Plot that we think will be a real plus for the application.
+
+* *`Histograms` class*
+
+Integrated to the `plot` package, this class allows the generation of histograms of data relating to apartments from a given criterion.
 
 [%hardbreaks]
 link:#toc[⬆ back to top]
