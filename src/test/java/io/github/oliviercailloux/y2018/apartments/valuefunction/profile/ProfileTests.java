@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.google.common.collect.Range;
 import io.github.oliviercailloux.y2018.apartments.valuefunction.Criterion;
-import io.github.oliviercailloux.y2018.apartments.valuefunction.LinearAVF;
+import io.github.oliviercailloux.y2018.apartments.valuefunction.ApartementVF;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -17,8 +17,8 @@ public class ProfileTests {
   @BeforeEach
   void initEach() {
     Profile.Builder profileBuilder = new Profile.Builder();
-    LinearAVF.Builder blavf =
-        new LinearAVF.Builder().setTeleValueFunction(true).setTerraceValueFunction(true)
+    ApartementVF.Builder blavf =
+        new ApartementVF.Builder().setTeleValueFunction(true).setTerraceValueFunction(true)
             .setWifiValueFunction(true).setFloorAreaTerraceValueFunction(10d, 20d)
             .setFloorAreaValueFunction(50d, 100d).setNbBathroomsValueFunction(2, 4)
             .setNbBedroomsValueFunction(2, 4).setNbSleepingValueFunction(2, 4)
@@ -26,7 +26,7 @@ public class ProfileTests {
     for (Criterion c : Criterion.values()) {
       blavf.setWeight(c, 2d);
     }
-    LinearAVF lavf = blavf.build();
+    ApartementVF lavf = blavf.build();
 
     for (Criterion c : Criterion.values()) {
       profileBuilder.setWeightRange(c, Range.closed(0d, 10d));

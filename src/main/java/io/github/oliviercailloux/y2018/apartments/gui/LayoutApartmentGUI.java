@@ -2,7 +2,7 @@ package io.github.oliviercailloux.y2018.apartments.gui;
 
 import io.github.oliviercailloux.y2018.apartments.apartment.Apartment;
 import io.github.oliviercailloux.y2018.apartments.apartment.json.JsonConvert;
-import io.github.oliviercailloux.y2018.apartments.valuefunction.LinearAVF;
+import io.github.oliviercailloux.y2018.apartments.valuefunction.ApartementVF;
 import java.util.ArrayList;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -19,7 +19,7 @@ public class LayoutApartmentGUI {
   private static final Logger LOGGER = LoggerFactory.getLogger(LayoutApartmentGUI.class);
 
   java.util.List<Apartment> listApp;
-  LinearAVF linearAVF;
+  ApartementVF linearAVF;
 
   Display display = new Display();
   Shell shell = new Shell(display);
@@ -27,7 +27,7 @@ public class LayoutApartmentGUI {
   /** add objects of apartments in a listShell */
   final List listShell = new List(shell, SWT.BORDER | SWT.MULTI | SWT.V_SCROLL);
 
-  public LayoutApartmentGUI(LinearAVF newLinearAVF) {
+  public LayoutApartmentGUI(ApartementVF newLinearAVF) {
     this.linearAVF = newLinearAVF;
     this.listApp = getListSorted(linearAVF);
   }
@@ -37,7 +37,7 @@ public class LayoutApartmentGUI {
    *
    * @param lavf LinearAVF to use to sort apartments
    */
-  public static void process(LinearAVF lavf) {
+  public static void process(ApartementVF lavf) {
     LayoutApartmentGUI gui = new LayoutApartmentGUI(lavf);
     gui.displayAppart();
   }
@@ -48,7 +48,7 @@ public class LayoutApartmentGUI {
    *
    * @param linearAVF a way to rate the apartments
    */
-  private static java.util.List<Apartment> getListSorted(LinearAVF linearAVF) {
+  private static java.util.List<Apartment> getListSorted(ApartementVF linearAVF) {
     java.util.List<Apartment> listApartment = JsonConvert.getDefaultApartments();
     java.util.List<Apartment> appart = new ArrayList<>();
 

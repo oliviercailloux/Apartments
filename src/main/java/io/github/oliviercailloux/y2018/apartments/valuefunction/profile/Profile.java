@@ -8,7 +8,7 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Range;
 import io.github.oliviercailloux.y2018.apartments.valuefunction.Criterion;
-import io.github.oliviercailloux.y2018.apartments.valuefunction.LinearAVF;
+import io.github.oliviercailloux.y2018.apartments.valuefunction.ApartementVF;
 import java.util.Arrays;
 import java.util.EnumMap;
 import org.slf4j.Logger;
@@ -17,7 +17,7 @@ import org.slf4j.LoggerFactory;
 public class Profile {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(Profile.class);
-  private LinearAVF linearAvf;
+  private ApartementVF linearAvf;
   private QuestionPriceArea questionPriceArea;
 
   /**
@@ -27,8 +27,8 @@ public class Profile {
   private EnumMap<Criterion, Range<Double>> rangesMap;
 
   private Profile() {
-    LinearAVF.Builder blavf =
-        new LinearAVF.Builder().setTeleValueFunction(true).setTerraceValueFunction(true)
+    ApartementVF.Builder blavf =
+        new ApartementVF.Builder().setTeleValueFunction(true).setTerraceValueFunction(true)
             .setWifiValueFunction(true).setFloorAreaTerraceValueFunction(1d, 50d)
             .setFloorAreaValueFunction(9d, 200d).setNbBathroomsValueFunction(1, 10)
             .setNbBedroomsValueFunction(0, 30).setNbSleepingValueFunction(1, 30)
@@ -44,7 +44,7 @@ public class Profile {
     }
   }
 
-  private Profile(EnumMap<Criterion, Range<Double>> rangesMap, LinearAVF linearAvf) {
+  private Profile(EnumMap<Criterion, Range<Double>> rangesMap, ApartementVF linearAvf) {
     this.linearAvf = checkNotNull(linearAvf);
     checkNotNull(rangesMap);
     checkArgument(rangesMap.keySet().containsAll(Arrays.asList(Criterion.values())),
@@ -61,7 +61,7 @@ public class Profile {
     return questionPriceArea;
   }
 
-  public static Profile create(EnumMap<Criterion, Range<Double>> rangesMap, LinearAVF linearAvf) {
+  public static Profile create(EnumMap<Criterion, Range<Double>> rangesMap, ApartementVF linearAvf) {
     return new Profile(rangesMap, linearAvf);
   }
 
@@ -70,7 +70,7 @@ public class Profile {
    *
    * @return the LinearAVF of the Profile
    */
-  public LinearAVF getLinearAVF() {
+  public ApartementVF getLinearAVF() {
     return this.linearAvf;
   }
 
@@ -114,7 +114,7 @@ public class Profile {
    * @param newLinearAvf recreate a Profile based on <code>newLinearAvf</code>.
    * @return Profile with its LinearAVF set
    */
-  public Profile withLinearAVF(LinearAVF newLinearAvf) {
+  public Profile withLinearAVF(ApartementVF newLinearAvf) {
     Arrays.stream(Criterion.values()).forEach(c -> this.checkWeightInRange(c, newLinearAvf));
     return Profile.create(this.rangesMap, newLinearAvf);
   }
@@ -127,7 +127,7 @@ public class Profile {
    * @param linearAVF the LinearAVF of check if its weight is in the range
    * @throws IllegalArgumentException when the weight of the LinearAVF is not in the range
    */
-  public void checkWeightInRange(Criterion crit, LinearAVF linearAVF) {
+  public void checkWeightInRange(Criterion crit, ApartementVF linearAVF) {
     Range<Double> range = this.getWeightRange(crit);
     Double weight = linearAVF.getWeight(crit);
     checkNotNull(range);
@@ -186,7 +186,7 @@ public class Profile {
       return toBuild;
     }
 
-    public Builder setLinearAVF(LinearAVF newLinearAvf) {
+    public Builder setLinearAVF(ApartementVF newLinearAvf) {
       this.toBuild.linearAvf = newLinearAvf;
       return this;
     }

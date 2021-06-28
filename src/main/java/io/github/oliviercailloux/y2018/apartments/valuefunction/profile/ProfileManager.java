@@ -3,7 +3,7 @@ package io.github.oliviercailloux.y2018.apartments.valuefunction.profile;
 import static com.google.common.base.Preconditions.checkArgument;
 
 import io.github.oliviercailloux.y2018.apartments.valuefunction.Criterion;
-import io.github.oliviercailloux.y2018.apartments.valuefunction.LinearAVF;
+import io.github.oliviercailloux.y2018.apartments.valuefunction.ApartementVF;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -15,7 +15,7 @@ public class ProfileManager {
 
   private ProfileManager() {
     this.mapProfile = new HashMap<>();
-    LinearAVF studentLavf = new LinearAVF.Builder().setTeleValueFunction(true)
+    ApartementVF studentLavf = new ApartementVF.Builder().setTeleValueFunction(true)
         .setTerraceValueFunction(false).setWifiValueFunction(false)
         .setFloorAreaTerraceValueFunction(0d, 10d).setFloorAreaValueFunction(16d, 70d)
         .setNbBathroomsValueFunction(1, 2).setNbBedroomsValueFunction(1, 2)
@@ -36,7 +36,7 @@ public class ProfileManager {
         .setWeightRange(Criterion.FLOOR_AREA_TERRACE, 0d, 10d)
         .setQuestionPriceArea(QuestionPriceArea.create(15, 5)).setLinearAVF(studentLavf).build();
 
-    LinearAVF familyLavf = new LinearAVF.Builder().setTeleValueFunction(true)
+    ApartementVF familyLavf = new ApartementVF.Builder().setTeleValueFunction(true)
         .setTerraceValueFunction(true).setWifiValueFunction(true)
         .setFloorAreaTerraceValueFunction(10d, 50d).setFloorAreaValueFunction(60d, 200d)
         .setNbBathroomsValueFunction(2, 3).setNbBedroomsValueFunction(2, 6)
@@ -57,7 +57,7 @@ public class ProfileManager {
         .setWeightRange(Criterion.FLOOR_AREA_TERRACE, 0d, 10d)
         .setQuestionPriceArea(QuestionPriceArea.create(100, 10)).setLinearAVF(familyLavf).build();
 
-    LinearAVF coupleLavf = new LinearAVF.Builder().setTeleValueFunction(true)
+    ApartementVF coupleLavf = new ApartementVF.Builder().setTeleValueFunction(true)
         .setTerraceValueFunction(false).setWifiValueFunction(true)
         .setFloorAreaTerraceValueFunction(0d, 10d).setFloorAreaValueFunction(30d, 100d)
         .setNbBathroomsValueFunction(1, 2).setNbBedroomsValueFunction(1, 3)

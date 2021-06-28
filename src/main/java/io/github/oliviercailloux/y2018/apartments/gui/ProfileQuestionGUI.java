@@ -1,6 +1,6 @@
 package io.github.oliviercailloux.y2018.apartments.gui;
 
-import io.github.oliviercailloux.y2018.apartments.valuefunction.LinearAVF;
+import io.github.oliviercailloux.y2018.apartments.valuefunction.ApartementVF;
 import io.github.oliviercailloux.y2018.apartments.valuefunction.profile.Profile;
 import io.github.oliviercailloux.y2018.apartments.valuefunction.profile.ProfileManager;
 import io.github.oliviercailloux.y2018.apartments.valuefunction.profile.ProfileType;
@@ -52,7 +52,7 @@ public class ProfileQuestionGUI {
    */
   public static void process(ProfileType selected) {
     ProfileQuestionGUI prof = new ProfileQuestionGUI();
-    LinearAVF newLinearAVF = prof.askQuestions(selected);
+    ApartementVF newLinearAVF = prof.askQuestions(selected);
     LayoutApartmentGUI.process(newLinearAVF);
   }
 
@@ -62,7 +62,7 @@ public class ProfileQuestionGUI {
    *
    * @return
    */
-  public LinearAVF askQuestions(ProfileType profileTypeSelected) {
+  public ApartementVF askQuestions(ProfileType profileTypeSelected) {
     Profile profileSelected = ProfileManager.getInstance().getProfile(profileTypeSelected);
     String profileName = profileTypeSelected.name().substring(0, 1)
         + profileTypeSelected.name().toLowerCase().substring(1);

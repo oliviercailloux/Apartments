@@ -8,15 +8,15 @@ import io.github.oliviercailloux.y2018.apartments.apartment.Apartment.Builder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class LinearAVFTests {
+class ApartementVFTests {
 
-  LinearAVF linearAVF;
+  ApartementVF linearAVF;
   Apartment a;
 
   /** Inits the apartmentValueFunction object and the apartment before each tests */
   @BeforeEach
   void initEach() {
-    LinearAVF.Builder builderLinearAVF = new LinearAVF.Builder();
+    ApartementVF.Builder builderLinearAVF = new ApartementVF.Builder();
     a = new Builder().setFloorArea(250).setAddress("108 rue de chat-ville Ville-d'Avray 92410")
         .setNbBedrooms(1).setNbSleeping(4).setNbBathrooms(1).setTerrace(true)
         .setFloorAreaTerrace(40)

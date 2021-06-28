@@ -2,7 +2,7 @@ package io.github.oliviercailloux.y2018.apartments.gui;
 
 import com.google.common.base.Preconditions;
 import io.github.oliviercailloux.y2018.apartments.valuefunction.Criterion;
-import io.github.oliviercailloux.y2018.apartments.valuefunction.LinearAVF;
+import io.github.oliviercailloux.y2018.apartments.valuefunction.ApartementVF;
 import io.github.oliviercailloux.y2018.apartments.valuefunction.LinearValueFunction;
 import io.github.oliviercailloux.y2018.apartments.valuefunction.ReversedLinearValueFunction;
 import java.io.IOException;
@@ -74,8 +74,8 @@ public class AskOpinionForUtility {
   public static void main(String[] args) {
 
     AskOpinionForUtility asker = new AskOpinionForUtility();
-    LinearAVF avf =
-        new LinearAVF.Builder().setFloorAreaValueFunction(new LinearValueFunction(0d, 300d))
+    ApartementVF avf =
+        new ApartementVF.Builder().setFloorAreaValueFunction(new LinearValueFunction(0d, 300d))
             .setNbBedroomsValueFunction(new LinearValueFunction(0d, 6d))
             .setNbSleepingValueFunction(new LinearValueFunction(0d, 6d))
             .setNbBathroomsValueFunction(new LinearValueFunction(0d, 6d))
@@ -249,7 +249,7 @@ public class AskOpinionForUtility {
   }
 
   /** This function will adapt the utility of the user using ApartmentValueFunction */
-  public LinearAVF adaptAnswers(LinearAVF avf) {
+  public ApartementVF adaptAnswers(ApartementVF avf) {
 
     // we collect the answers on the minimums and we adapt the utility of the user
     avf.adaptBounds(Criterion.NB_BEDROOMS, nbBedMin, true);
