@@ -10,36 +10,72 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import io.github.oliviercailloux.y2018.apartments.apartment.ApartmentStatistics;
+import io.github.oliviercailloux.y2018.apartments.apartment.Apartment.Builder;
 import io.github.oliviercailloux.y2018.apartments.apartment.json.JsonConvert;
 import io.github.oliviercailloux.y2018.apartments.valuefunction.Criterion;
 
 
  class ApartmentStatisticsTests {
  
- List<Apartment> listOfApartments = JsonConvert.getDefaultApartments();
- 
+	 private double floorArea = 456.56;
+	 private String address = "A Random Address";
+	 private int nbBedrooms = 5;
+	 private int nbSleeping = 9;
+	 private int nbBathrooms = 3;
+	 private boolean hasTerrace = true;
+	 private double floorAreaTerrace = 25.32;
+	 private String description = "A Random Description for A Random House in A Random Address";
+	 private String title = "A Random House";
+	 private boolean wifi = true;
+	 private double pricePerNight = 45.95;
+	 private int nbMinNight = 60;
+	 private boolean tele = false;
+	 
    void getApartmentsSample() {
-     ArrayList<Apartment> sampleApartments = new ArrayList<>(Arrays.asList(listOfApartments.get(0),listOfApartments.get(1),listOfApartments.get(2)));
-     ApartmentStatistics listOfAparts = ApartmentStatistics.given(listOfApartments, 3);
-     assertEquals(listOfAparts.myApartments,sampleApartments);
+	   Builder apartBuilder = new Builder();
+	   Apartment apart1 = apartBuilder.setFloorArea(floorArea).setAddress(address)
+	        .setNbBedrooms(nbBedrooms).setNbSleeping(nbSleeping).setNbBathrooms(nbBathrooms)
+	        .setTerrace(hasTerrace).setFloorAreaTerrace(floorAreaTerrace).setDescription(description)
+	        .setTitle(title).setWifi(wifi).setPricePerNight(pricePerNight).setNbMinNight(nbMinNight)
+	        .setTele(tele).build();
+	   apartBuilder = new Builder();
+	   Apartment apart2 = apartBuilder.setFloorArea(floorArea).setAddress(address)
+	        .setNbBedrooms(nbBedrooms).setNbSleeping(nbSleeping).setNbBathrooms(nbBathrooms)
+	        .setTerrace(hasTerrace).setFloorAreaTerrace(floorAreaTerrace).setDescription(description)
+	        .setTitle(title).setWifi(wifi).setPricePerNight(pricePerNight).setNbMinNight(nbMinNight)
+	        .setTele(tele).build();
+	   
+	   List<Apartment> aparts = new ArrayList<>(Arrays.asList(apart1,apart2));
+	   ApartmentStatistics apartsBis = ApartmentStatistics.given(aparts, 2);
+	   assertEquals(apartsBis.getMyApartments(),aparts);
      
    }
  @Test
    void testGetNumericStatistics() {
-     double pricePerNight = (listOfApartments.get(0).getPricePerNight()+listOfApartments.get(1).getPricePerNight() )/2;
-     double nbMinNight = listOfApartments.get(0).getNbMinNight();
-     ApartmentStatistics listOfAparts = ApartmentStatistics.given(listOfApartments, 2);
-     assertEquals(listOfAparts.getNumericStatistics(Criterion.NB_MIN_NIGHT).max(), Math.round(nbMinNight * 100.0) / 100.0);
-     assertEquals(listOfAparts.getNumericStatistics(Criterion.PRICE_PER_NIGHT).mean(), Math.round(pricePerNight * 100.0) / 100.0);
+	 Builder apartBuilder = new Builder();
+	 Apartment apart1 = apartBuilder.setFloorArea(floorArea).setAddress(address)
+	        .setNbBedrooms(nbBedrooms).setNbSleeping(nbSleeping).setNbBathrooms(nbBathrooms)
+	        .setTerrace(hasTerrace).setFloorAreaTerrace(floorAreaTerrace).setDescription(description)
+	        .setTitle(title).setWifi(wifi).setPricePerNight(pricePerNight).setNbMinNight(nbMinNight)
+	        .setTele(tele).build();
+	   
+	 List<Apartment> aparts = new ArrayList<>(Arrays.asList(apart1));
+	 ApartmentStatistics listAparts = ApartmentStatistics.given(aparts, 1);
+	 assertTrue(listAparts.getNumericStatistics(Criterion.NB_MIN_NIGHT).max() == (double)nbMinNight);
    
    }
  
    void testGetBooleanStatistics() {
-     int tele = 3;
-     int terrace = 2;
-     ApartmentStatistics listOfAparts = ApartmentStatistics.given(listOfApartments, 2);
-     assertEquals(listOfAparts.getBooleanStatistics(Criterion.TELE).get(true),tele);
-     assertEquals(listOfAparts.getBooleanStatistics(Criterion.TERRACE).get(true),terrace);
+	   Builder apartBuilder = new Builder();
+	   Apartment apart1 = apartBuilder.setFloorArea(floorArea).setAddress(address)
+		        .setNbBedrooms(nbBedrooms).setNbSleeping(nbSleeping).setNbBathrooms(nbBathrooms)
+		        .setTerrace(hasTerrace).setFloorAreaTerrace(floorAreaTerrace).setDescription(description)
+		        .setTitle(title).setWifi(wifi).setPricePerNight(pricePerNight).setNbMinNight(nbMinNight)
+		        .setTele(tele).build();
+	   
+	   List<Apartment> aparts = new ArrayList<>(Arrays.asList(apart1));
+	   ApartmentStatistics listAparts = ApartmentStatistics.given(aparts, 1);
+	   assertEquals(listAparts.getBooleanStatistics(Criterion.TELE).get(true),tele);
 
    }
  
