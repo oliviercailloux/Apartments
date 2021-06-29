@@ -5419,6 +5419,65 @@ The CategoryDataset is required to be able to create a Spider Plot in the create
         <packagedElement xmi:type="uml:Dependency" xmi:id="__03_ILy7Eeuvu5ayhp9Lzg" client="_3ns3QLyYEeuvu5ayhp9Lzg" supplier="_klApcLyYEeuvu5ayhp9Lzg"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_HX7DML8UEeuIw8dENjJnGg" client="_1HbS4LyYEeuvu5ayhp9Lzg" supplier="_d2M6YF_BEeqAAb4u4HLI7w"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_Nqz9kL8UEeuIw8dENjJnGg" client="_1HbS4LyYEeuvu5ayhp9Lzg" supplier="_1QqroF-_EeqAAb4u4HLI7w"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_aE6GgNgdEeuO6ZprPJzzxA" name="Histograms" visibility="public">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_j7Ao8NgdEeuO6ZprPJzzxA" name="LOGGER" visibility="private" type="_ZCxH8F--EeqAAb4u4HLI7w"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_2ThRUNgdEeuO6ZprPJzzxA" name="myHistogram" visibility="private" type="_klApcLyYEeuvu5ayhp9Lzg"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_54soQNgdEeuO6ZprPJzzxA" name="crit" visibility="private" type="__lgUEGVHEeq0U8CyxWHVBA"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_LCpWUNgfEeuO6ZprPJzzxA" name="myApartments" visibility="private" type="_rBU6AJ2dEeq5UMfZ1C8e7g">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LrHPENggEeuO6ZprPJzzxA"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LrRAENggEeuO6ZprPJzzxA" value="*"/>
+          </ownedAttribute>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_af55ENggEeuO6ZprPJzzxA" name="given" specification="_QMXzwNggEeuO6ZprPJzzxA"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_cY7QMNggEeuO6ZprPJzzxA" name="Histograms" specification="_RxbtENggEeuO6ZprPJzzxA"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_dtlWANggEeuO6ZprPJzzxA" name="getDataAsList" specification="_S6N6ENggEeuO6ZprPJzzxA"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_e7ZM8NggEeuO6ZprPJzzxA" name="createHistogram" specification="_VEgnYNggEeuO6ZprPJzzxA"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_gW7W0NggEeuO6ZprPJzzxA" name="saveImage" specification="_WA6lQNggEeuO6ZprPJzzxA"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_hoqrgNggEeuO6ZprPJzzxA" name="modifyCriterion" specification="_XKjt4NggEeuO6ZprPJzzxA"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_vaL6oNggEeuO6ZprPJzzxA" name="getMyHistogram" specification="_Y_kuwNggEeuO6ZprPJzzxA"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_QMXzwNggEeuO6ZprPJzzxA" name="given" visibility="public" method="_af55ENggEeuO6ZprPJzzxA">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_ATxt8NghEeuO6ZprPJzzxA" name="featureName" type="__lgUEGVHEeq0U8CyxWHVBA"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_Gy5tgNghEeuO6ZprPJzzxA" name="apartments" type="_rBU6AJ2dEeq5UMfZ1C8e7g">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IJDoINghEeuO6ZprPJzzxA"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IJXKINghEeuO6ZprPJzzxA" value="*"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_qcpNINghEeuO6ZprPJzzxA" type="_aE6GgNgdEeuO6ZprPJzzxA" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_RxbtENggEeuO6ZprPJzzxA" name="«create» Histograms" visibility="private" method="_cY7QMNggEeuO6ZprPJzzxA">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_ZGh14NghEeuO6ZprPJzzxA" name="featureName" type="__lgUEGVHEeq0U8CyxWHVBA"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_ePxnoNghEeuO6ZprPJzzxA" name="apartments" type="_rBU6AJ2dEeq5UMfZ1C8e7g">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_f4DNANghEeuO6ZprPJzzxA"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_f4OzMNghEeuO6ZprPJzzxA" value="*"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_S6N6ENggEeuO6ZprPJzzxA" name="getDataAsList" visibility="private" method="_dtlWANggEeuO6ZprPJzzxA">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_dzZYMNgiEeuO6ZprPJzzxA" name="featureName" type="__lgUEGVHEeq0U8CyxWHVBA"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_hthEYNgiEeuO6ZprPJzzxA" name="apartments" type="_rBU6AJ2dEeq5UMfZ1C8e7g">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jDv3gNgiEeuO6ZprPJzzxA"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jD7dsNgiEeuO6ZprPJzzxA" value="*"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_dmz4QNgjEeuO6ZprPJzzxA" type="_VWFYMNgjEeuO6ZprPJzzxA" direction="return">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_e_jM0NgjEeuO6ZprPJzzxA"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_e_xPQNgjEeuO6ZprPJzzxA" value="*"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_VEgnYNggEeuO6ZprPJzzxA" name="createHistogram" visibility="private" method="_e7ZM8NggEeuO6ZprPJzzxA">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_25IRENgjEeuO6ZprPJzzxA" name="datalist" type="_VWFYMNgjEeuO6ZprPJzzxA">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4i32ENgjEeuO6ZprPJzzxA"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4jBnENgjEeuO6ZprPJzzxA" value="*"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_Coy9MNgkEeuO6ZprPJzzxA" type="_klApcLyYEeuvu5ayhp9Lzg" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_WA6lQNggEeuO6ZprPJzzxA" name="saveImage" visibility="public" method="_gW7W0NggEeuO6ZprPJzzxA"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_XKjt4NggEeuO6ZprPJzzxA" name="modifyCriterion" visibility="public" method="_hoqrgNggEeuO6ZprPJzzxA">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_yFjX4NgkEeuO6ZprPJzzxA" name="newCrit" type="__lgUEGVHEeq0U8CyxWHVBA"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_-KzScNgkEeuO6ZprPJzzxA" type="_aE6GgNgdEeuO6ZprPJzzxA" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_Y_kuwNggEeuO6ZprPJzzxA" name="getMyHistogram" visibility="public" method="_vaL6oNggEeuO6ZprPJzzxA">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_cRQIoNglEeuO6ZprPJzzxA" type="_klApcLyYEeuvu5ayhp9Lzg" direction="return"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_dpNvMNgnEeuO6ZprPJzzxA" client="_aE6GgNgdEeuO6ZprPJzzxA" supplier="_1N7WIF--EeqAAb4u4HLI7w"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_hd86MNgpEeuO6ZprPJzzxA" client="_aE6GgNgdEeuO6ZprPJzzxA" supplier="_klApcLyYEeuvu5ayhp9Lzg"/>
       </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="__C89EHEuEeq9ooUMj2JdaQ" name="other packages">
@@ -5429,6 +5488,7 @@ The CategoryDataset is required to be able to create a Spider Plot in the create
           <packagedElement xmi:type="uml:Class" xmi:id="_t0QygJj5EeqYP-aD6j0wRg" name="Exception"/>
           <packagedElement xmi:type="uml:Class" xmi:id="_t0_yUJj5EeqYP-aD6j0wRg" name="Throwable"/>
           <packagedElement xmi:type="uml:Class" xmi:id="_WsgQcLy3Eeuvu5ayhp9Lzg" name="Comparable"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_VWFYMNgjEeuO6ZprPJzzxA" name="Double"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Package" xmi:id="_i_F0QXEvEeq9ooUMj2JdaQ" name="util">
           <packagedElement xmi:type="uml:Class" xmi:id="_i_F0QnEvEeq9ooUMj2JdaQ" name="Random"/>
