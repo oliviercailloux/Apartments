@@ -7,6 +7,23 @@
 
 toc::[]
 
+See: https://github.com/oliviercailloux/Apartments/blob/master/Doc/TODO.adoc[TODO’s].
+
+== Original description (to be translated and integrated)
+Les sites de location (type https://www.pap.fr) proposent généralement des moyens rudimentaires de recherche parmi les annonces existantes. Ce projet vise à doter l’utilisateur de moyens d’indiquer ses préférences d’une manière riche, afin de lui montrer les annonces qui lui conviennent le mieux d’abord. En particulier, au lieu de filtrer de façon binaire (ex. : inclure un appartement seulement s’il fait au moins x m²), le système permettra la compensation (ex. : inclure une annonce pour un appartement très petit s’il est très bon sur les autres critères) ; et le système permettra d’inclure comme critère la distance (en transport public) à des lieux d’intérêts pour l’utilisateur tels que son lieu de travail.
+
+Le projet existant permet de manipuler des annonces d’appartements (programmatiquement et avec des interfaces graphiques) ; d’en générer aléatoirement ; de calculer la distance d’un appartement à un lieu en métro ; de calculer la valeur subjective d’un appartement aux yeux de l’utilisateur via sa fonction de valeur…
+
+Une fonction de valeur est une somme de fonctions de valeur partielles. Une fonction de valeur partielle indique, sur un critère (superficie, nombre de chambres…), la valeur que l’utilisateur accorde à l’appartement sur cet aspect. La valeur d’un appartement est la somme des valeurs partielles sur chaque aspect.
+
+L’interface Java `PartialValueFunction`, paramétée par le type de donnée objective, représente l’association entre des données objectives et des utilités : on lui fournit une donnée objective (par exemple une couleur) et elle retourne la valeur subjective associée, entre 0 et 1. Elle étend `Function<T, Double>`, où `T` est le type de donnée objective.
+
+La classe `LinearValueFunction` implémente `PartialValueFunction<Double>`. On lui fournit un intervalle (par exemple [10, 50]) qui définit les points renvoyant zéro et un. Si on communique un autre nombre à la fonction entre 10 et 50, elle interpole linéairement (par exemple 20 renverrait (20−10)/(50−10)=0.25).
+
+La classe `PiecewiseLinearValueFunction` permet de stocker un ensemble de paires (valeur réelle, valeur réelle entre 0 et 1 compris). Une instance de cette classe permet de mesurer l’attrait pour l’utilisateur d’un aspect donné d’un appartement. La première valeur représente une description objective de la qualité d’un appartement sur un aspect donné (par exemple la taille de l’appartement), et la deuxième, entre 0 et 1, mesure l’attrait associée à cette qualité. Cette mesure est nommée la valeur subjective, ou utilité, correspondant à la valeur objective fournie. La classe permet donc d’associer à différentes valeurs objectives leur utilité. Par exemple, on pourra associer la valeur 30 (mètre carrés) à l’utilité 0.5 et la valeur 45 (mètres carrés) à l’utilité 0.7.
+
+Un appartement a une localisation précise (stockée dans un `LatLng`, permettant de représenter un endroit précis sur le globe). `ValueDistFunction`, une implémentation de `PartialValueFunction<LatLng>`, calcule la valeur partielle de la localisation : l’instance reçoit des lieux d’intérêts de l’utilisateur (par défaut, le centre de Paris), calcule le max des distances entre l’appartement et tous les lieux d’intérêts, et renvoie une interpolation linéaire avec 1 pour une distance de 0, et 0 pour une distance de 10h. (Non complètement implémenté.)
+
 == What's inside project apartments ?
 
 Inside the project, you have three main topics. Under the folder link:[Doc], you will find everything you need for your UML iterations.
