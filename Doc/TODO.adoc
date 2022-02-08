@@ -1,0 +1,71 @@
+= TODO
+
+We will start by simplfying the design a bit by removing old stuff; fix some bugs and improve the design for better extensibility; make some important concepts more central…
+This will then permit some more important improvements.
+We will introduce the parameters of a user’s value function in a json file. A method will permit to find the apartment that has the best value for that user.
+On the longer term, we also want to permit encoding values with more subtle functions (such as exponentially slowing value functions, of the type _v(x) = 2 − e^(1 / (x + 1))_).
+
+* In the interest of simplification, consider deleting the `apartment.xml` package, or propose a plan to replace its functionalities, if it is still useful
+* Move diagrams into the `Doc/Papyrus/Diagrams` folder, transform them all to `SVG`, remove those that are not used, check that they are up-to-date
+* The current class `Apartment` seems immutable, but is not. Produce a JUnit test that fails and that shows that it is in fact mutable. The test must build an apartment _x_, print its floor area (for example) with `x.getFloorArea()`, then mutate _x_ somehow (hint: proceed indirectly), then print its floor area again with `x.getFloorArea()`.
+* Design new `Apartment` and `Builder` classes, situated temporarily in a package named `newapartment`. Design a supplementary class `Apartment.ApartmentRecord` (either a java “record”, if you know what this is, or a simple class with getters and setters), that contains all the fields required to model an apartment. That class is `private`. The Builder contains such an `ApartmentRecord`. It has all the setters for these fields (as currently). The Apartment contains only an `ApartmentRecord` final field. Its constructor receives such a record, and _copies_ its content into its own record. The `Apartment` class has the same methods as currently (so that types can be substituted).
+* Provide a default for the title and most (all?) other fields in the builder.
+* Permit to initialize the builder with an apartment (with a new constructor).
+* Remove the old `Apartment` class (and its internal `Builder`) and move your new `Apartment` class to the `apartment` package to replace the old one.
+* Change the `Apartment.toString()` method to adopt this course’s best practices, and remove the `toFullString` method. (Better export it to JSON to have a full description of it!)
+* Move the `Apartment.equals()` implementation to the internal record, and replace `Apartment.equals()` so that it simply delegates to the record.
+* Introduce a public static factory method `Apartment.builder()`; make the `Builder` constructor private.
+* Move `Criterion` to the package `apartment` (we’ll make this concept more central).
+* Add methods `isIncreasing()` and `isDecreasing()` (and rename “crescent” to “increasing”)
+* Remove methods `isDoubleCrescent()` and the three similar ones, or propose a plan to get rid of them if it seems difficult.
+* Same with method `hasValueFunctionType…`
+* Rename `hasDoubleDomain()` (and similar) to `isDouble()` (and correspondingly)
+* Introduce a method `isInteger()` in supplement to `isDouble()`. Specify in the Javadoc of the latter that we currently treat integer criteria as being _also_ double (do those should return `true` to both methods) as a simplification (so that the current code keeps working).
+* Replace double typed fields in (the record within) `Apartment` with a map of corresponding criteria, to reduce redundancy. Introduce a public method in `Apartment` to obtain double values using criteria. Investigate the possibility of using those methods instead of the individual ones in as many places as possible in the code.
+* Generalize this approach, if suitable, to integer and boolean values.
+* Build a class that extracts an entry from PAP (in text form or other suitable format).
+* Build a class that takes such an entry and returns an Apartment, searching for keywords.
+
+== Older list (to be verified and translated)
+* Génération en ligne de commande d’un fichier `Apartments.json` dans le répertoire courant, contenant des annonces réalistes
+* Inclure dans les ressources du programme un fichier `Default apartments.json`
+* Rendre `Apartment` immuable
+* L’interface `PartialValueFunction` ne devrait pas étendre `Function`.
+* Rendre `ApartmentValueFunction` immuable
+* Réduire la redondance dans `ApartmentValueFunction`, simplifier de manière à pouvoir modifier les critères facilement
+* Modifier ou détailler les critères en vue d’une location de courte durée type Airbnb. Utiliser la surface du salon, etc.
+* Inclure une liste de critères pour les surfaces des chambres (chambre 1, chambre 2, …).
+* Inclure un critère de distance au centre ville (ou aux endroits préférés)
+* Génération en ligne de commande / en GUI d’un fichier `Value function.json` dans le répertoire courant, selon un prototype choisi parmi trois possibles (student, parent, …)
+* Programme pour trier les annonces en fonction de leur valeur subjective, générant un HTML dans le répertoire courant / GUI affichant la table.
+* Visualiser la fonction de valeur de l’utilisateur : sur un critère, graphique de la fonction de valeur partielle sur ce critère
+* Programme pour évaluer : étant donné un appartement, montrer les fonctions de valeurs partielles et la valeur totale résultante (génération d’un graphique `.png` ou autre)
+* Programme pour comparer : étant donné deux appartements, montrer les deux sur le même graphique similaire à celui de la fonctionnalité d’évaluation.
+* GUI pour trier, évaluer, comparer
+* GUI pour modifier sa fonction de valeur personnelle.
+* Permettre d’encoder des fonctions de valeurs exponentielles
+* Ajuster la fonction de valeur de l’utilisateur étant donné une information de préférence entre deux appartements (éventuellement proposer plusieurs options)
+* Générer des graphiques et données de statistiques des appartements disponibles (surface moyenne, médiane, nombre d’appartements par surface, …)
+* Réfléchir au traitement de la valeur « distance par rapport aux lieux appréciés » : l’utilisateur doit pouvoir spécifier ces lieux ; le calcul doit être précisé… (Envisager un `TimedApartment` qui contient également une valeur « temps », dépendant des lieux de l’utilisateur.) Réusiner éventuellement `DistanceSubway`, qui mélange deux fonctionnalités (requête adresse et coordonnées) et qui duplique la création de l’objet de requête. Intégrer Localizer à cette réflexion. Par exemple, il faudrait une méthode `localize(String): LatLng` au lieu de `getGeometryLocation`.
+* Permettre à l’utilisateur de modifier sa fonction de valeur et voir le résultat en même temps sur la valeur relative de deux appartements
+* Passer au pom parent oliviercailloux
+* Enlever titre de Apartment
+* Enlever lecture et écriture de XML
+* Remplacer `KeyManager` en utilisant plutôt https://github.com/oliviercailloux/JARiS[JARiS]
+* Le projet devrait pouvoir s’appliquer à d’autres problèmes (location longue durée pour résidence principale, location d’une chambre d’hotel), voire même à l’évaluation d’autres choses qui s’évaluent sur des critères multiples (voiture en vue d’un achat, par exemple). Séparer ce qui est propre aux évaluations d’appartement avec les critères choisis de ce qui est réutilisable pour évaluer avec d’autres critères (en particulier ce qui est actuellement dans `io.github.oliviercailloux.apartments.valuefunction`), et placer les classes génériques dans `io.github.oliviercailloux.mcdm.valuefunction`.
+* Investiguer la possibilité et proposer une manière de fusionner (des parties de) ce projet avec https://github.com/oliviercailloux/decision-uta-method/[decision-uta-method], qui propose une manière générique de traiter un problème de décision avec des critères et des alternatives (les alternatives sont les objets parmi lesquels l’utilisateur veut choisir, par exemple des appartements, des voitures…)
+* Généraliser des parties de ce projet de façon à ce qu’elles fonctionnent sur un serveur
+* Intégrer la doc ci-dessous à la doc du projet, et la mettre à jour, si nécessaire
+* Lecture et écriture d’un appartement dans et depuis un fichier XML, au format https://github.com/xmcda-modular/[xmcda-modular]. Voir https://github.com/xmcda-modular/schema[example].
+* Lecture et écriture d’une `PartialValueFunction` au format xmcda-modular.
+* Lecture et écriture d’une `ApartmentValueFunction` au format xmcda-modular.
+* Extraction d’annonces depuis pap.
+* Alertes : l’utilisateur indique à quel niveau d’utilité il veut être alerté en cas d’apparition d’une nouvelle annonce intéressante.
+
+== Sources
+https://fairuse.stanford.edu/overview/website-permissions/linking/
+
+* PAP : semblent ouverts (https://www.pap.fr/groupe/mentions-legales[Mentions légales], Droit d’auteur). 
+* https://www.seloger.com/ : verrouillage légal. (« En accédant au Site Internet de la Société, l'Utilisateur déclare, garantit et s'engage à (…) ne pas utiliser de dispositifs ou logiciels autres que ceux fournis par la Société destinés à (…) extraire, modifier, consulter, même en mémoire tampon ou temporaire, ou encore pour une utilisation individualisée, tout ou partie du Site Internet »)
+* AirBnB : verrouillage légal. (https://www.airbnb.fr/terms, Conduite de l'Utilisateur)
+
