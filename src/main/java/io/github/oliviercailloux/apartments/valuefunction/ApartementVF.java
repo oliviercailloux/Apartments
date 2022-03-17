@@ -66,36 +66,37 @@ public class ApartementVF {
    */
   public double getSubjectiveValue(Apartment apart) {
     checkNotNull(apart);
-    ImmutableMap<Criterion, Double> subjectiveValue = new ImmutableMap.Builder<Criterion, Double>()
-        .put(Criterion.FLOOR_AREA,
-            this.linearValueFunctions.get(Criterion.FLOOR_AREA)
-                .getSubjectiveValue(apart.getFloorArea()))
-        .put(Criterion.NB_BEDROOMS,
-            this.linearValueFunctions.get(Criterion.NB_BEDROOMS)
-                .getSubjectiveValue((double) apart.getNbBedrooms()))
-        .put(Criterion.NB_SLEEPING,
-            this.linearValueFunctions.get(Criterion.NB_SLEEPING)
-                .getSubjectiveValue((double) apart.getNbSleeping()))
-        .put(Criterion.NB_BATHROOMS,
-            this.linearValueFunctions.get(Criterion.NB_BATHROOMS)
-                .getSubjectiveValue((double) apart.getNbBathrooms()))
-        .put(Criterion.TERRACE,
-            this.booleanValueFunctions.get(Criterion.TERRACE)
-                .getSubjectiveValue(apart.getTerrace()))
-        .put(Criterion.FLOOR_AREA_TERRACE,
-            this.linearValueFunctions.get(Criterion.FLOOR_AREA_TERRACE)
-                .getSubjectiveValue(apart.getFloorAreaTerrace()))
-        .put(Criterion.WIFI,
-            this.booleanValueFunctions.get(Criterion.WIFI).getSubjectiveValue(apart.getWifi()))
-        .put(Criterion.PRICE_PER_NIGHT,
-            this.reversedValueFunctions.get(Criterion.PRICE_PER_NIGHT)
-                .getSubjectiveValue(apart.getPricePerNight()))
-        .put(Criterion.NB_MIN_NIGHT,
-            this.reversedValueFunctions.get(Criterion.NB_MIN_NIGHT)
-                .getSubjectiveValue((double) apart.getNbMinNight()))
-        .put(Criterion.TELE,
-            this.booleanValueFunctions.get(Criterion.TELE).getSubjectiveValue(apart.getTele()))
-        .build();
+    ImmutableMap<Criterion,
+        Double> subjectiveValue = new ImmutableMap.Builder<Criterion, Double>()
+            .put(Criterion.FLOOR_AREA,
+                this.linearValueFunctions.get(Criterion.FLOOR_AREA)
+                    .getSubjectiveValue(apart.getFloorArea()))
+            .put(Criterion.NB_BEDROOMS,
+                this.linearValueFunctions.get(Criterion.NB_BEDROOMS)
+                    .getSubjectiveValue((double) apart.getNbBedrooms()))
+            .put(Criterion.NB_SLEEPING,
+                this.linearValueFunctions.get(Criterion.NB_SLEEPING)
+                    .getSubjectiveValue((double) apart.getNbSleeping()))
+            .put(Criterion.NB_BATHROOMS,
+                this.linearValueFunctions.get(Criterion.NB_BATHROOMS)
+                    .getSubjectiveValue((double) apart.getNbBathrooms()))
+            .put(Criterion.TERRACE,
+                this.booleanValueFunctions.get(Criterion.TERRACE)
+                    .getSubjectiveValue(apart.getTerrace()))
+            .put(Criterion.FLOOR_AREA_TERRACE,
+                this.linearValueFunctions.get(Criterion.FLOOR_AREA_TERRACE)
+                    .getSubjectiveValue(apart.getFloorAreaTerrace()))
+            .put(Criterion.WIFI,
+                this.booleanValueFunctions.get(Criterion.WIFI).getSubjectiveValue(apart.getWifi()))
+            .put(Criterion.PRICE_PER_NIGHT,
+                this.reversedValueFunctions.get(Criterion.PRICE_PER_NIGHT)
+                    .getSubjectiveValue(apart.getPricePerNight()))
+            .put(Criterion.NB_MIN_NIGHT,
+                this.reversedValueFunctions.get(Criterion.NB_MIN_NIGHT)
+                    .getSubjectiveValue((double) apart.getNbMinNight()))
+            .put(Criterion.TELE,
+                this.booleanValueFunctions.get(Criterion.TELE).getSubjectiveValue(apart.getTele()))
+            .build();
 
     // Check that the subjective values ​​do have a value between 0 and 1
     subjectiveValue.forEach((criterion, aDouble) -> {
@@ -464,8 +465,8 @@ public class ApartementVF {
      * @param floorAreaTerraceValueFunction a LinearValueFunction
      * @return the current instance of Builder
      */
-    public Builder setFloorAreaTerraceValueFunction(
-        LinearValueFunction floorAreaTerraceValueFunction) {
+    public Builder
+        setFloorAreaTerraceValueFunction(LinearValueFunction floorAreaTerraceValueFunction) {
       toBuild.setInternalValueFunction(Criterion.FLOOR_AREA_TERRACE, floorAreaTerraceValueFunction);
       return this;
     }
@@ -588,8 +589,8 @@ public class ApartementVF {
      * @param pricePerNightValueFunction a ReversedLinearValueFunction
      * @return the current instance of Builder
      */
-    public Builder setPricePerNightValueFunction(
-        ReversedLinearValueFunction pricePerNightValueFunction) {
+    public Builder
+        setPricePerNightValueFunction(ReversedLinearValueFunction pricePerNightValueFunction) {
       toBuild.setInternalValueFunction(Criterion.PRICE_PER_NIGHT, pricePerNightValueFunction);
       return this;
     }

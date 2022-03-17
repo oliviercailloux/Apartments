@@ -61,7 +61,8 @@ public class Profile {
     return questionPriceArea;
   }
 
-  public static Profile create(EnumMap<Criterion, Range<Double>> rangesMap, ApartementVF linearAvf) {
+  public static Profile create(EnumMap<Criterion, Range<Double>> rangesMap,
+      ApartementVF linearAvf) {
     return new Profile(rangesMap, linearAvf);
   }
 

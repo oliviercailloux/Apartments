@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import io.github.oliviercailloux.apartments.apartment.Apartment;
 import io.github.oliviercailloux.apartments.apartment.Apartment.Builder;
-import io.github.oliviercailloux.apartments.apartment.json.JsonConvert;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;

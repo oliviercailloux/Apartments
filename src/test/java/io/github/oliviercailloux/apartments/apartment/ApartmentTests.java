@@ -1,8 +1,9 @@
 package io.github.oliviercailloux.apartments.apartment;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import io.github.oliviercailloux.apartments.apartment.Apartment;
 import io.github.oliviercailloux.apartments.apartment.Apartment.Builder;
 import org.junit.jupiter.api.Test;
 

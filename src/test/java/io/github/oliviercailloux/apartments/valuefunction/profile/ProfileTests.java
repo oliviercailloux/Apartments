@@ -6,8 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import com.google.common.collect.Range;
 import io.github.oliviercailloux.apartments.valuefunction.ApartementVF;
 import io.github.oliviercailloux.apartments.valuefunction.Criterion;
-import io.github.oliviercailloux.apartments.valuefunction.profile.Profile;
-import io.github.oliviercailloux.apartments.valuefunction.profile.QuestionPriceArea;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

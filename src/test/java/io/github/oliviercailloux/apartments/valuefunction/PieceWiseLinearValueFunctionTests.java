@@ -2,7 +2,6 @@ package io.github.oliviercailloux.apartments.valuefunction;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import io.github.oliviercailloux.apartments.valuefunction.PieceWiseLinearValueFunction;
 import java.util.SortedMap;
 import java.util.concurrent.ConcurrentSkipListMap;
 import org.junit.jupiter.api.Test;

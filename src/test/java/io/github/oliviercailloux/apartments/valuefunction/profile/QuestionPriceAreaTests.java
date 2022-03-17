@@ -4,10 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.google.common.collect.Range;
 import io.github.oliviercailloux.apartments.valuefunction.Criterion;
-import io.github.oliviercailloux.apartments.valuefunction.profile.Profile;
-import io.github.oliviercailloux.apartments.valuefunction.profile.ProfileManager;
-import io.github.oliviercailloux.apartments.valuefunction.profile.ProfileType;
-import io.github.oliviercailloux.apartments.valuefunction.profile.QuestionPriceArea;
 import org.junit.jupiter.api.Test;
 
 public class QuestionPriceAreaTests {

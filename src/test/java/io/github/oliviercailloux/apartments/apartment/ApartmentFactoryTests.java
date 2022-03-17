@@ -4,8 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import io.github.oliviercailloux.apartments.apartment.Apartment;
-import io.github.oliviercailloux.apartments.apartment.ApartmentFactory;
 import io.github.oliviercailloux.apartments.apartment.Apartment.Builder;
 import java.io.IOException;
 import java.nio.file.Path;

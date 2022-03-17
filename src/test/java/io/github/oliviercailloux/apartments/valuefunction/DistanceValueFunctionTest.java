@@ -3,14 +3,10 @@ package io.github.oliviercailloux.apartments.valuefunction;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import com.google.common.base.VerifyException;
 import com.google.maps.errors.ApiException;
 import com.google.maps.model.LatLng;
 import io.github.oliviercailloux.apartments.localize.Localizer;
 import io.github.oliviercailloux.apartments.utils.KeyManager;
-import io.github.oliviercailloux.apartments.valuefunction.DistanceValueFunction;
-import io.github.oliviercailloux.apartments.valuefunction.PartialValueFunction;
-import io.github.oliviercailloux.apartments.valuefunction.ReversedLinearValueFunction;
 import java.io.IOException;
 import java.util.HashSet;
 import org.junit.jupiter.api.BeforeEach;
@@ -80,5 +76,4 @@ class DistanceValueFunctionTest {
     assertThrows(IllegalArgumentException.class,
         () -> distanceVF.getSubjectiveValue(apartCoordinates));
   }
-
 }

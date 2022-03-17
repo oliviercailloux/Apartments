@@ -6,8 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import io.github.oliviercailloux.apartments.apartment.Apartment;
 import io.github.oliviercailloux.apartments.apartment.Apartment.Builder;
-import io.github.oliviercailloux.apartments.apartment.xml.ReadApartmentsXMLFormat;
-import io.github.oliviercailloux.apartments.apartment.xml.XMLProperties;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;

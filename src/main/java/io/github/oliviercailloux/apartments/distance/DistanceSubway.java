@@ -87,12 +87,13 @@ public class DistanceSubway {
    * @param distanceMode is a enum type, allow the user to choose between address mode (by the name)
    *        or by coordinate mode.
    * @return distance in hours between the two points given in the constructor.
-   * @throws IOException 
-   * @throws InterruptedException 
-   * @throws ApiException 
+   * @throws IOException
+   * @throws InterruptedException
+   * @throws ApiException
    * @throws Exception
    */
-  public double calculateDistanceAddress(DistanceMode distancemode) throws ApiException, InterruptedException, IOException {
+  public double calculateDistanceAddress(DistanceMode distancemode)
+      throws ApiException, InterruptedException, IOException {
 
     DistanceMatrixApiRequest request = DistanceMatrixApi.newRequest(dist);
 

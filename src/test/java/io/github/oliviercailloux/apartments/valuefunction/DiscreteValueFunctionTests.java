@@ -3,7 +3,6 @@ package io.github.oliviercailloux.apartments.valuefunction;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import io.github.oliviercailloux.apartments.valuefunction.DiscreteValueFunction;
 import java.util.HashMap;
 import java.util.Map;
 import org.junit.jupiter.api.Test;

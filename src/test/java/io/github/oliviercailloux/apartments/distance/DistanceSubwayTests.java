@@ -2,8 +2,6 @@ package io.github.oliviercailloux.apartments.distance;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import io.github.oliviercailloux.apartments.distance.DistanceMode;
-import io.github.oliviercailloux.apartments.distance.DistanceSubway;
 import io.github.oliviercailloux.apartments.utils.KeyManager;
 
 /**

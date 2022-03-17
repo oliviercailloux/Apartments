@@ -3,7 +3,6 @@ package io.github.oliviercailloux.apartments.valuefunction;
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
 
-import com.google.common.base.VerifyException;
 import com.google.maps.errors.ApiException;
 import com.google.maps.model.LatLng;
 import io.github.oliviercailloux.apartments.distance.DistanceMode;
@@ -48,7 +47,6 @@ public class DistanceValueFunction implements PartialValueFunction<LatLng> {
       LOGGER.info("The interest location ({}) has been added to the set.", interest);
     }
   }
-
 
   /**
    * Initialize an instance of <code>DistanceValueFunction</code>. By default, the

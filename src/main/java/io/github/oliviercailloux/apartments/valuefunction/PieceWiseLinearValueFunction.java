@@ -1,9 +1,7 @@
 package io.github.oliviercailloux.apartments.valuefunction;
 
 import com.google.common.base.Verify;
-import com.google.common.collect.Comparators;
 import com.google.common.collect.ImmutableSortedMap;
-import java.util.Comparator;
 import java.util.Map;
 import java.util.stream.Stream;
 import org.slf4j.Logger;

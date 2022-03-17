@@ -5,11 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import io.github.oliviercailloux.apartments.apartment.Apartment;
 import io.github.oliviercailloux.apartments.apartment.Apartment.Builder;
-import io.github.oliviercailloux.apartments.valuefunction.ApartementVF;
-import io.github.oliviercailloux.apartments.valuefunction.BooleanValueFunction;
-import io.github.oliviercailloux.apartments.valuefunction.Criterion;
-import io.github.oliviercailloux.apartments.valuefunction.LinearValueFunction;
-import io.github.oliviercailloux.apartments.valuefunction.ReversedLinearValueFunction;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

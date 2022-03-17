@@ -2,7 +2,6 @@ package io.github.oliviercailloux.apartments.valuefunction;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import io.github.oliviercailloux.apartments.valuefunction.BooleanValueFunction;
 import org.junit.jupiter.api.Test;
 
 class BooleanValueFunctionTests {
