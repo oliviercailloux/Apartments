@@ -13,6 +13,7 @@ On the longer term, we also want to permit encoding values with more subtle func
 * Move the main use case diagram (and the related explanation) to the main doc, at start of the document.
 * Add a new UC diagram showing only the `Generate…` UC (with its link to the `Tenant`), stating that this is our main goal.
 * Create a new UC, `Read preferences`, whose user is `Main`, a new actor that represents the rest of our system. The subject of that UC is `Reader`. It is supposed to read a file that contains a user’s value function parameters. The `Generate…` UC uses it. Document it. State that this is the main focus as a prerequisite to the main goal.
+* Update dependencies to Json, rename the `javax` package import to `jakarta`, check that `javax` is not used any more.
 * In the interest of simplification, consider deleting the `apartment.xml` package, or propose a plan to replace its functionalities, if it is still useful
 * Consider deleting or moving the `expectedApartmentsJsonString.json` and `start-apartment.xml` files
 * The current class `Apartment` seems immutable, but is not. Produce a JUnit test that fails and that shows that it is in fact mutable. The test must build an apartment _x_, print its floor area (for example) with `x.getFloorArea()`, then mutate _x_ somehow (hint: proceed indirectly), then print its floor area again with `x.getFloorArea()`.
