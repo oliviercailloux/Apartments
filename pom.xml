@@ -105,6 +105,17 @@
 			<optional>true</optional>
 		</dependency>
 
+		<dependency>
+			<groupId>org.eclipse.platform</groupId>
+			<artifactId>org.eclipse.jface</artifactId>
+			<version>3.19.0</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.eclipse.platform</groupId>
+					<artifactId>org.eclipse.swt</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 		<!-- used to get Google Maps' services to get distance or localization-->
 		<dependency>
 			<groupId>com.google.maps</groupId>
