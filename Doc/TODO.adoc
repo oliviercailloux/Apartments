@@ -5,8 +5,16 @@ This will then permit some more important improvements.
 We will introduce the parameters of a user’s value function in a json file. A method will permit to find the apartment that has the best value for that user.
 On the longer term, we also want to permit encoding values with more subtle functions (such as exponentially slowing value functions, of the type _v(x) = 2 − e^(1 / (x + 1))_).
 
+* Move the model to `Doc/Papyrus/Model.di` (watch case).
+* Move diagrams into the `Doc/Papyrus/Diagrams` folder, transform them all to https://github.com/oliviercailloux/UML/blob/main/Papyrus/Various.adoc#graphics-format[SVG]`, remove those that are not used, check that they are up-to-date
+* Rename the subject of the main use case diagram to `System`
+* Associate the `Tenant` to the `Set preferences` use case, remove its dependency to the `See ordered apartments list` use case.
+* Add a `Generate ordered apartments list` use case, indicate that the `See…` use case uses it.
+* Move the main use case diagram (and the related explanation) to the main doc, at start of the document.
+* Add a new UC diagram showing only the `Generate…` UC (with its link to the `Tenant`), stating that this is our main goal.
+* Create a new UC, `Read preferences`, whose user is `Main`, a new actor that represents the rest of our system. The subject of that UC is `Reader`. It is supposed to read a file that contains a user’s value function parameters. The `Generate…` UC uses it. Document it. State that this is the main focus as a prerequisite to the main goal.
 * In the interest of simplification, consider deleting the `apartment.xml` package, or propose a plan to replace its functionalities, if it is still useful
-* Move diagrams into the `Doc/Papyrus/Diagrams` folder, transform them all to `SVG`, remove those that are not used, check that they are up-to-date
+* Consider deleting or moving the `expectedApartmentsJsonString.json` and `start-apartment.xml` files
 * The current class `Apartment` seems immutable, but is not. Produce a JUnit test that fails and that shows that it is in fact mutable. The test must build an apartment _x_, print its floor area (for example) with `x.getFloorArea()`, then mutate _x_ somehow (hint: proceed indirectly), then print its floor area again with `x.getFloorArea()`.
 * Design new `Apartment` and `Builder` classes, situated temporarily in a package named `newapartment`. Design a supplementary class `Apartment.ApartmentRecord` (either a java “record”, if you know what this is, or a simple class with getters and setters), that contains all the fields required to model an apartment. That class is `private`. The Builder contains such an `ApartmentRecord`. It has all the setters for these fields (as currently). The Apartment contains only an `ApartmentRecord` final field. Its constructor receives such a record, and _copies_ its content into its own record. The `Apartment` class has the same methods as currently (so that types can be substituted).
 * Provide a default for the title and most (all?) other fields in the builder.
