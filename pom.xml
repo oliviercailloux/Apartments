@@ -125,9 +125,9 @@
 
 		<!--  Dependencies used by JSON Convert to manipulate (JSON-B) -->
 		<dependency>
-			<groupId>javax.json.bind</groupId>
-			<artifactId>javax.json.bind-api</artifactId>
-			<version>1.0</version>
+			<groupId>jakarta.json.bind</groupId>
+			<artifactId>jakarta.json.bind-api</artifactId>
+			<version>1.0.2</version>
 		</dependency>
 		<!--  https://projects.eclipse.org/projects/ee4j.yasson (JSON-B) -->
 		<dependency>
@@ -138,16 +138,16 @@
 		<!-- Dependency used to manipulate JSON format (JSON-B and JSON-P) -->
 		<dependency>
 			<groupId>org.glassfish</groupId>
-			<artifactId>javax.json</artifactId>
-			<version>1.1.4</version>
+			<artifactId>jakarta.json</artifactId>
+			<version>1.1.6</version>
 			<scope>runtime</scope>
 		</dependency>
 
 		<!-- Dependency used to manipulate JSON format (JSON-P) -->
 		<dependency>
-			<groupId>javax.json</groupId>
-			<artifactId>javax.json-api</artifactId>
-			<version>1.1.4</version>
+			<groupId>jakarta.json</groupId>
+			<artifactId>jakarta.json-api</artifactId>
+			<version>1.1.6</version>
 		</dependency>
 
 		<!-- JAX-RS dependency for establishing HTTP connections -->
