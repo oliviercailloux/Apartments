@@ -300,7 +300,7 @@ image::diagram-sequence-adapt-avf-using-profile.png?raw=true[sequence diagram : 
 
 Sequence diagram : Interaction between user and application
 
-image::diagram-sequence-interaction-user-application.png?raw=true[sequence diagram : Interaction between user and application]
+image::diagram-sequence-interaction-user-application.svg?raw=true[sequence diagram : Interaction between user and application]
 
 Sequence diagram : generate `ApartmentValueFunction` using profile
 

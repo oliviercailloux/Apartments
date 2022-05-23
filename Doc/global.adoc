@@ -43,7 +43,7 @@ This class diagram gives a representation of the java implementation of the `plo
 
 * Global use case diagram
 
-image::diagram-usecase-global.png?raw=true[Global use case diagram]
+image::diagram-usecase-global.svg?raw=true[Global use case diagram] 
 
 * Orange bubbles mean this is yet to be implemented. 
 
