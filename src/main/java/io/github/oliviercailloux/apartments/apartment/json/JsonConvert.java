@@ -158,4 +158,13 @@ public abstract class JsonConvert {
       throw new IllegalStateException(e);
     }
   }
+  
+  public static String apartmentToJsonString(Apartment a) {
+    try (Jsonb jsonb = JsonbBuilder.create()) {
+      return jsonb.toJson(a);
+    } catch (Exception e) {
+      throw new IllegalStateException(e);
+    }
+  }
+
 }
