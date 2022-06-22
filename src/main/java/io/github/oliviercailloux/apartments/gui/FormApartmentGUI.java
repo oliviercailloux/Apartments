@@ -3,6 +3,7 @@ package io.github.oliviercailloux.apartments.gui;
 import io.github.oliviercailloux.apartments.apartment.Apartment;
 import io.github.oliviercailloux.apartments.apartment.Apartment.Builder;
 import io.github.oliviercailloux.apartments.apartment.xml.XMLProperties;
+import io.github.oliviercailloux.apartments.apartment.json.JsonConvert;
 import java.io.File;
 import java.io.FileOutputStream;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -311,7 +312,14 @@ public class FormApartmentGUI {
    *
    * @param a Object Apartment
    */
+  
+  
+  
   private void write(Apartment a) {
+	  JsonConvert.apartmentToJsonString(a);
+  }
+  
+  /*private void write(Apartment a) {
     XMLProperties xmlFile = new XMLProperties();
     try (FileOutputStream s = new FileOutputStream(file.getAbsolutePath())) {
       xmlFile.toXML(a, s);
@@ -322,7 +330,8 @@ public class FormApartmentGUI {
       throw new IllegalStateException(e);
     }
   }
-
+*/
+  
   /** Initializes the top title of the GUI instance. */
   protected void createPageTitle() {
     Composite compoForTitle = new Composite(shell, SWT.NONE);
